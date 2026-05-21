@@ -1,435 +1,408 @@
 /* 🔴 RESET */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 /* 🔴 BODY */
-body {
-    background: #0f0e0e;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 40px 10px; /* Un poco de margen a los lados en celular */
-    font-family: "Times New Roman", serif;
-    counter-reset: pagina;
+body{
+    background:#0f0e0e;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:40px 0;
+    font-family:"Times New Roman", serif;
+    counter-reset:pagina;
 }
 
-/* 🔴 CONTENEDOR DE LA PÁGINA (Para posicionar el número) */
-.portada, .pagina {
-    background: #fff;
-    width: 215.9mm;       /* Ancho exacto Carta de Word */
-    height: 279.4mm;      /* Alto exacto Carta de Word */
-    padding: 25.4mm;      /* Margen estándar de Word (1 pulgada) */
-    margin-bottom: 30px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.3);
-    position: relative;   /* Obligatorio para que el número absoluto no se mueva */
-    
-    /* Efecto Word en PC: Mantiene el tamaño real */
-    flex-shrink: 0; 
+/* 🔴 HOJAS */
+.portada,
+.pagina{
+
+    background:#fff;
+
+    width:210mm;
+    height:297mm;
+
+    min-height:297mm;
+    max-height:297mm;
+
+    padding:25mm;
+
+    margin-bottom:25px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    box-shadow:0 0 20px rgba(0,0,0,0.3);
+
+    flex-shrink:0;
 }
 
-/* 🔴 NÚMERO DE PÁGINA (Solo para .pagina) */
-.pagina {
-    counter-increment: pagina; /* Incrementa el contador */
+/* 🔴 NUMERACIÓN */
+.pagina{
+    counter-increment:pagina;
 }
 
-.pagina::after {
-    content: counter(pagina);
-    position: absolute;
-    bottom: 20px;
-    right: 40px;
-    font-size: 14px;
-    color: #000;
+.pagina::after{
+    content:counter(pagina);
+    position:absolute;
+    bottom:15px;
+    right:25px;
+    font-size:14px;
+    color:#000;
 }
 
-/* 📱 ADAPTACIÓN PARA CELULAR */
-@media (max-width: 220mm) {
-    body {
-        padding: 10px 5px;
-    }
-    
-    .portada, .pagina {
-        /* Convierte la hoja a tamaño flexible en pantallas chicas */
-        width: 100%;       
-        max-width: 100%;
-        height: auto;      /* Permite que crezca según el texto en el móvil */
-        min-height: 279.4mm; /* Mantiene la proporción visual mínima */
-        padding: 20px;     /* Reduce los márgenes para aprovechar la pantalla táctil */
-        box-shadow: none;  /* Quita la sombra pesada en móviles */
-    }
-
-    /* Ajusta la posición del número en pantallas chicas */
-    .pagina::after {
-        bottom: 10px;
-        right: 20px;
-    }
-}
-/* 🏢 DISEÑO ESPECÍFICO PARA LA PORTADA */
-.portada {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    justify-content: space-between; /* Distribuye el contenido de arriba a abajo */
-    padding: 30mm 25mm 20mm 25mm !important; /* Margen superior amplio, lados estándar */
+/* 🔴 PORTADA */
+.portada{
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    align-items:center;
+    text-align:center;
 }
 
-/* Año oficial (Texto superior con comillas) */
-.portada .anio {
-    font-size: 14px;
-    font-weight: bold;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    line-height: 1.4;
-    max-width: 90%;
+/* 🔴 AÑO */
+.anio{
+    font-size:15px;
+    font-weight:bold;
+    margin-top:20px;
+    line-height:1.5;
 }
 
-/* Logo de SENATI */
-.portada .logo {
-    width: 350px; /* Tamaño ideal para el logo de SENATI */
-    height: auto;
-    margin: 15px 0;
-    object-fit: contain;
+/* 🔴 LOGO */
+.logo{
+    width:320px;
+    height:auto;
 }
 
-/* Nombre de la institución (SENATI) */
-.portada h2 {
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 40px;
-    line-height: 1.3;
-    max-width: 95%;
+/* 🔴 INSTITUCIÓN */
+.portada h2{
+    font-size:18px;
+    font-weight:bold;
+    line-height:1.5;
 }
 
-/* Título del Proyecto (Destacado y centrado) */
-.portada .titulo {
-    font-size: 25px;
-    font-weight: bold;
-    text-transform: uppercase;
-    margin: 30px 0;
-    line-height: 1.5;
-    max-width: 100%;
-    word-wrap: break-word;
+/* 🔴 TITULO */
+.titulo{
+    font-size:24px;
+    font-weight:bold;
+    line-height:1.6;
+    text-transform:uppercase;
 }
 
-/* Datos de la Escuela, Especialidad y Autor */
-.portada p {
-    font-size: 16px;
-    margin: 10px 0;
-   /* margin-bottom: 8px;*/
-   line-height: 1.4;
+/* 🔴 TEXTO PORTADA */
+.portada p{
+    font-size:16px;
+    line-height:1.7;
 }
 
-.portada strong {
-    font-weight: bold;
-}
-
-/* Bloque final (Lugar y Fecha) */
-.portada p:last-of-type {
-    margin-bottom: 0;
-}
-
-
-/* 📱 AJUSTES EXTRA PARA CELULAR (RESISTENCIA) */
-@media (max-width: 220mm) {
-    .portada {
-        justify-content: flex-start; /* En celular fluye hacia abajo normalmente */
-        gap: 20px;                   /* Separa los bloques para que no se peguen */
-        padding: 30px 15px !important;
-    }
-
-    .portada .anio { font-size: 12px; }
-    .portada .logo { width: 130px; }
-    .portada h2 { font-size: 14px; margin-bottom: 10px; }
-    .portada .titulo { font-size: 16px; margin: 15px 0; }
-    .portada p { font-size: 13px; }
-}
-
-
-/* 🏛️ ESTILOS GENERALES PARA PRELIMINARES */
+/* 🔴 DEDICATORIA Y AGRADECIMIENTO */
 .dedicatoria,
-.agradecimiento {
-    position: relative;
-    height: 100vh;
-    padding-top: 350px; /* baja todo el contenido */
+.agradecimiento{
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+
+    height:100%;
 }
 
-/* ✅ TÍTULOS */
-.titulo-pagina {
-    text-align: right;
-    margin-right: 80px;
-    margin-bottom: 40px;
+/* 🔴 CONTENIDO */
+.dedicatoria .contenido,
+.agradecimiento .contenido{
 
-    font-size: 20px;
-    font-weight: bold;
-    text-transform: uppercase;
+    width:70%;
+    margin-left:auto;
+    margin-right:60px;
 }
 
-/* ✅ TEXTO */
-.dedicatoria .texto,
-.agradecimiento .texto {
-    width: 70%;
-    margin-left: auto;
-    margin-right: 80px;
+/* 🔴 TITULOS */
+.titulo-pagina{
 
-    text-align: justify;
-    font-size: 15px;
-    line-height: 1.8;
-    font-style: italic;
+    text-align:right;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    margin-bottom:40px;
 }
 
-/* 📱 RESPONSIVE */
-@media (max-width: 768px) {
+/* 🔴 TEXO */
+.texto{
 
-    .dedicatoria,
-    .agradecimiento {
-        padding-top: 180px;
-    }
+    text-align:justify;
 
-    .titulo-pagina {
-        text-align: center;
-        margin-right: 0;
-        margin-bottom: 30px;
-        font-size: 18px;
-    }
+    font-size:15px;
 
-    .dedicatoria .texto,
-    .agradecimiento .texto {
-        width: 90%;
-        margin: 0 auto;
-        font-size: 14px;
-        line-height: 1.7;
-    }
+    line-height:2;
+
+    font-style:italic;
 }
 
+/* 🔴 PAGINAS */
+.pagina{
+    text-align:justify;
+}
 
-/* 🔴 IMPRESIÓN */
-/*@page {
-    size: A4;
-    margin: 20mm;
-}*/
-/*.pagina {
-    position: relative;
-    text-align: justify;
-    page-break-after: always;
-    counter-increment: pagina;
-}*/
+/* 🔴 TITULOS SECCIÓN */
+.titulo-seccion{
+    font-size:18px;
+    font-weight:bold;
+    margin-bottom:20px;
+}
 
-/* 📱 RESPONSIVE (pantallas pequeñas) */
-/*@media (max-width: 768px) {
+/* 🔴 SUBTITULOS */
+.subtitulo{
+    font-size:16px;
+    font-weight:bold;
+    margin-top:20px;
+    line-height:2;
+}
 
- ////  .portada, .pagina {
- width: 95%;
-        aspect-ratio: 210 / 297; /* 🔥 clave */
-      /*  height: auto;
-        padding: 20px;
-        overflow: hidden;*/
-/*}/*/
+/* 🔴 SUB SUB */
+.sub-subtitulo{
+    font-size:15px;
+    font-weight:bold;
+    margin-top:15px;
+}
 
 /* 🔴 INDICE */
-.indice {
-    font-size: 15px;
-    line-height: 1.8;
-    margin-top: 30px;
-    height: auto;
-        padding: 20px;
-        overflow: hidden
+.indice{
+    margin-top:20px;
+    line-height:1.8;
 }
 
-.indice p {
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px dotted #000;
-    padding: 4px 0;
-    font-size: 15px;
+.indice-titulo{
+    text-align:center;
+    font-size:24px;
+    font-weight:bold;
+    margin-bottom:30px;
 }
 
-.indice span {
-    margin-left: 10px;
+/* 🔴 FILA */
+.fila{
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1px dotted #000;
+    margin:5px 0;
 }
-/* subtítulos */
-.sub {
-    margin-left: 20px;
-    
+
+/* 🔴 SUB */
+.sub{
+    margin-left:20px;
+}
+
+.sub2{
+    margin-left:40px;
+}
+
+/* 🔴 CAPITULO SOLO */
+.capitulo-solo{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100%;
+}
+
+.capitulo-solo h1{
+    font-size:40px;
+    font-weight:bold;
+}
+
+/* 🔴 FIGURAS */
+.figura-titulo{
+    font-weight:bold;
+    margin-top:15px;
+}
+
+.figura-descripcion{
+    margin-bottom:10px;
+}
+
+/* 🔴 IMAGEN NORMAL */
+.contenedor-imagen{
+    text-align:center;
+    margin-top:20px;
+}
+
+.contenedor-imagen img{
+    width:180px;
+    height:auto;
+    border:1px solid #000;
+}
+
+/* 🔴 IMAGEN GRANDE */
+.contenedor-imagen-grande{
+    text-align:center;
+    margin-top:20px;
+}
+
+.contenedor-imagen-grande img{
+    width:420px;
+    max-width:100%;
+    height:auto;
+    border:1px solid #000;
+}
+
+/* 🔴 IMAGEN MEDIANA */
+.contenedor-imagen-mediana{
+    text-align:center;
+    margin-top:20px;
+}
+
+.contenedor-imagen-mediana img{
+    width:260px;
+    max-width:100%;
+    height:auto;
+    border:1px solid #000;
+}
+
+/* 🔴 IMAGEN MEDIANA 2 */
+.contenedor-imagen-mediana2{
+    text-align:center;
+    margin-top:20px;
+}
+
+.contenedor-imagen-mediana2 img{
+    width:350px;
+    max-width:100%;
+    height:auto;
+    border:1px solid #000;
+}
+
+/* 🔴 ORGANIGRAMA */
+.organigrama{
+    text-align:center;
+    margin-top:20px;
+}
+
+.organigrama img{
+    width:420px;
+    max-width:100%;
+    height:auto;
+    border:1px solid #000;
+}
+
+/* 🔴 LINKS */
+a{
+    text-decoration:none;
+    color:black;
+}
+
+a:hover{
+    text-decoration:underline;
+}
+
+/* 🔴 LISTAS */
+.lista-valores{
+    margin-left:40px;
+    line-height:2;
+}
+
+.lista-valores li{
+    margin-bottom:8px;
+}
+
+/* 🔴 TABLAS */
+.tabla{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:15px;
+    margin-bottom:20px;
+    page-break-inside:avoid;
+}
+
+.tabla th,
+.tabla td{
+    border:1px solid #000;
+    padding:8px;
+    text-align:justify;
+}
+
+.tabla th{
+    text-align:center;
+    font-weight:bold;
+}
+
+/* 🔴 FOOTER */
+.footer{
+    text-align:center;
+    margin-top:40px;
+    font-size:14px;
+}
+
+/* 🔴 IMPRESIÓN */
+@page{
+    size:A4;
+    margin:0;
+}
+
+/* 📱 CELULAR */
+@media (max-width:768px){
+
+    body{
+        padding:15px 0;
+        background:#000;
     }
 
+    .portada,
+    .pagina{
 
-.sub2 {
-    margin-left: 40px;
-    
-   
-}
+        width:210mm;
+        height:297mm;
 
+        min-height:297mm;
+        max-height:297mm;
 
-/* título índice más elegante */
-.indice-titulo {
-    text-align: center;
-    font-weight: bold;
-    font-size: 24px;
-    
-}
-/* FILA PERFECTA */
-.fila {
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px dotted #000;
-    margin: 5px 0;
-  
-    
-}
+        padding:20mm;
 
+        overflow:hidden;
 
-/* QUITA BORDE EN NUMERO */
-.fila span:last-child {
-    background: #fff;
-    padding-left: 10px;
-}
+        box-shadow:none;
 
-/* INDENTACIÓN */
-.sub {
-    margin-left: 20px;
-}
+        margin-bottom:20px;
+    }
 
-.sub2 {
-    margin-left: 40px;
-}
-/* ESPACIO ENTRE CAPÍTULOS */
-.espacio {
-    margin-top: 15px;
-}
-.capitulo-solo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 297mm;
-}
+    .pagina::after{
+        bottom:10px;
+        right:20px;
+        font-size:12px;
+    }
 
-.capitulo-solo h1 {
-    font-size: 40px;
-    font-weight: bold;
-}
-.titulo-seccion {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
+    .logo{
+        width:180px;
+    }
 
-.subtitulo {
-    font-size: 16px;
-    font-weight: bold;
-    margin-top: 20px;
-    line-height: 3;
-}
+    .titulo{
+        font-size:20px;
+    }
 
-.sub-subtitulo {
-    font-size: 15px;
-    font-weight: bold;
-    margin-top: 15px;
-}
+    .portada h2{
+        font-size:16px;
+    }
 
-.texto {
-    text-align: justify;
-    margin-bottom: 12px;
-    line-height: 2;
-}
+    .portada p{
+        font-size:14px;
+    }
 
-/* FIGURA */
-.figura-titulo {
-    font-weight: bold;
-    margin-top: 15px;
-}
+    .titulo-pagina{
+        font-size:20px;
+    }
 
-.figura-descripcion {
-    margin-bottom: 10px;
-}
+    .texto{
+        font-size:14px;
+        line-height:1.8;
+    }
 
-/* IMAGEN */
-.contenedor-imagen {
-    margin-left: 40px; /* posición como tu imagen */
-}
+    .dedicatoria .contenido,
+    .agradecimiento .contenido{
 
-.contenedor-imagen img {
-    width: 120px;
-    height: auto;
-    border: 1px solid #000; /* solo una vez (quité duplicado) */
-}
-.organigrama{
-      margin-left: 100px;
-}
-.organigrama img{
-     width: 350px;
-    height: auto;
-    border: 1px solid #000;
-}
-a {
-    text-decoration: none;
-    color: black;
-}
+        width:80%;
+        margin-right:30px;
+    }
 
-a:hover {
-    text-decoration: underline;
-}
-.lista-valores {
-    margin-left: 40px;
-    line-height: 2; /* doble espacio como pediste */
-}
-
-.lista-valores li {
-    margin-bottom: 8px;
-}
-.tabla {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    
-    page-break-inside: avoid;
-
-}
-
-.tabla th, .tabla td {
-    border: 1px solid black;
-    padding: 8px;
-    text-align: justify;
-}
-
-.tabla th {
-    font-weight: bold;
-    text-align: center;
-}
-/* FIGURAS GRANDES */
-.contenedor-imagen-grande {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.contenedor-imagen-grande img {
-    width: 350px; /* más grande */
-    max-width: 100%;
-    height: auto;
-    border: 1px solid #000;
-}
-/* IMAGEN MEDIANA */
-.contenedor-imagen-mediana {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.contenedor-imagen-mediana img {
-    width: 200px;
-    max-width: 50%;
-    height: auto;
-    border: 1px solid #000;
-}
-.contenedor-imagen-mediana2 {
-    text-align: center;
-    margin-top: 20px;
-}
-.contenedor-imagen-mediana2 img {
-    width: 350px;
-    max-width: 70%;
-    height: auto;
-    border: 1px solid #000;
 }
