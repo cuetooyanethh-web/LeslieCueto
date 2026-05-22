@@ -7,7 +7,7 @@
 
 /* 🔴 BODY */
 body{
-    background:#0f0e0e;
+    background:#d17b7b;
     display:flex;
     flex-direction:column;
     align-items:center;
@@ -124,33 +124,67 @@ body{
     margin-left:auto;
     margin-right:60px;
 }
+/*PARA HOVER CAPITULO*/
+.linea {
+    display: flex;
+    width: 100%;
+    text-decoration: none;
+    color: black;
+    position: relative;
+}
 
-/* 🔴 TITULOS */
+/* TEXTO */
+.linea span:first-child {
+    padding-right: 10px;
+    /*font-weight: bold;*/
+    background: white;
+    z-index: 2;
+}
+
+/* NUMERO */
+.linea .numero {
+    margin-left: auto;
+    padding-left: 10px;
+    background: white;
+    z-index: 2;
+}
+
+/* 🔥 PUNTOS */
+.linea::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    border-bottom: 1px dotted black;
+    z-index: 1;
+}
+
+/* 🔥 HOVER */
+.linea:hover {
+    background: #b9554e;
+}
+.linea:hover span {
+    background: #b9554e; /* 🔥 pinta texto y número */
+}
+/* 🔴 TITULOS */ /*INDICE*/
 .titulo-pagina{
 
     text-align:center;
 
-    font-size:22px;
+    font-size:18px;
 
-    font-weight:bold;
+    font-weight:normal;
 
-    margin-bottom:40px;
+    margin-bottom:8px;
 }
-/* 🔴 TITULOS DEL INDICE */
+
 .indice-titulo{
-
-    text-align:center !important;
-
-    font-size:22px;
-
-    font-weight:bold;
-
-    margin-bottom:20px;
 
     width:100%;
 }
 
-/* 🔴 TEXTO */
+
 /* 🔴 TEXTO */
 .texto{
 
@@ -215,38 +249,12 @@ body{
 
     line-height:1.7;
 
-    border-bottom:1px dotted #555;
+    
 
     padding-bottom:2px;
 }
 
-/* 🔴 TEXTO */
-.indice .fila span:first-child{
 
-    flex:1;
-
-    text-align:left;
-
-    background:#fff;
-
-    padding-right:5px;
-
-    font-weight:bold;
-}
-
-/* 🔴 NÚMERO */
-.indice .fila span:last-child{
-
-    min-width:30px;
-
-    text-align:right;
-
-    background:#fff;
-
-    padding-left:10px;
-
-    font-weight:normal;
-}
 
 /* 🔴 LINKS */
 .indice .fila a{
