@@ -128,13 +128,26 @@ body{
 /* 🔴 TITULOS */
 .titulo-pagina{
 
-    text-align:right;
+    text-align:center;
 
     font-size:22px;
 
     font-weight:bold;
 
     margin-bottom:40px;
+}
+/* 🔴 TITULOS DEL INDICE */
+.indice-titulo{
+
+    text-align:center !important;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    margin-bottom:20px;
+
+    width:100%;
 }
 
 /* 🔴 TEXTO */
@@ -196,15 +209,15 @@ body{
 
     width:100%;
 
-    margin:8px 0;
+    margin:6px 0;
 
     font-size:16px;
 
-    line-height:1.8;
+    line-height:1.7;
 
     border-bottom:1px dotted #555;
 
-    padding-bottom:3px;
+    padding-bottom:2px;
 }
 
 /* 🔴 TEXTO */
@@ -212,7 +225,13 @@ body{
 
     flex:1;
 
-    text-align:justify;
+    text-align:left;
+
+    background:#fff;
+
+    padding-right:5px;
+
+    font-weight:bold;
 }
 
 /* 🔴 NÚMERO */
@@ -225,6 +244,22 @@ body{
     background:#fff;
 
     padding-left:10px;
+
+    font-weight:normal;
+}
+
+/* 🔴 LINKS */
+.indice .fila a{
+
+    text-decoration:none;
+
+    color:#000;
+}
+
+/* 🔴 HOVER */
+.indice .fila a:hover{
+
+    text-decoration:none;
 }
 
 /* 🔴 SUBNIVELES */
