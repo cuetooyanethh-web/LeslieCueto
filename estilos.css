@@ -12,10 +12,13 @@ body{
     flex-direction:column;
     align-items:center;
     padding:40px 0;
+
     font-family:"Times New Roman", serif;
+
+    font-weight:normal;
+
     counter-reset:pagina;
 }
-
 /* 🔴 HOJAS */
 .portada,
 .pagina{
@@ -53,6 +56,9 @@ body{
     right:25px;
     font-size:14px;
     color:#000;
+
+    /* ✅ TIMES */
+    font-family:"Times New Roman", Times, serif;
 }
 
 /* 🔴 PORTADA */
@@ -99,7 +105,7 @@ body{
     line-height:1.7;
 }
 
-/* 🔴 DEDICATORIA Y AGRADECIMIENTO */
+/* 🔴 DEDICATORIA */
 .dedicatoria,
 .agradecimiento{
 
@@ -131,7 +137,8 @@ body{
     margin-bottom:40px;
 }
 
-/* 🔴 TEXO */
+/* 🔴 TEXTO */
+/* 🔴 TEXTO */
 .texto{
 
     text-align:justify;
@@ -140,9 +147,12 @@ body{
 
     line-height:2;
 
-    font-style:italic;
-}
+    font-family:"Times New Roman", serif;
 
+    font-style:normal;
+
+    font-weight:bold;
+}
 /* 🔴 PAGINAS */
 .pagina{
     text-align:justify;
@@ -170,34 +180,65 @@ body{
     margin-top:15px;
 }
 
-/* 🔴 INDICE */
+/* 🔴 ÍNDICE */
 .indice{
     margin-top:20px;
-    line-height:1.8;
 }
 
-.indice-titulo{
-    text-align:center;
-    font-size:24px;
-    font-weight:bold;
-    margin-bottom:30px;
-}
+/* 🔴 FILAS */
+.indice .fila{
 
-/* 🔴 FILA */
-.fila{
     display:flex;
     justify-content:space-between;
-    border-bottom:1px dotted #000;
-    margin:5px 0;
+    align-items:flex-start;
+
+    gap:10px;
+
+    width:100%;
+
+    margin:8px 0;
+
+    font-size:16px;
+
+    line-height:1.8;
+
+    border-bottom:1px dotted #555;
+
+    padding-bottom:3px;
 }
 
-/* 🔴 SUB */
+/* 🔴 TEXTO */
+.indice .fila span:first-child{
+
+    flex:1;
+
+    text-align:justify;
+}
+
+/* 🔴 NÚMERO */
+.indice .fila span:last-child{
+
+    min-width:30px;
+
+    text-align:right;
+
+    background:#fff;
+
+    padding-left:10px;
+}
+
+/* 🔴 SUBNIVELES */
 .sub{
-    margin-left:20px;
+    padding-left:20px;
 }
 
 .sub2{
-    margin-left:40px;
+    padding-left:40px;
+}
+
+/* 🔴 ESPACIOS */
+.espacio{
+    margin-top:15px;
 }
 
 /* 🔴 CAPITULO SOLO */
@@ -404,5 +445,4 @@ a:hover{
         width:80%;
         margin-right:30px;
     }
-
 }
