@@ -48,11 +48,7 @@ Soy profesional titulada en ciberseguridad con conocimientos en análisis de tr�
 
 ---
 
-## 📊 Estadísticas
 
-![GitHub stats](https://github-readme-stats.vercel.app/api?username=TUUSUARIO\&show_icons=true\&theme=dark)
-
----
 
 ## 📫 Contacto
 
