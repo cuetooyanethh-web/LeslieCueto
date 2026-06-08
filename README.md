@@ -2,7 +2,6 @@
 
 # 👋 Hola, soy Leslie Cueto 🔐
 
-<img src="images/perfil.png" width="180" align="right"/>
 
 💻 Profesional titulada en Ciberseguridad
 🔐 Enfocada en análisis de redes y seguridad informática
