@@ -10,6 +10,11 @@
     --activo-red: #da3633;
     --analisis-cyan: #1f6feb;
     --defensivo-purple: #8957e5;
+       /* Nuevas variables para los módulos de OpenVAS y Snort */
+    --matrix-green: #39ff14;
+    --dim-green: #071f0b;
+    --alert-red: #ff3333;
+    --alert-bg-red: #0e0505;
 }
 /* Modifica el botón activo para que combine con el rojo */
 .nav-btn.active {
@@ -47,38 +52,396 @@ body {
     line-height: 1.6;
     color: var(--text-secondary);
 }
-/* Estilos para las imágenes reales de resultados */
-/* Contenedor de la imagen mediana */
-.image-wrapper {
-    width: 100%;
+/* Asegura que la rejilla divida el texto y las imágenes de forma correcta */
+.fase-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr; /* 1.1 para texto, 0.9 para imágenes */
+    gap: 30px;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+
+/* Contenedor vertical de la columna multimedia derecha */
+.fase-media {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 10px;
-}
-
-/* Ajuste del tamaño real de la captura */
-.img-resultado {
+    gap: 15px; /* Espacio limpio entre ambas capturas */
+    justify-content: flex-start;
     width: 100%;
-    max-width: 420px; /* Define un tamaño mediano perfecto para la columna */
-    height: auto;
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s ease;
 }
 
-.img-resultado:hover {
-    transform: scale(1.03); /* Efecto de acercamiento suave */
+
+/*shodan*/
+
+
+/* TAB PRINCIPAL */
+.cyber-tab {
+  padding: 20px;
+}
+
+/* HEADER */
+.cyber-header h3 {
+  color: #00ffcc;
+  text-shadow: 0 0 10px #00ffcc;
+  letter-spacing: 1px;
+}
+
+.cyber-header p {
+  color: #8aa0ff;
+}
+
+/* GRID */
+.fase-grid {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* CARDS */
+.cyber-card {
+  background: rgba(10, 20, 40, 0.8);
+  border: 1px solid #00ffcc33;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 15px #00ffcc22;
+  backdrop-filter: blur(6px);
+}
+
+/* TITULOS */
+.cyber-card h4 {
+  color: #00ffcc;
+  margin-bottom: 10px;
+}
+
+.cyber-card h5 {
+  color: #7aa2ff;
+}
+
+/* LISTA */
+.cyber-list {
+  list-style: none;
+  padding: 0;
+}
+
+.cyber-list li {
+  padding: 6px 0;
+  border-bottom: 1px solid #1a2a44;
+}
+
+.cyber-list li span {
+  color: #00ffcc;
+  font-weight: bold;
+}
+
+/* IMAGEN */
+.cyber-image {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid #00ffcc33;
+}
+
+.cyber-image img {
+  width: 100%;
+  display: block;
+  filter: contrast(1.1) brightness(0.9);
+}
+
+.glow-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, transparent, #00ffcc, transparent);
+  animation: scan 2s linear infinite;
+}
+
+@keyframes scan {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* CAPTION */
+.img-caption {
+  display: block;
+  margin-top: 10px;
+  color: #7aa2ff;
+  font-size: 12px;
+}
+
+/*nmap*/
+.tab-content {
+    padding: 20px;
+}
+
+.fase-header {
+    border-left: 4px solid #39ff14;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    background: rgba(0, 255, 0, 0.05);
+    box-shadow: 0 0 10px rgba(57,255,20,0.2);
+}
+
+.fase-header h3 {
+    color: #39ff14;
+    margin: 0;
+    text-shadow: 0 0 8px #39ff14;
+}
+
+.fase-header p {
+    color: #b6ffb6;
+}
+
+.fase-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.fase-text {
+    background: rgba(10, 10, 10, 0.95);
+    padding: 20px;
+    border: 1px solid #1aff1a33;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,255,0,0.08);
+}
+
+h4, h5 {
+    color: #39ff14;
+    text-shadow: 0 0 6px #39ff14;
+}
+
+.code-block {
+    background: #0b0b0b;
+    border-left: 4px solid #39ff14;
+    padding: 12px;
+    margin: 10px 0;
+    box-shadow: inset 0 0 10px rgba(0,255,0,0.1);
+    overflow-x: auto;
+}
+
+pre {
+    margin: 0;
+    color: #39ff14;
+    font-size: 14px;
+}
+
+.image-wrapper {
+    margin: 15px 0;
+    text-align: center;
+    border: 1px solid #1aff1a33;
+    padding: 10px;
+    border-radius: 10px;
+    background: rgba(0,0,0,0.6);
+}
+
+.img-resultado {
+    max-width: 100%;
+    border: 1px solid #39ff14;
+    box-shadow: 0 0 15px rgba(57,255,20,0.3);
+    border-radius: 6px;
 }
 
 .img-caption {
-    font-size: 0.8rem;
-    color: var(--text-secondary);
-    font-family: monospace;
+    display: block;
+    margin-top: 8px;
+    font-size: 12px;
+    color: #7CFF7C;
 }
+/*openvas*/
+.header-hacker {
+  text-align: center;
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.header-hacker h2 {
+  color: #00f7ff;
+  text-shadow: 0 0 10px #00f7ff;
+}
+
+.header-hacker p {
+  color: #7df9ff;
+  font-size: 14px;
+}
+
+/* SCAN LINE ANIMATION */
+.scan-line {
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, transparent, #00f7ff, transparent);
+  animation: scan 2s linear infinite;
+  margin-top: 10px;
+}
+
+@keyframes scan {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* GRID */
+.grid-dashboard {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* CARDS */
+.card {
+  padding: 20px;
+  border-radius: 12px;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0,255,255,0.15);
+  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(0,255,255,0.3);
+}
+
+/* GLASS EFFECT */
+.glass {
+  background: rgba(255,255,255,0.03);
+}
+
+/* COLORS */
+.red {
+  border-color: rgba(255, 0, 60, 0.4);
+  box-shadow: 0 0 20px rgba(255,0,60,0.1);
+}
+
+.green {
+  border-color: rgba(0,255,100,0.4);
+}
+
+.yellow {
+  color: #ffd000;
+}
+
+/* TABLE */
+.table-hacker {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-hacker td {
+  padding: 8px;
+  border-bottom: 1px solid rgba(0,255,255,0.1);
+}
+
+/* TAGS */
+.tag {
+  padding: 3px 8px;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+.tag.green {
+  background: rgba(0,255,100,0.2);
+}
+
+.tag.yellow {
+  background: rgba(255, 208, 0, 0.2);
+}
+
+.tag.orange {
+  background: rgba(255, 140, 0, 0.2);
+}
+
+/* VULN BOX */
+.vuln {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-left: 3px solid #ff004c;
+  background: rgba(255,255,255,0.03);
+  transition: 0.3s;
+}
+
+.vuln:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 10px rgba(255,0,60,0.2);
+}
+
+/* RECON LIST */
+.recon-list {
+  list-style: none;
+  padding: 0;
+}
+
+.recon-list li {
+  padding: 6px 0;
+  border-bottom: 1px dashed rgba(0,255,255,0.1);
+}
+
+/* SUBDOMAINS */
+.subdomains-list {
+  display: block;
+  margin-top: 5px;
+  color: #7df9ff;
+  font-size: 13px;
+}
+
+/* Estilos específicos para la columna de Reconocimiento */
+.card.glass.green {
+    border-color: #00ff66; /* Borde verde neón brillante */
+}
+
+.recon-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.85rem;
+}
+
+.recon-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid #1a3a21;
+    color: #e1e8e3;
+}
+
+.recon-list li i {
+    color: #39ff14;
+    margin-right: 8px;
+}
+
+.subdomains-list {
+    display: block;
+    padding-left: 20px;
+    margin-top: 5px;
+    color: #718a77;
+    font-size: 0.8rem;
+    line-height: 1.4;
+}
+
+/* Contenedor horizontal para tus dos evidencias de OpenVAS */
+.evidence-dashboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Divide la parte baja exactamente a la mitad */
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.img-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+}
+
+.img-dashboard {
+    width: 100%;
+    max-width: 480px; /* Tamaño mediano exacto para que encajen lado a lado */
+    height: auto;
+    border: 1px solid #1a3a21;
+    border-radius: 4px;
+}
+
+
+
 
 
 code {

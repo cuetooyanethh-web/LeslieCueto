@@ -38,3 +38,30 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("SIEM/IDS Monitorizado. Estado del Feed: CURRENT.");
     console.log("==================================================");
 });
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("🛡 OpenVAS Hacker Dashboard Loaded");
+
+    const cards = document.querySelectorAll(".card");
+
+    cards.forEach(card => {
+        card.addEventListener("mouseenter", () => {
+            card.style.transform = "scale(1.02)";
+        });
+
+        card.addEventListener("mouseleave", () => {
+            card.style.transform = "scale(1)";
+        });
+    });
+});
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll(".card");
+
+  setInterval(() => {
+    cards.forEach(card => {
+      card.style.boxShadow = "0 0 15px rgba(0,255,255,0.15)";
+      setTimeout(() => {
+        card.style.boxShadow = "0 0 25px rgba(0,255,255,0.25)";
+      }, 500);
+    });
+  }, 2000);
+});
