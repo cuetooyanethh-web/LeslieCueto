@@ -268,25 +268,167 @@
             </div>
         </div>
     </div>
+     <!-- FASE 4: ANÁLISIS DE TRÁFICO CON WIRESHARK -->
+<section id="wireshark-tab" class="tab-content hacker-dashboard">
+
+    <div class="header-hacker">
+        <h2>🔌 FASE 4: ANÁLISIS DE TRÁFICO Y PROTOCOLOS (WIRESHARK)</h2>
+        <p>Inspección profunda de paquetes en caliente (.pcapng) para auditar el comportamiento del escáner y la eficiencia criptográfica</p>
+    </div>
+
+    <!-- GRID PRINCIPAL DE TRES COLUMNAS ESTILO INTERFAZ SOC -->
+    <div class="grid-dashboard">
+
+        <!-- COLUMNA 1: PARÁMETROS DEL TRÁFICO -->
+        <div class="card glass">
+            <h3>📊 Parámetros de Captura</h3>
+            <table class="table-hacker">
+                <tbody>
+                    <tr>
+                        <td><i class="fas fa-network-wired"></i> Interfaz Monitorizada</td>
+                        <td class="text-neon">eth0</td>
+                    </tr>
+                    <tr>
+                        <td><i class="fas fa-file-code"></i> Formato de Archivo</td>
+                        <td><code>.pcapng</code></td>
+                    </tr>
+                    <tr>
+                        <td><i class="fas fa-filter"></i> Filtro Aplicado</td>
+                        <td><span class="tag green">icmp || tcp</span></td>
+                    </tr>
+                    <tr>
+                        <td><i class="fas fa-project-diagram"></i> Protocolos Analizados</td>
+                        <td>ICMP, TCP, TLSv1.3</td>
+                    </tr>
+                    <tr>
+                        <td><i class="fas fa-bullseye"></i> IP Objetivo</td>
+                        <td class="text-neon">190.105.247.141</td>
+                    </tr>
+                    <tr>
+                        <td><i class="fas fa-globe"></i> Hostname Relacionado</td>
+                        <td class="text-subdomains">docentes.uni.edu.pe</td>
+                    </tr>
+                    <tr>
+                        <td><i class="fas fa-check-circle"></i> Estado del Enlace</td>
+                        <td><span class="tag green-border">CAPTURA EXITOSA</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- COLUMNA 2: INSPECCIÓN DE FIRMAS (ALERTA ROJA) -->
+        <div class="card glass red">
+            <h3>🔍 Inspección forense en el Flujo</h3>
+            
+            <div class="vuln">
+                <h4>Validación de Mensajes ICMP (Ping Sonda)</h4>
+                <p>Se interceptaron ráfagas secuenciales de peticiones <code>Echo (ping) request</code> y respuestas <code>Echo (ping) reply</code> entre la IP local 192.168.0.11 y el servidor de la universidad, verificando la latencia de diagnóstico.</p>
+            </div>
+
+            <div class="vuln">
+                <h4>Auditoría de Seguridad TLSv1.3</h4>
+                <p>El análisis determinó flujos activos de transferencia bajo el protocolo criptográfico seguro <code>TLSv1.3</code> en el puerto 443/TCP, confirmando negociaciones de cifrado fuertes y descarte de suites obsoletas.</p>
+            </div>
+        </div>
+
+        <!-- COLUMNA 3: HALLAZGOS DE PROTOCOLO -->
+        <div class="card glass green">
+            <h3>🕵️‍♂️ Hallazgos de Red Detectados</h3>
+            <ul class="recon-list">
+                <li><i class="fas fa-fingerprint"></i> Correlación IP origen/destino (192.168.0.11 -> 190.105.247.141).</li>
+                <li><i class="fas fa-exchange-alt"></i> Captura de diálogos de control ICMP en milisegundos reales.</li>
+                <li><i class="fas fa-shield-alt"></i> Interceptación de tráficos de aplicación web cifrados mediante TLSv1.3.</li>
+                <li><i class="fas fa-code-branch"></i> Estructura de cabeceras Ethernet II e IPv4 analizadas sin fragmentación.</li>
+            </ul>
+        </div>
+
+    </div> <!-- FIN DEL GRID PRINCIPAL -->
+
+    <!-- SECCIÓN INFERIOR: EVIDENCIAS EN PARALELO -->
+    <div class="evidence-dashboard">
+        <div class="card glass">
+            <h3>📸 Evidencia 4.1: Interceptación de Paquetes en Vivo</h3>
+            <div class="img-container">
+                <img src="images/wireshark-capture.png" alt="Telemetría Wireshark General" class="img-dashboard">
+            </div>
+        </div>
+
+       
+    </div>
+
+</section>
+
 
 </section> <!-- AQUÍ CIERRA LA SECCIÓN COMPLETA DE OPENVAS -->
+        <!-- ==================== FASE 5: SNORT IDS ==================== -->
+        <section id="snort-tab" class="tab-content hacker-dashboard">
+            <div class="header-hacker">
+                <h2>🚨 FASE 5: INGENIERÍA DE DETECCIÓN PERIMETRAL (SNORT IDS)</h2>
+                <p>Despliegue de un Sistema de Detección de Intrusos (NIDS) operado de forma remota vía AnyDesk</p>
+            </div>
 
-
-
-
-            <!-- 4. CONTENIDO DE SNORT -->
-            <section id="snort-tab" class="tab-content">
-                <div class="fase-header">
-                    <h3>Fase 4: Ingeniería de Detección Perimetral con Snort IDS</h3>
-                    <p>Configuración de reglas en el Sistema de Detección de Intrusos para alertar en tiempo real ante actividades ruidosas.</p>
+            <div class="grid-dashboard">
+                <!-- TELEMETRÍA REAL DEL IDS -->
+                <div class="card glass">
+                    <h3>📡 Monitoreo del Entorno SOC (Red Universitaria)</h3>
+                    <table class="table-hacker">
+                        <tbody>
+                            <tr>
+                                <td><i class="fas fa-network-wired"></i> Servidor Objetivo</td>
+                                <td class="text-neon">200.0.0.242</td>
+                            </tr>
+                            <tr>
+                                <td><i class="fas fa-laptop"></i> Host de Origen (Segmento)</td>
+                                <td class="text-neon">200.0.0.248</td>
+                            </tr>
+                            <tr>
+                                <td><i class="fas fa-home"></i> IP Local Casa (Origen Real)</td>
+                                <td class="text-muted">192.168.0.11</td>
+                            </tr>
+                            <tr>
+                                <td><i class="fas fa-folder-open"></i> Archivo de Reglas</td>
+                                <td><code>/etc/snort/rules/local.rules</code></td>
+                            </tr>
+                            <tr>
+                                <td><i class="fas fa-toggle-on"></i> Estado del Servicio</td>
+                                <td><span class="tag green">ACTIVE // LISTENING</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-                <div class="fase-grid">
-                    <div class="fase-text">
-                        <h4>Monitoreo en Entorno SOC (Blue Team)</h4>
-                        <p>Para contrarrestar el ruido generado por los escaneos de Nmap y OpenVAS, se desplegaron firmas personalizadas en <code>local.rules</code> que alertan al instante ante picos anómalos de tráfico SYN o peticiones ICMP Timestamp, cerrando con éxito el flujo defensivo del laboratorio.</p>
+
+                <!-- REGLAS DE DETECCIÓN REALES -->
+                <div class="card glass red" style="border-color: var(--accent-blue); background-color: rgba(20, 5, 5, 0.4);">
+                    <h3>🛠 Firma Personalizada en Producción</h3>
+                    <div class="vuln">
+                        <h4>Regla Ejecutada en local.rules</h4>
+                        <div class="hud-terminal-inline" style="margin-bottom: 10px; background-color: #000; padding: 6px 10px; border-left: 2px solid var(--accent-blue);">
+                            <code style="color: #ff9999; font-size: 0.75rem;">alert icmp any any -> any any (msg:"Alguien esta haciendo ping cuetona"; sid:19910316; rev:1;)</code>
+                        </div>
+                        <p><strong>Mensaje del IDS gatillado:</strong> <code>Alguien esta haciendo ping cuetona</code></p>
+                        <p><strong>Evidencia Forense:</strong> Snort procesó correctamente las cabeceras del paquete ICMP enviado por AnyDesk y disparó las alertas consecutivas en tiempo real dentro de la consola morada.</p>
                     </div>
-                    <div class="fase-media">
-                        <div class="mock-image">
+                </div>
+            </div>
+
+            <!-- SECCIÓN INFERIOR: EVIDENCIAS DE DEFENSA -->
+            <div class="evidence-dashboard">
+                <div class="card glass">
+                    <h3>📸 Evidencia 5.1: Consola de Alertas del SOC</h3>
+                    <div class="img-container">
+                        <img src="images/nano-snort.png" alt="Alertas en vivo de Snort" class="img-dashboard">
+                    </div>
+                </div>
+
+                <div class="card glass">
+                    <h3>📸 Evidencia 5.2: Trazas de Sonda e Alertas Unificadas</h3>
+                    <div class="img-container">
+                        <img src="images/snort.png" alt="CMD Windows y Snort Logs" class="img-dashboard">
+                    </div>
+                </div>
+            </div>
+        </section>
+
 
 
     </main>
