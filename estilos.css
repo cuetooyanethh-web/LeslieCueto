@@ -1,500 +1,131 @@
-#matrix {
-    position: fixed;
-    top: 0;
-    left: 0;
+/* --- CONFIGURACIÓN GENERAL --- */
+:root {
+    --bg-color: #0d1117;
+    --card-bg: #161b22;
+    --border-color: #30363d;
+    --text-primary: #c9d1d9;
+    --text-secondary: #8b949e;
+    --accent-blue: #58a6ff;
+    --pasivo-green: #238636;
+    --activo-red: #da3633;
+    --analisis-cyan: #1f6feb;
+    --defensivo-purple: #8957e5;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* --- SECCIÓN INTRODUCCIÓN --- */
+.intro-section h2 {
+    color: var(--accent-blue);
+    font-size: 2rem;
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.intro-section p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+code {
+    background-color: #1f242c;
+    color: #ff7b72;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.95rem;
+}
+
+/* --- SECCIÓN TABLA RESUMEN --- */
+.tabla-section {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.tabla-section h3 {
+    color: var(--text-primary);
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+.tabla-auditoria {
     width: 100%;
-    height: 100%;
-    z-index: -1;
-    background: black;
-}
-/* 🔴 RESET */
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+    border-collapse: collapse;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    overflow: hidden;
 }
 
-/* 🔴 BODY */
-body{
-    background:#d17b7b;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    padding:0;
-
-    font-family:"Times New Roman", serif;
-
-    font-weight:normal;
-
-    counter-reset:pagina;
-}
-/* 🔴 HOJAS */
-.portada,
-.pagina{
-
-    background:#fff;
-
-    width:210mm;
-    height:297mm;
-
-    min-height:297mm;
-    max-height:297mm;
-
-    padding:25mm;
-
-    margin-bottom:25px;
-
-    position:relative;
-
-    overflow:hidden;
-
-    box-shadow:0 0 20px rgba(0,0,0,0.3);
-
-    flex-shrink:0;
+.tabla-auditoria th, 
+.tabla-auditoria td {
+    padding: 14px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
 }
 
-/* 🔴 NUMERACIÓN */
-.pagina{
-    counter-increment:pagina;
+.tabla-auditoria th {
+    background-color: #1f242c;
+    color: var(--accent-blue);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-.pagina::after{
-    content:counter(pagina);
-    position:absolute;
-    bottom:15px;
-    right:25px;
-    font-size:14px;
-    color:#000;
-
-    /* ✅ TIMES */
-    font-family:"Times New Roman", Times, serif;
+.tabla-auditoria tr:last-child td {
+    border-bottom: none;
 }
 
-/* 🔴 PORTADA */
-.portada{
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-    align-items:center;
-    text-align:center;
+.tabla-auditoria tr:hover {
+    background-color: #1f242c;
+    transition: background-color 0.2s ease;
 }
 
-/* 🔴 AÑO */
-.anio{
-    font-size:15px;
-    font-weight:bold;
-    margin-top:20px;
-    line-height:1.5;
+/* --- BADGES (ETIQUETAS DE ENFOQUE) --- */
+.badge-tipo {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: inline-block;
 }
 
-/* 🔴 LOGO */
-.logo{
-    width:320px;
-    height:auto;
+.badge-tipo.pasivo {
+    background-color: var(--pasivo-green);
+    color: #ffffff;
 }
 
-/* 🔴 INSTITUCIÓN */
-.portada h2{
-    font-size:18px;
-    font-weight:bold;
-    line-height:1.5;
+.badge-tipo.activo {
+    background-color: var(--activo-red);
+    color: #ffffff;
 }
 
-/* 🔴 TITULO */
-.titulo{
-    font-size:24px;
-    font-weight:bold;
-    line-height:1.6;
-    text-transform:uppercase;
+.badge-tipo.analisis {
+    background-color: var(--analisis-cyan);
+    color: #ffffff;
 }
 
-/* 🔴 TEXTO PORTADA */
-.portada p{
-    font-size:16px;
-    line-height:1.7;
+.badge-tipo.defensivo {
+    background-color: var(--defensivo-purple);
+    color: #ffffff;
 }
 
-/* 🔴 DEDICATORIA */
-.dedicatoria,
-.agradecimiento{
-
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-
-    height:100%;
-}
-
-/* 🔴 CONTENIDO */
-.dedicatoria .contenido,
-.agradecimiento .contenido{
-
-    width:70%;
-    margin-left:auto;
-    margin-right:60px;
-}
-/*PARA HOVER CAPITULO*/
-.linea {
-    display: flex;
-    width: 100%;
-    text-decoration: none;
-    color: black;
-    position: relative;
-}
-
-/* TEXTO */
-.linea span:first-child {
-    padding-right: 10px;
-    /*font-weight: bold;*/ /*eso es para letras gruesas*/
-    background: white;
-    z-index: 2;
-}
-
-/* NUMERO */
-.linea .numero {
-    margin-left: auto;
-    padding-left: 10px;
-    background: white;
-    z-index: 2;
-}
-
-/* 🔥 PUNTOS */
-.linea::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 50%;
-    border-bottom: 1px dotted black;
-    z-index: 1;
-}
-
-/* 🔥 HOVER */
-.linea:hover {
-    background: #b9554e;
-}
-.linea:hover span {
-    background: #b9554e; /* 🔥 pinta texto y número */
-}
-/* 🔴 TITULOS */ /*INDICE*/
-.titulo-pagina{
-
-    text-align:center;
-
-    font-size:18px;
-
-    font-weight:normal;
-
-    margin-bottom:8px;
-}
-
-.indice-titulo{
-
-    width:100%;
-}
-
-
-/* 🔴 TEXTO */
-.texto{
-
-    text-align:justify;
-
-    font-size:15px;
-
-    line-height:2;
-
-    font-family:"Times New Roman", serif;
-
-    font-style:normal;
-
-   /* font-weight:bold;*/
-}
-/* 🔴 PAGINAS */
-.pagina{
-    text-align:justify;
-}
-
-/* 🔴 TITULOS SECCIÓN */
-.titulo-seccion{
-    font-size:18px;
-    font-weight:bold;
-    margin-bottom:20px;
-}
-
-/* 🔴 SUBTITULOS */
-.subtitulo{
-    font-size:16px;
-    font-weight:bold;
-    margin-top:20px;
-    line-height:2;
-}
-
-/* 🔴 SUB SUB */
-.sub-subtitulo{
-    font-size:15px;
-    font-weight:bold;
-    margin-top:15px;
-}
-
-/* 🔴 ÍNDICE */
-.indice{
-    margin-top:20px;
-}
-
-/* 🔴 FILAS */
-.indice .fila{
-
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-start;
-
-    gap:10px;
-
-    width:100%;
-
-    margin:6px 0;
-
-    font-size:16px;
-
-    line-height:1.7;
-
-    
-
-    padding-bottom:2px;
-}
-
-
-
-/* 🔴 LINKS */
-.indice .fila a{
-
-    text-decoration:none;
-
-    color:#000;
-}
-
-/* 🔴 HOVER */
-.indice .fila a:hover{
-
-    text-decoration:none;
-}
-
-/* 🔴 SUBNIVELES */
-.sub{
-    padding-left:20px;
-}
-
-.sub2{
-    padding-left:40px;
-}
-
-/* 🔴 ESPACIOS */
-.espacio{
-    margin-top:15px;
-}
-
-/* 🔴 CAPITULO SOLO */
-.capitulo-solo{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100%;
-}
-
-.capitulo-solo h1{
-    font-size:40px;
-    font-weight:bold;
-}
-
-/* 🔴 FIGURAS */
-.figura-titulo{
-    font-weight:bold;
-    margin-top:15px;
-}
-
-.figura-descripcion{
-    margin-bottom:10px;
-}
-
-/* 🔴 IMAGEN NORMAL */
-.contenedor-imagen{
-    text-align:center;
-    margin-top:20px;
-}
-
-.contenedor-imagen img{
-    width:180px;
-    height:auto;
-    border:1px solid #000;
-}
-
-/* 🔴 IMAGEN GRANDE */
-.contenedor-imagen-grande{
-    text-align:center;
-    margin-top:20px;
-}
-
-.contenedor-imagen-grande img{
-    width:420px;
-    max-width:100%;
-    height:auto;
-    border:1px solid #000;
-}
-
-/* 🔴 IMAGEN MEDIANA */
-.contenedor-imagen-mediana{
-    text-align:center;
-    margin-top:20px;
-}
-
-.contenedor-imagen-mediana img{
-    width:260px;
-    max-width:100%;
-    height:auto;
-    border:1px solid #000;
-}
-
-/* 🔴 IMAGEN MEDIANA 2 */
-.contenedor-imagen-mediana2{
-    text-align:center;
-    margin-top:20px;
-}
-
-.contenedor-imagen-mediana2 img{
-    width:350px;
-    max-width:100%;
-    height:auto;
-    border:1px solid #000;
-}
-
-/* 🔴 ORGANIGRAMA */
-.organigrama{
-    text-align:center;
-    margin-top:20px;
-}
-
-.organigrama img{
-    width:420px;
-    max-width:100%;
-    height:auto;
-    border:1px solid #000;
-}
-
-/* 🔴 LINKS */
-a{
-    text-decoration:none;
-    color:black;
-}
-
-a:hover{
-    text-decoration:underline;
-}
-
-/* 🔴 LISTAS */
-.lista-valores{
-    margin-left:40px;
-    line-height:2;
-}
-
-.lista-valores li{
-    margin-bottom:8px;
-}
-
-/* 🔴 TABLAS */
-.tabla{
-    width:100%;
-    border-collapse:collapse;
-    margin-top:15px;
-    margin-bottom:20px;
-    page-break-inside:avoid;
-}
-
-.tabla th,
-.tabla td{
-    border:1px solid #000;
-    padding:8px;
-    text-align:justify;
-}
-
-.tabla th{
-    text-align:center;
-    font-weight:bold;
-}
-
-/* 🔴 FOOTER */
-.footer{
-    text-align:center;
-    margin-top:40px;
-    font-size:14px;
-}
-
-/* 🔴 IMPRESIÓN */
-@page{
-    size:A4;
-    margin:0;
-}
-
-/* 📱 CELULAR */
-@media (max-width:768px){
-
-    body{
-        padding:15px 0;
-        background:#000;
-    }
-
-    .portada,
-    .pagina{
-
-        width:210mm;
-        height:297mm;
-
-        min-height:297mm;
-        max-height:297mm;
-
-        padding:20mm;
-
-        overflow:hidden;
-
-        box-shadow:none;
-
-        margin-bottom:20px;
-    }
-
-    .pagina::after{
-        bottom:10px;
-        right:20px;
-        font-size:12px;
-    }
-
-    .logo{
-        width:180px;
-    }
-
-    .titulo{
-        font-size:20px;
-    }
-
-    .portada h2{
-        font-size:16px;
-    }
-
-    .portada p{
-        font-size:14px;
-    }
-
-    .titulo-pagina{
-        font-size:20px;
-    }
-
-    .texto{
-        font-size:14px;
-        line-height:1.8;
-    }
-
-    .dedicatoria .contenido,
-    .agradecimiento .contenido{
-
-        width:80%;
-        margin-right:30px;
-    }
+/* Strong tags en la tabla */
+.tabla-auditoria strong {
+    color: #ffffff;
 }

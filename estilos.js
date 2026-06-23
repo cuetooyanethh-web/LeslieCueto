@@ -1,57 +1,40 @@
-window.onload = function () {
+// --- CONTROLADOR DE PESTAÑAS INTERACTIVAS (TABS) ---
 
-    const canvas = document.getElementById("matrix");
-    const ctx = canvas.getContext("2d");
-
-    function ajustarCanvas() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-    }
-
-    ajustarCanvas();
-
-    const letras = "01ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    const fontSize = 14;
-
-    let columnas;
-    let gotas;
-
-    function iniciar() {
-        columnas = Math.floor(canvas.width / fontSize);
-        gotas = [];
-
-        for (let i = 0; i < columnas; i++) {
-            gotas[i] = Math.random() * canvas.height;
-        }
-    }
-
-    iniciar();
-
-    function dibujar() {
-        ctx.fillStyle = "rgba(0, 0, 0, 0.08)";
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-        ctx.fillStyle = "#ff1a1a";
-        ctx.font = fontSize + "px monospace";
-
-        for (let i = 0; i < gotas.length; i++) {
-            let texto = letras[Math.floor(Math.random() * letras.length)];
-
-            ctx.fillText(texto, i * fontSize, gotas[i]);
-
-            if (gotas[i] > canvas.height && Math.random() > 0.975) {
-                gotas[i] = 0;
-            }
-
-            gotas[i] += fontSize;
-        }
-    }
-
-    setInterval(dibujar, 35);
-
-    window.addEventListener("resize", () => {
-        ajustarCanvas();
-        iniciar();
+function showTab(tabId) {
+    // 1. Obtener todas las secciones de contenido de las herramientas
+    const contents = document.querySelectorAll('.tab-content');
+    
+    // Ocultar cada una de las secciones removiendo la clase activa
+    contents.forEach(content => {
+        content.classList.remove('active-content');
     });
 
-};
+    // 2. Obtener todos los botones de navegación de la barra de herramientas
+    const buttons = document.querySelectorAll('.nav-btn');
+    
+    // Desactivar el estado visual seleccionado de todos los botones
+    buttons.forEach(btn => {
+        btn.classList.remove('active');
+    });
+
+    // 3. Mostrar la sección específica de la herramienta seleccionada
+    const targetContent = document.getElementById(tabId);
+    if (targetContent) {
+        targetContent.classList.add('active-content');
+    }
+
+    // 4. Activar visualmente el botón al que se le hizo clic
+    if (event && event.currentTarget) {
+        event.currentTarget.classList.add('active');
+    }
+    
+    console.log(`[SOC] Cambiando vista activa al módulo: ${tabId.toUpperCase()}`);
+}
+
+// Opcional: Inicializar logs decorativos en la consola del navegador para simular un SOC
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("==================================================");
+    console.log("🛡️ PURPLE TEAM LABORATORY - PORTFOLIO INTERACTIVO");
+    console.log("SIEM/IDS Monitorizado. Estado del Feed: CURRENT.");
+    console.log("==================================================");
+});
