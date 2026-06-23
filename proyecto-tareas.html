@@ -186,95 +186,71 @@
 
     </div>
             <!-- 3. CONTENIDO DE OPENVAS & WIRESHARK -->
-                      
           <section id="openvas-tab" class="tab-content hacker-dashboard">
 
-    <div class="header-hacker">
-        <h2>🛡 FASE 3: GESTIÓN DE VULNERABILIDADES (OPENVAS)</h2>
-        <p>Auditoría basada en CVE/CVSS para análisis de impacto y exposición del sistema</p>
+  <div class="header-hacker">
+    <h2>🛡 FASE 3: GESTIÓN DE VULNERABILIDADES (OPENVAS)</h2>
+    <p>Auditoría basada en CVE/CVSS para análisis de impacto y exposición del sistema</p>
+    <div class="scan-line"></div>
+  </div>
+
+  <div class="grid-dashboard">
+
+    <!-- ACTIVO -->
+    <div class="card glass">
+      <h3>📡 Activos e Infraestructura</h3>
+
+      <table class="table-hacker">
+        <tr><td>IP</td><td>190.105.247.141</td></tr>
+        <tr><td>Hostname</td><td>alumnos.uni.edu.pe</td></tr>
+        <tr><td>SO</td><td>Linux Kernel (QoD 100%)</td></tr>
+        <tr><td>HTTPS</td><td>No puertos abiertos</td></tr>
+        <tr><td>TLS</td><td><span class="tag green">VÁLIDO</span></td></tr>
+        <tr><td>Vulns</td><td><span class="tag yellow">2</span></td></tr>
+        <tr><td>Criticidad</td><td><span class="tag orange">LOW</span></td></tr>
+      </table>
     </div>
 
-    <!-- GRID PRINCIPAL -->
-    <div class="grid-dashboard">
+    <!-- VULNERABILIDADES -->
+    <div class="card glass red">
+      <h3>🚨 Vulnerabilidades Detectadas</h3>
 
-        <!-- TABLA ACTIVO -->
-        <div class="card glass">
+      <div class="vuln">
+        <h4>TCP Timestamp Disclosure</h4>
+        <span class="cvss yellow">CVSS 2.6</span>
+        <p>Exposición de timestamps TCP que permite fingerprinting del sistema.</p>
+      </div>
 
-            <h3>📡 Activos e Infraestructura</h3>
+      <div class="vuln">
+        <h4>ICMP Timestamp Reply</h4>
+        <span class="cvss yellow">CVSS 2.1</span>
+        <p>El sistema responde ICMP Timestamp Request exponiendo información temporal.</p>
+      </div>
+    </div>
 
-            <table class="table-hacker">
-                <tr>
-                    <td>IP</td>
-                    <td>190.105.247.141</td>
-                </tr>
-                <tr>
-                    <td>Hostname</td>
-                    <td>alumnos.uni.edu.pe</td>
-                </tr>
-                <tr>
-                    <td>SO</td>
-                    <td>Linux Kernel (QoD 100%)</td>
-                </tr>
-                <tr>
-                    <td>HTTPS</td>
-                    <td>No puertos abiertos</td>
-                </tr>
-                <tr>
-                    <td>TLS</td>
-                    <td><span class="tag green">VÁLIDO</span></td>
-                </tr>
-                <tr>
-                    <td>Vulns</td>
-                    <td><span class="tag yellow">2</span></td>
-                </tr>
-                <tr>
-                    <td>Criticidad</td>
-                    <td><span class="tag orange">LOW</span></td>
-                </tr>
-            </table>
+    <!-- RECON -->
+    <div class="card glass green">
+      <h3>🔎 Reconocimiento y Enumeración</h3>
 
-        </div>
+      <ul class="recon-list">
+        <li>HTTPS 443 detectado (Apache httpd)</li>
+        <li>Certificado SSL/TLS válido</li>
+        <li>ALPN / NPN activos</li>
+        <li>Apache HTTP Server identificado</li>
+        <li>Linux Kernel fingerprint (QoD 100%)</li>
+        <li>
+          Dominios:
+          <span class="subdomains-list">
+            alumnos.uni.edu.pe<br>
+            docentes.uni.edu.pe<br>
+            dirce.uni.edu.pe
+          </span>
+        </li>
+      </ul>
+    </div>
 
-        <!-- VULNERABILIDADES -->
-        <div class="card glass red">
-
-            <h3>🚨 Vulnerabilidades Detectadas</h3>
-
-            <div class="vuln">
-                <h4>TCP Timestamp Disclosure</h4>
-                <span class="cvss yellow">CVSS 2.6</span>
-                <p>Exposición de timestamps TCP que permite fingerprinting del sistema.</p>
-            </div>
-
-            <div class="vuln">
-                <h4>ICMP Timestamp Reply</h4>
-                <span class="cvss yellow">CVSS 2.1</span>
-                <p>El sistema responde ICMP Timestamp Request exponiendo información temporal.</p>
-            </div>
-
-        </div>
-        <!-- [Aquí termina tu anterior div de las Vulnerabilidades Detectadas] -->
-
-        <!-- CARD 3: RECONOCIMIENTO (TERCERA COLUMNA DEL GRID) -->
-        <div class="card glass green">
-            <h3><i class="fas fa-search"></i> Reconocimiento y Enumeración</h3>
-            <ul class="recon-list">
-                <li><i class="far fa-check-circle"></i> HTTPS 443 detectado (Apache httpd)</li>
-                <li><i class="far fa-check-circle"></i> Certificado SSL/TLS obtenido</li>
-                <li><i class="far fa-check-circle"></i> Protocolos ALPN / NPN activos</li>
-                <li><i class="far fa-check-circle"></i> Apache HTTP Server identificado</li>
-                <li><i class="far fa-check-circle"></i> Linux Kernel fingerprint (QoD 100%)</li>
-                <li><i class="fas fa-globe"></i> Dominios múltiples en certificado:
-                    <span class="subdomains-list">
-                        • alumnos.uni.edu.pe<br>
-                        • docentes.uni.edu.pe<br>
-                        • dirce.uni.edu.pe
-                    </span>
-                </li>
-            </ul>
-        </div>
-
-    </div> <!-- AQUÍ CIERRA EL GRID PRINCIPAL (grid-dashboard) -->
+  </div>
+</section>
 
     <!-- SECCIÓN INFERIOR: EVIDENCIAS (FUERA DEL GRID PRINCIPAL) -->
     <div class="evidence-dashboard">
