@@ -11,427 +11,46 @@
 </head>
 <body>
 
-    <!-- Contenedor Principal de la Página -->
-    
-        
-         <main class="container">
-        
-        <!-- INTRODUCCIÓN DEL PROYECTO -->
-               <section class="intro-section">
-            <h2>Auditoría Integral Purple Team: Gestión de Vulnerabilidades e Ingeniería de Detección</h2>
-            <p>Este laboratorio práctico ha sido diseñado bajo una metodología híbrida de seguridad (<strong>Purple Team</strong>) para evaluar de forma exhaustiva la superficie de ataque y la resiliencia del dominio gubernamental/académico <code>alumnos.uni.edu.pe</code> (IP: <code>190.105.247.141</code>). La auditoría abarca de manera secuencial desde la recolección de inteligencia pasiva basada en fuentes abiertas (OSINT) hasta el análisis activo de vulnerabilidades, permitiendo correlacionar vectores de exposición tecnológica reales con controles de monitoreo en Centros de Operaciones de Seguridad (SOC).</p>
-            
-            <p>El núcleo ofensivo del proyecto consistió en automatizar la identificación de fallos de configuración y software desactualizado mediante el motor empresarial <strong>Greenbone OpenVAS</strong>, utilizando un perfil de escaneo optimizado (<em>Full and Fast</em>) adaptado a las capacidades físicas del entorno virtual. Paralelamente, la fase defensiva complementa el ciclo validando la integridad del tráfico criptográfico con <strong>Wireshark</strong> y desplegando un Sistema de Detección de Intrusos (IDS) con <strong>Snort</strong>, demostrando una visibilidad de 360 grados sobre cómo las actividades de reconocimiento dejan firmas detectables en los firewalls y perímetros de red corporativos.</p>
-        </section>
-
-        <!-- TABLA RESUMEN DE LAS FASES -->
-        <section class="tabla-section">
-            <h3>Cuadro de Mando del Proyecto (Cybersecurity Framework)</h3>
-            <table class="tabla-auditoria">
-                <thead>
-                    <tr>
-                        <th>Fase de la Auditoría</th>
-                        <th>Herramienta Principal</th>
-                        <th>Tipo de Enfoque</th>
-                        <th>Resultado / Entregable</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1. Reconocimiento Pasivo</td>
-                        <td><strong>Shodan (OSINT)</strong></td>
-                        <td><span class="badge-tipo pasivo">Pasivo (No intrusivo)</span></td>
-                        <td>Mapeo de banners y exposición superficial.</td>
-                    </tr>
-                    <tr>
-                        <td>2. Escaneo de Puertos y Servicios</td>
-                        <td><strong>Nmap</strong></td>
-                        <td><span class="badge-tipo activo">Activo (Intrusivo)</span></td>
-                        <td>Confirmación de puerto 443/TCP abierto (Apache).</td>
-                    </tr>
-                    <tr>
-                        <td>3. Gestión de Vulnerabilidades</td>
-                        <td><strong>Greenbone OpenVAS</strong></td>
-                        <td><span class="badge-tipo activo">Activo (Intrusivo)</span></td>
-                        <td>Detección de 2 fallos de severidad Baja (2.6 Low).</td>
-                    </tr>
-                    <tr>
-                        <td>4. Análisis de Protocolos</td>
-                        <td><strong>Wireshark</strong></td>
-                        <td><span class="badge-tipo analisis">Inspección de Paquetes</span></td>
-                        <td>Captura y análisis del Handshake SSL/TLS (.pcapng).</td>
-                    </tr>
-                    <tr>
-                        <td>5. Ingeniería de Detección</td>
-                        <td><strong>Snort (IDS)</strong></td>
-                        <td><span class="badge-tipo defensivo">Defensivo (Blue Team)</span></td>
-                        <td>Creación de reglas de alerta ante escaneos ruidosos.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-
-        <!-- BARRA DE NAVEGACIÓN DE HERRAMIENTAS -->
-        <div class="tabs-navigation">
-            <button onclick="showTab('shodan-tab')" class="nav-btn active"><i class="fas fa-search-location"></i> 1. Shodan OSINT</button>
-            <button onclick="showTab('nmap-tab')" class="nav-btn"><i class="fas fa-terminal"></i> 2. Nmap Scan</button>
-            <button onclick="showTab('openvas-tab')" class="nav-btn"><i class="fas fa-shield-virus"></i> 3. OpenVAS Reports</button>
-            <button onclick="showTab('snort-tab')" class="nav-btn"><i class="fas fa-bell"></i> 4. Snort IDS</button>
-        </div>
-
-        <!-- CONTENEDORES DE CADA HERRAMIENTA -->
-        <div class="tabs-container">
-
-     <!-- 1. CONTENIDO DE SHODAN CON DATOS REALES -->
-           <div class="tabs-container cyber-tab">
-
-  <!-- SHODAN TAB -->
-  <section id="shodan-tab" class="tab-content active-content">
-
-    <div class="fase-header cyber-header">
-      <h3>
-        <i class="fas fa-eye"></i>
-        Fase 1: OSINT con Shodan
-      </h3>
-      <p>
-        Inteligencia pasiva basada en exposición pública de servicios sin interacción directa con la red objetivo.
-      </p>
-    </div>
-
-    <div class="fase-grid">
-
-      <!-- TEXTO -->
-      <div class="fase-text cyber-card">
-        <h4>🧠 Superficie de Ataque (Reconocimiento Pasivo)</h4>
-
-        <p>
-          Se realizó una consulta en <strong>Shodan</strong> sobre el host
-          <code>alumnos.uni.edu.pe</code>, obteniendo información indexada sin generar tráfico directo hacia el objetivo.
-        </p>
-
-        <h5>📡 Metadatos Detectados</h5>
-
-        <ul class="cyber-list">
-          <li><span>IP:</span> <code>190.105.247.141</code></li>
-          <li><span>HTTP:</span> <code>301 Moved Permanently</code></li>
-          <li><span>Servidor:</span> <code>Apache</code></li>
-          <li><span>ISP:</span> <code>Fravatel EIRL</code></li>
-          <li><span>Ubicación:</span> Lima, Perú 🇵🇪</li>
-          <li><span>Content-Type:</span> <code>text/html; charset=iso-8859-1</code></li>
-        </ul>
-
-      </div>
-
-      <!-- IMAGEN -->
-      <div class="fase-media cyber-card">
-
-        <div class="image-wrapper cyber-image">
-          <img src="images/shodan-search.png" alt="Shodan OSINT">
-          <div class="glow-line"></div>
-        </div>
-
-        <span class="img-caption">
-          🔎 Evidencia 1.1 — Shodan OSINT Banner Extraction
-        </span>
-
-      </div>
-
-    </div>
-  </section>
-</div>
-           <!-- ===== NMAP SECTION HACKER STYLE ===== -->
-<section id="nmap-tab" class="tab-content">
-
-    <div class="fase-header">
-        <h3>💻 Fase 2: Escaneo Activo de Puertos y Servicios con Nmap</h3>
-        <p>Interacción directa con el host objetivo para mapear el perímetro, validar servicios y detectar versiones en tiempo real.</p>
-    </div>
-
-    <div class="fase-text">
-
-        <h4>🧠 Metodología de Enumeración Progresiva</h4>
-        <p>Tras el análisis pasivo con Shodan, se ejecutó un escaneo activo en dos fases técnicas para identificar superficie de ataque.</p>
-
-        <h5>⚡ Etapa 2.1: Descubrimiento de Puertos Abiertos</h5>
-
-        <div class="code-block">
-            <pre>$ nmap -sV -F 190.105.247.141</pre>
-        </div>
-
-        <div class="image-wrapper">
-            <img src="images/nmap-fast.png" class="img-resultado">
-            <span class="img-caption">📡 Evidencia 2.1: Barrido rápido (-F)</span>
-        </div>
-
-        <p>
-            <strong>Resultado:</strong> Puertos <code>80/tcp</code> y <code>443/tcp</code> abiertos con servicio
-            <strong>Apache httpd</strong>.
-        </p>
-
-        <h5>🔍 Etapa 2.2: Inspección de Servicio HTTPS</h5>
-
-        <div class="code-block">
-            <pre>$ nmap -sV -p 443 190.105.247.141</pre>
-        </div>
-
-        <div class="image-wrapper">
-            <img src="images/nmap-directed.png" class="img-resultado">
-            <span class="img-caption">📡 Evidencia 2.2: Análisis dirigido puerto 443</span>
-        </div>
-
-        <p>
-            <strong>Resultado:</strong> Confirmación de <code>443/tcp</code> con servicio
-            <code>ssl/http Apache httpd</code> y latencia estable (~0.081s).
-        </p>
-
-    </div>
-            <!-- 3. CONTENIDO DE OPENVAS & WIRESHARK -->
-          <section id="openvas-tab" class="tab-content hacker-dashboard">
-
-  <div class="header-hacker">
-    <h2>🛡 FASE 3: GESTIÓN DE VULNERABILIDADES (OPENVAS)</h2>
-    <p>Auditoría basada en CVE/CVSS para análisis de impacto y exposición del sistema</p>
-    <div class="scan-line"></div>
-  </div>
-
-  <div class="grid-dashboard">
-
-    <!-- ACTIVO -->
-    <div class="card glass">
-      <h3>📡 Activos e Infraestructura</h3>
-
-      <table class="table-hacker">
-        <tr><td>IP</td><td>190.105.247.141</td></tr>
-        <tr><td>Hostname</td><td>alumnos.uni.edu.pe</td></tr>
-        <tr><td>SO</td><td>Linux Kernel (QoD 100%)</td></tr>
-        <tr><td>HTTPS</td><td>No puertos abiertos</td></tr>
-        <tr><td>TLS</td><td><span class="tag green">VÁLIDO</span></td></tr>
-        <tr><td>Vulns</td><td><span class="tag yellow">2</span></td></tr>
-        <tr><td>Criticidad</td><td><span class="tag orange">LOW</span></td></tr>
-      </table>
-    </div>
-
-    <!-- VULNERABILIDADES -->
-    <div class="card glass red">
-      <h3>🚨 Vulnerabilidades Detectadas</h3>
-
-      <div class="vuln">
-        <h4>TCP Timestamp Disclosure</h4>
-        <span class="cvss yellow">CVSS 2.6</span>
-        <p>Exposición de timestamps TCP que permite fingerprinting del sistema.</p>
-      </div>
-
-      <div class="vuln">
-        <h4>ICMP Timestamp Reply</h4>
-        <span class="cvss yellow">CVSS 2.1</span>
-        <p>El sistema responde ICMP Timestamp Request exponiendo información temporal.</p>
-      </div>
-    </div>
-
-    <!-- RECON -->
-    <div class="card glass green">
-      <h3>🔎 Reconocimiento y Enumeración</h3>
-
-      <ul class="recon-list">
-        <li>HTTPS 443 detectado (Apache httpd)</li>
-        <li>Certificado SSL/TLS válido</li>
-        <li>ALPN / NPN activos</li>
-        <li>Apache HTTP Server identificado</li>
-        <li>Linux Kernel fingerprint (QoD 100%)</li>
-        <li>
-          Dominios:
-          <span class="subdomains-list">
-            alumnos.uni.edu.pe<br>
-            docentes.uni.edu.pe<br>
-            dirce.uni.edu.pe
-          </span>
-        </li>
-      </ul>
-    </div>
-
-  </div>
-</section>
-
-    <!-- SECCIÓN INFERIOR: EVIDENCIAS (FUERA DEL GRID PRINCIPAL) -->
-    <div class="evidence-dashboard">
-        <div class="card glass">
-            <h3><i class="fas fa-camera"></i> Evidencia 3.1: Cuadro de Mando</h3>
-            <div class="img-container">
-                <img src="images/openvas-details.png" alt="Métricas Generales OpenVAS" class="img-dashboard">
-            </div>
-        </div>
-
-        <div class="card glass">
-            <h3><i class="fas fa-camera"></i> Evidencia 3.2: Firmas y OID</h3>
-            <div class="img-container">
-                <img src="images/tcp.png" alt="Registro de Firmas QoD 80%" class="img-dashboard">
-            </div>
+   <!-- BARRA DE NAVEGACIÓN SUPERIOR SOC HUD -->
+<header class="hud-header">
+    <div class="hud-logo-container">
+        <div class="hud-badge"><i class="fas fa-shield-alt"></i></div>
+        <div class="hud-logo-text">
+            <span class="logo-title">PURPLE <span class="text-red">TEAM</span></span>
+            <span class="logo-sub">CYBERSECURITY LAB</span>
         </div>
     </div>
-     <!-- FASE 4: ANÁLISIS DE TRÁFICO CON WIRESHARK -->
-<section id="wireshark-tab" class="tab-content hacker-dashboard">
+        <nav class="hud-nav">
+         <button onclick="showTab('openvas-tab', this)" class="hud-btn">
+        INICIO
+    </button>
+    <nav class="hud-nav">
+         <button onclick="showTab('openvas-tab', this)" class="hud-btn">
+        OPENVAS
+    </button>
+        <nav class="hud-nav">
+         <button onclick="showTab('openvas-tab', this)" class="hud-btn">
+        NMAP
+    </button>
 
-    <div class="header-hacker">
-        <h2>🔌 FASE 4: ANÁLISIS DE TRÁFICO Y PROTOCOLOS (WIRESHARK)</h2>
-        <p>Inspección profunda de paquetes en caliente (.pcapng) para auditar el comportamiento del escáner y la eficiencia criptográfica</p>
+    <button onclick="showTab('wireshark-tab', this)" class="hud-btn">
+        WIRESHARK
+    </button>
+
+    <button onclick="showTab('snort-tab', this)" class="hud-btn">
+        SNORT IDS
+    </button>
+
+    <button onclick="showTab('reporte-tab', this)" class="hud-btn">
+        REPORTE FINAL
+    </button>
+
+
+    <div class="hud-status">
+        <span class="status-dot"></span> SISTEMA ACTIVO
     </div>
+</header>
 
-    <!-- GRID PRINCIPAL DE TRES COLUMNAS ESTILO INTERFAZ SOC -->
-    <div class="grid-dashboard">
-
-        <!-- COLUMNA 1: PARÁMETROS DEL TRÁFICO -->
-        <div class="card glass">
-            <h3>📊 Parámetros de Captura</h3>
-            <table class="table-hacker">
-                <tbody>
-                    <tr>
-                        <td><i class="fas fa-network-wired"></i> Interfaz Monitorizada</td>
-                        <td class="text-neon">eth0</td>
-                    </tr>
-                    <tr>
-                        <td><i class="fas fa-file-code"></i> Formato de Archivo</td>
-                        <td><code>.pcapng</code></td>
-                    </tr>
-                    <tr>
-                        <td><i class="fas fa-filter"></i> Filtro Aplicado</td>
-                        <td><span class="tag green">icmp || tcp</span></td>
-                    </tr>
-                    <tr>
-                        <td><i class="fas fa-project-diagram"></i> Protocolos Analizados</td>
-                        <td>ICMP, TCP, TLSv1.3</td>
-                    </tr>
-                    <tr>
-                        <td><i class="fas fa-bullseye"></i> IP Objetivo</td>
-                        <td class="text-neon">190.105.247.141</td>
-                    </tr>
-                    <tr>
-                        <td><i class="fas fa-globe"></i> Hostname Relacionado</td>
-                        <td class="text-subdomains">docentes.uni.edu.pe</td>
-                    </tr>
-                    <tr>
-                        <td><i class="fas fa-check-circle"></i> Estado del Enlace</td>
-                        <td><span class="tag green-border">CAPTURA EXITOSA</span></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- COLUMNA 2: INSPECCIÓN DE FIRMAS (ALERTA ROJA) -->
-        <div class="card glass red">
-            <h3>🔍 Inspección forense en el Flujo</h3>
-            
-            <div class="vuln">
-                <h4>Validación de Mensajes ICMP (Ping Sonda)</h4>
-                <p>Se interceptaron ráfagas secuenciales de peticiones <code>Echo (ping) request</code> y respuestas <code>Echo (ping) reply</code> entre la IP local 192.168.0.11 y el servidor de la universidad, verificando la latencia de diagnóstico.</p>
-            </div>
-
-            <div class="vuln">
-                <h4>Auditoría de Seguridad TLSv1.3</h4>
-                <p>El análisis determinó flujos activos de transferencia bajo el protocolo criptográfico seguro <code>TLSv1.3</code> en el puerto 443/TCP, confirmando negociaciones de cifrado fuertes y descarte de suites obsoletas.</p>
-            </div>
-        </div>
-
-        <!-- COLUMNA 3: HALLAZGOS DE PROTOCOLO -->
-        <div class="card glass green">
-            <h3>🕵️‍♂️ Hallazgos de Red Detectados</h3>
-            <ul class="recon-list">
-                <li><i class="fas fa-fingerprint"></i> Correlación IP origen/destino (192.168.0.11 -> 190.105.247.141).</li>
-                <li><i class="fas fa-exchange-alt"></i> Captura de diálogos de control ICMP en milisegundos reales.</li>
-                <li><i class="fas fa-shield-alt"></i> Interceptación de tráficos de aplicación web cifrados mediante TLSv1.3.</li>
-                <li><i class="fas fa-code-branch"></i> Estructura de cabeceras Ethernet II e IPv4 analizadas sin fragmentación.</li>
-            </ul>
-        </div>
-
-    </div> <!-- FIN DEL GRID PRINCIPAL -->
-
-    <!-- SECCIÓN INFERIOR: EVIDENCIAS EN PARALELO -->
-    <div class="evidence-dashboard">
-        <div class="card glass">
-            <h3>📸 Evidencia 4.1: Interceptación de Paquetes en Vivo</h3>
-            <div class="img-container">
-                <img src="images/wireshark-capture.png" alt="Telemetría Wireshark General" class="img-dashboard">
-            </div>
-        </div>
-
-       
-    </div>
-
-</section>
-
-
-</section> <!-- AQUÍ CIERRA LA SECCIÓN COMPLETA DE OPENVAS -->
-        <!-- ==================== FASE 5: SNORT IDS ==================== -->
-        <section id="snort-tab" class="tab-content hacker-dashboard">
-            <div class="header-hacker">
-                <h2>🚨 FASE 5: INGENIERÍA DE DETECCIÓN PERIMETRAL (SNORT IDS)</h2>
-                <p>Despliegue de un Sistema de Detección de Intrusos (NIDS) operado de forma remota vía AnyDesk</p>
-            </div>
-
-            <div class="grid-dashboard">
-                <!-- TELEMETRÍA REAL DEL IDS -->
-                <div class="card glass">
-                    <h3>📡 Monitoreo del Entorno SOC (Red Universitaria)</h3>
-                    <table class="table-hacker">
-                        <tbody>
-                            <tr>
-                                <td><i class="fas fa-network-wired"></i> Servidor Objetivo</td>
-                                <td class="text-neon">200.0.0.242</td>
-                            </tr>
-                            <tr>
-                                <td><i class="fas fa-laptop"></i> Host de Origen (Segmento)</td>
-                                <td class="text-neon">200.0.0.248</td>
-                            </tr>
-                            <tr>
-                                <td><i class="fas fa-home"></i> IP Local Casa (Origen Real)</td>
-                                <td class="text-muted">192.168.0.11</td>
-                            </tr>
-                            <tr>
-                                <td><i class="fas fa-folder-open"></i> Archivo de Reglas</td>
-                                <td><code>/etc/snort/rules/local.rules</code></td>
-                            </tr>
-                            <tr>
-                                <td><i class="fas fa-toggle-on"></i> Estado del Servicio</td>
-                                <td><span class="tag green">ACTIVE // LISTENING</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <!-- REGLAS DE DETECCIÓN REALES -->
-                <div class="card glass red" style="border-color: var(--accent-blue); background-color: rgba(20, 5, 5, 0.4);">
-                    <h3>🛠 Firma Personalizada en Producción</h3>
-                    <div class="vuln">
-                        <h4>Regla Ejecutada en local.rules</h4>
-                        <div class="hud-terminal-inline" style="margin-bottom: 10px; background-color: #000; padding: 6px 10px; border-left: 2px solid var(--accent-blue);">
-                            <code style="color: #ff9999; font-size: 0.75rem;">alert icmp any any -> any any (msg:"Alguien esta haciendo ping cuetona"; sid:19910316; rev:1;)</code>
-                        </div>
-                        <p><strong>Mensaje del IDS gatillado:</strong> <code>Alguien esta haciendo ping cuetona</code></p>
-                        <p><strong>Evidencia Forense:</strong> Snort procesó correctamente las cabeceras del paquete ICMP enviado por AnyDesk y disparó las alertas consecutivas en tiempo real dentro de la consola morada.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SECCIÓN INFERIOR: EVIDENCIAS DE DEFENSA -->
-            <div class="evidence-dashboard">
-                <div class="card glass">
-                    <h3>📸 Evidencia 5.1: Consola de Alertas del SOC</h3>
-                    <div class="img-container">
-                        <img src="images/nano-snort.png" alt="Alertas en vivo de Snort" class="img-dashboard">
-                    </div>
-                </div>
-
-                <div class="card glass">
-                    <h3>📸 Evidencia 5.2: Trazas de Sonda e Alertas Unificadas</h3>
-                    <div class="img-container">
-                        <img src="images/snort.png" alt="CMD Windows y Snort Logs" class="img-dashboard">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-
-    </main>
 
     <!-- Vinculación del JavaScript al final del body para que cargue rápido -->
     <script src="estilos.js"></script>
