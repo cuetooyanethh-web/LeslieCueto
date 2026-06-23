@@ -12,12 +12,16 @@
 <body>
 
     <!-- Contenedor Principal de la Página -->
-    <main class="container">
+    
+        
+         <main class="container">
         
         <!-- INTRODUCCIÓN DEL PROYECTO -->
-        <section class="intro-section">
-            <h2>Proyecto: Auditoría Integral Purple Team</h2>
-            <p>Este laboratorio simula un ciclo completo de evaluación de seguridad perimetral sobre el dominio <code>alumnos.uni.edu.pe</code> (IP: <code>190.105.247.141</code>). El proyecto combina técnicas ofensivas de recolección de información y análisis de vulnerabilidades, junto con el despliegue de controles defensivos mediante un Sistema de Detección de Intrusos (IDS), demostrando una metodología de visibilidad y respuesta ante incidentes en entornos SOC.</p>
+               <section class="intro-section">
+            <h2>Auditoría Integral Purple Team: Gestión de Vulnerabilidades e Ingeniería de Detección</h2>
+            <p>Este laboratorio práctico ha sido diseñado bajo una metodología híbrida de seguridad (<strong>Purple Team</strong>) para evaluar de forma exhaustiva la superficie de ataque y la resiliencia del dominio gubernamental/académico <code>alumnos.uni.edu.pe</code> (IP: <code>190.105.247.141</code>). La auditoría abarca de manera secuencial desde la recolección de inteligencia pasiva basada en fuentes abiertas (OSINT) hasta el análisis activo de vulnerabilidades, permitiendo correlacionar vectores de exposición tecnológica reales con controles de monitoreo en Centros de Operaciones de Seguridad (SOC).</p>
+            
+            <p>El núcleo ofensivo del proyecto consistió en automatizar la identificación de fallos de configuración y software desactualizado mediante el motor empresarial <strong>Greenbone OpenVAS</strong>, utilizando un perfil de escaneo optimizado (<em>Full and Fast</em>) adaptado a las capacidades físicas del entorno virtual. Paralelamente, la fase defensiva complementa el ciclo validando la integridad del tráfico criptográfico con <strong>Wireshark</strong> y desplegando un Sistema de Detección de Intrusos (IDS) con <strong>Snort</strong>, demostrando una visibilidad de 360 grados sobre cómo las actividades de reconocimiento dejan firmas detectables en los firewalls y perímetros de red corporativos.</p>
         </section>
 
         <!-- TABLA RESUMEN DE LAS FASES -->
@@ -67,43 +71,174 @@
             </table>
         </section>
 
-        <!-- PESTAÑAS DE NAVEGACIÓN PARA LOS GRÁFICOS (Siguiente sección) -->
-               <!-- BARRA DE NAVEGACIÓN DE HERRAMIENTAS -->
+        <!-- BARRA DE NAVEGACIÓN DE HERRAMIENTAS -->
         <div class="tabs-navigation">
-            <button onclick="showTab('shodan-tab')" class="nav-btn active">1. Shodan OSINT</button>
-            <button onclick="showTab('nmap-tab')" class="nav-btn">2. Nmap Scan</button>
-            <button onclick="showTab('openvas-tab')" class="nav-btn">3. OpenVAS Reports</button>
-            <button onclick="showTab('snort-tab')" class="nav-btn">4. Snort IDS</button>
+            <button onclick="showTab('shodan-tab')" class="nav-btn active"><i class="fas fa-search-location"></i> 1. Shodan OSINT</button>
+            <button onclick="showTab('nmap-tab')" class="nav-btn"><i class="fas fa-terminal"></i> 2. Nmap Scan</button>
+            <button onclick="showTab('openvas-tab')" class="nav-btn"><i class="fas fa-shield-virus"></i> 3. OpenVAS Reports</button>
+            <button onclick="showTab('snort-tab')" class="nav-btn"><i class="fas fa-bell"></i> 4. Snort IDS</button>
         </div>
 
         <!-- CONTENEDORES DE CADA HERRAMIENTA -->
         <div class="tabs-container">
 
-            <!-- 1. CONTENIDO DE SHODAN -->
+     <!-- 1. CONTENIDO DE SHODAN CON DATOS REALES -->
             <section id="shodan-tab" class="tab-content active-content">
-                <h3>1. Inteligencia de Fuentes Abiertas (OSINT) con Shodan</h3>
-                <p>Análisis de metadatos expuestos públicamente en internet sobre el host <code>190.105.247.141</code>.</p>
+                <div class="fase-header">
+                    <h3><i class="fas fa-eye"></i> Fase 1: Inteligencia de Fuentes Abiertas (OSINT) con Shodan</h3>
+                    <p>Análisis del rastro digital y metadatos expuestos públicamente en internet sobre el host objetivo sin interactuar directamente con la red de la universidad.</p>
+                </div>
+                
+                <div class="fase-grid">
+                    <div class="fase-text">
+                        <h4>Análisis de Superficie de Ataque Pasiva</h4>
+                        <p>A través de la plataforma <strong>Shodan</strong>, se realizó una consulta pasiva sobre el dominio <code>alumnos.uni.edu.pe</code>, logrando recuperar el banner de respuesta indexado sin generar alertas en los sistemas perimetrales peruanos.</p>
+                        
+                        <h5>Metadatos Extraídos del Banner Real:</h5>
+                        <ul>
+                            <li><strong>Dirección IP Indexada:</strong> <code>190.105.247.141</code></li>
+                            <li><strong>Código de Respuesta HTTP:</strong> <code>301 Moved Permanently</code> (Redirección forzada hacia HTTPS).</li>
+                            <li><strong>Firma del Servidor (Server):</strong> <code>Apache</code></li>
+                            <li><strong>Proveedor de Infraestructura (ISP):</strong> <code>Fravatel EIRL</code></li>
+                            <li><strong>Ubicación Geográfica:</strong> Lima, Perú 🇵🇪</li>
+                            <li><strong>Content-Type detectado:</strong> <code>text/html; charset=iso-8859-1</code></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="fase-media">
+                        <!-- Aquí colocamos tu captura real de Shodan -->
+                        <div class="image-wrapper">
+                            <img src="images/shodan-search.png" alt="Captura Real de Shodan OSINT" class="img-resultado">
+                            <span class="img-caption"><i class="fas fa-camera"></i> Evidencia 1.1: Metadatos indexados en Shodan.io</span>
+                        </div>
+                    </div>
+                </div>
             </section>
 
-            <!-- 2. CONTENIDO DE NMAP -->
+                <!-- 2. CONTENIDO DE NMAP -->
+                   <!-- 2. CONTENIDO DE NMAP CON TUS DOS COMANDOS REALES -->
+                        <!-- 2. CONTENIDO DE NMAP CON DOS IMÁGENES DE EVIDENCIA -->
             <section id="nmap-tab" class="tab-content">
-                <h3>2. Escaneo Activo de Puertos con Nmap</h3>
-                <p>Verificación en tiempo real del estado del puerto 443/TCP.</p>
+                <div class="fase-header">
+                    <h3><i class="fas fa-terminal"></i> Fase 2: Escaneo Activo de Puertos y Servicios con Nmap</h3>
+                    <p>Interacción directa con el host objetivo para mapear el perímetro, confirmar puertos abiertos y validar versiones de software en tiempo real.</p>
+                </div>
+                
+                <div class="fase-grid">
+                    <div class="fase-text">
+                        <h4>Metodología de Enumeración Progresiva</h4>
+                        <p>Tras el análisis pasivo con Shodan, se procedió a realizar un escaneo activo estructurado en dos etapas lógicas:</p>
+                        
+                        <h5>Etapa 2.1: Descubrimiento de Puertos Abiertos (Barrido Rápido)</h5>
+                        <p>Se lanzó un escaneo rápido sobre los puertos principales para identificar los puntos de entrada activos de forma eficiente:</p>
+                        <div class="card code-block" style="padding: 12px; margin-bottom: 10px;">
+                            <pre style="margin: 0; color: #39ff14;">$ nmap -sV -F 190.105.247.141</pre>
+                        </div>
+                        <p><strong>Resultado:</strong> Se identificaron los puertos <code>80/tcp</code> y <code>443/tcp</code> en estado <code>open</code> ejecutando el servidor web <strong>Apache httpd</strong>, mientras que el puerto <code>113/tcp</code> reportó estar cerrado.</p>
+
+                        <h5>Etapa 2.2: Inspección y Detección de Versión Dirigida</h5>
+                        <p>Confirmados los servicios web activos, se ejecutó una sonda específica sobre el puerto seguro (HTTPS) para analizar detalladamente su demonio:</p>
+                        <div class="card code-block" style="padding: 12px; margin-bottom: 10px;">
+                            <pre style="margin: 0; color: #39ff14;">$ nmap -sV -p 443 190.105.247.141</pre>
+                        </div>
+                        <p><strong>Resultado:</strong> Confirmación absoluta del puerto <code>443/tcp</code> abierto ejecutando <code>ssl/http Apache httpd</code>, con una latencia estable de 0.081 segundos, dejando el entorno listo para la auditoría profunda con OpenVAS.</p>
+                    </div>
+                    
+                    <div class="fase-media" style="display: flex; flex-direction: column; gap: 20px; justify-content: flex-start;">
+                        <!-- Evidencia 1: Barrido rápido -->
+                        <div class="image-wrapper">
+                            <img src="images/nmap-fast.png" alt="Captura Real de Nmap Fast Scan" class="img-resultado">
+                            <span class="img-caption"><i class="fas fa-camera"></i> Evidencia 2.1: Barrido rápido de puertos (-F)</span>
+                        </div>
+                        
+                        <!-- Evidencia 2: Escaneo dirigido -->
+                        <div class="image-wrapper">
+                            <img src="images/nmap-directed.png" alt="Captura Real de Nmap Directed Scan" class="img-resultado">
+                            <span class="img-caption"><i class="fas fa-camera"></i> Evidencia 2.2: Inspección dirigida al puerto 443</span>
+                        </div>
+                    </div>
+                </div>
             </section>
 
-            <!-- 3. CONTENIDO DE OPENVAS -->
+
+
+            <!-- 3. CONTENIDO DE OPENVAS & WIRESHARK -->
+                       <!-- 3. GESTIÓN DE VULNERABILIDADES (OPENVAS) - DOCUMENTACIÓN EXPANDIDA -->
+                        <!-- 3. GESTIÓN DE VULNERABILIDADES (OPENVAS) - DOCUMENTACIÓN EXPANDIDA -->
             <section id="openvas-tab" class="tab-content">
-                <h3>3. Gestión y Reporte de Vulnerabilidades (OpenVAS)</h3>
-                <p>Resultados detallados del análisis automatizado de CVEs.</p>
+                <div class="fase-header">
+                    <h3><i class="fas fa-shield-virus"></i> Fase 3: Gestión de Vulnerabilidades con Greenbone OpenVAS</h3>
+                    <p>Análisis en profundidad basado en el diccionario de CVEs para identificar fallos de configuración y medir el impacto (CVSS) en el host objetivo.</p>
+                </div>
+                
+                <div class="fase-grid">
+                    <div class="fase-text">
+                        <h4>Reporte Técnico Detallado de los Hallazgos</h4>
+                        <p>El escaneo automatizado determinó una postura perimetral madura y robusta, detectando únicamente dos (2) exposiciones informativas de nivel bajo que requieren mitigación:</p>
+                        
+                        <h5>Activos e Infraestructura Identificados:</h5>
+                        <ul>
+                            <li><strong>Hostname Oficial Evaluado:</strong> <code>docentes.uni.edu.pe</code></li>
+                            <li><strong>Sistema Operativo Detectado:</strong> <code>Linux Kernel</code> (Identificado con un QoD del 100%).</li>
+                        </ul>
+
+                        <!-- HALLAZGO 1 -->
+                        <div class="card-hallazgo">
+                            <h5>1. TCP Timestamps Information Disclosure <span class="lbl-cvss cvss-26">2.6 (Low)</span></h5>
+                            <p><strong>Descripción:</strong> El host remoto implementa marcas de tiempo TCP (RFC1323/RFC7323), lo que permite calcular de forma externa el tiempo de actividad acumulado (uptime) de la máquina Linux.</p>
+                            <div class="terminal-box">
+                                <p>Packet 1: 4270906219 | Packet 2: 4270907453</p>
+                            </div>
+                            <p><strong>Solución (Mitigation):</strong> En servidores Linux, añadir la línea <code>net.ipv4.tcp_timestamps = 0</code> en <code>/etc/sysctl.conf</code> y aplicar cambios ejecutando <code>sysctl -p</code>.</p>
+                        </div>
+
+                        <!-- HALLAZGO 2 -->
+                        <div class="card-hallazgo" style="margin-top: 20px;">
+                            <h5>2. ICMP Timestamp Reply Information Disclosure <span class="lbl-cvss cvss-21">2.1 (Low)</span></h5>
+                            <p><strong>Identificador Global:</strong> <span class="cve-tag">CVE-1999-0524</span> | <span class="cve-tag">DFN-CERT-2014-0658</span></p>
+                            <p><strong>Descripción:</strong> El servidor respondió a solicitudes ICMP de tipo 13, devolviendo una réplica (Tipo 14, Código 0) con datos de sincronización del reloj del sistema.</p>
+                            <p><strong>Solución (Mitigation):</strong> Proteger el host mediante un firewall perimetral y bloquear el paso de tráficos de control ICMP Tipo 13/14.</p>
+                        </div>
+
+                        <!-- EXPLICACIÓN ANALÍTICA DE TELEMETRÍA -->
+                        <div style="margin-top: 25px; padding-top: 15px; border-top: 1px solid var(--border-color);">
+                            <h4>Análisis de Telemetría (Reports Dashboard)</h4>
+                            <p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-secondary); text-align: justify;">
+                                El cuadro de mando consolidado expone el comportamiento métrico del host <code>docentes.uni.edu.pe</code> bajo la tarea <em>DIRCE UNI</em>. El gráfico analítico de distribución (Severity Class) corrobora una mitigación efectiva en la superficie perimetral, concentrando el 100% de los hallazgos en rangos de riesgo mínimos (CVSS 2.1 - 2.6) e informativos (Logs), descartando la presencia de vectores de explotación críticos. Nota: El historial registra una traza incompleta al 4% (0.0 Log), validando únicamente el reporte finalizado en estado <strong>Done</strong>.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="fase-media" style="display: flex; flex-direction: column; gap: 20px; justify-content: flex-start;">
+                        <!-- Evidencia 3.1 -->
+                        <div class="image-wrapper">
+                            <img src="images/openvas-report.png" alt="Dashboard de OpenVAS" class="img-resultado">
+                            <span class="img-caption"><i class="fas fa-camera"></i> Evidencia 3.1: Cuadro de mando y métricas generales</span>
+                        </div>
+                        
+                        <!-- Evidencia 3.2 -->
+                        <div class="image-wrapper">
+                            <img src="images/openvas-details.png" alt="Desglose de Hallazgos en OpenVAS" class="img-resultado">
+                            <span class="img-caption"><i class="fas fa-camera"></i> Evidencia 3.2: Registro real de las firmas con QoD 80%</span>
+                        </div>
+                    </div>
+                </div>
             </section>
+
 
             <!-- 4. CONTENIDO DE SNORT -->
             <section id="snort-tab" class="tab-content">
-                <h3>4. Reglas e Ingeniería de Detección con Snort IDS</h3>
-                <p>Monitoreo y alertas generadas en el entorno SOC.</p>
-            </section>
-
-        </div>
+                <div class="fase-header">
+                    <h3>Fase 4: Ingeniería de Detección Perimetral con Snort IDS</h3>
+                    <p>Configuración de reglas en el Sistema de Detección de Intrusos para alertar en tiempo real ante actividades ruidosas.</p>
+                </div>
+                <div class="fase-grid">
+                    <div class="fase-text">
+                        <h4>Monitoreo en Entorno SOC (Blue Team)</h4>
+                        <p>Para contrarrestar el ruido generado por los escaneos de Nmap y OpenVAS, se desplegaron firmas personalizadas en <code>local.rules</code> que alertan al instante ante picos anómalos de tráfico SYN o peticiones ICMP Timestamp, cerrando con éxito el flujo defensivo del laboratorio.</p>
+                    </div>
+                    <div class="fase-media">
+                        <div class="mock-image">
 
 
     </main>
