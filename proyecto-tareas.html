@@ -68,9 +68,43 @@
         </section>
 
         <!-- PESTAÑAS DE NAVEGACIÓN PARA LOS GRÁFICOS (Siguiente sección) -->
-        <section class="tabs-control">
-            <!-- Aquí irán los botones para cambiar entre Shodan, OpenVAS, etc. -->
-        </section>
+               <!-- BARRA DE NAVEGACIÓN DE HERRAMIENTAS -->
+        <div class="tabs-navigation">
+            <button onclick="showTab('shodan-tab')" class="nav-btn active">1. Shodan OSINT</button>
+            <button onclick="showTab('nmap-tab')" class="nav-btn">2. Nmap Scan</button>
+            <button onclick="showTab('openvas-tab')" class="nav-btn">3. OpenVAS Reports</button>
+            <button onclick="showTab('snort-tab')" class="nav-btn">4. Snort IDS</button>
+        </div>
+
+        <!-- CONTENEDORES DE CADA HERRAMIENTA -->
+        <div class="tabs-container">
+
+            <!-- 1. CONTENIDO DE SHODAN -->
+            <section id="shodan-tab" class="tab-content active-content">
+                <h3>1. Inteligencia de Fuentes Abiertas (OSINT) con Shodan</h3>
+                <p>Análisis de metadatos expuestos públicamente en internet sobre el host <code>190.105.247.141</code>.</p>
+            </section>
+
+            <!-- 2. CONTENIDO DE NMAP -->
+            <section id="nmap-tab" class="tab-content">
+                <h3>2. Escaneo Activo de Puertos con Nmap</h3>
+                <p>Verificación en tiempo real del estado del puerto 443/TCP.</p>
+            </section>
+
+            <!-- 3. CONTENIDO DE OPENVAS -->
+            <section id="openvas-tab" class="tab-content">
+                <h3>3. Gestión y Reporte de Vulnerabilidades (OpenVAS)</h3>
+                <p>Resultados detallados del análisis automatizado de CVEs.</p>
+            </section>
+
+            <!-- 4. CONTENIDO DE SNORT -->
+            <section id="snort-tab" class="tab-content">
+                <h3>4. Reglas e Ingeniería de Detección con Snort IDS</h3>
+                <p>Monitoreo y alertas generadas en el entorno SOC.</p>
+            </section>
+
+        </div>
+
 
     </main>
 
