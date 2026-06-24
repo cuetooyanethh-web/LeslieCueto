@@ -145,4 +145,216 @@ body {
     0% { box-shadow: 0 0 0 0 rgba(57, 255, 20, 0.7); }
     70% { box-shadow: 0 0 0 6px rgba(57, 255, 20, 0); }
     100% { box-shadow: 0 0 0 0 rgba(57, 255, 20, 0); }
+
+}
+
+
+
+/*/*/
+.dashboard {
+    display: grid;
+    grid-template-columns: 250px 1fr 300px;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* PANEL GENERAL */
+.panel {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 42, 42, 0.1);
+}
+
+/* IZQUIERDA */
+.left-panel h3 {
+    color: var(--neon-red);
+    margin-bottom: 15px;
+}
+
+/* CENTRO */
+.center-panel h1 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.center-panel h4 {
+    color: var(--neon-red);
+    margin-bottom: 15px;
+}
+
+/* DERECHA */
+.right-panel h3 {
+    color: var(--neon-red);
+    margin-bottom: 15px;
+}
+
+/*/* TARGET BOX */
+/*.target-box {
+    border: 1px solid var(--neon-red);
+    padding: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}*//**
+/*
+.target-box span {
+    color: var(--neon-red);
+}/*/*/* TARJETA FUTURISTA */
+.target-card {
+    position: relative;
+    padding: 20px;
+    border: 1px solid rgba(255, 42, 42, 0.4);
+    border-radius: 10px;
+    background: rgba(10, 10, 10, 0.9);
+    box-shadow: 0 0 20px rgba(255, 42, 42, 0.2);
+    overflow: hidden;
+}
+
+/* ESQUINAS TECNO */
+.target-card::before,
+.target-card::after {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--neon-red);
+}
+
+.target-card::before {
+    top: -1px;
+    right: -1px;
+    border-left: none;
+    border-bottom: none;
+}
+
+.target-card::after {
+    bottom: -1px;
+    left: -1px;
+    border-right: none;
+    border-top: none;
+}
+
+/* TITULO */
+.target-card h3 {
+    color: var(--neon-red);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+/* CONTENIDO */
+.target-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* ICONO */
+.icon {
+    font-size: 20px;
+    color: var(--neon-red);
+}
+
+/* TEXTO */
+.domain {
+    margin: 0;
+    font-weight: bold;
+}
+
+.ip {
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+/* CONTENEDOR VISUAL *
+.target-visual {
+    position: relative;
+    width: 100%;
+    height: 100px;
+    margin-top: 15px;
+    overflow: hidden;
+}*/
+.target-visual {
+    background: rgba(0,0,0,0.6);
+    
+}
+/* IMAGEN */
+.target-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.5;
+    filter: brightness(0.5) contrast(1.1);
+}
+
+/* EFECTO LUZ CENTRAL *//*
+.target-visual::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 80px;
+    height: 40px;
+    transform: translateX(-50%);
+    background: radial-gradient(circle, rgba(255,42,42,0.6) 0%, transparent 70%);
+    filter: blur(6px);
+}
+
+/* LÍNEA DE ESCANEO *//*
+.scan-line {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 80%;
+    height: 2px;
+    background: var(--neon-red);
+    transform: translateX(-50%);
+    box-shadow: 0 0 10px var(--neon-red);
+}
+    /* EFECTO DE ENERGÍA DESDE ABAJO (CLAVE) */
+.target-visual::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    width: 120px;
+    height: 60px;
+    transform: translateX(-50%);
+    background: radial-gradient(circle, rgba(255,42,42,0.9) 0%, rgba(255,42,42,0.2) 40%, transparent 70%);
+    filter: blur(8px);
+    /*opacity: 0.8;*/
+}
+
+/* MEJORAR EL RADAR *//*
+.target-visual img {
+    opacity: 0.2;
+    filter: brightness(0.4) contrast(1.3);
+}
+
+/* LÍNEA MÁS POTENTE */
+.scan-line {
+    height: 3px;
+    box-shadow: 
+        0 0 10px var(--neon-red),
+        0 0 20px var(--neon-red),
+        0 0 40px rgba(255,42,42,0.6);
+}
+
+/* EFECTO ENERGÍA */
+.scan-line::before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 6px;
+    background: var(--neon-red);
+    left: 0;
+    top: -2px;
+    filter: blur(6px);
+    animation: scanMove 2s linear infinite;
+}
+
+/* ANIMACIÓN */
+@keyframes scanMove {
+    0% { left: 0; }
+    100% { left: 100%; }
 }

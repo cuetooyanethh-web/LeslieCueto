@@ -38,7 +38,7 @@
     </button>
 
     <button onclick="showTab('snort-tab', this)" class="hud-btn">
-        SNORT IDS
+        SNORT IDS  
     </button>
 
     <button onclick="showTab('reporte-tab', this)" class="hud-btn">
@@ -50,7 +50,66 @@
         <span class="status-dot"></span> SISTEMA ACTIVO
     </div>
 </header>
+<section class="dashboard">
 
+    <!-- 🔴 PANEL IZQUIERDO -->
+    <div class="panel left-panel">
+        <h3>INFO OBJETIVO</h3>
+
+        <p><strong>Dominio</strong><br> alumnos.uni.edu.pe</p>
+
+        <p><strong>IP Objetivo</strong><br> 
+            <span class="highlight-green">190.105.247.141</span>
+        </p>
+
+        <p><strong>Ubicación</strong><br> Lima, Perú 🇵🇪</p>
+
+        <p><strong>ISP</strong><br> FRAVATEL EIRL</p>
+          <p><strong>Organización</strong><br> Universidad Nacional<br><strong>de Ingeniería</strong></p>
+    </div>
+
+    <!-- 🔴 PANEL CENTRAL -->
+    <div class="panel center-panel">
+        <h1>
+            AUDITORÍA INTEGRAL 
+            <span class="text-red">PURPLE TEAM</span>
+        </h1>
+
+        <h4>GESTIÓN DE VULNERABILIDADES E INGENIERÍA DE DETECCIÓN</h4>
+
+        <p>
+            Este laboratorio práctico ha sido diseñado bajo una metodología híbrida 
+            de seguridad (Purple Team) para evaluar de forma exhaustiva la superficie 
+            de ataque y la resiliencia del dominio objetivo. Combinamos técnicas ofensivas 
+            (Red Team) para identificar vulnerabilidades con controles defensivos (Blue Team) 
+            para detectar y responder a las amenazas.
+        </p>
+    </div>
+
+    <!-- 🔴 PANEL DERECHO -->
+   <div class="panel right-panel">
+
+    <div class="target-card">
+        <h3>OBJETIVO ANALIZADO</h3>
+
+        <div class="target-content">
+            <div class="icon">💻</div>
+
+            <div>
+                <p class="domain">alumnos.uni.edu.pe</p>
+                <span class="ip">190.105.247.141</span>
+            </div>
+        </div>
+  <!-- IMAGEN / EFECTO BASE -->
+        <div class="target-visual">
+            <img src="images/patron.jpeg" alt="efecto">
+        </div>
+        <!-- línea inferior animada -->
+        <div class="scan-line"></div>
+    </div>
+
+</div>
+</section>
 
     <!-- Vinculación del JavaScript al final del body para que cargue rápido -->
     <script src="estilos.js"></script>
