@@ -745,3 +745,89 @@ body {
         0 0 10px #00ff55,
         0 0 20px rgba(0,255,85,.4);
 }
+/* ========================================
+   RESPONSIVE MÓVIL
+======================================== */
+@media (max-width: 768px) {
+
+    .dashboard {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        padding: 10px;
+    }
+
+    .left-panel,
+    .center-panel,
+    .right-panel,
+    .project-dashboard-panel {
+        width: 100%;
+        grid-column: auto;
+        grid-row: auto;
+    }
+
+    .center-panel {
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .center-content {
+        min-width: 100%;
+    }
+
+    .center-map {
+        flex: none;
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .center-map img {
+        width: 100%;
+    }
+
+    .hud-header {
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .hud-nav {
+        width: 100%;
+        overflow-x: auto;
+        justify-content: flex-start;
+        scrollbar-width: none;
+    }
+
+    .hud-nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .hud-btn {
+        white-space: nowrap;
+        padding: 8px 12px;
+        font-size: 0.75rem;
+    }
+
+    .fases-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .fase-item {
+        width: 100%;
+    }
+
+    .target-card {
+        height: auto;
+        min-height: 140px;
+    }
+
+    .center-content h1 {
+        font-size: 1.2rem;
+    }
+
+    .center-content p {
+        font-size: 0.75rem;
+    }
+}
