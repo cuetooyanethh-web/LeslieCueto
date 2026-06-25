@@ -166,195 +166,345 @@ body {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(255, 42, 42, 0.1);
 }
+/* PANEL CENTRAL */
+.center-panel{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 
-/* IZQUIERDA */
-.left-panel h3 {
-    color: var(--neon-red);
-    margin-bottom: 15px;
+    background:#0a0a0f;
+    border:1px solid rgba(255,0,0,.25);
+
+    padding:25px;
+    min-height:220px;
+
+    position:relative;
+    overflow:hidden;
+
+    box-shadow:0 0 20px rgba(255,0,0,.12);
 }
 
-/* CENTRO */
-.center-panel h1 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-}
+/* EFECTO HACKER */
+.center-panel::before{
+    content:"";
+    position:absolute;
+    inset:0;
 
-.center-panel h4 {
-    color: var(--neon-red);
-    margin-bottom: 15px;
-}
+    background:
+        linear-gradient(
+            rgba(255,0,0,.05) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,0,0,.05) 1px,
+            transparent 1px
+        );
 
-/* DERECHA */
-.right-panel h3 {
-    color: var(--neon-red);
-    margin-bottom: 15px;
-}
-
-/*/* TARGET BOX */
-/*.target-box {
-    border: 1px solid var(--neon-red);
-    padding: 10px;
-    margin-bottom: 20px;
-    text-align: center;
-}*//**
-/*
-.target-box span {
-    color: var(--neon-red);
-}/*/*/* TARJETA FUTURISTA */
-.target-card {
-    position: relative;
-    padding: 20px;
-    border: 1px solid rgba(255, 42, 42, 0.4);
-    border-radius: 10px;
-    background: rgba(10, 10, 10, 0.9);
-    box-shadow: 0 0 20px rgba(255, 42, 42, 0.2);
-    overflow: hidden;
-}
-
-/* ESQUINAS TECNO */
-.target-card::before,
-.target-card::after {
-    content: "";
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    border: 1px solid var(--neon-red);
-}
-
-.target-card::before {
-    top: -1px;
-    right: -1px;
-    border-left: none;
-    border-bottom: none;
-}
-
-.target-card::after {
-    bottom: -1px;
-    left: -1px;
-    border-right: none;
-    border-top: none;
-}
-
-/* TITULO */
-.target-card h3 {
-    color: var(--neon-red);
-    font-size: 0.9rem;
-    margin-bottom: 15px;
+    background-size:40px 40px;
+    pointer-events:none;
 }
 
 /* CONTENIDO */
-.target-content {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+.center-content{
+    width:60%;
+    z-index:2;
+}
+
+.center-content h1{
+    font-size:2rem;
+    color:white;
+    margin-bottom:10px;
+    text-transform:uppercase;
+}
+
+.text-red{
+    color:#ff2a2a;
+}
+
+.center-content h4{
+    color:#ff2a2a;
+    font-size:1rem;
+    margin-bottom:20px;
+    text-transform:uppercase;
+}
+
+.center-content p{
+    color:#b7b7b7;
+    line-height:1.7;
+    font-size:.9rem;
+    max-width:700px;
+}
+
+/* MAPA */
+.center-map{
+    width:35%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.center-map img{
+    width:100%;
+    max-width:400px;
+    opacity:.9;
+
+    filter:
+        brightness(1.2)
+        contrast(1.2)
+        drop-shadow(0 0 15px rgba(255,0,0,.6));
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+
+    .center-panel{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .center-content,
+    .center-map{
+        width:100%;
+    }
+
+    .center-map{
+        margin-top:20px;
+    }
+}
+
+/*IZQUIERDO/*
+
+/* ==========================
+   TARJETA OBJETIVO ANALIZADO
+========================== */
+
+.target-card{
+    position:relative;
+
+    background:rgba(8,8,12,.95);
+
+    border:1px solid rgba(255,0,0,.35);
+
+    padding:25px;
+
+    min-height:220px;
+
+    overflow:hidden;
+
+    clip-path:polygon(
+        0 0,
+        88% 0,
+        100% 12%,
+        100% 100%,
+        12% 100%,
+        0 88%
+    );
+
+    box-shadow:
+        0 0 10px rgba(255,0,0,.15),
+        0 0 25px rgba(255,0,0,.08),
+        inset 0 0 20px rgba(255,0,0,.05);
+}
+
+/* GRID HACKER */
+
+.target-card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            rgba(255,0,0,.04) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,0,0,.04) 1px,
+            transparent 1px
+        );
+
+    background-size:20px 20px;
+
+    pointer-events:none;
+}
+
+/* BORDE TECNOLÓGICO */
+
+.target-card::after{
+    content:"";
+
+    position:absolute;
+
+    top:10px;
+    left:10px;
+    right:10px;
+    bottom:10px;
+
+    border:1px solid rgba(255,0,0,.15);
+
+    pointer-events:none;
+}
+
+/* TITULO */
+
+.target-card h3{
+    color:#ff3030;
+
+    font-size:.9rem;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
+
+    margin-bottom:20px;
+
+    position:relative;
+    z-index:2;
+}
+
+/* CONTENIDO */
+
+.target-content{
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+    position:relative;
+    z-index:2;
 }
 
 /* ICONO */
-.icon {
-    font-size: 20px;
-    color: var(--neon-red);
+
+.icon{
+    width:42px;
+    height:42px;
+
+    border:2px solid #ff3030;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:#ff3030;
+
+    border-radius:4px;
+
+    box-shadow:
+        0 0 10px rgba(255,0,0,.3);
 }
 
-/* TEXTO */
-.domain {
-    margin: 0;
-    font-weight: bold;
+.icon i{
+    font-size:18px;
 }
 
-.ip {
-    color: #aaa;
-    font-size: 0.9rem;
+/* DOMINIO */
+
+.domain{
+    margin:0;
+
+    color:white;
+
+    font-size:1.1rem;
+
+    font-weight:700;
 }
 
-/* CONTENEDOR VISUAL *
-.target-visual {
-    position: relative;
-    width: 100%;
-    height: 100px;
-    margin-top: 15px;
-    overflow: hidden;
-}*/
-.target-visual {
-    background: rgba(0,0,0,0.6);
-    
-}
-/* IMAGEN */
-.target-visual img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.5;
-    filter: brightness(0.5) contrast(1.1);
+.ip{
+    color:#8d8d8d;
+
+    font-size:.9rem;
+
+    font-family:monospace;
 }
 
-/* EFECTO LUZ CENTRAL *//*
-.target-visual::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    width: 80px;
-    height: 40px;
-    transform: translateX(-50%);
-    background: radial-gradient(circle, rgba(255,42,42,0.6) 0%, transparent 70%);
-    filter: blur(6px);
+/* ==========================
+   ENERGÍA ROJA INFERIOR
+========================== */
+
+.target-visual{
+    position:absolute;
+
+    left:50%;
+    bottom:25px;
+
+    transform:translateX(-50%);
+
+    width:180px;
+    height:70px;
 }
 
-/* LÍNEA DE ESCANEO *//*
-.scan-line {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 80%;
-    height: 2px;
-    background: var(--neon-red);
-    transform: translateX(-50%);
-    box-shadow: 0 0 10px var(--neon-red);
-}
-    /* EFECTO DE ENERGÍA DESDE ABAJO (CLAVE) */
-.target-visual::before {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: -10px;
-    width: 120px;
-    height: 60px;
-    transform: translateX(-50%);
-    background: radial-gradient(circle, rgba(255,42,42,0.9) 0%, rgba(255,42,42,0.2) 40%, transparent 70%);
-    filter: blur(8px);
-    /*opacity: 0.8;*/
+/* CÍRCULO ROJO */
+
+.target-visual::before{
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+    bottom:0;
+
+    transform:translateX(-50%);
+
+    width:150px;
+    height:25px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(
+        ellipse,
+        rgba(255,50,50,.95) 0%,
+        rgba(255,50,50,.35) 45%,
+        transparent 80%
+    );
+
+    filter:blur(4px);
+
+    animation:pulseGlow 2s ease-in-out infinite;
 }
 
-/* MEJORAR EL RADAR *//*
-.target-visual img {
-    opacity: 0.2;
-    filter: brightness(0.4) contrast(1.3);
-}
+/* LÁSER CENTRAL */
 
-/* LÍNEA MÁS POTENTE */
-.scan-line {
-    height: 3px;
-    box-shadow: 
-        0 0 10px var(--neon-red),
-        0 0 20px var(--neon-red),
-        0 0 40px rgba(255,42,42,0.6);
-}
+.target-visual::after{
+    content:"";
 
-/* EFECTO ENERGÍA */
-.scan-line::before {
-    content: "";
-    position: absolute;
-    width: 20px;
-    height: 6px;
-    background: var(--neon-red);
-    left: 0;
-    top: -2px;
-    filter: blur(6px);
-    animation: scanMove 2s linear infinite;
+    position:absolute;
+
+    left:50%;
+    bottom:10px;
+
+    transform:translateX(-50%);
+
+    width:2px;
+    height:65px;
+
+    background:#ff4040;
+
+    box-shadow:
+        0 0 10px #ff4040,
+        0 0 20px #ff4040,
+        0 0 30px #ff4040;
 }
 
 /* ANIMACIÓN */
-@keyframes scanMove {
-    0% { left: 0; }
-    100% { left: 100%; }
+
+@keyframes pulseGlow{
+
+    0%{
+        opacity:.6;
+        transform:translateX(-50%) scale(.9);
+    }
+
+    50%{
+        opacity:1;
+        transform:translateX(-50%) scale(1);
+    }
+
+    100%{
+        opacity:.6;
+        transform:translateX(-50%) scale(.9);
+    }
+
 }
