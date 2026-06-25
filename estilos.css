@@ -120,7 +120,7 @@ body {
 
 .hud-btn::after {
     content: "";
-    position: absolute;
+    
     left: 0;
     bottom: 0;
     width: 0%;
@@ -156,11 +156,15 @@ body {
 
 .dashboard{
     display:grid;
-    grid-template-columns:230px 1fr 230px;
+    grid-template-columns:230px 1fr 300px;
+
+  grid-template-rows:auto 1fr;
     gap:20px;
-    padding:20px;
+ 
     align-items:start;
 }
+
+
 
 /* PANEL BASE */
 
@@ -170,6 +174,7 @@ body {
     padding:20px;
     border-radius:8px;
     box-shadow:0 0 10px rgba(255,42,42,.1);
+    
 }
 /* ========================================
    PANEL IZQUIERDO - INFO OBJETIVO
@@ -186,7 +191,13 @@ body {
     box-shadow:
         0 0 20px rgba(0,0,0,.4),
         inset 0 0 10px rgba(255,255,255,.02);
+        grid-column:1;
+    grid-row:1 / span 2;
+   /* grid-row:1/2;*/
+    align-self:start;
+   
 }
+
 
 .left-panel::before{
     content:"";
@@ -198,7 +209,6 @@ body {
         linear-gradient(90deg, rgba(0,255,0,.03) 1px, transparent 1px);
 
     background-size:20px 20px;
-
     pointer-events:none;
 }
 
@@ -258,7 +268,8 @@ body {
 .center-panel {
     display: flex !important;
     flex-direction: row;
-    align-items: center;
+   /* align-items: center;*/
+    align-items:flex-start;
     justify-content: space-between;
     gap: 30px;
     background: #04060a;
@@ -269,6 +280,12 @@ body {
     box-shadow: 
         0 10px 30px rgba(0, 0, 0, 0.6),
         inset 0 0 20px rgba(255, 58, 58, 0.02);
+         grid-column:2;
+    grid-row:1;
+     height:auto;
+     min-height:unset;
+    padding: 25px 30px;
+    
 }
 
 .center-content {
@@ -305,14 +322,12 @@ body {
     margin: 0;
     text-align: justify; /* Alineación limpia del texto de laboratorio */
 }
-
-.center-map {
-    flex: 1.3;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 350px;
+.center-map{
+    flex:0 0 320px;
+    max-width:320px;
 }
+
+
 
 .center-map img {
     width: 100%;
@@ -321,6 +336,7 @@ body {
     opacity: 0.8;
     filter: drop-shadow(0 0 15px rgba(255, 58, 58, 0.15)); /* Resplandor rojo en el mapa */
 }
+
 
 /* ========================================
    TARJETA DERECHA (COLUMNA INDEPENDIENTE)
@@ -352,15 +368,21 @@ body {
 }
 
 /* Malla de fondo */
-.target-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
+.target-card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+
     background:
-        linear-gradient(rgba(255, 58, 58, 0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 58, 58, 0.02) 1px, transparent 1px);
-    background-size: 14px 14px;
-    pointer-events: none;
+        linear-gradient(rgba(255,58,58,.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,58,58,.02) 1px, transparent 1px);
+
+    background-size:14px 14px;
+    pointer-events:none;
+}
+.center-panel,
+.right-panel{
+    align-self:start;
 }
 
 .target-card h3 {
@@ -411,7 +433,7 @@ body {
 
 /* Elementos láser del fondo de la tarjeta */
 .target-visual {
-    position: absolute;
+    
     left: 50%;
     bottom: 0;
     transform: translateX(-50%);
@@ -422,7 +444,7 @@ body {
 
 .target-visual::before {
     content: "";
-    position: absolute;
+   
     left: 50%;
     bottom: -6px;
     transform: translateX(-50%);
@@ -435,7 +457,7 @@ body {
 
 .target-visual::after {
     content: "";
-    position: absolute;
+   
     left: 50%;
     bottom: 0;
     transform: translateX(-50%);
@@ -445,4 +467,282 @@ body {
     box-shadow: 
         0 0 6px #ff4040,
         0 0 12px rgba(255, 64, 64, 0.6);
+}
+
+
+/* ========================================
+   CONTENEDOR DEL CUADRO DE MANDO INFERIOR
+======================================== */
+.project-dashboard-panel {
+    width: 100%;             
+    background: #04060a;
+    border: 1px solid rgba(255, 58, 58, 0.15); 
+    border-radius: 8px;
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+    grid-column:2 / 4;
+    grid-row:2;
+     align-self:start;
+}
+
+/* TITULO SECCIÓN */
+.dashboard-section-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #ff3a3a;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.dashboard-section-title i {
+    font-size: 0.9rem;
+}
+
+/* CONTENEDOR FLEX DE PASOS */
+.fases-container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 0 0 15px 0;      /* 🌟 Forzar limpieza de paddings heredados */
+    margin: 0;                /* 🌟 Forzar limpieza de márgenes por si usas <ul> */
+    list-style: none;         /* 🌟 QUITAR PUNTOS BLANCOS O VIÑETAS DE LISTA */
+    width: 100%;
+}
+
+/* LÍNEA VERDE CONECTOR EN EL FONDO */
+.fases-container::after {
+    content: "";
+   
+    bottom: 5px;
+    left: 6%;                  
+    right: 6%;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(0, 255, 85, 0.1) 0%, rgba(0, 255, 85, 0.6) 50%, rgba(0, 255, 85, 0.1) 100%);
+    z-index: 1;
+}
+
+/* CADA ELEMENTO DE FASE */
+.fase-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    list-style: none;         /* 🌟 Asegurar eliminación de viñetas en cada ítem */
+}
+
+/* CAJA DE CONTENIDO INTERNO */
+.fase-content {
+    width: 100%;
+    /*background: rgba(12, 16, 23, 0.6);*/
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    border-radius: 6px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-sizing: border-box;
+    min-height: 68px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease; /* Transición para efecto táctico */
+}
+
+/* 🌟 EFECTO HOVER PROFESIONAL AL PASAR EL MOUSE */
+.fase-content:hover {
+    border-color: rgba(0, 255, 85, 0.25);
+    box-shadow: 
+        inset 0 0 12px rgba(0, 255, 85, 0.05),
+        0 0 15px rgba(0, 0, 0, 0.4);
+}
+
+/* ICONO CIRCULAR VERDE */
+.fase-icon {
+    width: 36px;
+    height: 36px;
+    border: 1px solid #00ff55;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #00ff55;
+    background: rgba(0, 255, 85, 0.03);
+    box-shadow: 0 0 10px rgba(0, 255, 85, 0.2);
+    flex-shrink: 0;
+}
+
+.fase-icon i {
+    font-size: 13px;
+}
+
+/* TEXTOS INTERNOS */
+.fase-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.fase-text h5 {
+    margin: 0;
+    color: #ffffff;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    line-height: 1.2;
+}
+
+.sub-red {
+    color: #ff3a3a;
+    font-size: 0.62rem;
+    font-weight: 600;
+    font-family: monospace;
+}
+
+/* CÍRCULO NODOS DE VERIFICACIÓN (CHECKS INFERIORES) */
+.fase-check-node {
+    position: relative;
+    z-index: 2; 
+    color: #00ff55;
+    background: #04060a; 
+    padding: 0 4px;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: drop-shadow(0 0 5px rgba(0, 255, 85, 0.6));
+}
+.right-panel{
+    background:#04060a;
+    border:1px solid rgba(255,58,58,.15);
+
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+
+    padding:20px;
+}
+/* ========================================
+   NIVEL DE RIESGO
+======================================== */
+
+.risk-card{
+    margin-top:20px;
+    padding:15px;
+
+    border:1px solid rgba(255,255,255,.05);
+
+    border-radius:8px;
+
+    background:#090c11;
+
+    text-align:center;
+}
+
+.risk-card h4{
+    color:#ff3a3a;
+    font-size:.75rem;
+    margin-bottom:15px;
+}
+
+/* CIRCULO */
+
+.risk-circle{
+    width:90px;
+    height:90px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    border:6px solid #00ff55;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    box-shadow:
+        0 0 10px rgba(0,255,85,.4),
+        inset 0 0 10px rgba(0,255,85,.2);
+}
+
+.risk-circle span{
+    color:white;
+    font-size:1.4rem;
+    font-weight:bold;
+}
+
+.risk-level{
+    color:#00ff55;
+    margin-top:10px;
+    font-weight:bold;
+    letter-spacing:1px;
+}
+
+.risk-card p{
+    color:#a8a8a8;
+    font-size:.75rem;
+    margin-top:10px;
+    line-height:1.4;
+}
+
+/* ========================================
+   FASES COMPLETADAS
+======================================== */
+
+.progress-card{
+    margin-top:20px;
+
+    padding:15px;
+
+    border:1px solid rgba(255,255,255,.05);
+
+    border-radius:8px;
+
+    background:#090c11;
+}
+
+.progress-card h4{
+    color:#ff3a3a;
+    font-size:.75rem;
+    margin-bottom:15px;
+}
+
+.progress-header{
+    display:flex;
+    justify-content:space-between;
+
+    color:white;
+    font-weight:bold;
+
+    margin-bottom:10px;
+}
+
+.progress-bar{
+    width:100%;
+    height:10px;
+
+    background:#1a1a1a;
+
+    border-radius:20px;
+
+    overflow:hidden;
+}
+
+.progress-fill{
+    width:100%;
+
+    height:100%;
+
+    background:#00ff55;
+
+    box-shadow:
+        0 0 10px #00ff55,
+        0 0 20px rgba(0,255,85,.4);
 }

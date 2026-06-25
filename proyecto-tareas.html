@@ -52,54 +52,106 @@
 </header>
 <section class="dashboard">
 
-    <!-- 🔴 PANEL IZQUIERDO -->
-    <!-- PANEL IZQUIERDO -->
+   <!-- 🔴 PANEL IZQUIERDO -->
+<!-- 🔴 PANEL IZQUIERDO -->
 <div class="panel left-panel">
 
-    <h3>INFO OBJETIVO</h3>
+    <!-- =========================
+         INFO OBJETIVO
+    ========================== -->
+    <div class="panel-section">
 
-    <div class="info-item">
-        <i class="fas fa-globe"></i>
-        <div>
-            <span class="label">Dominio</span>
-            <p>alumnos.uni.edu.pe</p>
+        <h3>INFO OBJETIVO</h3>
+
+        <div class="info-item">
+            <i class="fas fa-globe"></i>
+            <div>
+                <span class="label">Dominio</span>
+                <p>alumnos.uni.edu.pe</p>
+            </div>
         </div>
+
+        <div class="info-item">
+            <i class="fas fa-crosshairs"></i>
+            <div>
+                <span class="label">IP Objetivo</span>
+                <p class="ip-green">190.105.247.141</p>
+            </div>
+        </div>
+
+        <div class="info-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <div>
+                <span class="label">Ubicación</span>
+                <p>Lima, Perú 🇵🇪</p>
+            </div>
+        </div>
+
+        <div class="info-item">
+            <i class="fas fa-network-wired"></i>
+            <div>
+                <span class="label">ISP</span>
+                <p>Fravatel EIRL</p>
+            </div>
+        </div>
+
+        <div class="info-item">
+            <i class="fas fa-university"></i>
+            <div>
+                <span class="label">Organización</span>
+                <p>Universidad Nacional de Ingeniería</p>
+            </div>
+        </div>
+
     </div>
 
-    <div class="info-item">
-        <i class="fas fa-crosshairs"></i>
-        <div>
-            <span class="label">IP Objetivo</span>
-            <p class="ip-green">190.105.247.141</p>
+    <!-- =========================
+         NIVEL DE RIESGO
+    ========================== -->
+    <div class="panel-section">
+
+        <h3>NIVEL DE RIESGO</h3>
+
+        <div class="info-item">
+            <i class="fas fa-exclamation-triangle"></i>
+            <div>
+                <span class="label">Score</span>
+                <p class="risk-value">2.6 — LOW</p>
+            </div>
         </div>
+
+        <div class="info-item">
+            <i class="fas fa-shield-alt"></i>
+            <div>
+                <span class="label">Estado</span>
+                <p>RIESGO BAJO basado en hallazgos detectados</p>
+            </div>
+        </div>
+
     </div>
 
-    <div class="info-item">
-        <i class="fas fa-map-marker-alt"></i>
-        <div>
-            <span class="label">Ubicación</span>
-            <p>Lima, Perú 🇵🇪</p>
-        </div>
-    </div>
+    <!-- =========================
+         FASES COMPLETADAS
+    ========================== -->
+    <div class="panel-section">
 
-    <div class="info-item">
-        <i class="fas fa-network-wired"></i>
-        <div>
-            <span class="label">ISP</span>
-            <p>Fravatel EIRL</p>
-        </div>
-    </div>
+        <h3>FASES COMPLETADAS</h3>
 
-    <div class="info-item">
-        <i class="fas fa-university"></i>
-        <div>
-            <span class="label">Organización</span>
-            <p>Universidad Nacional de Ingeniería</p>
+        <div class="info-item">
+            <i class="fas fa-tasks"></i>
+            <div>
+                <span class="label">Progreso</span>
+                <p>5/5 — 100%</p>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width:100%"></div>
+                </div>
+            </div>
         </div>
+
     </div>
 
 </div>
-
     <!-- 🔴 PANEL CENTRAL -->
    <!-- BANNER PURPLE TEAM -->
 <div class="panel center-panel">
@@ -114,11 +166,7 @@
         <h4>GESTIÓN DE VULNERABILIDADES E INGENIERÍA DE DETECCIÓN</h4>
 
         <p>
-            Este laboratorio práctico ha sido diseñado bajo una metodología híbrida
-            de seguridad (Purple Team) para evaluar de forma exhaustiva la superficie
-            de ataque y la resiliencia del dominio objetivo. Combinamos técnicas
-            ofensivas (Red Team) para identificar vulnerabilidades con controles
-            defensivos (Blue Team) para detectar y responder a las amenazas.
+           Este laboratorio práctico ha sido diseñado bajo una metodología híbrida de seguridad (Purple Team) para evaluar de forma exhaustiva la superficie de ataque y la resiliencia del dominio objetivo. Combinamos técnicas ofensivas (Red Team), orientadas a identificar vulnerabilidades, con controles defensivos (Blue Team) para detectar y responder eficazmente a las amenazas.
         </p>
 
     </div>
@@ -155,7 +203,102 @@
     </div>
 
 </div>
+<!-- 🟢 CUADRO DE MANDO DEL PROYECTO (BARRA INFERIOR) -->
+<div class="project-dashboard-panel">
+    
+    <!-- Título de la sección -->
+    <div class="dashboard-section-title">
+        <i class="fas fa-project-diagram"></i>
+        <span>CUADRO DE MANDO DEL PROYECTO</span>
+    </div>
 
+    <!-- Contenedor de las fases/pasos -->
+    <div class="fases-container">
+
+        <!-- Paso 1 -->
+        <div class="fase-item">
+            <div class="fase-content">
+                <div class="fase-icon">
+                    <i class="fas fa-search"></i> <!-- Usa fa-search o fa-eye si no tienes Pro -->
+                </div>
+                <div class="fase-text">
+                    <h5>RECONOCIMIENTO PASIVO</h5>
+                    <span class="sub-red">Shodan OSINT</span>
+                </div>
+            </div>
+            <div class="fase-check-node">
+                <i class="fas fa-check-circle"></i>
+            </div>
+        </div>
+
+        <!-- Paso 2 -->
+        <div class="fase-item">
+            <div class="fase-content">
+                <div class="fase-icon">
+                    <i class="fas fa-terminal"></i>
+                </div>
+                <div class="fase-text">
+                    <h5>ESCANEO DE PUERTOS</h5>
+                    <span class="sub-red">Nmap Scanner</span>
+                </div>
+            </div>
+            <div class="fase-check-node">
+                <i class="fas fa-check-circle"></i>
+            </div>
+        </div>
+
+        <!-- Paso 3 -->
+        <div class="fase-item">
+            <div class="fase-content">
+                <div class="fase-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="fase-text">
+                    <h5>GESTIÓN DE VULNERABILIDADES</h5>
+                    <span class="sub-red">OpenVAS</span>
+                </div>
+            </div>
+            <div class="fase-check-node">
+                <i class="fas fa-check-circle"></i>
+            </div>
+        </div>
+
+        <!-- Paso 4 -->
+        <div class="fase-item">
+            <div class="fase-content">
+                <div class="fase-icon">
+                    <i class="fas fa-bell"></i> <!-- o fa-wave-square / fa-chart-line -->
+                </div>
+                <div class="fase-text">
+                    <h5>ANÁLISIS DE PROTOCOLOS</h5>
+                    <span class="sub-red">Wireshark</span>
+                </div>
+            </div>
+            <div class="fase-check-node">
+                <i class="fas fa-check-circle"></i>
+            </div>
+        </div>
+
+        <!-- Paso 5 -->
+        <div class="fase-item">
+            <div class="fase-content">
+                <div class="fase-icon">
+                    <i class="fas fa-bell"></i>
+                </div>
+                <div class="fase-text">
+                    <h5>INGENIERÍA DE DETECCIÓN</h5>
+                    <span class="sub-red">Snort IDS</span>
+                </div>
+            </div>
+            <div class="fase-check-node">
+                <i class="fas fa-check-circle"></i>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</section>
     <!-- Vinculación del JavaScript al final del body para que cargue rápido -->
     <script src="estilos.js"></script>
 </body>
