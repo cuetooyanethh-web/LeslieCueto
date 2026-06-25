@@ -746,88 +746,207 @@ body {
         0 0 20px rgba(0,255,85,.4);
 }
 /* ========================================
-   RESPONSIVE MÓVIL
+   RESPONSIVE MOBILE / TABLET
 ======================================== */
-@media (max-width: 768px) {
 
-    .dashboard {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        padding: 10px;
+@media screen and (max-width: 768px) {
+
+    /* HEADER */
+    .hud-header{
+        display:flex;
+        flex-direction:column;
+        align-items:flex-start;
+        gap:12px;
+        padding:12px;
+    }
+
+    .hud-logo-container{
+        width:100%;
+    }
+
+    /* NAVEGACIÓN DESLIZABLE */
+    .hud-nav{
+        width:100%;
+        display:flex;
+        flex-wrap:nowrap;
+        overflow-x:auto;
+        overflow-y:hidden;
+        white-space:nowrap;
+        gap:0;
+
+        scrollbar-width:none;
+        -ms-overflow-style:none;
+    }
+
+    .hud-nav::-webkit-scrollbar{
+        display:none;
+    }
+
+    .hud-btn{
+        flex:0 0 auto;
+        padding:10px 14px;
+        font-size:.75rem;
+        white-space:nowrap;
+    }
+
+    .hud-status{
+        width:100%;
+        justify-content:center;
+    }
+
+    /* DASHBOARD */
+    .dashboard{
+        display:flex;
+        flex-direction:column;
+        gap:15px;
+        padding:10px;
     }
 
     .left-panel,
     .center-panel,
     .right-panel,
-    .project-dashboard-panel {
-        width: 100%;
-        grid-column: auto;
-        grid-row: auto;
+    .project-dashboard-panel{
+        width:100%;
+        max-width:100%;
+        box-sizing:border-box;
     }
 
-    .center-panel {
-        flex-direction: column;
-        padding: 20px;
-        gap: 20px;
+    .left-panel{
+        grid-column:auto;
+        grid-row:auto;
     }
 
-    .center-content {
-        min-width: 100%;
+    .center-panel{
+        display:flex;
+        flex-direction:column;
+        gap:20px;
+        padding:20px;
+        grid-column:auto;
+        grid-row:auto;
     }
 
-    .center-map {
-        flex: none;
-        max-width: 100%;
-        width: 100%;
+    .center-content{
+        width:100%;
+        min-width:unset;
     }
 
-    .center-map img {
-        width: 100%;
+    .center-content h1{
+        font-size:1.8rem;
+        line-height:1.2;
     }
 
-    .hud-header {
-        flex-wrap: wrap;
-        gap: 10px;
-        padding: 10px;
+    .center-content h4{
+        font-size:.8rem;
     }
 
-    .hud-nav {
-        width: 100%;
-        overflow-x: auto;
-        justify-content: flex-start;
-        scrollbar-width: none;
+    .center-content p{
+        font-size:.8rem;
+        text-align:left;
     }
 
-    .hud-nav::-webkit-scrollbar {
-        display: none;
+    .center-map{
+        width:100%;
+        max-width:100%;
+        flex:none;
     }
 
-    .hud-btn {
-        white-space: nowrap;
-        padding: 8px 12px;
-        font-size: 0.75rem;
+    .center-map img{
+        width:100%;
+        height:auto;
+        display:block;
     }
 
-    .fases-container {
-        flex-direction: column;
-        gap: 15px;
+    .right-panel{
+        justify-content:center;
     }
 
-    .fase-item {
-        width: 100%;
+    .target-card{
+        width:100%;
+        height:auto;
+        min-height:140px;
     }
 
-    .target-card {
-        height: auto;
-        min-height: 140px;
+    .project-dashboard-panel{
+        grid-column:auto;
+        grid-row:auto;
     }
 
-    .center-content h1 {
-        font-size: 1.2rem;
+    /* FASES */
+    .fases-container{
+        flex-direction:column;
+        gap:15px;
     }
 
-    .center-content p {
-        font-size: 0.75rem;
+    .fase-item{
+        width:100%;
+    }
+
+    .fase-content{
+        width:100%;
+    }
+
+    .fase-check-node{
+        display:none;
+    }
+
+    /* INFO */
+    .info-item{
+        gap:10px;
+    }
+
+    .info-item p{
+        font-size:.85rem;
+        word-break:break-word;
+    }
+
+    /* RISK */
+    .risk-circle{
+        width:75px;
+        height:75px;
+    }
+
+    .risk-circle span{
+        font-size:1.2rem;
+    }
+}
+
+
+/* ========================================
+   MÓVILES PEQUEÑOS
+======================================== */
+
+@media screen and (max-width: 480px){
+
+    .logo-title{
+        font-size:.95rem;
+    }
+
+    .logo-sub{
+        font-size:.55rem;
+    }
+
+    .hud-btn{
+        font-size:.70rem;
+        padding:8px 10px;
+    }
+
+    .center-content h1{
+        font-size:1.5rem;
+    }
+
+    .center-content p{
+        font-size:.75rem;
+    }
+
+    .panel,
+    .left-panel,
+    .center-panel,
+    .project-dashboard-panel{
+        padding:15px;
+    }
+
+    .target-content{
+        flex-direction:column;
+        align-items:flex-start;
     }
 }
