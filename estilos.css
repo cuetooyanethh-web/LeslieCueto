@@ -540,7 +540,7 @@ body {
 /* CAJA DE CONTENIDO INTERNO */
 .fase-content {
     width: 100%;
-    /*background: rgba(12, 16, 23, 0.6);*/
+    background: rgba(12, 16, 23, 0.6);
     background: transparent;
     border: 1px solid rgba(255, 255, 255, 0.03);
     border-radius: 6px;
@@ -610,8 +610,7 @@ body {
     position: relative;
     z-index: 2; 
     color: #00ff55;
-    background: #04060a; 
-    padding: 0 4px;
+    
     font-size: 14px;
     display: flex;
     justify-content: center;
