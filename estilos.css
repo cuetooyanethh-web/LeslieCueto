@@ -4,6 +4,7 @@
     --border-color: #2b0a0a;
     --text-primary: #e6e6e6;
     --text-secondary: #a0a0a0;
+     --light-text:#fff;
 
     /* COLORES PRO */
     --neon-red: #ff2a2a;
@@ -13,12 +14,20 @@
 
     --alert-bg-red: #0e0505;
 }
-body {
+/*body {
     margin: 0;
     background: var(--bg-color);
     color: var(--text-primary);
     font-family: monospace;
+}*/
+body{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background:radial-gradient(circle at top, #111 0%, #000 100%);
+    color:var(--light-text);
+    line-height:1.6;
+    overflow-x:hidden;
 }
+
 .tab-content {
     display: none;
 }
