@@ -552,408 +552,244 @@ footer{
 
     transition:2s ease;
 }
-/*========================================
-  HERO DASHBOARD
-========================================*/
+/* ==========================================================================
+   HERO - AUDITORÍA PURPLE TEAM
+   ========================================================================== */
 
-.hero-dashboard{
-
- 
-     display:grid;
-    grid-template-columns:1.6fr 1fr 320px;
-
-    gap:30px;
-
-    align-items:center;
-
-    padding:26px 34px;
-
-    min-height:300px;
-
-    background:rgba(10,12,18,.90);
-
-    border:1px solid rgba(255,46,46,.18);
-
-    border-radius:10px;
-
-    box-shadow:0 0 18px rgba(255,0,0,.10);
-
-    overflow:hidden;
-
-    position:relative;
-      
-}
-.hero-info{
-      padding-right:30px;
-
-    padding-top:10px;
-}
-/* Línea inferior roja */
-
-.hero-dashboard::after{
-
-    content:"";
-
-    position:absolute;
-
-    left:0;
-    bottom:0;
-
-    width:100%;
-    height:2px;
-
-    background:linear-gradient(90deg,
-    transparent,
-    #ff2e2e,
-    transparent);
-
+/* Contenedor principal en fila */
+.hero-dashboard {
+     background-color: #07080a; /* Fondo oscuro integrado */
+    border: none; /* Quitamos bordes exteriores si los tuviera */
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    box-sizing: border-box;
+    width: 100%;
 }
 
-/*========================================
-  INFORMACIÓN
-========================================*/
-
-.hero-title{
-
-    color:white;
-
-    font-size:56px;
-
-    font-weight:700;
-
-    line-height:1;
-
-    margin-bottom:10px;
+/* --- 1. INFORMACIÓN PRINCIPAL (IZQUIERDA) --- */
+.hero-info {
+    flex: 0 0 42%;
+    max-width: 42%;
 }
 
-.hero-title span{
-
-    color:#ff2e2e;
+.hero-title {
+    color: #ffffff;
+    font-size: 26px;
+    font-weight: 800;
+    margin: 0 0 8px 0;
+    letter-spacing: 0.5px;
 }
 
-.hero-subtitle{
-
-    color:#ff3a3a;
-
-    font-size:18px;
-
-    font-weight:600;
-
-    margin-bottom:25px;
-
-    text-transform:uppercase;
-
-    letter-spacing:1px;
+.hero-title span {
+    color: #ff3333; /* Resaltado PURPLE TEAM en rojo */
 }
 
-.hero-description{
-
-    color:#b6b6b6;
-
-    font-size:15px;
-
-    line-height:1.8;
-
-    max-width:700px;
+.hero-subtitle {
+    color: #ff3333;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin: 0 0 20px 0;
+    text-transform: uppercase;
 }
 
-/*========================================
-  MAPA
-========================================*/
-
-.hero-map{
-
-    position:relative;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
+.hero-description {
+    color: #8a8d93;
+    font-size: 11px;
+    line-height: 1.8;
+    margin: 0;
+    text-align: justify;
 }
 
-.hero-map img{
-  width:95%;
-
-    margin:auto;
-     opacity:.88;
-
-    filter:drop-shadow(0 0 12px rgba(255,0,0,.35));
+/* --- 2. MAPA MUNDIAL (CENTRO) --- */
+.hero-map {
+      flex: 0 0 35%; /* Le damos más presencia al mapa en el centro */
+    max-width: 35%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/*========================================
-  OBJETIVO
-========================================*/
-
-.target-point{
-
-    position:absolute;
-
-    left:28%;
-
-    top:44%;
+.hero-map img {
+    width: 100%;
+    height: auto;
+    display: block;
+    opacity: 0.7; /* Opacidad para mimetizarse con el fondo oscuro */
+    filter: drop-shadow(0 0 10px rgba(255, 51, 51, 0.1));
 }
 
-.center-dot{
-
-    width:10px;
-    height:10px;
-
-    border-radius:50%;
-
-    background:#ff2e2e;
-
-    position:absolute;
-
-    left:0;
-    top:0;
-
-    z-index:10;
+/* Punto Objetivo (Efecto Radar en Sudamérica / Perú) */
+.target-point {
+    position: absolute;
+    top: 55%;  /* Ajusta estos porcentajes para ubicarlo exactamente */
+    left: 32%; /* sobre el punto rojo de tu imagen "mapa.PNG" */
+    width: 20px;
+    height: 20px;
+    transform: translate(-50%, -50%);
 }
 
-.pulse{
-
-    position:absolute;
-
-    width:14px;
-    height:14px;
-
-    border-radius:50%;
-
-    border:2px solid #ff2e2e;
-
-    animation:pulse 2s infinite;
+.center-dot {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background-color: #ff3333;
+    border-radius: 50%;
+    top: 7px;
+    left: 7px;
+    box-shadow: 0 0 8px #ff3333;
 }
 
-.pulse2{
-
-    animation-delay:1s;
+/* Ondas expansivas de radar */
+.pulse {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ff3333;
+    border-radius: 50%;
+    box-sizing: border-box;
+    animation: radar-pulse 2s infinite linear;
+    opacity: 0;
 }
 
-/*========================================
-  TARJETA OBJETIVO
-========================================*/
-
-.hero-target{
-
-      width:100%;
-    height:240px;
-
-    background:rgba(13,16,24,.96);
-
-    border:1px solid rgba(255,50,50,.28);
-
-    border-radius:10px;
-
-    padding:24px;
-
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-
-    position:relative;
-
-    overflow:hidden;
+.pulse2 {
+    animation-delay: 1s;
 }
 
-.target-header{
-
-      color:#ff3b3b;
-
-    font-size:18px;
-
-    font-weight:700;
-
-    letter-spacing:1px;
-
-    text-transform:uppercase;
-}
-
-.target-body{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:18px;
-
-    margin:0;
-}
-
-.target-icon{
-
-    width:58px;
-    height:58px;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    border:1px solid rgba(255,50,50,.35);
-
-    color:#ff3434;
-
-    font-size:24px;
-
-    flex-shrink:0;
-}
-.target-data{
-
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-}
-
-.target-data h4{
-
-  
-    color:#fff;
-
-    font-size:20px;   
-
-    font-weight:700;
-
-    margin-bottom:6px;
-
-    line-height:1.3;
-}
-
-.target-data p{
-
-  color:#8f97a4;
-
-    font-size:15px;
-}
-
-/*========================================
-  SCANNER
-========================================*/
-
-.scanner{
-
-     width:100%;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    height:55px;
-}
-
-.scanner-light{
-
-  position:relative;
-
-    width:140px;
-
-    height:2px;
-
-    background:#ff2e2e;
-
-    box-shadow:0 0 12px #ff2e2e;
-
-}
-
-.scanner-light::before{
-
-     content:"";
-
-    position:absolute;
-
-    left:50%;
-    top:-20px;
-
-    transform:translateX(-50%);
-
-    width:2px;
-    height:42px;
-
-    background:#ff2e2e;
-
-    box-shadow:0 0 12px #ff2e2e;
-}
-.hero-target::before{
-
-    content:"";
-
-    position:absolute;
-
-    top:12px;
-    right:12px;
-
-    width:18px;
-    height:18px;
-
-    border-top:2px solid rgba(255,60,60,.45);
-    border-right:2px solid rgba(255,60,60,.45);
-}
-.hero-target::after{
-
-    content:"";
-
-    position:absolute;
-
-    bottom:12px;
-    left:12px;
-
-    width:18px;
-    height:18px;
-
-    border-bottom:2px solid rgba(255,60,60,.45);
-    border-left:2px solid rgba(255,60,60,.45);
-}
-/*========================================
-  ANIMACIONES
-========================================*/
-
-@keyframes pulse{
-
-    0%{
-
-        transform:scale(.5);
-
-        opacity:1;
+@keyframes radar-pulse {
+    0% {
+        transform: scale(0.5);
+        opacity: 1;
     }
-
-    100%{
-
-        transform:scale(5);
-
-        opacity:0;
+    100% {
+        transform: scale(2.5);
+        opacity: 0;
     }
-
 }
 
-/*========================================
-  RESPONSIVE
-========================================*/
-
-@media(max-width:1200px){
-
-.hero-dashboard{
-
-grid-template-columns:1fr;
-
-text-align:center;
-
+/* --- 3. OBJETIVO ANALIZADO (DERECHA) --- */
+.hero-target {
+    flex: 0 0 20%; 
+    max-width: 20%;
+    min-width: 230px; /* Le damos unos píxeles más para que el texto respire */
+    background-color: #0b0c10;
+    border: 1px solid #ff3333; /* Borde rojo encendido en los 3 lados */
+    border-bottom: 2px solid #ff3333; /* Base más marcada */
+    border-radius: 6px;
+    padding: 16px;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 125px; 
+    box-shadow: inset 0 0 15px rgba(255, 51, 51, 0.1); /* Brillo interno sutil */
 }
 
-.hero-description{
-
-margin:auto;
-
+/* Esquina superior derecha biselada (Estilo Cyberpunk) */
+.hero-target::after {
+    content: '';
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    width: 16px;
+    height: 16px;
+    background-color: #07080a; /* Oculta la esquina original */
+    transform: rotate(45deg) translate(-30%, -30%);
+    border-left: 1px solid #ff3333; /* Mantiene la continuidad del borde */
+    z-index: 2;
+}
+.target-header {
+    color: #ff3333;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
 }
 
-.hero-target{
-
-max-width:380px;
-
-margin:auto;
-
+.target-body {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
+.target-icon {
+    font-size: 20px;
+    color: #ff3333;
+    background-color: rgba(255, 51, 51, 0.05);
+    width: 44px;
+    height: 44px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 51, 51, 0.3);
+}
+
+.target-data h4 {
+    color: #ffffff;
+    font-size: 13px;
+    margin: 0 0 4px 0;
+    font-weight: 600;
+}
+
+.target-data p {
+    color: #8a8d93;
+    font-size: 11px;
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* --- EFECTO DE LUZ INFERIOR MEJORADO (EL CONO DE LUZ) --- */
+.scanner {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 35px; /* Ampliamos altura para el reflejo */
+    pointer-events: none;
+    overflow: hidden;
+}
+
+/* El cono triangular de luz con animación de respiración táctica */
+.scanner::before {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 15%;
+    width: 70%;
+    height: 25px;
+    background: linear-gradient(to top, rgba(255, 51, 51, 0.4), transparent);
+    clip-path: polygon(10% 100%, 90% 100%, 50% 0%);
+    animation: glow-pulse 3s infinite ease-in-out; /* Activa el pulso de luz */
+}
+
+/* La base brillante que también parpadea suavemente */
+.scanner-light {
+    position: absolute;
+    bottom: 0;
+    left: 5%;
+    width: 90%;
+    height: 2px;
+    background-color: #ff3333;
+    box-sizing: border-box;
+    box-shadow: 0 -2px 10px 2px #ff3333;
+    animation: glow-pulse 3s infinite ease-in-out;
+}
+
+/* Animación de opacidad para simular análisis en vivo */
+@keyframes glow-pulse {
+    0%, 100% {
+        opacity: 0.6;
+        filter: drop-shadow(0 0 5px #ff3333);
+    }
+    50% {
+        opacity: 1;
+        filter: drop-shadow(0 0 15px #ff3333);
+    }
 }
 /*========================================
   DASHBOARD
@@ -1034,6 +870,7 @@ margin:auto;
     height: 1.5px; /* Grosor fino idéntico a la imagen */
     background-color: #00ff66;
     z-index: 1;
+   
 }
 
 /* 3. Las tarjetas: permitimos que sus nodos se posicionen de manera absoluta */
