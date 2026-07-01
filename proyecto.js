@@ -328,4 +328,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 });
- 
+     /*========================================
+      INTERACCIÓN DE PESTAÑAS (TABS)
+    ========================================*/
+    const tabButtons = document.querySelectorAll(".tab-item");
+
+    if (tabButtons.length > 0) {
+        tabButtons.forEach(button => {
+            button.addEventListener("click", function() {
+                // Quita el rojo de la pestaña que lo tenga
+                tabButtons.forEach(btn => btn.classList.remove("active"));
+                // Le pone el rojo a la pestaña que presionas
+                this.classList.add("active");
+            });
+        });
+    }
