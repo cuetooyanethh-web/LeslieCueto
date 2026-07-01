@@ -988,3 +988,156 @@ margin:auto;
     margin-top:0; 
 
 }
+/*CUADRO*/
+/* ==========================================================================
+   CUADRO DE MANDO DEL PROYECTO - ESTILOS
+   ========================================================================== */
+
+/* Fondo oscuro general del panel con estética de ciberseguridad */
+.command-panel {
+    background-color: #0b0c10;
+    border: 1px solid #1f2330;
+    border-radius: 6px;
+    padding: 24px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+}
+
+/* Sección de Título en Rojo */
+.dashboard-section-title {
+    color: #ff3333;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* 1. El contenedor principal: le damos suficiente espacio abajo */
+.fases-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    position: relative;
+    padding-bottom: 50px; /* Espacio exacto para que quepa la línea y los checks dentro */
+}
+
+/* 2. La línea verde: ahora se posiciona de forma segura dentro del contenedor */
+.fases-container::before {
+    content: '';
+    position: absolute;
+    bottom: 21px; /* Altura perfecta e idéntica a tu imagen de referencia */
+    left: 4%;     /* Margen izquierdo para que no choque con los bordes del cuadro principal */
+    right: 4%;    /* Margen derecho igual */
+    height: 1.5px; /* Grosor fino idéntico a la imagen */
+    background-color: #00ff66;
+    z-index: 1;
+}
+
+/* 3. Las tarjetas: permitimos que sus nodos se posicionen de manera absoluta */
+.fase-item {
+    flex: 1;
+    margin: 0 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: visible; /* Permite que el nodo baje sin cortarse */
+}
+
+/* Caja de contenido (Icono + Textos) */
+.fase-content {
+    background-color: #12141c;
+    border: 1px solid #1f2330;
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    height: 100%;
+     transition: all 0.3s ease; /* Controla la velocidad de la animación */
+    cursor: pointer; /* Cambia el cursor a una mano */
+}
+
+/* Iconos de las tecnologías en verde circular */
+.fase-icon {
+    min-width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 255, 102, 0.4);
+    background-color: rgba(0, 255, 102, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #00ff66;
+    font-size: 18px;
+
+    transition: all 0.3s ease;
+}
+/* 2. Efecto cuando el mouse pasa sobre la tarjeta (.fase-item) */
+.fase-item:hover .fase-content {
+    border-color: #00ff66; /* El borde se vuelve verde neón */
+    background-color: #161924; /* El fondo se aclara un poquito */
+    transform: translateY(-4px); /* La tarjeta sube 4 píxeles flotando suavemente */
+    box-shadow: 0 4px 20px rgba(0, 255, 102, 0.15); /* Crea un resplandor verde sutil abajo */
+}
+
+/* 3. Efecto en el icono circular cuando pasas el mouse */
+.fase-item:hover .fase-icon {
+    color: #fff; /* El icono de adentro se vuelve blanco */
+    background-color: #00ff66; /* El fondo del círculo se llena de verde */
+    box-shadow: 0 0 12px #00ff66; /* Le da un efecto de brillo neón al círculo */
+}
+
+/* 4. Efecto opcional: El check de abajo también brilla al pasar el mouse */
+.fase-item:hover .fase-check-node i {
+    transform: scale(1.1); /* El círculo del check se agranda un 10% */
+    box-shadow: 0 0 10px #00ff66; /* Le da brillo al check inferior */
+    transition: all 0.3s ease;
+}
+
+/* Contenedor de textos */
+.fase-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.fase-text h5 {
+    color: #e0e0e0;
+    margin: 0;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    line-height: 1.3;
+}
+
+.fase-text .sub-red {
+    color: #ff3333;
+    font-size: 10px;
+    font-weight: 500;
+}
+/* 4. Los nodos de verificación: se clavan de forma exacta sobre la línea verde */
+.fase-check-node {
+    position: absolute;
+    bottom: -35px; /* Baja el círculo la distancia exacta hacia la línea verde */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5; /* Se superpone encima de la línea verde */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 5. El círculo de verificación (icono de FontAwesome) */
+.fase-check-node i {
+    color: #00ff66;
+    font-size: 15px; /* Tamaño pequeño y discreto igual al de tu diseño base */
+    background-color: #07080a; /* Usa el color exacto del fondo oscuro de tu cuadro */
+    border-radius: 50%;
+    display: inline-block;
+    line-height: 1;
+    padding: 1px; /* Evita que la línea verde se asome por detrás del círculo */
+}
