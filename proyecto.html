@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auditoría Integral Purple Team</title>
+    <link rel="stylesheet" href="proyecto.css">
+    <script src="https://kit.fontawesome.com/2193d055c9.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <canvas id="matrix"></canvas>
+<header class="hud-header">
+
+    <div class="hud-container">
+
+        <div class="hud-logo-container">
+
+            <div class="hud-logo-text">
+                <span class="logo-title">
+                    PURPLE <span class="text-red">TEAM</span>
+                </span>
+
+                <span class="logo-sub">
+                    CYBERSECURITY LAB
+                </span>
+            </div>
+
+        </div>
+
+        <nav class="hud-nav">
+
+            <a href="#inicio" class="active">INICIO</a>
+
+            <a href="#shodan">SHODAN</a>
+
+            <a href="#nmap">NMAP</a>
+
+            <a href="#openvas">OPENVAS</a>
+
+            <a href="#wireshark">WIRESHARK</a>
+
+            <a href="#snort">SNORT IDS</a>
+
+            <a href="#reporte">REPORTE FINAL</a>
+
+        </nav>
+
+        <div class="hud-status">
+            <span class="status-dot"></span>
+            SISTEMA ACTIVO
+        </div>
+
+    </div>
+
+</header>
+<div class="dashboard">
+<!-- ========================================
+     PANEL IZQUIERDO - INFORMACIÓN
+======================================== -->
+
+<aside class="sidebar">
+
+    <!-- INFO OBJETIVO -->
+    <section class="info-card">
+
+        <h3 class="card-title">
+            INFO OBJETIVO
+        </h3>
+
+        <div class="info-item">
+            <div class="info-icon">
+                <i class="fas fa-globe"></i>
+            </div>
+
+            <div class="info-text">
+                <span class="label">Dominio</span>
+                <span class="value">
+                    alumnos.uni.edu.pe
+                    <i class="fas fa-external-link-alt external"></i>
+                </span>
+            </div>
+        </div>
+
+        <div class="info-item">
+            <div class="info-icon">
+                <i class="fas fa-crosshairs"></i>
+            </div>
+
+            <div class="info-text">
+                <span class="label">IP Objetivo</span>
+                <span class="value green">
+                    190.105.247.141
+                </span>
+            </div>
+        </div>
+
+        <div class="info-item">
+            <div class="info-icon">
+                <i class="fas fa-map-marker-alt"></i>
+            </div>
+
+            <div class="info-text">
+                <span class="label">Ubicación</span>
+                <span class="value">
+                    Lima, Perú 🇵🇪
+                </span>
+            </div>
+        </div>
+
+        <div class="info-item">
+            <div class="info-icon">
+                <i class="fas fa-network-wired"></i>
+            </div>
+
+            <div class="info-text">
+                <span class="label">ISP</span>
+                <span class="value">
+                    Fravatel EIRL
+                </span>
+            </div>
+        </div>
+
+        <div class="info-item">
+            <div class="info-icon">
+                <i class="fas fa-university"></i>
+            </div>
+
+            <div class="info-text">
+                <span class="label">Organización</span>
+                <span class="value">
+                    Universidad Nacional de Ingeniería
+                </span>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- NIVEL DE RIESGO -->
+    <section class="risk-card">
+
+        <h3 class="card-title">
+            NIVEL DE RIESGO
+        </h3>
+
+        <div class="risk-circle">
+
+            <svg width="150" height="150">
+
+                <circle
+                    class="circle-bg"
+                    cx="75"
+                    cy="75"
+                    r="55">
+                </circle>
+
+                <circle
+                    class="circle-progress"
+                    cx="75"
+                    cy="75"
+                    r="55">
+                </circle>
+
+            </svg>
+
+            <div class="risk-value">
+
+                <span class="score">
+                    2.6
+                </span>
+
+                <span class="level">
+                    LOW
+                </span>
+
+            </div>
+
+        </div>
+
+        <h4 class="risk-title">
+            RIESGO BAJO
+        </h4>
+
+        <p class="risk-description">
+            Basado en hallazgos detectados
+        </p>
+
+    </section>
+
+    <!-- FASES -->
+    <section class="progress-card">
+
+        <h3 class="card-title">
+            FASES COMPLETADAS
+        </h3>
+
+        <div class="progress-header">
+
+            <span class="completed">
+                5 / 5
+            </span>
+
+            <span class="percent">
+                100%
+            </span>
+
+        </div>
+
+        <div class="progress-bar">
+
+            <div class="progress-fill"></div>
+
+        </div>
+
+    </section>
+
+</aside>
+<main class="dashboard-content">
+<!-- =========================================
+     HERO - AUDITORÍA PURPLE TEAM
+========================================= -->
+
+<section class="hero-dashboard">
+
+    <!-- Información principal -->
+    <div class="hero-info">
+
+        <h1 class="hero-title">
+            AUDITORÍA INTEGRAL
+            <span>PURPLE TEAM</span>
+        </h1>
+
+        <h2 class="hero-subtitle">
+            GESTIÓN DE VULNERABILIDADES E INGENIERÍA DE DETECCIÓN
+        </h2>
+
+        <p class="hero-description">
+            Este laboratorio práctico ha sido diseñado bajo una metodología híbrida de
+            seguridad (Purple Team) para evaluar de forma exhaustiva la superficie de
+            ataque y la resiliencia del dominio objetivo. Se combinan técnicas ofensivas
+            (Red Team) para identificar vulnerabilidades con controles defensivos
+            (Blue Team) para detectar y responder a las amenazas.
+        </p>
+
+    </div>
+
+    <!-- Mapa Mundial -->
+    <div class="hero-map">
+
+        <img src="images/mapa.PNG" alt="Mapa Mundial">
+
+        <!-- Punto objetivo -->
+        <div class="target-point">
+
+            <span class="pulse"></span>
+            <span class="pulse pulse2"></span>
+            <span class="center-dot"></span>
+
+        </div>
+
+    </div>
+
+    <!-- Objetivo -->
+    <div class="hero-target">
+
+        <div class="target-header">
+
+            OBJETIVO ANALIZADO
+
+        </div>
+
+        <div class="target-body">
+
+            <div class="target-icon">
+
+                <i class="fas fa-desktop"></i>
+
+            </div>
+
+            <div class="target-data">
+
+                <h4>alumnos.uni.edu.pe</h4>
+
+                <p>190.105.247.141</p>
+
+            </div>
+
+        </div>
+
+        <div class="scanner">
+
+            <div class="scanner-light"></div>
+
+        </div>
+
+    </div>
+
+</section>
+</main>
+
+</div>
+
+
+<script src="proyecto.js"></script>
+</body>
+</html>
