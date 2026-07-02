@@ -643,6 +643,48 @@
              alt="Resultado Nmap">
 
     </div>
+ <div class="report-panel real-time-alerts">
+        <h3 class="alerts-main-title">ALERTAS EN TIEMPO REAL</h3>
+
+        <div class="alerts-stack">
+            <!-- Alerta Amarilla -->
+            <div class="alert-card border-yellow">
+                <div class="alert-icon yellow-txt"><i class="fas fa-exclamation-triangle"></i></div>
+                <div class="alert-info">
+                    <h5>NMAP SCAN DETECTADO</h5>
+                    <p>Escaneo de puertos TCP detectado</p>
+                    <span class="alert-meta">IP: 190.105.247.141</span>
+                </div>
+                <span class="alert-time">Hace 2 min</span>
+            </div>
+
+            <!-- Alerta Verde -->
+            <div class="alert-card border-green">
+                <div class="alert-icon green-txt"><i class="fas fa-shield-virus"></i></div>
+                <div class="alert-info">
+                    <h5>OPENVAS SCAN</h5>
+                    <p>Vulnerabilidad escaneada</p>
+                    <span class="alert-meta">Severidad: <span class="green-txt">LOW (2.6)</span></span>
+                </div>
+                <span class="alert-time">Hace 5 min</span>
+            </div>
+
+            <!-- Alerta Roja -->
+            <div class="alert-card border-red">
+                <div class="alert-icon red-txt"><i class="fas fa-bell"></i></div>
+                <div class="alert-info">
+                    <h5>SNORT ALERT</h5>
+                    <p>Posible escaneo de tipo SYN</p>
+                    <span class="alert-meta">Regla: 1:1000001</span>
+                </div>
+                <span class="alert-time">Hace 8 min</span>
+            </div>
+        </div>
+
+        <button class="view-all-alerts-btn">
+            VER TODAS LAS ALERTAS <i class="fas fa-arrow-right"></i>
+        </button>
+    </div>
 
           
   </div>
