@@ -411,31 +411,31 @@
     <div class="reports-tabs-container">
         
         <!-- Pestaña 1 (Activa por defecto) -->
-        <button class="tab-item active" data-tab="shodan">
+        <button class="tab-item active" data-tab="shodan-tab">
             <i class="fas fa-search tab-icon"></i>
             <span class="tab-text">1. SHODAN OSINT</span>
         </button>
 
         <!-- Pestaña 2 -->
-        <button class="tab-item " data-tab="nmap">
+        <button class="tab-item " data-tab="nmap-tab">
             <i class="fas fa-terminal tab-icon"></i>
             <span class="tab-text">2. NMAP SCAN</span>
         </button>
 
         <!-- Pestaña 3 -->
-        <button class="tab-item" data-tab="openvas">
+        <button class="tab-item" data-tab="openvas-tab">
             <i class="fas fa-shield-alt tab-icon"></i>
             <span class="tab-text">3. OPENVAS REPORTS</span>
         </button>
 
         <!-- Pestaña 4 -->
-        <button class="tab-item" data-tab="wireshark">
+        <button class="tab-item" data-tab="wireshark-tab">
             <i class="fas fa-wave-square tab-icon"></i>
             <span class="tab-text">4. WIRESHARK</span>
         </button>
 
         <!-- Pestaña 5 -->
-        <button class="tab-item" data-tab="snort">
+        <button class="tab-item" data-tab="snort-tab">
             <i class="fas fa-bell tab-icon"></i>
             <span class="tab-text">5. SNORT IDS</span>
         </button>
@@ -443,7 +443,214 @@
     </div>
 
 </section>
+<!-- =========================================
+     CONTENIDO DEL REPORTE: SHODAN OSINT
+========================================= -->
 
+<section id="shodan-tab" class="tab-content active-content">
+
+<section class="report-content-section">
+
+    <!-- 1. Columna Izquierda: Inteligencia Pasiva -->
+    <div class="report-panel passive-intel">
+        <h3 class="panel-main-title">FASE 1: OSINT CON SHODAN</h3>
+        <h4 class="panel-sub-title">INTELIGENCIA PASIVA</h4>
+        <p class="panel-description">
+            Recolección de información pública sin interacción directa con el objetivo.
+        </p>
+
+        <ul class="intel-data-list">
+            <li>
+                <span class="label"><i class="fas fa-fingerprint"></i> IP Identificada</span>
+                <span class="value green-txt">190.105.247.141</span>
+            </li>
+            <li>
+                <span class="label"><i class="fas fa-globe"></i> HTTP Status</span>
+                <span class="value yellow-txt">301 Moved Permanently</span>
+            </li>
+            <li>
+                <span class="label"><i class="fas fa-server"></i> Servidor</span>
+                <span class="value">Apache</span>
+            </li>
+            <li>
+                <span class="label"><i class="fas fa-building"></i> ISP</span>
+                <span class="value">Fravatel EIRL</span>
+            </li>
+            <li>
+                <span class="label"><i class="fas fa-map-marker-alt"></i> Ubicación</span>
+                <span class="value">Lima, Perú 🇵🇪</span>
+            </li>
+            <li>
+                <span class="label"><i class="fas fa-file-code"></i> Content-Type</span>
+                <span class="value text-muted">text/html; charset=iso-8859-1</span>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 2. Columna Central: Captura de la Interfaz Shodan -->
+    <div class="report-panel shodan-image-container">
+        <!-- Solo debes asegurarte de que tu imagen se llame shodan.PNG dentro de tu carpeta images -->
+        <img src="images/shodan-search.png" alt="Interfaz de Shodan OSINT" class="shodan-screenshot">
+    </div>
+
+    <!-- 3. Columna Derecha: Alertas en Tiempo Real -->
+    <div class="report-panel real-time-alerts">
+        <h3 class="alerts-main-title">ALERTAS EN TIEMPO REAL</h3>
+
+        <div class="alerts-stack">
+            <!-- Alerta Amarilla -->
+            <div class="alert-card border-yellow">
+                <div class="alert-icon yellow-txt"><i class="fas fa-exclamation-triangle"></i></div>
+                <div class="alert-info">
+                    <h5>NMAP SCAN DETECTADO</h5>
+                    <p>Escaneo de puertos TCP detectado</p>
+                    <span class="alert-meta">IP: 190.105.247.141</span>
+                </div>
+                <span class="alert-time">Hace 2 min</span>
+            </div>
+
+            <!-- Alerta Verde -->
+            <div class="alert-card border-green">
+                <div class="alert-icon green-txt"><i class="fas fa-shield-virus"></i></div>
+                <div class="alert-info">
+                    <h5>OPENVAS SCAN</h5>
+                    <p>Vulnerabilidad escaneada</p>
+                    <span class="alert-meta">Severidad: <span class="green-txt">LOW (2.6)</span></span>
+                </div>
+                <span class="alert-time">Hace 5 min</span>
+            </div>
+
+            <!-- Alerta Roja -->
+            <div class="alert-card border-red">
+                <div class="alert-icon red-txt"><i class="fas fa-bell"></i></div>
+                <div class="alert-info">
+                    <h5>SNORT ALERT</h5>
+                    <p>Posible escaneo de tipo SYN</p>
+                    <span class="alert-meta">Regla: 1:1000001</span>
+                </div>
+                <span class="alert-time">Hace 8 min</span>
+            </div>
+        </div>
+
+        <button class="view-all-alerts-btn">
+            VER TODAS LAS ALERTAS <i class="fas fa-arrow-right"></i>
+        </button>
+    </div>
+
+</section>
+</section>
+<!-- =========================================
+     FASE 2 - NMAP
+========================================= -->
+<section id="nmap-tab" class="tab-content">
+
+<div class="report-content-section">
+
+    <!-- PANEL IZQUIERDO -->
+    <div class="report-panel">
+
+        <h3 class="panel-main-title">
+            FASE 2: NMAP SCANNER
+        </h3>
+
+        <h4 class="panel-sub-title">
+            ENUMERACIÓN DE SERVICIOS
+        </h4>
+
+        <p class="panel-description">
+            Se realizó un reconocimiento activo utilizando Nmap para identificar
+            puertos abiertos, servicios publicados y versiones detectadas del
+            servidor objetivo.
+        </p>
+
+        <ul class="intel-data-list">
+
+            <li>
+                <span class="label">
+                    <i class="fas fa-network-wired"></i>
+                    Host
+                </span>
+
+                <span class="value green-txt">
+                    190.105.247.141
+                </span>
+            </li>
+
+            <li>
+                <span class="label">
+                    <i class="fas fa-heartbeat"></i>
+                    Estado
+                </span>
+
+                <span class="value green-txt">
+                    Host Up (87 ms)
+                </span>
+            </li>
+
+            <li>
+                <span class="label">
+                    <i class="fas fa-door-open"></i>
+                    Puertos abiertos
+                </span>
+
+                <span class="value">
+                    80/tcp, 443/tcp
+                </span>
+            </li>
+
+            <li>
+                <span class="label">
+                    <i class="fas fa-lock"></i>
+                    Puerto cerrado
+                </span>
+
+                <span class="value">
+                    113/tcp
+                </span>
+            </li>
+
+            <li>
+                <span class="label">
+                    <i class="fas fa-server"></i>
+                    Servicio
+                </span>
+
+                <span class="value">
+                    Apache httpd
+                </span>
+            </li>
+
+            <li>
+                <span class="label">
+                    <i class="fas fa-terminal"></i>
+                    Comando
+                </span>
+
+                <span class="value text-muted">
+                    nmap -sV -F 190.105.247.141
+                </span>
+            </li>
+
+        </ul>
+
+    </div>
+
+    <!-- PANEL CENTRAL -->
+    <div class="report-panel shodan-image-container">
+
+        <img src="images/nmap-fast.png"
+             class="shodan-screenshot"
+             alt="Resultado Nmap">
+
+    </div>
+
+          
+  </div>
+
+   
+</div>
+
+</section>
 </main>
 
 </div>

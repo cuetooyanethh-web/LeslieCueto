@@ -1075,3 +1075,403 @@ footer{
 .tab-item:hover:not(.active) .tab-text {
     color: #ffffff;
 }
+
+
+/* ==========================================================================
+   CONTENIDO DEL REPORTE: SHODAN OSINT - ESTILOS CORREGIDOS
+   ========================================================================== */
+
+.report-content-section {
+    display: grid;
+    grid-template-columns: 28% 46% 23%; /* Mantenemos las proporciones exactas */
+    gap: 15px;
+    width: 100%;
+    margin-top: -5px;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Paneles base oscuros */
+.report-panel {
+    background-color: #07080a;
+    border: 1px solid #14161d;
+    border-radius: 6px;
+    padding: 16px;
+    box-sizing: border-box;
+    color: #ffffff;
+}
+
+/* --- COLUMNA 1: INTELIGENCIA PASIVA --- */
+.panel-main-title {
+    color: #ff3333;
+    font-size: 13px;
+    font-weight: bold;
+    margin: 0 0 10px 0;
+    letter-spacing: 0.5px;
+}
+
+.panel-sub-title {
+    color: #00ff66;
+    font-size: 11px;
+    font-weight: bold;
+    margin: 0 0 8px 0;
+}
+
+.panel-description {
+    color: #8a8d93;
+    font-size: 11px;
+    line-height: 1.5;
+    margin: 0 0 20px 0;
+}
+
+.intel-data-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.intel-data-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #11131a;
+    padding-bottom: 8px;
+    font-size: 11px;
+}
+
+.intel-data-list .label {
+    color: #8a8d93;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.intel-data-list .label i {
+    width: 12px;
+}
+
+/* --- COLUMNA 2: CONTENEDOR DE LA IMAGEN CENTRAL DE SHODAN --- */
+.shodan-image-container {
+    background-color: #0b0c10;
+    border: 1px solid #1f2330; /* Borde rojo oscuro/gris táctico */
+    padding: 0; /* Un pequeño margen interno para el marco */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 6px;
+}
+
+.shodan-screenshot {
+     width: 100%;
+    height: auto;
+    display: block;
+    margin: 0;
+}
+
+/* --- COLUMNA 3: ALERTAS EN TIEMPO REAL --- */
+.real-time-alerts {
+    border-left: 1px solid #200808;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.alerts-main-title {
+    color: #ff3333;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    margin: 0 0 15px 0;
+    border-left: 2px solid #ff3333;
+    padding-left: 6px;
+}
+
+.alerts-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-grow: 1;
+}
+
+.alert-card {
+    background-color: #0b0c10;
+    border: 1px solid #14161d;
+    border-radius: 4px;
+    padding: 10px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    position: relative;
+}
+
+.alert-card h5 {
+    margin: 0 0 2px 0;
+    font-size: 10px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.alert-card p {
+    margin: 0 0 4px 0;
+    font-size: 9px;
+    color: #8a8d93;
+}
+
+.alert-meta {
+    font-size: 9px;
+    color: #5a5d64;
+    font-family: monospace;
+}
+
+.alert-time {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 8.5px;
+    color: #4a4d55;
+}
+
+.border-yellow { border-left: 3px solid #ffcc00; }
+.border-green { border-left: 3px solid #00ff66; }
+.border-red { border-left: 3px solid #ff3333; }
+
+.yellow-txt { color: #ffcc00; }
+.green-txt { color: #00ff66; }
+.red-txt { color: #ff3333; }
+.text-muted { color: #5a5d64; }
+
+.view-all-alerts-btn {
+    background: transparent;
+    border: 1px solid #200808;
+    color: #ff3333;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 15px;
+    width: 100%;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.view-all-alerts-btn:hover {
+    background-color: rgba(255, 51, 51, 0.05);
+    border-color: #ff3333;
+}
+
+/*========================================
+  NMAP - 2 COLUMNAS
+========================================*/
+
+#nmap-tab .report-content-section{
+
+    display:grid;
+
+    grid-template-columns:340px 1fr;
+
+    gap:25px;
+
+    margin-top:25px;
+
+    align-items:stretch;
+}
+
+/*========================================
+  PANEL
+========================================*/
+
+#nmap-tab .report-panel{
+
+    background:rgba(10,13,20,.92);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:10px;
+
+    padding:22px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.45);
+
+    transition:.35s;
+}
+
+#nmap-tab .report-panel:hover{
+
+    border-color:rgba(255,46,46,.35);
+
+    box-shadow:0 0 18px rgba(255,46,46,.12);
+}
+
+/*========================================
+  TITULOS
+========================================*/
+
+#nmap-tab .panel-main-title{
+
+    color:#ff3a3a;
+
+    font-size:20px;
+
+    font-weight:700;
+
+    margin-bottom:8px;
+}
+
+#nmap-tab .panel-sub-title{
+
+    color:#39ff14;
+
+    font-size:13px;
+
+    letter-spacing:1px;
+
+    text-transform:uppercase;
+
+    margin-bottom:15px;
+}
+
+#nmap-tab .panel-description{
+
+    color:#9ca4b3;
+
+    font-size:14px;
+
+    line-height:1.7;
+
+    margin-bottom:20px;
+}
+
+/*========================================
+  LISTA DE DATOS
+========================================*/
+
+#nmap-tab .intel-data-list{
+
+    list-style:none;
+}
+
+#nmap-tab .intel-data-list li{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:12px 0;
+
+    border-bottom:1px solid rgba(255,255,255,.05);
+}
+
+#nmap-tab .intel-data-list li:last-child{
+
+    border-bottom:none;
+}
+
+#nmap-tab .label{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    color:#9ca4b3;
+
+    font-size:13px;
+}
+
+#nmap-tab .label i{
+
+    color:#39ff14;
+}
+
+#nmap-tab .value{
+
+    color:#fff;
+
+    font-size:13px;
+
+    text-align:right;
+}
+
+#nmap-tab .green-txt{
+
+    color:#39ff14;
+
+    font-weight:700;
+}
+
+#nmap-tab .yellow-txt{
+
+    color:#ffc107;
+
+    font-weight:700;
+}
+
+#nmap-tab .text-muted{
+
+    color:#8b949e;
+
+    font-family:monospace;
+}
+
+/*========================================
+  IMAGEN NMAP
+========================================*/
+
+#nmap-tab .shodan-image-container{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+}
+
+#nmap-tab .shodan-screenshot{
+
+    width:100%;
+
+    border-radius:8px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:0 0 20px rgba(0,0,0,.35);
+
+    transition:.35s;
+}
+
+#nmap-tab .shodan-screenshot:hover{
+
+    transform:scale(1.02);
+
+    box-shadow:0 0 25px rgba(255,46,46,.18);
+}
+
+/*========================================
+  RESPONSIVE
+========================================*/
+
+@media(max-width:1100px){
+
+    #nmap-tab .report-content-section{
+
+        grid-template-columns:1fr;
+    }
+}
+.tab-content{
+    display:none;
+}
+
+.tab-content.active-content{
+    display:block;
+}

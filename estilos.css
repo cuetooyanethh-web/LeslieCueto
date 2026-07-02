@@ -518,9 +518,9 @@ body{
     display: flex;
     justify-content: space-between;
     gap: 15px;
-    padding: 0 0 15px 0;      /* 🌟 Forzar limpieza de paddings heredados */
-    margin: 0;                /* 🌟 Forzar limpieza de márgenes por si usas <ul> */
-    list-style: none;         /* 🌟 QUITAR PUNTOS BLANCOS O VIÑETAS DE LISTA */
+    padding: 0 0 15px 0;     
+    margin: 0;               
+    list-style: none;        
     width: 100%;
 }
 
@@ -543,7 +543,7 @@ body{
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    list-style: none;         /* 🌟 Asegurar eliminación de viñetas en cada ítem */
+    list-style: none;      
 }
 
 /* CAJA DE CONTENIDO INTERNO */

@@ -343,3 +343,47 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
     }
+document.addEventListener("DOMContentLoaded", () => {
+
+    const tabs = document.querySelectorAll(".tab-item");
+    const contents = document.querySelectorAll(".tab-content");
+
+    // Ocultar todos
+    contents.forEach(content => {
+        content.classList.remove("active-content");
+        content.style.display = "none";
+    });
+
+    // Mostrar Shodan al iniciar
+    const first = document.getElementById("shodan-tab");
+
+    if(first){
+        first.classList.add("active-content");
+        first.style.display = "block";
+    }
+
+    tabs.forEach(tab => {
+
+        tab.addEventListener("click", function(){
+
+            tabs.forEach(btn => btn.classList.remove("active"));
+
+            contents.forEach(content => {
+                content.classList.remove("active-content");
+                content.style.display = "none";
+            });
+
+            this.classList.add("active");
+
+            const section = document.getElementById(this.dataset.tab);
+
+            if(section){
+                section.classList.add("active-content");
+                section.style.display = "block";
+            }
+
+        });
+
+    });
+
+});
