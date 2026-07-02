@@ -1506,3 +1506,145 @@ grid-template-columns:1fr;
 }
 
 }
+
+
+/*=========================================================
+                    OPENVAS REPORT
+=========================================================*/
+/* ==========================================================
+   OPENVAS REPORT
+========================================================== */
+
+#openvas-tab .report-content-section{
+     display:grid;
+    grid-template-columns:28% 46% 23%;
+    gap:15px;
+    width:100%;
+    margin-top:-5px;
+    box-sizing:border-box;
+}
+
+/* PANEL */
+
+#openvas-tab .report-panel{
+   background:#07080a;
+    border:1px solid #14161d;
+    border-radius:6px;
+    padding:16px;
+    color:#fff;
+    box-sizing:border-box;
+}
+
+/* TITULOS */
+
+#openvas-tab .panel-main-title{
+ color:#ff3333;
+    font-size:13px;
+    font-weight:bold;
+    margin:0 0 10px;
+    letter-spacing:.5px;
+}
+
+#openvas-tab .panel-sub-title{
+    color:#00ff66;
+    font-size:11px;
+    font-weight:bold;
+    margin:0 0 8px;
+}
+
+#openvas-tab .panel-description{
+    color:#8a8d93;
+    font-size:11px;
+    line-height:1.5;
+    margin:0 0 20px;
+}
+
+/* LISTA */
+
+#openvas-tab .intel-data-list{
+    list-style:none;
+    padding:0;
+    margin:0;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+#openvas-tab .intel-data-list li{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid #11131a;
+    padding-bottom:8px;
+    font-size:11px;
+}
+
+#openvas-tab .label{
+    color:#8a8d93;
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+#openvas-tab .label i{
+    width:12px;
+    color:#00ff66;
+}
+
+#openvas-tab .value{
+    color:#ffffff;
+    text-align:right;
+}
+
+#openvas-tab .green-txt{
+    color:#00ff66;
+    font-weight:bold;
+}
+
+#openvas-tab .yellow-txt{
+    color:#ffcc00;
+    font-weight:bold;
+}
+
+#openvas-tab .red-txt{
+    color:#ff3333;
+    font-weight:bold;
+}
+
+#openvas-tab .text-muted{
+    color:#777;
+    font-family:monospace;
+}
+
+/* IMAGEN */
+
+#openvas-tab .shodan-image-container{
+    background:#0b0c10;
+    border:1px solid #1f2330;
+    border-radius:6px;
+    padding:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+      height:430px;
+}
+
+/* La imagen ocupa exactamente el mismo espacio que Nmap */
+
+#openvas-tab .shodan-screenshot{
+    width:100%;
+    height:auto;
+    display:block;
+    border-radius:6px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1200px){
+
+    #openvas-tab .report-content-section{
+        grid-template-columns:1fr;
+    }
+
+}

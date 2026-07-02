@@ -684,15 +684,163 @@
         <button class="view-all-alerts-btn">
             VER TODAS LAS ALERTAS <i class="fas fa-arrow-right"></i>
         </button>
+ </div>
+
+   
+
+
+</section>
+<!-- =========================================
+  =========================================
+     FASE 3 - OPENVAS
+========================================= -->
+<section id="openvas-tab" class="tab-content">
+
+<div class="report-content-section">
+
+    <!-- PANEL IZQUIERDO -->
+    <div class="report-panel">
+
+        <h3 class="panel-main-title">
+            FASE 3: OPENVAS
+        </h3>
+
+        <h4 class="panel-sub-title">
+            GESTIÓN DE VULNERABILIDADES
+        </h4>
+
+        <p class="panel-description">
+            Se realizó un análisis de vulnerabilidades mediante Greenbone
+            OpenVAS para identificar configuraciones inseguras y posibles
+            riesgos presentes en el servidor objetivo.
+        </p>
+
+        <ul class="intel-data-list">
+
+            <li>
+                <span class="label">
+                    <i class="fas fa-server"></i>
+                    Host
+                </span>
+
+                <span class="value green-txt">
+                    190.105.247.141
+                </span>
+            </li>
+
+            <li>
+                <span class="label">
+                    <i class="fas fa-globe"></i>
+                    Dominio
+                </span>
+
+                <span class="value">
+                    alumnos.uni.edu.pe
+                </span>
+            </li>
+
+            <li>
+                <span class="label">
+                    <i class="fas fa-bug"></i>
+                    Vulnerabilidades
+                </span>
+
+                <span class="value">
+                    2 Detectadas
+                </span>
+            </li>
+
+            <li>
+                <span class="label">
+                    <i class="fas fa-shield-alt"></i>
+                    Riesgo
+                </span>
+
+                <span class="value green-txt">
+                    LOW (2.6)
+                </span>
+            </li>
+
+            <li>
+                <span class="label">
+                    <i class="fas fa-check-circle"></i>
+                    Estado
+                </span>
+
+                <span class="value green-txt">
+                    Escaneo Finalizado
+                </span>
+            </li>
+
+        </ul>
+
     </div>
+
+    <!-- PANEL CENTRAL -->
+
+    <div class="report-panel shodan-image-container">
+
+        <img src="images/openvas-details.png"
+             class="shodan-screenshot"
+             alt="Reporte OpenVAS">
+
+    </div>
+
+    <!-- PANEL DERECHO -->
+
+    <div class="report-panel real-time-alerts">
+        <h3 class="alerts-main-title">ALERTAS EN TIEMPO REAL</h3>
+
+        <div class="alerts-stack">
+            <!-- Alerta Amarilla -->
+            <div class="alert-card border-yellow">
+                <div class="alert-icon yellow-txt"><i class="fas fa-exclamation-triangle"></i></div>
+                <div class="alert-info">
+                    <h5>NMAP SCAN DETECTADO</h5>
+                    <p>Escaneo de puertos TCP detectado</p>
+                    <span class="alert-meta">IP: 190.105.247.141</span>
+                </div>
+                <span class="alert-time">Hace 2 min</span>
+            </div>
+
+            <!-- Alerta Verde -->
+            <div class="alert-card border-green">
+                <div class="alert-icon green-txt"><i class="fas fa-shield-virus"></i></div>
+                <div class="alert-info">
+                    <h5>OPENVAS SCAN</h5>
+                    <p>Vulnerabilidad escaneada</p>
+                    <span class="alert-meta">Severidad: <span class="green-txt">LOW (2.6)</span></span>
+                </div>
+                <span class="alert-time">Hace 5 min</span>
+            </div>
+
+            <!-- Alerta Roja -->
+            <div class="alert-card border-red">
+                <div class="alert-icon red-txt"><i class="fas fa-bell"></i></div>
+                <div class="alert-info">
+                    <h5>SNORT ALERT</h5>
+                    <p>Posible escaneo de tipo SYN</p>
+                    <span class="alert-meta">Regla: 1:1000001</span>
+                </div>
+                <span class="alert-time">Hace 8 min</span>
+            </div>
+        </div>
+
+        <button class="view-all-alerts-btn">
+            VER TODAS LAS ALERTAS <i class="fas fa-arrow-right"></i>
+        </button>
+   
 
           
   </div>
 
    
-</div>
+
 
 </section>
+
+   
+
 </main>
 
 </div>
