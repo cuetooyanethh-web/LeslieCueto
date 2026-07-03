@@ -212,6 +212,59 @@
         </div>
 
     </section>
+    <!-- =========================================
+     TERMINAL DEL SOC
+========================================= -->
+
+<section class="terminal-monitor-section">
+
+    <div class="terminal-panel">
+
+        <div class="terminal-header">
+
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+
+            <span class="terminal-title">
+                root@purple-team:~$
+            </span>
+
+        </div>
+
+        <div class="terminal-body">
+
+<pre id="terminalOutput">Initializing Purple Team...
+Loading OSINT Module.............OK
+Loading Nmap Scanner............OK
+Loading OpenVAS Engine..........OK
+Loading Wireshark Analyzer......OK
+Loading Snort IDS...............OK
+
+Target:
+alumnos.uni.edu.pe
+
+IP:
+190.105.247.141
+
+Open Ports:
+80/tcp
+443/tcp
+
+Risk Score:
+LOW (2.6)
+
+Mission Status:
+SUCCESS
+
+root@purple-team:~$
+</pre>
+
+        </div>
+
+    </div>
+
+</section>
 
 </aside>
 <main class="dashboard-content">
@@ -532,9 +585,10 @@
             </div>
         </div>
 
-        <button class="view-all-alerts-btn">
-            VER TODAS LAS ALERTAS <i class="fas fa-arrow-right"></i>
-        </button>
+        <button class="view-all-alerts-btn" data-phase="shodan">
+    VER TODAS LAS ALERTAS
+    <i class="fas fa-arrow-right"></i>
+</button>
     </div>
 
 </section>
@@ -683,13 +737,13 @@
             </div>
         </div>
 
-        <button class="view-all-alerts-btn">
+        <button class="view-all-alerts-btn" data-phase="nmap">
             VER TODAS LAS ALERTAS <i class="fas fa-arrow-right"></i>
         </button>
  </div>
 
    
-
+</div>
 
 </section>
 <!-- =========================================
@@ -828,7 +882,7 @@
             </div>
         </div>
 
-        <button class="view-all-alerts-btn">
+        <button class="view-all-alerts-btn" data-phase="openvas">
             VER TODAS LAS ALERTAS <i class="fas fa-arrow-right"></i>
         </button>
    
@@ -837,7 +891,7 @@
   </div>
 
    
-
+</div>
 
 </section>
 
@@ -976,14 +1030,14 @@
             </div>
         </div>
 
-        <button class="view-all-alerts-btn">
+        <button class="view-all-alerts-btn" data-phase="wireshark">
             VER TODAS LAS ALERTAS <i class="fas fa-arrow-right"></i>
         </button>
    
 
           
   </div>
-
+</div>
    
 
 
@@ -1123,7 +1177,7 @@
             </div>
         </div>
 
-        <button class="view-all-alerts-btn">
+        <button class="view-all-alerts-btn" data-phase="snort">
             VER TODAS LAS ALERTAS <i class="fas fa-arrow-right"></i>
         </button>
    
@@ -1133,13 +1187,28 @@
 
    
 
-
+</div>
 </section>
 
 </main>
 
 </div>
+<!-- =====================================
+     MODAL DE ALERTAS
+====================================== -->
+<div id="alertsModal" class="alerts-modal">
 
+    <div class="alerts-modal-content">
+
+        <span class="close-alerts">&times;</span>
+
+        <h2 id="modalTitle">Alertas</h2>
+
+        <div id="modalBody"></div>
+
+    </div>
+
+</div>
 <script src="proyecto.js"></script>
 </body>
 </html>

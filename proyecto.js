@@ -328,62 +328,183 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 });
-     /*========================================
+/*========================================
       INTERACCIÓN DE PESTAÑAS (TABS)
-    ========================================*/
-    const tabButtons = document.querySelectorAll(".tab-item");
+========================================*/
 
-    if (tabButtons.length > 0) {
-        tabButtons.forEach(button => {
-            button.addEventListener("click", function() {
-                // Quita el rojo de la pestaña que lo tenga
-                tabButtons.forEach(btn => btn.classList.remove("active"));
-                // Le pone el rojo a la pestaña que presionas
-                this.classList.add("active");
-            });
+const tabButtons = document.querySelectorAll(".tab-item");
+const tabContents = document.querySelectorAll(".tab-content");
+
+tabButtons.forEach(button => {
+
+    button.addEventListener("click", function () {
+
+        // Quitar pestaña activa
+        tabButtons.forEach(btn => btn.classList.remove("active"));
+
+        // Ocultar todos los contenidos
+        tabContents.forEach(content => {
+            content.classList.remove("active-content");
         });
-    }
-document.addEventListener("DOMContentLoaded", () => {
 
-    const tabs = document.querySelectorAll(".tab-item");
-    const contents = document.querySelectorAll(".tab-content");
+        // Activar pestaña
+        this.classList.add("active");
 
-    // Ocultar todos
-    contents.forEach(content => {
-        content.classList.remove("active-content");
-        content.style.display = "none";
-    });
+        // Mostrar el contenido correspondiente
+        const target = document.getElementById(this.dataset.tab);
 
-    // Mostrar Shodan al iniciar
-    const first = document.getElementById("shodan-tab");
-
-    if(first){
-        first.classList.add("active-content");
-        first.style.display = "block";
-    }
-
-    tabs.forEach(tab => {
-
-        tab.addEventListener("click", function(){
-
-            tabs.forEach(btn => btn.classList.remove("active"));
-
-            contents.forEach(content => {
-                content.classList.remove("active-content");
-                content.style.display = "none";
-            });
-
-            this.classList.add("active");
-
-            const section = document.getElementById(this.dataset.tab);
-
-            if(section){
-                section.classList.add("active-content");
-                section.style.display = "block";
-            }
-
-        });
+        if(target){
+            target.classList.add("active-content");
+        }
 
     });
 
 });
+//==============================================
+// MODAL DASHBOARD ALERTAS
+//==============================================
+
+const modal=document.getElementById("alertsModal");
+const modalTitle=document.getElementById("modalTitle");
+const modalBody=document.getElementById("modalBody");
+const closeModal=document.querySelector(".close-alerts");
+
+const dashboardHTML=`
+
+<div class="alerts-dashboard">
+
+<div class="alert-section">
+
+<h2 style="color:#00ffe0;">🛰 SHODAN OSINT</h2>
+<hr>
+
+<p>✔ IP: 190.105.247.141</p>
+<p>✔ Servidor Apache</p>
+<p>✔ HTTP 301 Moved Permanently</p>
+<p>✔ ISP: Fravatel EIRL</p>
+<p>✔ Lima - Perú</p>
+
+</div>
+
+
+<div class="alert-section">
+
+<h2 style="color:#00bfff;">📡 NMAP</h2>
+<hr>
+
+<p>✔ Host activo</p>
+<p>✔ Puerto 80 abierto</p>
+<p>✔ Puerto 443 abierto</p>
+<p>✔ Puerto 113 cerrado</p>
+<p>✔ Apache httpd detectado</p>
+
+</div>
+
+
+<div class="alert-section">
+
+<h2 style="color:#00ff66;">🛡 OPENVAS</h2>
+<hr>
+
+<p>✔ 2 Vulnerabilidades</p>
+<p>✔ Riesgo LOW (2.6)</p>
+<p>✔ Escaneo completado</p>
+<p>✔ Sin vulnerabilidades críticas</p>
+
+</div>
+
+
+<div class="alert-section">
+
+<h2 style="color:#ffd000;">📶 WIRESHARK</h2>
+<hr>
+
+<p>✔ Captura ICMP</p>
+<p>✔ Captura TCP</p>
+<p>✔ Comunicación correcta</p>
+<p>✔ Sin pérdida de paquetes</p>
+
+</div>
+
+
+<div class="alert-section">
+
+<h2 style="color:#ff4444;">🚨 SNORT IDS</h2>
+<hr>
+
+<p>✔ IDS activo</p>
+<p>✔ 2 Alertas detectadas</p>
+<p>✔ Escaneo SYN identificado</p>
+<p>✔ Regla 1:1000001 ejecutada</p>
+
+</div>
+
+`;
+
+document.querySelectorAll(".view-all-alerts-btn").forEach(btn=>{
+
+btn.onclick=function(){
+
+modalTitle.innerHTML="CENTRO DE OPERACIONES DE SEGURIDAD (SOC)";
+modalBody.innerHTML=dashboardHTML;
+modal.style.display="flex";
+
+};
+
+});
+
+closeModal.onclick=function(){
+
+modal.style.display="none";
+
+};
+
+window.onclick=function(e){
+
+if(e.target===modal){
+
+modal.style.display="none";
+
+}
+
+};
+
+const terminal = document.getElementById("terminalOutput");
+
+const lines = [
+"Initializing Purple Team...",
+"[OK] Shodan",
+"[OK] Nmap",
+"[OK] OpenVAS",
+"[OK] Wireshark",
+"[OK] Snort IDS",
+"",
+"Target : alumnos.uni.edu.pe",
+"Risk : LOW (2.6)",
+"",
+"root@purple-team:~$"
+];
+
+if (terminal) {
+
+    terminal.textContent = "";
+
+    let i = 0;
+
+    function escribir() {
+
+        if (i < lines.length) {
+
+            terminal.textContent += lines[i] + "\n";
+
+            i++;
+
+            setTimeout(escribir, 180);
+
+        }
+
+    }
+
+    escribir();
+
+}
