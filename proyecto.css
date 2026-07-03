@@ -2653,3 +2653,147 @@ font-size:13px;
     }
 
 }
+
+/* =====================================================
+   RESPONSIVE - TABLET
+===================================================== */
+
+@media screen and (max-width:1024px){
+
+.dashboard{
+    grid-template-columns:1fr;
+    gap:15px;
+    padding:15px;
+}
+
+.sidebar-left,
+.main-content,
+.sidebar-right{
+    width:100%;
+}
+
+.report-content-section{
+    grid-template-columns:1fr;
+}
+
+.tabs-container{
+    overflow-x:auto;
+    white-space:nowrap;
+}
+
+}
+
+
+/* =====================================================
+   RESPONSIVE - CELULAR
+===================================================== */
+
+@media screen and (max-width:768px){
+
+body{
+    font-size:14px;
+}
+
+.dashboard{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    padding:10px;
+}
+
+.sidebar-left,
+.main-content,
+.sidebar-right{
+    width:100%;
+}
+
+.report-content-section{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.report-panel{
+    width:100%;
+}
+
+.shodan-image-container{
+    width:100%;
+}
+
+.shodan-screenshot{
+    width:100%;
+    height:auto;
+}
+
+.tabs-container{
+    overflow-x:auto;
+    white-space:nowrap;
+}
+
+.tab-item{
+    min-width:150px;
+    font-size:12px;
+}
+
+.project-dashboard-panel{
+    overflow-x:auto;
+}
+
+.alert-card{
+    flex-direction:column;
+}
+
+.view-all-alerts-btn{
+    font-size:12px;
+}
+
+}
+
+
+/* =====================================================
+   RESPONSIVE - CELULARES PEQUEÑOS
+===================================================== */
+
+@media screen and (max-width:480px){
+
+body{
+    font-size:13px;
+}
+
+.panel-main-title{
+    font-size:12px;
+}
+
+.panel-sub-title{
+    font-size:10px;
+}
+
+.intel-data-list li{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:6px;
+}
+
+.value{
+    text-align:left;
+}
+
+.alert-card{
+    padding:8px;
+}
+
+.alert-card h5{
+    font-size:10px;
+}
+
+.alert-card p{
+    font-size:9px;
+}
+
+.view-all-alerts-btn{
+    padding:8px;
+    font-size:10px;
+}
+
+}
