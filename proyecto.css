@@ -2684,116 +2684,75 @@ font-size:13px;
 }
 
 
-/* =====================================================
-   RESPONSIVE - CELULAR
-===================================================== */
+/* =========================================
+   FIX MOBILE PURPLE TEAM DASHBOARD
+========================================= */
 
-@media screen and (max-width:768px){
+@media screen and (max-width: 768px) {
 
 body{
-    font-size:14px;
+    overflow-x: hidden;
 }
 
-.dashboard{
-    display:flex;
-    flex-direction:column;
-    gap:15px;
-    padding:10px;
-}
-
-.sidebar-left,
-.main-content,
-.sidebar-right{
-    width:100%;
-}
-
+/* 🔥 TODO SE VUELVE UNA SOLA COLUMNA */
 .report-content-section{
-    display:flex;
-    flex-direction:column;
-    gap:15px;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px;
 }
 
+/* 🔥 PANEL MÁS PEQUEÑO */
 .report-panel{
-    width:100%;
+    padding: 10px !important;
+    font-size: 12px;
 }
 
+/* 🔥 RIESGO MÁS COMPACTO */
+#risk-panel,
+.risk-panel{
+    transform: scale(.9);
+    transform-origin: top left;
+}
+
+/* 🔥 FASES COMPLETADAS MÁS PEQUEÑO (LO QUE PEDISTE) */
+#phases-panel,
+.phases-panel{
+    transform: scale(.75);
+    transform-origin: top left;
+    margin-top: -10px;
+}
+
+/* 🔥 TERMINAL MÁS COMPACTA */
+.terminal,
+.terminal-box{
+    transform: scale(.7);
+    transform-origin: top left;
+    width: 140%;
+}
+
+/* 🔥 IMÁGENES AJUSTADAS */
 .shodan-image-container{
-    width:100%;
+    width: 100%;
 }
 
-.shodan-screenshot{
-    width:100%;
-    height:auto;
-}
-
-.tabs-container{
-    overflow-x:auto;
-    white-space:nowrap;
-}
-
-.tab-item{
-    min-width:150px;
-    font-size:12px;
-}
-
-.project-dashboard-panel{
-    overflow-x:auto;
-}
-
+/* 🔥 ALERTAS MÁS PEQUEÑAS */
 .alert-card{
-    flex-direction:column;
+    font-size: 11px;
+    padding: 8px;
 }
 
-.view-all-alerts-btn{
-    font-size:12px;
+/* 🔥 EVITA QUE SE DESCUADRE EL GRID */
+.dashboard{
+    grid-template-columns: 1fr !important;
 }
 
-}
-
-
-/* =====================================================
-   RESPONSIVE - CELULARES PEQUEÑOS
-===================================================== */
-
-@media screen and (max-width:480px){
-
-body{
-    font-size:13px;
-}
-
+/* 🔥 TEXTO GENERAL MÁS PEQUEÑO */
 .panel-main-title{
-    font-size:12px;
+    font-size: 12px !important;
 }
 
 .panel-sub-title{
-    font-size:10px;
-}
-
-.intel-data-list li{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:6px;
-}
-
-.value{
-    text-align:left;
-}
-
-.alert-card{
-    padding:8px;
-}
-
-.alert-card h5{
-    font-size:10px;
-}
-
-.alert-card p{
-    font-size:9px;
-}
-
-.view-all-alerts-btn{
-    padding:8px;
-    font-size:10px;
+    font-size: 10px !important;
 }
 
 }
