@@ -1,5 +1,6 @@
 :root{
     --primary-color:#ff2e2e;
+     --terminal-green:#39ff14;
     --dark-bg:#050505;
     --darker-bg:#000;
     --card-bg:rgba(15,15,15,.85);
@@ -7,6 +8,7 @@
     --gray-text:#c7c7c7;
     --border-color:rgba(255,255,255,.1);
     --transition:.3s;
+     --terminal-border:rgba(57,255,20,.25);
 }
 *{
     padding:0;
@@ -134,7 +136,7 @@ footer{
 }
 
 .logo-sub{
-    color:#39ff14;
+    color:var(--terminal-green);
     font-size:11px;
     letter-spacing:3px;
 }
@@ -201,7 +203,7 @@ footer{
 
 .hud-nav a.active{
 
-    color:#ff4040;
+    color:var(--primary-color);
 }
 
 .hud-nav a.active::after{
@@ -226,7 +228,7 @@ footer{
     border:1px solid rgba(57,255,20,.25);
     border-radius:6px;
 
-    color:#39ff14;
+    color:var(--terminal-green);
     font-size:12px;
     font-weight:600;
 }
@@ -346,7 +348,7 @@ footer{
     justify-content:center;
     align-items:center;
 
-    color:#39ff14;
+    color:var(--terminal-green);
 
     font-size:15px;
 
@@ -370,7 +372,7 @@ footer{
 
 .value{
 
-    color:white;
+    color:var(--light-text);
 
     font-size:14px;
 
@@ -381,7 +383,7 @@ footer{
 
 .value.green{
 
-    color:#39ff14;
+    color:var(--terminal-green);
 
     font-weight:700;
 }
@@ -432,7 +434,7 @@ footer{
 
     fill:none;
 
-    stroke:#ff2e2e;
+    stroke:var(--primary-color);
 
     stroke-width:10;
 
@@ -466,12 +468,12 @@ footer{
 
     font-weight:700;
 
-    color:white;
+    color:var(--light-text);
 }
 
 .level{
 
-    color:#39ff14;
+    color:var(--terminal-green);
 
     font-size:13px;
 
@@ -482,7 +484,7 @@ footer{
 
 .risk-title{
 
-    color:#39ff14;
+    color:var(--terminal-green);
 
     font-size:20px;
 
@@ -513,7 +515,7 @@ footer{
 
 .completed{
 
-    color:white;
+    color:var(--light-text);
 
     font-size:24px;
 
@@ -522,7 +524,7 @@ footer{
 
 .percent{
 
-    color:#39ff14;
+    color:var(--terminal-green);
 
     font-weight:700;
 }
