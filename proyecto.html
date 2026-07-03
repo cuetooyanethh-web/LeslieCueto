@@ -669,6 +669,8 @@
                 <span class="alert-time">Hace 5 min</span>
             </div>
 
+
+
             <!-- Alerta Roja -->
             <div class="alert-card border-red">
                 <div class="alert-icon red-txt"><i class="fas fa-bell"></i></div>
@@ -839,7 +841,300 @@
 
 </section>
 
+   <!-- =========================================
+     FASE 4 - WIRESHARK
+========================================= -->
+<section id="wireshark-tab" class="tab-content">
+
+<div class="report-content-section">
+
+    <!-- PANEL IZQUIERDO -->
+    <div class="report-panel">
+
+        <h3 class="panel-main-title">
+            FASE 4: WIRESHARK
+        </h3>
+
+        <h4 class="panel-sub-title">
+            ANÁLISIS DE TRÁFICO DE RED
+        </h4>
+
+        <p class="panel-description">
+            Captura y análisis del tráfico de red utilizando Wireshark para verificar
+            la conectividad del objetivo y observar el intercambio de paquetes ICMP
+            y TCP durante las pruebas de auditoría.
+        </p>
+
+        <ul class="intel-data-list">
+
+            <li>
+                <span class="label">
+                    <i class="fas fa-network-wired"></i>
+                    Host
+                </span>
+
+                <span class="value green-txt">
+                    190.105.247.141
+                </span>
+            </li>
+
+            <li>
+                <span class="label">
+                    <i class="fas fa-exchange-alt"></i>
+                    Protocolo
+                </span>
+
+                <span class="value">
+                    ICMP / TCP
+                </span>
+            </li>
+
+            <li>
+                <span class="label">
+                    <i class="fas fa-satellite-dish"></i>
+                    Captura
+                </span>
+
+                <span class="value green-txt">
+                    Activa
+                </span>
+            </li>
+
+            <li>
+                <span class="label">
+                    <i class="fas fa-terminal"></i>
+                    Filtro
+                </span>
+
+                <span class="value text-muted">
+                    icmp || tcp
+                </span>
+            </li>
+
+            <li>
+                <span class="label">
+                    <i class="fas fa-check-circle"></i>
+                    Resultado
+                </span>
+
+                <span class="value green-txt">
+                    Comunicación Exitosa
+                </span>
+            </li>
+
+        </ul>
+
+    </div>
+
+    <!-- PANEL CENTRAL -->
+
+    <div class="report-panel shodan-image-container">
+
+        <img src="images/wireshark-capture.png"
+             class="shodan-screenshot"
+             alt="Captura Wireshark">
+
+    </div>
+
+   <!-- PANEL DERECHO -->
+
+    <div class="report-panel real-time-alerts">
+        <h3 class="alerts-main-title">ALERTAS EN TIEMPO REAL</h3>
+
+        <div class="alerts-stack">
+            <!-- Alerta Amarilla -->
+            <div class="alert-card border-yellow">
+                <div class="alert-icon yellow-txt"><i class="fas fa-exclamation-triangle"></i></div>
+                <div class="alert-info">
+                    <h5>NMAP SCAN DETECTADO</h5>
+                    <p>Escaneo de puertos TCP detectado</p>
+                    <span class="alert-meta">IP: 190.105.247.141</span>
+                </div>
+                <span class="alert-time">Hace 2 min</span>
+            </div>
+
+            <!-- Alerta Verde -->
+            <div class="alert-card border-green">
+                <div class="alert-icon green-txt"><i class="fas fa-shield-virus"></i></div>
+                <div class="alert-info">
+                    <h5>OPENVAS SCAN</h5>
+                    <p>Vulnerabilidad escaneada</p>
+                    <span class="alert-meta">Severidad: <span class="green-txt">LOW (2.6)</span></span>
+                </div>
+                <span class="alert-time">Hace 5 min</span>
+            </div>
+
+            <!-- Alerta Roja -->
+            <div class="alert-card border-red">
+                <div class="alert-icon red-txt"><i class="fas fa-bell"></i></div>
+                <div class="alert-info">
+                    <h5>SNORT ALERT</h5>
+                    <p>Posible escaneo de tipo SYN</p>
+                    <span class="alert-meta">Regla: 1:1000001</span>
+                </div>
+                <span class="alert-time">Hace 8 min</span>
+            </div>
+        </div>
+
+        <button class="view-all-alerts-btn">
+            VER TODAS LAS ALERTAS <i class="fas fa-arrow-right"></i>
+        </button>
    
+
+          
+  </div>
+
+   
+
+
+</section>
+<!-- =========================================
+     FASE 5 - SNORT
+========================================= -->
+<section id="snort-tab" class="tab-content">
+
+<div class="report-content-section">
+
+    <!-- PANEL IZQUIERDO -->
+    <div class="report-panel">
+
+        <h3 class="panel-main-title">
+            FASE 5: SNORT IDS
+        </h3>
+
+        <h4 class="panel-sub-title">
+            DETECCIÓN DE INTRUSIONES
+        </h4>
+
+        <p class="panel-description">
+            Se realizó el monitoreo del tráfico mediante Snort IDS para detectar
+            actividades sospechosas durante la auditoría, incluyendo paquetes ICMP
+            y posibles eventos de reconocimiento de red.
+        </p>
+
+        <ul class="intel-data-list">
+
+            <li>
+                <span class="label">
+                    <i class="fas fa-server"></i>
+                    Host Monitorizado
+                </span>
+
+                <span class="value green-txt">
+                    190.105.247.141
+                </span>
+            </li>
+
+            <li>
+                <span class="label">
+                    <i class="fas fa-shield-alt"></i>
+                    IDS
+                </span>
+
+                <span class="value">
+                    Snort 2.9
+                </span>
+            </li>
+
+            <li>
+                <span class="label">
+                    <i class="fas fa-bell"></i>
+                    Alertas
+                </span>
+
+                <span class="value">
+                    2 Detectadas
+                </span>
+            </li>
+
+            <li>
+                <span class="label">
+                    <i class="fas fa-network-wired"></i>
+                    Tráfico
+                </span>
+
+                <span class="value green-txt">
+                    ICMP
+                </span>
+            </li>
+
+            <li>
+                <span class="label">
+                    <i class="fas fa-check-circle"></i>
+                    Estado
+                </span>
+
+                <span class="value green-txt">
+                    Monitoreo Activo
+                </span>
+            </li>
+
+        </ul>
+
+    </div>
+
+    <!-- PANEL CENTRAL -->
+
+    <div class="report-panel shodan-image-container">
+
+        <img src="images/snort.png"
+             class="shodan-screenshot"
+             alt="Alertas Snort">
+
+    </div>
+
+       <!-- PANEL DERECHO -->
+
+    <div class="report-panel real-time-alerts">
+        <h3 class="alerts-main-title">ALERTAS EN TIEMPO REAL</h3>
+
+        <div class="alerts-stack">
+            <!-- Alerta Amarilla -->
+            <div class="alert-card border-yellow">
+                <div class="alert-icon yellow-txt"><i class="fas fa-exclamation-triangle"></i></div>
+                <div class="alert-info">
+                    <h5>NMAP SCAN DETECTADO</h5>
+                    <p>Escaneo de puertos TCP detectado</p>
+                    <span class="alert-meta">IP: 190.105.247.141</span>
+                </div>
+                <span class="alert-time">Hace 2 min</span>
+            </div>
+
+            <!-- Alerta Verde -->
+            <div class="alert-card border-green">
+                <div class="alert-icon green-txt"><i class="fas fa-shield-virus"></i></div>
+                <div class="alert-info">
+                    <h5>OPENVAS SCAN</h5>
+                    <p>Vulnerabilidad escaneada</p>
+                    <span class="alert-meta">Severidad: <span class="green-txt">LOW (2.6)</span></span>
+                </div>
+                <span class="alert-time">Hace 5 min</span>
+            </div>
+
+            <!-- Alerta Roja -->
+            <div class="alert-card border-red">
+                <div class="alert-icon red-txt"><i class="fas fa-bell"></i></div>
+                <div class="alert-info">
+                    <h5>SNORT ALERT</h5>
+                    <p>Posible escaneo de tipo SYN</p>
+                    <span class="alert-meta">Regla: 1:1000001</span>
+                </div>
+                <span class="alert-time">Hace 8 min</span>
+            </div>
+        </div>
+
+        <button class="view-all-alerts-btn">
+            VER TODAS LAS ALERTAS <i class="fas fa-arrow-right"></i>
+        </button>
+   
+
+          
+  </div>
+
+   
+
+
+</section>
 
 </main>
 

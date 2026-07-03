@@ -1508,15 +1508,13 @@ grid-template-columns:1fr;
 }
 
 
-/*=========================================================
-                    OPENVAS REPORT
-=========================================================*/
-/* ==========================================================
-   OPENVAS REPORT
-========================================================== */
+
+/*=========================================
+        OPENVAS REPORT
+=========================================*/
 
 #openvas-tab .report-content-section{
-     display:grid;
+    display:grid;
     grid-template-columns:28% 46% 23%;
     gap:15px;
     width:100%;
@@ -1527,7 +1525,7 @@ grid-template-columns:1fr;
 /* PANEL */
 
 #openvas-tab .report-panel{
-   background:#07080a;
+    background:#07080a;
     border:1px solid #14161d;
     border-radius:6px;
     padding:16px;
@@ -1538,7 +1536,7 @@ grid-template-columns:1fr;
 /* TITULOS */
 
 #openvas-tab .panel-main-title{
- color:#ff3333;
+    color:#ff3333;
     font-size:13px;
     font-weight:bold;
     margin:0 0 10px;
@@ -1580,10 +1578,10 @@ grid-template-columns:1fr;
 }
 
 #openvas-tab .label{
-    color:#8a8d93;
     display:flex;
     align-items:center;
     gap:8px;
+    color:#8a8d93;
 }
 
 #openvas-tab .label i{
@@ -1592,7 +1590,7 @@ grid-template-columns:1fr;
 }
 
 #openvas-tab .value{
-    color:#ffffff;
+    color:#fff;
     text-align:right;
 }
 
@@ -1627,16 +1625,114 @@ grid-template-columns:1fr;
     justify-content:center;
     align-items:center;
     overflow:hidden;
-      height:430px;
 }
-
-/* La imagen ocupa exactamente el mismo espacio que Nmap */
 
 #openvas-tab .shodan-screenshot{
     width:100%;
     height:auto;
     display:block;
-    border-radius:6px;
+}
+
+/* PANEL DERECHO */
+
+#openvas-tab .real-time-alerts{
+    border-left:1px solid #200808;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+/* TITULO */
+
+#openvas-tab .alerts-main-title{
+    color:#ff3333;
+    font-size:11px;
+    font-weight:bold;
+    margin:0 0 15px;
+    border-left:2px solid #ff3333;
+    padding-left:6px;
+}
+
+/* ALERTAS */
+
+#openvas-tab .alerts-stack{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    flex:1;
+}
+
+#openvas-tab .alert-card{
+    background:#0b0c10;
+    border:1px solid #14161d;
+    border-radius:4px;
+    padding:10px;
+    display:flex;
+    gap:10px;
+    position:relative;
+}
+
+#openvas-tab .alert-card h5{
+    margin:0 0 2px;
+    color:#fff;
+    font-size:10px;
+}
+
+#openvas-tab .alert-card p{
+    margin:0 0 4px;
+    color:#8a8d93;
+    font-size:9px;
+}
+
+#openvas-tab .alert-meta{
+    color:#666;
+    font-size:9px;
+    font-family:monospace;
+}
+
+#openvas-tab .alert-time{
+    position:absolute;
+    right:10px;
+    top:10px;
+    color:#555;
+    font-size:8px;
+}
+
+#openvas-tab .border-yellow{
+    border-left:3px solid #ffcc00;
+}
+
+#openvas-tab .border-green{
+    border-left:3px solid #00ff66;
+}
+
+#openvas-tab .border-red{
+    border-left:3px solid #ff3333;
+}
+
+/* BOTÓN */
+
+#openvas-tab .view-all-alerts-btn{
+    width:100%;
+    margin-top:15px;
+    padding:10px;
+    background:transparent;
+    border:1px solid #200808;
+    color:#ff3333;
+    font-size:10px;
+    font-weight:bold;
+    border-radius:4px;
+    cursor:pointer;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:8px;
+    transition:.3s;
+}
+
+#openvas-tab .view-all-alerts-btn:hover{
+    background:rgba(255,51,51,.05);
+    border-color:#ff3333;
 }
 
 /* RESPONSIVE */
@@ -1646,5 +1742,476 @@ grid-template-columns:1fr;
     #openvas-tab .report-content-section{
         grid-template-columns:1fr;
     }
+
+}
+
+
+/*=========================================
+        WIRESHARK REPORT
+=========================================*/
+
+#wireshark-tab .report-content-section{
+    display:grid;
+    grid-template-columns:28% 46% 23%;
+    gap:15px;
+    width:100%;
+    margin-top:-5px;
+    box-sizing:border-box;
+}
+
+/* PANEL */
+
+#wireshark-tab .report-panel{
+    background:#07080a;
+    border:1px solid #14161d;
+    border-radius:6px;
+    padding:16px;
+    color:#fff;
+    box-sizing:border-box;
+}
+
+/* TITULOS */
+
+#wireshark-tab .panel-main-title{
+    color:#ff3333;
+    font-size:13px;
+    font-weight:bold;
+    margin:0 0 10px;
+    letter-spacing:.5px;
+}
+
+#wireshark-tab .panel-sub-title{
+    color:#00ff66;
+    font-size:11px;
+    font-weight:bold;
+    margin:0 0 8px;
+}
+
+#wireshark-tab .panel-description{
+    color:#8a8d93;
+    font-size:11px;
+    line-height:1.5;
+    margin:0 0 20px;
+}
+
+/* LISTA */
+
+#wireshark-tab .intel-data-list{
+    list-style:none;
+    padding:0;
+    margin:0;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+#wireshark-tab .intel-data-list li{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid #11131a;
+    padding-bottom:8px;
+    font-size:11px;
+}
+
+#wireshark-tab .label{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color:#8a8d93;
+}
+
+#wireshark-tab .label i{
+    color:#00ff66;
+    width:12px;
+}
+
+#wireshark-tab .value{
+    color:#fff;
+    text-align:right;
+}
+
+#wireshark-tab .green-txt{
+    color:#00ff66;
+    font-weight:bold;
+}
+
+#wireshark-tab .yellow-txt{
+    color:#ffcc00;
+    font-weight:bold;
+}
+
+#wireshark-tab .red-txt{
+    color:#ff3333;
+    font-weight:bold;
+}
+
+#wireshark-tab .text-muted{
+    color:#777;
+    font-family:monospace;
+}
+
+/* IMAGEN */
+
+#wireshark-tab .shodan-image-container{
+    background:#0b0c10;
+    border:1px solid #1f2330;
+    border-radius:6px;
+    padding:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+}
+
+#wireshark-tab .shodan-screenshot{
+    width:100%;
+    height:auto;
+    display:block;
+}
+
+/* PANEL DERECHO */
+
+#wireshark-tab .real-time-alerts{
+    border-left:1px solid #200808;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+/* TITULO */
+
+#wireshark-tab .alerts-main-title{
+    color:#ff3333;
+    font-size:11px;
+    font-weight:bold;
+    margin:0 0 15px;
+    border-left:2px solid #ff3333;
+    padding-left:6px;
+}
+
+/* ALERTAS */
+
+#wireshark-tab .alerts-stack{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    flex:1;
+}
+
+#wireshark-tab .alert-card{
+    background:#0b0c10;
+    border:1px solid #14161d;
+    border-radius:4px;
+    padding:10px;
+    display:flex;
+    gap:10px;
+    position:relative;
+}
+
+#wireshark-tab .alert-card h5{
+    margin:0 0 2px;
+    color:#fff;
+    font-size:10px;
+}
+
+#wireshark-tab .alert-card p{
+    margin:0 0 4px;
+    color:#8a8d93;
+    font-size:9px;
+}
+
+#wireshark-tab .alert-meta{
+    color:#666;
+    font-size:9px;
+    font-family:monospace;
+}
+
+#wireshark-tab .alert-time{
+    position:absolute;
+    right:10px;
+    top:10px;
+    color:#555;
+    font-size:8px;
+}
+
+#wireshark-tab .border-yellow{
+    border-left:3px solid #ffcc00;
+}
+
+#wireshark-tab .border-green{
+    border-left:3px solid #00ff66;
+}
+
+#wireshark-tab .border-red{
+    border-left:3px solid #ff3333;
+}
+
+/* BOTÓN */
+
+#wireshark-tab .view-all-alerts-btn{
+    width:100%;
+    margin-top:15px;
+    padding:10px;
+    background:transparent;
+    border:1px solid #200808;
+    color:#ff3333;
+    font-size:10px;
+    font-weight:bold;
+    border-radius:4px;
+    cursor:pointer;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:8px;
+    transition:.3s;
+}
+
+#wireshark-tab .view-all-alerts-btn:hover{
+    background:rgba(255,51,51,.05);
+    border-color:#ff3333;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1200px){
+
+    #wireshark-tab .report-content-section{
+        grid-template-columns:1fr;
+    }
+
+}
+
+/* ==========================================================
+   SNORT REPORT
+========================================================== */
+
+#snort-tab .report-content-section{
+    display:grid;
+    grid-template-columns:28% 46% 23%;
+    gap:15px;
+    width:100%;
+    margin-top:-5px;
+    box-sizing:border-box;
+}
+
+/* PANEL */
+
+#snort-tab .report-panel{
+    background:#07080a;
+    border:1px solid #14161d;
+    border-radius:6px;
+    padding:16px;
+    color:#fff;
+    box-sizing:border-box;
+}
+
+/* TITULOS */
+
+#snort-tab .panel-main-title{
+    color:#ff3333;
+    font-size:13px;
+    font-weight:bold;
+    margin:0 0 10px;
+    letter-spacing:.5px;
+}
+
+#snort-tab .panel-sub-title{
+    color:#00ff66;
+    font-size:11px;
+    font-weight:bold;
+    margin:0 0 8px;
+}
+
+#snort-tab .panel-description{
+    color:#8a8d93;
+    font-size:11px;
+    line-height:1.5;
+    margin:0 0 20px;
+}
+
+/* LISTA */
+
+#snort-tab .intel-data-list{
+    list-style:none;
+    padding:0;
+    margin:0;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+#snort-tab .intel-data-list li{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid #11131a;
+    padding-bottom:8px;
+    font-size:11px;
+}
+
+#snort-tab .label{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color:#8a8d93;
+}
+
+#snort-tab .label i{
+    width:12px;
+    color:#00ff66;
+}
+
+#snort-tab .value{
+    color:#fff;
+    text-align:right;
+}
+
+#snort-tab .green-txt{
+    color:#00ff66;
+    font-weight:bold;
+}
+
+#snort-tab .yellow-txt{
+    color:#ffcc00;
+}
+
+#snort-tab .red-txt{
+    color:#ff3333;
+}
+
+#snort-tab .text-muted{
+    color:#666;
+    font-family:monospace;
+}
+
+/* IMAGEN */
+
+#snort-tab .shodan-image-container{
+    background:#0b0c10;
+    border:1px solid #1f2330;
+    border-radius:6px;
+    padding:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+}
+
+#snort-tab .shodan-screenshot{
+    width:100%;
+    height:auto;
+    display:block;
+}
+
+/* PANEL DERECHO */
+
+#snort-tab .real-time-alerts{
+    border-left:1px solid #200808;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+/* TITULO */
+
+#snort-tab .alerts-main-title{
+    color:#ff3333;
+    font-size:11px;
+    font-weight:bold;
+    margin:0 0 15px;
+    border-left:2px solid #ff3333;
+    padding-left:6px;
+}
+
+/* ALERTAS */
+
+#snort-tab .alerts-stack{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    flex:1;
+}
+
+#snort-tab .alert-card{
+    background:#0b0c10;
+    border:1px solid #14161d;
+    border-radius:4px;
+    padding:10px;
+    display:flex;
+    gap:10px;
+    position:relative;
+}
+
+#snort-tab .alert-card h5{
+    margin:0 0 2px;
+    color:#fff;
+    font-size:10px;
+}
+
+#snort-tab .alert-card p{
+    margin:0 0 4px;
+    color:#8a8d93;
+    font-size:9px;
+}
+
+#snort-tab .alert-meta{
+    color:#666;
+    font-size:9px;
+    font-family:monospace;
+}
+
+#snort-tab .alert-time{
+    position:absolute;
+    right:10px;
+    top:10px;
+    color:#555;
+    font-size:8px;
+}
+
+#snort-tab .border-yellow{
+    border-left:3px solid #ffcc00;
+}
+
+#snort-tab .border-green{
+    border-left:3px solid #00ff66;
+}
+
+#snort-tab .border-red{
+    border-left:3px solid #ff3333;
+}
+
+/* BOTON */
+
+#snort-tab .view-all-alerts-btn{
+    width:100%;
+    margin-top:15px;
+    padding:10px;
+    background:transparent;
+    border:1px solid #200808;
+    color:#ff3333;
+    font-size:10px;
+    font-weight:bold;
+    border-radius:4px;
+    cursor:pointer;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:8px;
+    transition:.3s;
+}
+
+#snort-tab .view-all-alerts-btn:hover{
+    background:rgba(255,51,51,.05);
+    border-color:#ff3333;
+}
+
+/* RESPONSIVE */
+
+@media (max-width:1200px){
+
+#snort-tab .report-content-section{
+    grid-template-columns:1fr;
+}
 
 }
