@@ -1138,7 +1138,87 @@ main{
     line-height: 1;
     padding: 1px; /* Evita que la línea verde se asome por detrás del círculo */
 }
+/* ==========================================================
+   RESPONSIVE DASHBOARD
+========================================================== */
 
+@media (max-width:768px){
+
+    /* DASHBOARD */
+
+    .dashboard{
+        grid-template-columns:1fr;
+        gap:20px;
+        padding-top:80px;
+        padding-left:12px;
+        padding-right:12px;
+        padding-bottom:20px;
+    }
+
+    .dashboard-content{
+        gap:20px;
+    }
+
+    .sidebar{
+        width:100%;
+        order:2;
+    }
+
+    /* PANEL */
+
+    .command-panel{
+        padding:15px;
+    }
+
+    .dashboard-section-title{
+        font-size:12px;
+        margin-bottom:18px;
+    }
+
+    /* FASES */
+
+    .fases-container{
+        flex-direction:column;
+        gap:18px;
+        padding-bottom:0;
+    }
+
+    /* Oculta la línea horizontal */
+
+    .fases-container::before{
+        display:none;
+    }
+
+    .fase-item{
+        margin:0;
+    }
+
+    .fase-content{
+        padding:14px;
+    }
+
+    .fase-icon{
+        min-width:42px;
+        width:42px;
+        height:42px;
+        font-size:16px;
+    }
+
+    .fase-text h5{
+        font-size:11px;
+    }
+
+    .fase-text .sub-red{
+        font-size:9px;
+    }
+
+    /* CHECK */
+
+    .fase-check-node{
+        display:none;
+    }
+
+}
 /* ==========================================================================
    SECCIÓN DE REPORTES TÁCTICOS - ESTILOS
    ========================================================================== */
