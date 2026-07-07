@@ -645,6 +645,126 @@ footer{
 
     transition:2s ease;
 }
+/*========================================
+  SIDEBAR RESPONSIVE
+========================================*/
+
+@media (max-width:768px){
+
+.dashboard{
+
+    display:flex;
+    flex-direction:column;
+
+    padding:20px 12px;
+
+    gap:20px;
+}
+
+.sidebar{
+
+    width:100%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+}
+
+.info-card,
+.risk-card,
+.progress-card,
+.terminal-monitor-section{
+
+    width:100%;
+
+    margin:0;
+}
+
+/* Tarjetas */
+
+.info-card,
+.risk-card,
+.progress-card{
+
+    padding:18px;
+}
+
+/* Riesgo */
+
+.risk-circle{
+
+    width:120px;
+    height:120px;
+
+    margin:auto;
+}
+
+.risk-circle svg{
+
+    width:120px;
+    height:120px;
+}
+
+.score{
+
+    font-size:24px;
+}
+
+.risk-title{
+
+    font-size:18px;
+}
+
+/* Barra progreso */
+
+.progress-header{
+
+    font-size:16px;
+}
+
+/* Terminal */
+
+.terminal-panel{
+
+    width:100%;
+}
+
+.terminal-body{
+
+    overflow-x:auto;
+}
+
+.terminal-body pre{
+
+    font-size:11px;
+    white-space:pre;
+}
+
+}
+@media (max-width:768px){
+
+.risk-circle{
+    width:150px;
+    height:150px;
+    margin:15px auto 20px;
+}
+
+.risk-circle svg{
+    width:150px;
+    height:150px;
+    display:block;
+}
+
+.circle-bg,
+.circle-progress{
+    cx:75;
+    cy:75;
+    r:55;
+}
+
+}
 /* ==========================================================================
    HERO - AUDITORÍA PURPLE TEAM
    ========================================================================== */
@@ -915,6 +1035,22 @@ footer{
     width:100%;
 
     margin-top:0; 
+
+}
+@media (max-width:768px){
+
+.dashboard{
+    display:block;
+    padding:15px;
+}
+
+.sidebar{
+    width:100%;
+}
+
+.dashboard-content{
+    width:100%;
+}
 
 }
 /*CUADRO*/
