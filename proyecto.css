@@ -212,55 +212,7 @@ footer{
 
     box-shadow:0 0 15px rgba(255,42,42,.8);
 }
-/*========================================
-  HEADER RESPONSIVE
-========================================*/
 
-@media (max-width:768px){
-
-    .hud-container{
-        grid-template-columns:1fr;
-        height:auto;
-        padding:15px;
-        gap:15px;
-        justify-items:center;
-    }
-
-    .hud-logo-container{
-        justify-content:center;
-    }
-
-    .logo-title{
-        font-size:20px;
-        text-align:center;
-    }
-
-    .logo-sub{
-        font-size:10px;
-        letter-spacing:2px;
-        text-align:center;
-    }
-
-    .hud-nav{
-        width:100%;
-        justify-content:center;
-        flex-wrap:wrap;
-        gap:18px;
-    }
-
-    .hud-nav a{
-        height:auto;
-        padding:6px 0;
-        font-size:11px;
-    }
-
-    .hud-status{
-        justify-self:center;
-        font-size:11px;
-        padding:6px 12px;
-    }
-
-}
 /*========================================
   ESTADO
 ========================================*/
@@ -301,6 +253,97 @@ footer{
 .show{
     opacity:1;
     transform:translateY(0);
+}
+/*========================================
+  HEADER CELULAR
+========================================*/
+
+@media (max-width:768px){
+
+.hud-container{
+
+    display:flex;
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    height:auto;
+
+    padding:18px;
+
+    gap:14px;
+}
+
+/* Logo */
+
+.hud-logo-container{
+
+    width:100%;
+    justify-content:flex-start;
+}
+
+.hud-logo-text{
+
+    align-items:flex-start;
+}
+
+.logo-title{
+
+    font-size:20px;
+}
+
+.logo-sub{
+
+    font-size:10px;
+    letter-spacing:3px;
+}
+
+/* Menú */
+
+.hud-nav{
+
+    width:100%;
+
+    display:flex;
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    gap:12px;
+}
+
+.hud-nav a{
+
+    width:100%;
+
+    height:auto;
+
+    padding:4px 0;
+
+    font-size:13px;
+}
+
+/* Estado */
+
+.hud-status{
+
+    align-self:flex-start;
+}
+
+/* El header aumenta de tamaño */
+
+.hud-header{
+
+    position:relative;
+}
+
+/* El contenido baja */
+
+.dashboard{
+
+    padding-top:20px;
+}
+
 }
 /*========================================
   SIDEBAR
