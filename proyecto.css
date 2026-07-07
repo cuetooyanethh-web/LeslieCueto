@@ -141,152 +141,97 @@ footer{
     letter-spacing:3px;
 }
 
+/*========================================
+  MENÚ
+========================================*/
 
-/* ==========================================================
-   RESPONSIVE - TABLET Y CELULAR
-========================================================== */
-
-@media screen and (max-width:768px){
-
-html,
-body{
-    overflow-x:hidden;
-    width:100%;
-}
-
-/* HEADER */
-
-.hud-container{
-    grid-template-columns:1fr;
-    height:auto;
-    gap:15px;
-    padding:15px;
-    text-align:center;
-}
-
-.hud-logo-container{
+.hud-nav{
+      display:flex;
     justify-content:center;
+    align-items:center;
+
+    gap:35px;
+
 }
 
-.logo-title{
-    font-size:32px;
-}
+.hud-nav a{
 
-.logo-sub{
-    font-size:12px;
-}
+    position:relative;
 
-/* MENÚ */
+    height:70px;
 
-.nav-menu{
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:10px;
-}
-
-.nav-menu li{
-    margin:0;
-}
-
-.system-status{
-    justify-self:center;
-}
-
-/* CONTENIDO */
-
-main{
-    padding-top:170px;
-}
-
-/* DASHBOARD */
-
-.dashboard{
     display:flex;
-    flex-direction:column;
-    gap:15px;
+    align-items:center;
+
+    color:#bdbdbd;
+
+    font-size:13px;
+    font-weight:600;
+    text-transform:uppercase;
+
+    transition:.3s;
 }
 
-/* PANEL IZQUIERDO */
+.hud-nav a:hover{
+    color:#ffffff;
+}
 
-.sidebar-left{
+/* Línea inferior */
+
+.hud-nav a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    bottom:0;
+
+    width:0;
+    height:2px;
+
+    background:var(--primary-color);
+
+    transition:.3s;
+}
+
+.hud-nav a:hover::after{
     width:100%;
 }
 
-/* PANEL CENTRAL */
+/* Enlace activo */
 
-.main-content{
+.hud-nav a.active{
+
+    color:var(--primary-color);
+}
+
+.hud-nav a.active::after{
+
     width:100%;
+
+    box-shadow:0 0 15px rgba(255,42,42,.8);
 }
+/*========================================
+  HEADER RESPONSIVE
+========================================*/
 
-/* PANEL DERECHO */
-
-.sidebar-right{
-    width:100%;
-}
-
-/* REPORTES */
-
-.report-content-section{
-    display:flex;
-    flex-direction:column;
-    gap:15px;
-}
-
-.report-panel{
-    width:100%;
-}
-
-/* IMÁGENES */
-
-.shodan-image-container,
-.shodan-screenshot{
-    width:100%;
-}
-
-/* TABS */
-
-.tabs-container{
-    overflow-x:auto;
-    white-space:nowrap;
-}
-
-.tab-item{
-    min-width:170px;
-}
-
-/* TERMINAL */
-
-.terminal-box{
-    width:100%;
-    max-width:320px;
-    margin:auto;
-}
-
-/* ALERTAS */
-
-.alert-card{
-    flex-direction:column;
-}
-
-}
-/*=========================================
-        RESPONSIVE CELULAR
-=========================================*/
-
-@media screen and (max-width:768px){
-
-/* HEADER */
+@media (max-width:768px){
 
 .hud-container{
 
-    grid-template-columns:1fr;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
     height:auto;
-    padding:15px;
-    gap:15px;
+
+    padding:12px;
+
+    gap:12px;
 
 }
-
-/* LOGO */
 
 .hud-logo-container{
 
@@ -296,33 +241,29 @@ main{
 
 .logo-title{
 
-    font-size:26px;
+    font-size:20px;
 
 }
 
 .logo-sub{
 
-    font-size:11px;
+    font-size:10px;
+
     letter-spacing:2px;
 
 }
-
-/* MENÚ */
 
 .hud-nav{
 
     width:100%;
 
-    display:flex;
+    overflow-x:auto;
+
     justify-content:flex-start;
 
     gap:18px;
 
-    overflow-x:auto;
-
-    white-space:nowrap;
-
-    padding-bottom:6px;
+    padding-bottom:5px;
 
     scrollbar-width:none;
 
@@ -337,12 +278,12 @@ main{
 .hud-nav a{
 
     flex:0 0 auto;
-    height:45px;
-    font-size:12px;
+
+    height:40px;
+
+    font-size:11px;
 
 }
-
-/* ESTADO */
 
 .hud-status{
 
@@ -350,118 +291,292 @@ main{
 
 }
 
-/* BAJA EL CONTENIDO */
+}
+/*========================================
+  ESTADO
+========================================*/
 
-main{
+.hud-status{
+    display:flex;
+    justify-self:end;
+    align-items:center;
+    gap:8px;
 
-    padding-top:170px;
+    padding:8px 15px;
 
+    border:1px solid rgba(57,255,20,.25);
+    border-radius:6px;
+
+    color:var(--terminal-green);
+    font-size:12px;
+    font-weight:600;
 }
 
-}
-//*=========================================
-      SIDEBAR RESPONSIVE
-=========================================*/
+.status-dot{
 
-@media screen and (max-width:768px){
+    width:8px;
+    height:8px;
+
+    border-radius:50%;
+
+    background:#39ff14;
+
+    box-shadow:0 0 8px #39ff14;
+}
+.hidden{
+    opacity:0;
+    transform:translateY(40px);
+    transition:.8s;
+}
+
+.show{
+    opacity:1;
+    transform:translateY(0);
+}
+/*========================================
+  SIDEBAR
+========================================*/
 
 .sidebar{
-
-    width:100%;
-    gap:15px;
-
+ width:290px;
+    display:flex;
+    flex-direction:column;
+    gap:22px;
 }
+
+/*========================================
+  TARJETAS
+========================================*/
 
 .info-card,
 .risk-card,
 .progress-card{
 
-    width:100%;
-    padding:18px;
+    background:rgba(10,13,20,.92);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:10px;
+
+    padding:16px;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.45);
+
+    transition:.35s;
+}
+
+.info-card:hover,
+.risk-card:hover,
+.progress-card:hover{
+
+    transform:translateY(-3px);
+
+    border-color:rgba(255,46,46,.45);
+
+    box-shadow:
+        0 0 20px rgba(255,46,46,.18);
 
 }
 
-/* Información */
+/*========================================
+  TITULOS
+========================================*/
+
+.card-title{
+
+    color:var(--primary-color);
+
+    font-size:13px;
+
+    font-weight:700;
+
+    margin-bottom:22px;
+
+    letter-spacing:1px;
+
+    text-transform:uppercase;
+}
+
+/*========================================
+  INFO
+========================================*/
 
 .info-item{
 
-    gap:12px;
-    margin-bottom:16px;
+    display:flex;
 
+    gap:14px;
+
+    margin-bottom:18px;
+
+    align-items:flex-start;
+}
+
+.info-item:last-child{
+
+    margin-bottom:0;
 }
 
 .info-icon{
 
-    width:24px;
-    height:24px;
+    width:26px;
+    height:26px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    color:var(--terminal-green);
+
     font-size:15px;
 
+    flex-shrink:0;
+}
+
+.info-text{
+
+    display:flex;
+    flex-direction:column;
 }
 
 .label{
 
-    font-size:13px;
+    color:#8c96a5;
 
+    font-size:12px;
+
+    margin-bottom:2px;
 }
 
 .value{
 
-    font-size:16px;
+    color:var(--light-text);
 
+    font-size:14px;
+
+    line-height:1.4;
+
+    word-break:break-word;
 }
 
-/* Riesgo */
+.value.green{
+
+    color:var(--terminal-green);
+
+    font-weight:700;
+}
+
+.external{
+
+    color:#888;
+
+    margin-left:5px;
+
+    font-size:11px;
+}
+
+/*========================================
+  RIESGO
+========================================*/
+
+.risk-card{
+
+    text-align:center;
+}
 
 .risk-circle{
 
-    width:130px;
-    height:130px;
+    position:relative;
 
-    margin:5px auto 15px;
+    width:150px;
+    height:150px;
 
+    margin:10px auto 20px;
 }
 
 .risk-circle svg{
 
-    width:130px;
-    height:130px;
+    transform:rotate(-90deg);
+}
 
+.circle-bg{
+
+    fill:none;
+
+    stroke:#242932;
+
+    stroke-width:10;
+}
+
+.circle-progress{
+
+    fill:none;
+
+    stroke:var(--primary-color);
+
+    stroke-width:10;
+
+    stroke-linecap:round;
+
+    stroke-dasharray:345;
+
+    stroke-dashoffset:345;
+
+    transition:2s ease;
+}
+
+.risk-value{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
 }
 
 .score{
 
-    font-size:32px;
+    font-size:26px;
 
+    font-weight:700;
+
+    color:var(--light-text);
 }
 
 .level{
 
-    font-size:15px;
+    color:var(--terminal-green);
 
+    font-size:13px;
+
+    /*font-weight:700;*/
+
+    letter-spacing:1px;
 }
 
 .risk-title{
 
-    font-size:18px;
+    color:var(--terminal-green);
 
+    font-size:20px;
+
+    margin-bottom:6px;
 }
 
 .risk-description{
 
-    font-size:14px;
-    line-height:1.5;
+    color:#9ca4b3;
 
+    font-size:13px;
 }
 
-/* Progreso */
-
-.card-title{
-
-    font-size:15px;
-
-}
-
-}
 /*========================================
   PROGRESO
 ========================================*/
@@ -757,200 +872,6 @@ main{
         filter: drop-shadow(0 0 15px #ff3333);
     }
 }
-/* ==========================================================
-   RESPONSIVE - TABLET
-========================================================== */
-
-@media (max-width:1024px){
-
-    .hud-container{
-        grid-template-columns:1fr;
-        height:auto;
-        padding:15px;
-        gap:15px;
-        text-align:center;
-    }
-
-    .hud-logo-container,
-    .hud-nav,
-    .hud-status{
-        justify-content:center;
-    }
-
-    .dashboard{
-        grid-template-columns:1fr;
-        padding:15px;
-    }
-
-    .sidebar{
-        width:100%;
-    }
-
-    .hero-dashboard{
-        flex-direction:column;
-        align-items:center;
-        text-align:center;
-        padding:20px;
-    }
-
-    .hero-info,
-    .hero-map,
-    .hero-target{
-        max-width:100%;
-        flex:100%;
-    }
-
-    .hero-target{
-        min-width:100%;
-        height:auto;
-    }
-
-    .report-content-section{
-        grid-template-columns:1fr;
-    }
-
-}
-
-
-/* ==========================================================
-   RESPONSIVE - CELULAR
-========================================================== */
-
-@media (max-width:768px){
-
-    body{
-        overflow-x:hidden;
-    }
-
-    /* HEADER */
-
-    .hud-container{
-        grid-template-columns:1fr;
-        height:auto;
-        gap:12px;
-        padding:15px;
-    }
-
-    .logo-title{
-        font-size:20px;
-    }
-
-    .logo-sub{
-        font-size:9px;
-        letter-spacing:2px;
-    }
-
-    .hud-nav{
-        flex-wrap:wrap;
-        gap:12px;
-    }
-
-    .hud-nav a{
-        height:auto;
-        padding:8px 0;
-        font-size:11px;
-    }
-
-    .hud-status{
-        justify-self:center;
-        font-size:11px;
-    }
-
-    /* DASHBOARD */
-
-    .dashboard{
-        grid-template-columns:1fr;
-        gap:15px;
-        padding:15px;
-    }
-
-    .sidebar{
-        width:100%;
-    }
-
-    /* HERO */
-
-    .hero-dashboard{
-        flex-direction:column;
-        padding:18px;
-        gap:20px;
-    }
-
-    .hero-info,
-    .hero-map,
-    .hero-target{
-        max-width:100%;
-        width:100%;
-        flex:100%;
-    }
-
-    .hero-title{
-        font-size:22px;
-    }
-
-    .hero-subtitle{
-        font-size:11px;
-    }
-
-    .hero-description{
-        font-size:10px;
-        text-align:left;
-    }
-
-    .hero-target{
-        min-width:100%;
-        height:auto;
-    }
-
-    /* REPORTES */
-
-    .report-content-section,
-    #nmap-tab .report-content-section,
-    #openvas-tab .report-content-section,
-    #wireshark-tab .report-content-section,
-    #snort-tab .report-content-section{
-
-        grid-template-columns:1fr;
-        gap:15px;
-
-    }
-
-    .report-panel{
-        width:100%;
-    }
-
-    .shodan-image-container img{
-        width:100%;
-        height:auto;
-    }
-
-    /* CÍRCULO DE RIESGO */
-
-    .risk-circle{
-        width:120px;
-        height:120px;
-    }
-
-    .score{
-        font-size:20px;
-    }
-
-    .risk-title{
-        font-size:16px;
-    }
-
-    .completed{
-        font-size:18px;
-    }
-
-    /* MODAL */
-
-    .alerts-modal-content{
-        width:95%;
-        max-height:90vh;
-    }
-
-}
 /*========================================
   DASHBOARD
 ========================================*/
@@ -1138,87 +1059,7 @@ main{
     line-height: 1;
     padding: 1px; /* Evita que la línea verde se asome por detrás del círculo */
 }
-/* ==========================================================
-   RESPONSIVE DASHBOARD
-========================================================== */
 
-@media (max-width:768px){
-
-    /* DASHBOARD */
-
-    .dashboard{
-        grid-template-columns:1fr;
-        gap:20px;
-        padding-top:80px;
-        padding-left:12px;
-        padding-right:12px;
-        padding-bottom:20px;
-    }
-
-    .dashboard-content{
-        gap:20px;
-    }
-
-    .sidebar{
-        width:100%;
-        order:2;
-    }
-
-    /* PANEL */
-
-    .command-panel{
-        padding:15px;
-    }
-
-    .dashboard-section-title{
-        font-size:12px;
-        margin-bottom:18px;
-    }
-
-    /* FASES */
-
-    .fases-container{
-        flex-direction:column;
-        gap:18px;
-        padding-bottom:0;
-    }
-
-    /* Oculta la línea horizontal */
-
-    .fases-container::before{
-        display:none;
-    }
-
-    .fase-item{
-        margin:0;
-    }
-
-    .fase-content{
-        padding:14px;
-    }
-
-    .fase-icon{
-        min-width:42px;
-        width:42px;
-        height:42px;
-        font-size:16px;
-    }
-
-    .fase-text h5{
-        font-size:11px;
-    }
-
-    .fase-text .sub-red{
-        font-size:9px;
-    }
-
-    /* CHECK */
-
-    .fase-check-node{
-        display:none;
-    }
-
-}
 /* ==========================================================================
    SECCIÓN DE REPORTES TÁCTICOS - ESTILOS
    ========================================================================== */
