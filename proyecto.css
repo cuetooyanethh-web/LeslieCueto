@@ -141,118 +141,223 @@ footer{
     letter-spacing:3px;
 }
 
-/*========================================
-  MENÚ
-========================================*/
+
+/* ==========================================================
+   RESPONSIVE - TABLET Y CELULAR
+========================================================== */
+
+@media screen and (max-width:768px){
+
+html,
+body{
+    overflow-x:hidden;
+    width:100%;
+}
+
+/* HEADER */
+
+.hud-container{
+    grid-template-columns:1fr;
+    height:auto;
+    gap:15px;
+    padding:15px;
+    text-align:center;
+}
+
+.hud-logo-container{
+    justify-content:center;
+}
+
+.logo-title{
+    font-size:32px;
+}
+
+.logo-sub{
+    font-size:12px;
+}
+
+/* MENÚ */
+
+.nav-menu{
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
+}
+
+.nav-menu li{
+    margin:0;
+}
+
+.system-status{
+    justify-self:center;
+}
+
+/* CONTENIDO */
+
+main{
+    padding-top:170px;
+}
+
+/* DASHBOARD */
+
+.dashboard{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+/* PANEL IZQUIERDO */
+
+.sidebar-left{
+    width:100%;
+}
+
+/* PANEL CENTRAL */
+
+.main-content{
+    width:100%;
+}
+
+/* PANEL DERECHO */
+
+.sidebar-right{
+    width:100%;
+}
+
+/* REPORTES */
+
+.report-content-section{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.report-panel{
+    width:100%;
+}
+
+/* IMÁGENES */
+
+.shodan-image-container,
+.shodan-screenshot{
+    width:100%;
+}
+
+/* TABS */
+
+.tabs-container{
+    overflow-x:auto;
+    white-space:nowrap;
+}
+
+.tab-item{
+    min-width:170px;
+}
+
+/* TERMINAL */
+
+.terminal-box{
+    width:100%;
+    max-width:320px;
+    margin:auto;
+}
+
+/* ALERTAS */
+
+.alert-card{
+    flex-direction:column;
+}
+
+}
+/*=========================================
+        RESPONSIVE CELULAR
+=========================================*/
+
+@media screen and (max-width:768px){
+
+/* HEADER */
+
+.hud-container{
+
+    grid-template-columns:1fr;
+    height:auto;
+    padding:15px;
+    gap:15px;
+
+}
+
+/* LOGO */
+
+.hud-logo-container{
+
+    justify-content:center;
+
+}
+
+.logo-title{
+
+    font-size:26px;
+
+}
+
+.logo-sub{
+
+    font-size:11px;
+    letter-spacing:2px;
+
+}
+
+/* MENÚ */
 
 .hud-nav{
-      display:flex;
-    justify-content:center;
-    align-items:center;
 
-    gap:35px;
+    width:100%;
+
+    display:flex;
+    justify-content:flex-start;
+
+    gap:18px;
+
+    overflow-x:auto;
+
+    white-space:nowrap;
+
+    padding-bottom:6px;
+
+    scrollbar-width:none;
+
+}
+
+.hud-nav::-webkit-scrollbar{
+
+    display:none;
 
 }
 
 .hud-nav a{
 
-    position:relative;
+    flex:0 0 auto;
+    height:45px;
+    font-size:12px;
 
-    height:70px;
-
-    display:flex;
-    align-items:center;
-
-    color:#bdbdbd;
-
-    font-size:13px;
-    font-weight:600;
-    text-transform:uppercase;
-
-    transition:.3s;
 }
 
-.hud-nav a:hover{
-    color:#ffffff;
-}
-
-/* Línea inferior */
-
-.hud-nav a::after{
-
-    content:"";
-
-    position:absolute;
-
-    left:0;
-    bottom:0;
-
-    width:0;
-    height:2px;
-
-    background:var(--primary-color);
-
-    transition:.3s;
-}
-
-.hud-nav a:hover::after{
-    width:100%;
-}
-
-/* Enlace activo */
-
-.hud-nav a.active{
-
-    color:var(--primary-color);
-}
-
-.hud-nav a.active::after{
-
-    width:100%;
-
-    box-shadow:0 0 15px rgba(255,42,42,.8);
-}
-
-/*========================================
-  ESTADO
-========================================*/
+/* ESTADO */
 
 .hud-status{
-    display:flex;
-    justify-self:end;
-    align-items:center;
-    gap:8px;
 
-    padding:8px 15px;
+    justify-self:center;
 
-    border:1px solid rgba(57,255,20,.25);
-    border-radius:6px;
-
-    color:var(--terminal-green);
-    font-size:12px;
-    font-weight:600;
 }
 
-.status-dot{
+/* BAJA EL CONTENIDO */
 
-    width:8px;
-    height:8px;
+main{
 
-    border-radius:50%;
+    padding-top:170px;
 
-    background:#39ff14;
-
-    box-shadow:0 0 8px #39ff14;
-}
-.hidden{
-    opacity:0;
-    transform:translateY(40px);
-    transition:.8s;
 }
 
-.show{
-    opacity:1;
-    transform:translateY(0);
 }
 /*========================================
   SIDEBAR
