@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shodan</title>
+     <link rel="stylesheet" href="shodan.css">
+</head>
+<body>
+     <div class="cyber-overlay"></div>
+    
+    <header class="main-header">
+        <div class="logo">SHODAN_CORE://v4.0.26</div>
+        <div class="system-status">SYS_STATUS: <span class="status-online">ONLINE</span></div>
+    </header>
+
+    <main class="grid-container">
+        <!-- Panel Izquierdo: Consola de Comandos -->
+        <section class="panel console-panel">
+            <div class="panel-header">_TERMINAL_INTERACTION</div>
+            <div class="panel-content">
+                <div class="log-entry">[INFO] Iniciando conexión segura con Shodan API...</div>
+                <div class="log-entry">[OK] Credenciales validadas correctamente.</div>
+                <div class="log-entry">[WARN] Detectados 412 puertos expuestos en tu IP local.</div>
+                <div class="log-entry command-line">shodan search --fields ip_str,port,org "scada"</div>
+                <div class="log-result">Executing query... 12,491 matches found globally.</div>
+                <div class="log-entry command-line">shodan stats port:21,22,23,80</div>
+                <div class="log-result">Top vulnerable service: Port 23 (Telnet)</div>
+                <div class="cursor-line">root@shodan_recon:~# <span class="blink">_</span></div>
+            </div>
+        </section>
+
+        <!-- Panel Central: Estadísticas Críticas -->
+        <section class="panel stats-panel">
+            <div class="panel-header">_GLOBAL_THREAT_METRICS</div>
+            <div class="panel-content grid-stats">
+                <div class="stat-box">
+                    <span class="stat-label">CÁMARAS EXPUESTAS</span>
+                    <span class="stat-value alert-red">341,892</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label">SERVIDORES ICS/SCADA</span>
+                    <span class="stat-value alert-orange">89,411</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label">BBDD SIN CONTRASEÑA</span>
+                    <span class="stat-value alert-yellow">12,504</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label">RANSOMWARE TARGETS</span>
+                    <span class="stat-value">1,209,483</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Panel Derecho: Filtros OSINT -->
+        <section class="panel filters-panel">
+            <div class="panel-header">_OSINT_QUICK_FILTERS</div>
+            <div class="panel-content">
+                <ul class="filter-list">
+                    <li><span class="filter-tag">port:21</span> Anonymous FTP Access</li>
+                    <li><span class="filter-tag">product:Apache</span> Web Servers</li>
+                    <li><span class="filter-tag">country:US</span> United States Node Map</li>
+                    <li><span class="filter-tag">os:"Windows 7"</span> Legacy Operating Systems</li>
+                    <li><span class="filter-tag">has_screenshot:true</span> Active VNC/RDP Sessions</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Panel Inferior Largo: Tráfico en tiempo real -->
+        <section class="panel full-width-panel">
+            <div class="panel-header">_LIVE_STREAM_FEED (GEO_IP_TRACKING)</div>
+            <div class="panel-content feed-container">
+                <table class="feed-table">
+                    <thead>
+                        <tr>
+                            <th>TIMESTAMP</th>
+                            <th>TARGET IP</th>
+                            <th>COUNTRY</th>
+                            <th>PORT</th>
+                            <th>VULNERABILITY</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>21:29:01</td>
+                            <td class="text-cyan">185.220.101.5</td>
+                            <td>Germany (DE)</td>
+                            <td>445</td>
+                            <td class="alert-red">EternalBlue (MS17-010)</td>
+                        </tr>
+                        <tr>
+                            <td>21:28:45</td>
+                            <td class="text-cyan">45.138.12.190</td>
+                            <td>Russia (RU)</td>
+                            <td>3389</td>
+                            <td class="alert-orange">Weak RDP Credentials</td>
+                        </tr>
+                        <tr>
+                            <td>21:28:22</td>
+                            <td class="text-cyan">201.148.99.3</td>
+                            <td>Peru (PE)</td>
+                            <td>8080</td>
+                            <td class="alert-yellow">Misconfigured Tomcat Admin</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div>LATENCY: 42ms // SECURE NODE // ENCRYPTION: AES-256-GCM</div>
+    </footer>
+       <script src="shodan.js"></script>
+</body>
+</html>
