@@ -359,250 +359,109 @@ main{
 }
 
 }
-/*========================================
-  SIDEBAR
-========================================*/
+//*=========================================
+      SIDEBAR RESPONSIVE
+=========================================*/
+
+@media screen and (max-width:768px){
 
 .sidebar{
- width:290px;
-    display:flex;
-    flex-direction:column;
-    gap:22px;
-}
 
-/*========================================
-  TARJETAS
-========================================*/
+    width:100%;
+    gap:15px;
+
+}
 
 .info-card,
 .risk-card,
 .progress-card{
 
-    background:rgba(10,13,20,.92);
-
-    border:1px solid rgba(255,255,255,.08);
-
-    border-radius:10px;
-
-    padding:16px;
-
-    box-shadow:
-        0 8px 25px rgba(0,0,0,.45);
-
-    transition:.35s;
-}
-
-.info-card:hover,
-.risk-card:hover,
-.progress-card:hover{
-
-    transform:translateY(-3px);
-
-    border-color:rgba(255,46,46,.45);
-
-    box-shadow:
-        0 0 20px rgba(255,46,46,.18);
+    width:100%;
+    padding:18px;
 
 }
 
-/*========================================
-  TITULOS
-========================================*/
-
-.card-title{
-
-    color:var(--primary-color);
-
-    font-size:13px;
-
-    font-weight:700;
-
-    margin-bottom:22px;
-
-    letter-spacing:1px;
-
-    text-transform:uppercase;
-}
-
-/*========================================
-  INFO
-========================================*/
+/* Información */
 
 .info-item{
 
-    display:flex;
+    gap:12px;
+    margin-bottom:16px;
 
-    gap:14px;
-
-    margin-bottom:18px;
-
-    align-items:flex-start;
-}
-
-.info-item:last-child{
-
-    margin-bottom:0;
 }
 
 .info-icon{
 
-    width:26px;
-    height:26px;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    color:var(--terminal-green);
-
+    width:24px;
+    height:24px;
     font-size:15px;
 
-    flex-shrink:0;
-}
-
-.info-text{
-
-    display:flex;
-    flex-direction:column;
 }
 
 .label{
 
-    color:#8c96a5;
+    font-size:13px;
 
-    font-size:12px;
-
-    margin-bottom:2px;
 }
 
 .value{
 
-    color:var(--light-text);
+    font-size:16px;
 
-    font-size:14px;
-
-    line-height:1.4;
-
-    word-break:break-word;
 }
 
-.value.green{
-
-    color:var(--terminal-green);
-
-    font-weight:700;
-}
-
-.external{
-
-    color:#888;
-
-    margin-left:5px;
-
-    font-size:11px;
-}
-
-/*========================================
-  RIESGO
-========================================*/
-
-.risk-card{
-
-    text-align:center;
-}
+/* Riesgo */
 
 .risk-circle{
 
-    position:relative;
+    width:130px;
+    height:130px;
 
-    width:150px;
-    height:150px;
+    margin:5px auto 15px;
 
-    margin:10px auto 20px;
 }
 
 .risk-circle svg{
 
-    transform:rotate(-90deg);
-}
+    width:130px;
+    height:130px;
 
-.circle-bg{
-
-    fill:none;
-
-    stroke:#242932;
-
-    stroke-width:10;
-}
-
-.circle-progress{
-
-    fill:none;
-
-    stroke:var(--primary-color);
-
-    stroke-width:10;
-
-    stroke-linecap:round;
-
-    stroke-dasharray:345;
-
-    stroke-dashoffset:345;
-
-    transition:2s ease;
-}
-
-.risk-value{
-
-    position:absolute;
-
-    inset:0;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
 }
 
 .score{
 
-    font-size:26px;
+    font-size:32px;
 
-    font-weight:700;
-
-    color:var(--light-text);
 }
 
 .level{
 
-    color:var(--terminal-green);
+    font-size:15px;
 
-    font-size:13px;
-
-    /*font-weight:700;*/
-
-    letter-spacing:1px;
 }
 
 .risk-title{
 
-    color:var(--terminal-green);
+    font-size:18px;
 
-    font-size:20px;
-
-    margin-bottom:6px;
 }
 
 .risk-description{
 
-    color:#9ca4b3;
+    font-size:14px;
+    line-height:1.5;
 
-    font-size:13px;
 }
 
+/* Progreso */
+
+.card-title{
+
+    font-size:15px;
+
+}
+
+}
 /*========================================
   PROGRESO
 ========================================*/
@@ -897,6 +756,200 @@ main{
         opacity: 1;
         filter: drop-shadow(0 0 15px #ff3333);
     }
+}
+/* ==========================================================
+   RESPONSIVE - TABLET
+========================================================== */
+
+@media (max-width:1024px){
+
+    .hud-container{
+        grid-template-columns:1fr;
+        height:auto;
+        padding:15px;
+        gap:15px;
+        text-align:center;
+    }
+
+    .hud-logo-container,
+    .hud-nav,
+    .hud-status{
+        justify-content:center;
+    }
+
+    .dashboard{
+        grid-template-columns:1fr;
+        padding:15px;
+    }
+
+    .sidebar{
+        width:100%;
+    }
+
+    .hero-dashboard{
+        flex-direction:column;
+        align-items:center;
+        text-align:center;
+        padding:20px;
+    }
+
+    .hero-info,
+    .hero-map,
+    .hero-target{
+        max-width:100%;
+        flex:100%;
+    }
+
+    .hero-target{
+        min-width:100%;
+        height:auto;
+    }
+
+    .report-content-section{
+        grid-template-columns:1fr;
+    }
+
+}
+
+
+/* ==========================================================
+   RESPONSIVE - CELULAR
+========================================================== */
+
+@media (max-width:768px){
+
+    body{
+        overflow-x:hidden;
+    }
+
+    /* HEADER */
+
+    .hud-container{
+        grid-template-columns:1fr;
+        height:auto;
+        gap:12px;
+        padding:15px;
+    }
+
+    .logo-title{
+        font-size:20px;
+    }
+
+    .logo-sub{
+        font-size:9px;
+        letter-spacing:2px;
+    }
+
+    .hud-nav{
+        flex-wrap:wrap;
+        gap:12px;
+    }
+
+    .hud-nav a{
+        height:auto;
+        padding:8px 0;
+        font-size:11px;
+    }
+
+    .hud-status{
+        justify-self:center;
+        font-size:11px;
+    }
+
+    /* DASHBOARD */
+
+    .dashboard{
+        grid-template-columns:1fr;
+        gap:15px;
+        padding:15px;
+    }
+
+    .sidebar{
+        width:100%;
+    }
+
+    /* HERO */
+
+    .hero-dashboard{
+        flex-direction:column;
+        padding:18px;
+        gap:20px;
+    }
+
+    .hero-info,
+    .hero-map,
+    .hero-target{
+        max-width:100%;
+        width:100%;
+        flex:100%;
+    }
+
+    .hero-title{
+        font-size:22px;
+    }
+
+    .hero-subtitle{
+        font-size:11px;
+    }
+
+    .hero-description{
+        font-size:10px;
+        text-align:left;
+    }
+
+    .hero-target{
+        min-width:100%;
+        height:auto;
+    }
+
+    /* REPORTES */
+
+    .report-content-section,
+    #nmap-tab .report-content-section,
+    #openvas-tab .report-content-section,
+    #wireshark-tab .report-content-section,
+    #snort-tab .report-content-section{
+
+        grid-template-columns:1fr;
+        gap:15px;
+
+    }
+
+    .report-panel{
+        width:100%;
+    }
+
+    .shodan-image-container img{
+        width:100%;
+        height:auto;
+    }
+
+    /* CÍRCULO DE RIESGO */
+
+    .risk-circle{
+        width:120px;
+        height:120px;
+    }
+
+    .score{
+        font-size:20px;
+    }
+
+    .risk-title{
+        font-size:16px;
+    }
+
+    .completed{
+        font-size:18px;
+    }
+
+    /* MODAL */
+
+    .alerts-modal-content{
+        width:95%;
+        max-height:90vh;
+    }
+
 }
 /*========================================
   DASHBOARD
