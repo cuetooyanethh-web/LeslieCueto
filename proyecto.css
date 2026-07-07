@@ -213,149 +213,52 @@ footer{
     box-shadow:0 0 15px rgba(255,42,42,.8);
 }
 /*========================================
-  RESPONSIVE
+  HEADER RESPONSIVE
 ========================================*/
 
-@media screen and (max-width:768px){
+@media (max-width:768px){
 
-/* HEADER */
+    .hud-container{
+        grid-template-columns:1fr;
+        height:auto;
+        padding:15px;
+        gap:15px;
+        justify-items:center;
+    }
 
-.hud-container{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    height:70px;
-    padding:0 15px;
-}
+    .hud-logo-container{
+        justify-content:center;
+    }
 
-.hud-logo-text .logo-title{
-    font-size:18px;
-}
+    .logo-title{
+        font-size:20px;
+        text-align:center;
+    }
 
-.logo-sub{
-    font-size:9px;
-    letter-spacing:2px;
-}
+    .logo-sub{
+        font-size:10px;
+        letter-spacing:2px;
+        text-align:center;
+    }
 
-.hud-nav{
-    display:none;
-}
+    .hud-nav{
+        width:100%;
+        justify-content:center;
+        flex-wrap:wrap;
+        gap:18px;
+    }
 
-.hud-status{
-    display:none;
-}
+    .hud-nav a{
+        height:auto;
+        padding:6px 0;
+        font-size:11px;
+    }
 
-/* DASHBOARD */
-
-.dashboard{
-    display:flex;
-    flex-direction:column;
-    padding:85px 12px 20px;
-    gap:20px;
-}
-
-.sidebar{
-    width:100%;
-}
-
-.dashboard-content{
-    width:100%;
-}
-
-/* HERO */
-
-.hero-dashboard{
-    display:flex;
-    flex-direction:column;
-    text-align:center;
-    gap:25px;
-    padding:20px;
-}
-
-.hero-info,
-.hero-map,
-.hero-target{
-    width:100%;
-    max-width:100%;
-    flex:none;
-}
-
-.hero-title{
-    font-size:22px;
-}
-
-.hero-description{
-    text-align:left;
-}
-
-.hero-target{
-    min-width:100%;
-    height:auto;
-}
-
-/* FASES */
-
-.fases-container{
-    flex-direction:column;
-    gap:18px;
-    padding-bottom:0;
-}
-
-.fases-container::before{
-    display:none;
-}
-
-.fase-item{
-    margin:0;
-}
-
-.fase-check-node{
-    display:none;
-}
-
-/* SIDEBAR */
-
-.info-card,
-.risk-card,
-.progress-card{
-    width:100%;
-}
-
-.risk-circle{
-    width:120px;
-    height:120px;
-}
-
-/* TABS */
-
-.tabs-nav{
-    overflow-x:auto;
-    white-space:nowrap;
-}
-
-.tab-item{
-    min-width:170px;
-}
-
-/* IMAGENES */
-
-img{
-    max-width:100%;
-    height:auto;
-}
-
-/* TERMINALES */
-
-.terminal-window{
-    overflow-x:auto;
-}
-
-/* TABLAS */
-
-table{
-    display:block;
-    overflow-x:auto;
-}
+    .hud-status{
+        justify-self:center;
+        font-size:11px;
+        padding:6px 12px;
+    }
 
 }
 /*========================================
