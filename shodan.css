@@ -49,11 +49,12 @@ body {
     border-bottom: none;
     font-size: 0.8rem;
     color: #666;
-    position: fixed;
-    bottom: 0;
+    padding: 15px 20px;
+    margin-top: 40px; /* Le da una separación limpia a los paneles superiores */
     width: 100%;
     box-sizing: border-box;
 }
+
 
 .status-online {
     color: var(--text-primary);
@@ -201,3 +202,304 @@ body {
 .alert-orange { color: var(--alert-orange); text-shadow: 0 0 5px var(--alert-orange); }
 .alert-yellow { color: var(--alert-yellow); text-shadow: 0 0 5px var(--alert-yellow); }
 .text-cyan { color: var(--text-secondary); }
+
+/* --- Estilos para el Módulo Informativo Shodan --- */
+.info-panel h2 {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    margin-top: 15px;
+    margin-bottom: 8px;
+    border-bottom: 1px dashed rgba(0, 229, 255, 0.2);
+    padding-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+.wiki-entry p {
+    color: #a0ffa0;
+    margin-bottom: 12px;
+    text-align: justify;
+}
+
+.info-list {
+    list-style: none;
+    padding-left: 5px;
+    margin-bottom: 20px;
+}
+
+.info-list li {
+    margin-bottom: 8px;
+    color: #e0e0e0;
+}
+
+.accent-bullet {
+    color: var(--border-color);
+    margin-right: 8px;
+    font-size: 0.8rem;
+}
+
+.legal-notice {
+    background: rgba(255, 255, 0, 0.04);
+    border: 1px solid rgba(255, 255, 0, 0.2);
+    padding: 12px;
+    margin-top: 15px;
+    font-size: 0.85rem;
+    color: #dddddd;
+    line-height: 1.4;
+}
+/* --- Estilos para el Reporte de la IP en Shodan --- */
+.host-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.host-info-block h3, .host-ports-block h3 {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(0, 229, 255, 0.2);
+    padding-bottom: 5px;
+}
+
+.host-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.host-table td {
+    padding: 10px 5px;
+    border-bottom: 1px solid #111;
+    font-size: 0.85rem;
+    vertical-align: top;
+}
+
+.host-table .lbl {
+    color: #666;
+    width: 30%;
+    font-weight: bold;
+}
+
+.host-table .val {
+    color: #dddddd;
+}
+
+/* Insignias de Puertos Abiertos */
+.port-badges {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.port-badges .badge {
+    background-color: rgba(0, 229, 255, 0.1);
+    border: 1px solid var(--text-secondary);
+    color: var(--text-secondary);
+    padding: 6px 14px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+/* Detalles de Banners Crudos */
+.service-banner {
+    background: #05070a;
+    border-left: 3px solid var(--border-color);
+    padding: 12px;
+    margin-bottom: 15px;
+}
+
+.service-banner h4 {
+    margin: 5px 0;
+    color: #ffffff;
+}
+
+.raw-banner {
+    font-family: 'Courier New', monospace;
+    font-size: 0.75rem;
+    color: #888;
+    background: #020204;
+    padding: 8px;
+    margin: 8px 0 0 0;
+    overflow-x: auto;
+    white-space: pre-wrap;
+}
+
+.alert-green {
+    color: var(--border-color);
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+/* --- Extensiones para Puerto HTTPS 443 --- */
+.banner-hash {
+    float: right;
+    font-size: 0.75rem;
+    color: #555;
+}
+
+.ssl-details {
+    margin-top: 15px;
+    border: 1px solid rgba(0, 229, 255, 0.15);
+    background: rgba(0, 229, 255, 0.01);
+}
+
+.ssl-header {
+    background: rgba(0, 229, 255, 0.1);
+    color: var(--text-secondary);
+    padding: 6px 10px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.ssl-raw {
+    font-family: 'Courier New', monospace;
+    font-size: 0.7rem;
+    color: #778877;
+    padding: 10px;
+    margin: 0;
+    overflow-x: auto;
+    max-height: 200px; /* Limita la altura con scroll para no deformar el panel */
+    white-space: pre;
+}
+/* --- Ajuste de Expansión para Bloques Completos --- */
+.host-panel {
+    grid-column: 1 / span 3;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+/* Responsividad para pantallas medianas o laptops */
+@media (max-width: 1024px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+    .full-width-panel, .host-panel {
+        grid-column: 1;
+    }
+    .host-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* ==========================================================================
+   MÓDULO DE DOBLE OBJETIVO (SHODAN / DNSDUMPSTER MULTI-IP)
+   ========================================================================== */
+
+/* Contenedor Grid para dividir los dos servidores en dos columnas perfectas */
+.host-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+/* Títulos individuales para el Nodo 01 y el Nodo 02 */
+.host-info-block h3 {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(0, 229, 255, 0.2);
+    padding-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+/* Configuración de la tabla de datos técnicos de infraestructura */
+.host-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.host-table td {
+    padding: 12px 5px;
+    border-bottom: 1px solid #111;
+    font-size: 0.85rem;
+    vertical-align: top;
+}
+
+/* Etiquetas grises de la izquierda (IP Address, ISP Vendor, etc.) */
+.host-table .lbl {
+    color: #666;
+    width: 35%;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+/* Valores de la derecha con color de texto claro */
+.host-table .val {
+    color: #dddddd;
+}
+
+/* ==========================================================================
+   RESPONSIVIDAD (Ajuste automático para pantallas pequeñas)
+   ========================================================================== */
+@media (max-width: 992px) {
+    /* Si la pantalla es pequeña, los dos servidores se apilan uno abajo del otro */
+    .host-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    /* Quitamos los bordes y rellenos laterales para que no se deforme el diseño */
+    .host-info-block {
+        border-right: none !important;
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+    }
+}
+/* --- Estilos para los Subdominios de la UNI --- */
+.subdomain-tags {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin: 10px 0;
+}
+
+.sub-tag {
+    font-size: 0.8rem;
+    color: #aaa;
+    font-family: 'Courier New', monospace;
+}
+
+/* Resaltado especial para DIRCE */
+.host-highlight {
+    color: var(--text-secondary) !important;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(0, 229, 255, 0.4);
+}
+
+/* --- Barra de Paginación Shodan --- */
+.shodan-pagination {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 15px;
+    padding: 10px;
+    border-top: 1px dashed rgba(0, 255, 102, 0.1);
+}
+
+.page-btn {
+    background: #0d1117;
+    border: 1px solid rgba(0, 255, 102, 0.2);
+    color: var(--text-primary);
+    padding: 5px 10px;
+    cursor: pointer;
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+}
+
+.page-btn:hover {
+    border-color: var(--text-secondary);
+    background: rgba(0, 229, 255, 0.05);
+    color: var(--text-secondary);
+}
+
+.active-page {
+    background: var(--border-color) !important;
+    color: #000 !important;
+    font-weight: bold;
+    box-shadow: 0 0 8px var(--border-color);
+}
+
+.page-dots {
+    color: #555;
+    align-self: flex-end;
+}

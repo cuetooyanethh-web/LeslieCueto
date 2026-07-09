@@ -1,6 +1,6 @@
 // --- CONFIGURACIÓN DE DATOS SIMULADOS ---
 const countries = ["US (United States)", "CN (China)", "BR (Brazil)", "DE (Germany)", "PE (Peru)", "JP (Japan)", "RU (Russia)"];
-const ports =;
+
 const vulnerabilities = [
     { name: "EternalBlue (MS17-010)", level: "alert-red" },
     { name: "SSH Brute Force Attempt", level: "alert-orange" },
@@ -24,12 +24,12 @@ function getTimestamp() {
     return now.toTimeString().split(' ')[0];
 }
 
-// --- ACTUALIZADOR DE TRÁFICO EN TIEMPO REAL ---
+// --- ACTUALIZADOR DE TRÁFICO (MANTIENE LA IP DE LA UNI FIJA EN LA PRIMERA FILA) ---
 function updateLiveFeed() {
     const tbody = document.querySelector(".feed-table tbody");
     if (!tbody) return;
 
-    // Crear nueva fila
+    // Crear una nueva fila aleatoria de fondo
     const tr = document.createElement("tr");
     const vuln = getRandomElement(vulnerabilities);
 
@@ -41,21 +41,26 @@ function updateLiveFeed() {
         <td class="${vuln.level}">${vuln.name}</td>
     `;
 
-    // Insertar al inicio de la tabla
-    tbody.insertBefore(tr, tbody.firstChild);
+    // Insertar la nueva actividad JUSTO DEBAJO de la fila fija de la UNI (que es el índice 1)
+    if (tbody.children.length > 1) {
+        tbody.insertBefore(tr, tbody.children[1]);
+    } else {
+        tbody.appendChild(tr);
+    }
 
-    // Mantener solo las últimas 5 filas para no saturar la pantalla
-    if (tbody.children.length > 5) {
+    // Mantener un límite de 6 filas en total para no romper el layout
+    if (tbody.children.length > 6) {
         tbody.removeChild(tbody.lastChild);
     }
 }
 
-// --- SIMULADOR DE CONSOLA DE TEXTO ---
+// --- SIMULADOR DE CONSOLA INTERACTIVA OSINT ---
 const hackerCommands = [
-    "shodan honeypot score ",
-    "shodan download leaks_dataset ",
+    "shodan count country:PE product:Apache",
+    "shodan download uni_recon_dataset",
     "shodan alert list",
-    "shodan myip"
+    "shodan info",
+    "shodan honeypot score "
 ];
 
 function injectConsoleLogs() {
@@ -63,34 +68,34 @@ function injectConsoleLogs() {
     const cursorLine = document.querySelector(".cursor-line");
     if (!consoleContent || !cursorLine) return;
 
-    // Generar entrada aleatoria de comando o sistema
     const isCommand = Math.random() > 0.5;
     const newLog = document.createElement("div");
 
     if (isCommand) {
         newLog.className = "log-entry command-line";
-        newLog.innerText = getRandomElement(hackerCommands) + generateRandomIP();
+        newLog.innerText = getRandomElement(hackerCommands);
     } else {
         newLog.className = "log-entry";
-        newLog.style.color = "#888";
-        newLog.innerText = `[SYS_EVENT] Audit check complete on node ${Math.floor(Math.random() * 9000 + 1000)}`;
+        newLog.style.color = "#555555";
+        newLog.innerText = `[SYS_EVENT] Escaneo pasivo en ejecución...`;
     }
 
-    // Insertar justo antes del prompt del cursor
+    // Inyectar el log arriba de la línea de comandos activa
     consoleContent.insertBefore(newLog, cursorLine);
 
-    // Limitar histórico de logs en consola para legibilidad
+    // Evitar scroll infinito limpiando logs viejos pero manteniendo tu búsqueda inicial fija
     const entries = consoleContent.querySelectorAll(".log-entry, .log-result");
-    if (entries.length > 10) {
-        entries[0].remove();
+    if (entries.length > 12) {
+        // Remueve el primer log dinámico creado para proteger tu cabecera fija
+        if(entries[5]) entries[5].remove();
     }
 }
 
-// --- INICIALIZADOR DE BUCLE ---
+// --- INICIALIZADOR ---
 document.addEventListener("DOMContentLoaded", () => {
-    // Actualizar tabla cada 3 segundos
-    setInterval(updateLiveFeed, 3000);
+    // Genera tráfico de red simulado cada 3.5 segundos sin tocar el renglón de la UNI
+    setInterval(updateLiveFeed, 3500);
     
-    // Actualizar logs de consola cada 4.5 segundos
-    setInterval(injectConsoleLogs, 4500);
+    // Agrega comandos complementarios a la terminal cada 5 segundos
+    setInterval(injectConsoleLogs, 5000);
 });
