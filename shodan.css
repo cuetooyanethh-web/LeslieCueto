@@ -1,26 +1,44 @@
-/* --- Variables de Estilo Cyberpunk/Hacker --- */
+/* ==========================================================================
+   1. IMPORTACIÓN DE FUENTES TIPOGRÁFICAS CORPORATIVAS
+   ========================================================================== */
+@import url('https://googleapis.com');
+
+/* ==========================================================================
+   2. VARIABLES RAÍZ Y PALETA DE COLORES (CYBERPUNK / SHODAN REAL)
+   ========================================================================== */
 :root {
-    --bg-base: #020204;
-    --bg-panel: #07090e;
-    --border-color: #00ff66;
-    --text-primary: #33ff77;
-    --text-secondary: #00e5ff;
-    --alert-red: #ff3333;
-    --alert-orange: #ff9900;
-    --alert-yellow: #ffff00;
+    --bg-base: #000000;         /* Fondo negro absoluto de terminal */
+    --bg-panel: #040810;        /* Azul oscuro profundo para bloques */
+    --border-color: #112233;    /* Azul acero sutil de Shodan */
+    --shodan-blue: #00e5ff;     /* Cian brillante para métricas y datos */
+    --shodan-red: #ff3333;      /* Rojo de alerta para radar y subtítulos */
+    --text-primary: #33ff77;    /* Verde consola para logs secundarios */
+    --alert-orange: #ff9900;    /* Naranja para puertos filtrados */
 }
 
-/* --- Estructura Global --- */
+/* ==========================================================================
+   3. RESETEO DE MÁRGENES Y SELECTORES GLOBALES
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    background-color: var(--bg-base);
+}
+
 body {
     background-color: var(--bg-base);
     color: var(--text-primary);
-    font-family: 'Courier New', Courier, monospace;
-    margin: 0;
-    padding: 0;
+    font-family: 'Share Tech Mono', 'Courier New', monospace; /* Fuente de consola base */
+    padding: 20px;
     overflow-x: hidden;
 }
 
-/* Efecto de líneas de escaneo de monitor antiguo */
+/* Efecto de monitor antiguo CRT */
 .cyber-overlay {
     position: fixed;
     top: 0;
@@ -33,473 +51,773 @@ body {
     pointer-events: none;
 }
 
-/* --- Encabezado y Pie de Página --- */
-.main-header, .main-footer {
-    background-color: var(--bg-panel);
-    border-bottom: 2px solid var(--border-color);
-    padding: 10px 20px;
+/* ==========================================================================
+   4. ENCABEZADO SHODAN REPORT (CALCO EXACTO DE TU MOCKUP)
+   ========================================================================== */
+.shodan-header {
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    font-weight: bold;
-    letter-spacing: 2px;
-}
-
-.main-footer {
-    border-top: 2px solid var(--border-color);
-    border-bottom: none;
-    font-size: 0.8rem;
-    color: #666;
-    padding: 15px 20px;
-    margin-top: 40px; /* Le da una separación limpia a los paneles superiores */
+    background-color: #000000;
+    border: 1px solid var(--border-color);
+    padding: 15px 30px;
     width: 100%;
-    box-sizing: border-box;
+    margin-bottom: 25px;
+    font-family: 'Rajdhani', sans-serif; /* Forzar letra corporativa alta y compacta */
 }
 
-
-.status-online {
-    color: var(--text-primary);
-    text-shadow: 0 0 8px var(--text-primary);
+.shodan-brand-block {
+    display: flex;
+    align-items: center;
+    gap: 25px;
 }
 
-/* --- Distribución en Grid (Diseño Matrix) --- */
-.grid-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 20px;
-    padding: 20px;
-    margin-bottom: 40px; /* Espacio para el footer fijo */
+.shodan-logo-box img {
+    height: 50px;
+    object-fit: contain;
 }
 
-/* --- Componentes de los Paneles --- */
-.panel {
-    background-color: var(--bg-panel);
-    border: 1px solid rgba(0, 255, 102, 0.3);
-    box-shadow: 0 0 15px rgba(0, 255, 102, 0.05);
+.report-box {
+    border-left: 1px dashed rgba(255, 51, 51, 0.4);
+    padding-left: 20px;
+}
+
+.report-subtitle {
+    display: block;
+    color: var(--shodan-red);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.report-box h1 {
+    color: #ffffff;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin: 2px 0;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.target {
+    font-size: 0.9rem;
+    color: #888888;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.target span {
+    color: var(--shodan-blue);
+    text-transform: none;
+    margin-left: 5px;
+}
+
+/* Caja de estadísticas con borde azul y esquinas redondeadas */
+.stats-box {
+    display: flex;
+    align-items: center;
+    background-color: rgba(2, 6, 16, 0.8);
+    border: 1px solid #162a45;
+    border-radius: 10px;
+    padding: 12px 24px;
+    gap: 30px;
+    height: auto;
+}
+
+.stat-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.stat-text-group {
     display: flex;
     flex-direction: column;
 }
 
+.stat-card .fa-bullseye, .stat-card .fa-server, .stat-card .fa-calendar-alt { 
+    color: var(--shodan-blue); 
+    font-size: 1.3rem; 
+}
+
+.stat-card .fa-crosshairs { 
+    color: var(--shodan-red); 
+    font-size: 1.8rem; 
+    animation: pulse-radar 2s infinite ease-in-out;
+}
+
+.stat-card small {
+    color: #718096;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.stat-card h3 {
+    color: var(--shodan-blue);
+    font-size: 1.4rem;
+    margin: 0;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.stat-card p {
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.stat-card p:last-child {
+    color: var(--shodan-blue);
+    font-size: 0.75rem;
+    margin-top: 2px;
+}
+
+@keyframes pulse-radar {
+    0% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.05); opacity: 1; text-shadow: 0 0 8px var(--shodan-red); }
+    100% { transform: scale(1); opacity: 0.8; }
+}
+
+/* ==========================================================================
+   5. DISTRIBUCIÓN DEL DASHBOARD LOWER GRID
+   ========================================================================== */
+.search-panel-container {
+    margin: 0 20px 20px 20px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 20px;
+    padding: 20px;
+    margin-bottom: 40px;
+}
+
+.panel {
+    background-color: var(--bg-panel);
+    border: 1px solid rgba(0, 255, 102, 0.2);
+    box-shadow: 0 0 10px rgba(0, 255, 102, 0.03);
+    border-radius: 4px;
+}
+
 .panel:hover {
-    border-color: var(--border-color);
-    box-shadow: 0 0 20px rgba(0, 255, 102, 0.15);
+    border-color: #00ff66;
+    box-shadow: 0 0 15px rgba(0, 255, 102, 0.12);
 }
 
 .panel-header {
-    background-color: rgba(0, 255, 102, 0.1);
+    background-color: rgba(0, 255, 102, 0.08);
     padding: 8px 12px;
     font-weight: bold;
-    border-bottom: 1px solid rgba(0, 255, 102, 0.3);
+    font-size: 0.8rem;
+    border-bottom: 1px solid rgba(0, 255, 102, 0.2);
     letter-spacing: 1px;
 }
 
 .panel-content {
     padding: 15px;
-    font-size: 0.9rem;
-    line-height: 1.5;
 }
 
-.full-width-panel {
-    grid-column: 1 / span 3;
-}
-
-/* --- Panel de Consola --- */
-.log-entry {
-    margin-bottom: 8px;
-    color: #a0ffa0;
-}
-
-.command-line::before {
-    content: "guest@shodan_osint:~$ ";
-    color: var(--text-secondary);
-}
-
-.command-line {
-    color: #fff;
-    font-weight: bold;
-}
-
-.log-result {
-    color: #888;
-    padding-left: 15px;
-    margin-bottom: 12px;
-}
-
-/* --- Grid de Estadísticas --- */
-.grid-stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-}
-
-.stat-box {
-    border: 1px dashed rgba(0, 229, 255, 0.3);
-    padding: 10px;
-    text-align: center;
-    background: rgba(0, 229, 255, 0.02);
-}
-
-.stat-label {
-    display: block;
-    font-size: 0.7rem;
-    color: var(--text-secondary);
-    margin-bottom: 5px;
-}
-
-.stat-value {
-    font-size: 1.6rem;
-    font-weight: bold;
-}
-
-/* --- Filtros --- */
-.filter-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.filter-list li {
+/* ==========================================================================
+   6. BARRAS DE GRÁFICOS DE SHODAN SIDEBAR
+   ========================================================================== */
+.sidebar-title {
+    font-size: 0.85rem;
+    color: var(--shodan-blue);
     margin-bottom: 10px;
-    border-bottom: 1px solid #111;
-    padding-bottom: 5px;
-}
-
-.filter-tag {
-    background: rgba(0, 229, 255, 0.2);
-    color: var(--text-secondary);
-    padding: 2px 6px;
-    font-size: 0.8rem;
-    border-radius: 3px;
-    margin-right: 5px;
-}
-
-/* --- Tabla de Datos en Vivo --- */
-.feed-table {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: left;
-}
-
-.feed-table th, .feed-table td {
-    padding: 10px;
-    border-bottom: 1px solid #1a1a1a;
-}
-
-.feed-table th {
-    color: var(--text-secondary);
-    font-size: 0.8rem;
-}
-
-/* --- Utilidades y Animaciones --- */
-.blink {
-    animation: blinker 0.8s linear infinite;
-}
-
-@keyframes blinker {
-    50% { opacity: 0; }
-}
-
-.alert-red { color: var(--alert-red); text-shadow: 0 0 5px var(--alert-red); }
-.alert-orange { color: var(--alert-orange); text-shadow: 0 0 5px var(--alert-orange); }
-.alert-yellow { color: var(--alert-yellow); text-shadow: 0 0 5px var(--alert-yellow); }
-.text-cyan { color: var(--text-secondary); }
-
-/* --- Estilos para el Módulo Informativo Shodan --- */
-.info-panel h2 {
-    color: var(--text-secondary);
-    font-size: 1.2rem;
-    margin-top: 15px;
-    margin-bottom: 8px;
     border-bottom: 1px dashed rgba(0, 229, 255, 0.2);
-    padding-bottom: 5px;
+    padding-bottom: 4px;
+}
+
+.stats-list { list-style: none; padding: 0; margin: 0; }
+.stats-list li { display: flex; justify-content: space-between; font-size: 0.85rem; padding: 6px 0; border-bottom: 1px solid #111; }
+.version-count { color: var(--shodan-blue); font-weight: bold; }
+
+.stats-list-graph { list-style: none; padding: 0; margin: 0; }
+.stats-list-graph li { margin-bottom: 12px; }
+.stat-info { display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 4px; }
+.progress-bar-container { width: 100%; height: 8px; background-color: #1a1f29; border-radius: 2px; overflow: hidden; }
+.progress-bar-fill { height: 100%; background-color: #1b75bb; box-shadow: 0 0 5px rgba(27, 117, 187, 0.4); }
+.pct-443 { width: 86.4%; }
+.pct-single { width: 2.7%; }
+
+
+
+/* ==========================================================================
+   8. COMPONENTE DE PAGINACIÓN INTERACTIVA Y FOOTER
+ /* ========================================================================== */
+/* SHODAN ENCYCLOPEDIA (VERSIÓN PRO LIMPIA) */
+/* ========================================================================== */
+
+.shodan-encyclopedia {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+    max-width: 300px;
+    margin: 0;
+    font-family: 'Rajdhani', sans-serif;
+     grid-column: 1;
+    align-self: start;
+      grid-row: 1 / span 2;
+}
+
+/* TARJETA BASE */
+.wiki-card {
+    background: linear-gradient(145deg, #020408, #010203);
+    border-radius: 10px;
+    padding: 16px;
+    position: relative;
+    overflow: hidden;
+    transition: 0.25s ease;
+}
+
+.wiki-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 12px rgba(0, 229, 255, 0.08);
+}
+
+/* TITULOS */
+.wiki-card h2 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 8px;
     letter-spacing: 1px;
 }
 
-.wiki-entry p {
-    color: #a0ffa0;
-    margin-bottom: 12px;
-    text-align: justify;
+/* TEXTO */
+.wiki-card p {
+    font-size: 0.72rem;
+    line-height: 1.45;
+    color: #cbd5e1;
 }
 
-.info-list {
-    list-style: none;
-    padding-left: 5px;
-    margin-bottom: 20px;
+/* ========================================================================== */
+/* AZUL (¿QUÉ ES SHODAN?) */
+/* ========================================================================== */
+
+.info-blue-card {
+    border: 1px solid rgba(0, 229, 255, 0.35);
 }
 
-.info-list li {
-    margin-bottom: 8px;
-    color: #e0e0e0;
+.info-blue-card h2 {
+    color: var(--shodan-blue);
 }
 
-.accent-bullet {
-    color: var(--border-color);
-    margin-right: 8px;
-    font-size: 0.8rem;
+.wiki-card-body {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
-.legal-notice {
-    background: rgba(255, 255, 0, 0.04);
-    border: 1px solid rgba(255, 255, 0, 0.2);
-    padding: 12px;
-    margin-top: 15px;
-    font-size: 0.85rem;
-    color: #dddddd;
-    line-height: 1.4;
-}
-/* --- Estilos para el Reporte de la IP en Shodan --- */
-.host-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 25px;
+/* ESFERA */
+.cyber-planet-sphere {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    border: 1px dashed rgba(0,229,255,0.4);
+    background: radial-gradient(circle, rgba(0,229,255,0.2), transparent 70%);
+    flex-shrink: 0;
+    position: relative;
+    animation: rotatePlanet 10s linear infinite;
 }
 
-.host-info-block h3, .host-ports-block h3 {
-    font-size: 1.1rem;
-    color: var(--text-secondary);
-    margin-bottom: 15px;
-    border-bottom: 1px solid rgba(0, 229, 255, 0.2);
-    padding-bottom: 5px;
+.cyber-planet-sphere::before {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 25px;
+    border: 1px solid rgba(0,229,255,0.25);
+    border-radius: 50%;
+    top: 18px;
+    left: 6px;
+    transform: rotate(-15deg);
 }
 
-.host-table {
-    width: 100%;
-    border-collapse: collapse;
+@keyframes rotatePlanet {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
-.host-table td {
-    padding: 10px 5px;
-    border-bottom: 1px solid #111;
-    font-size: 0.85rem;
-    vertical-align: top;
+/* ========================================================================== */
+/* MORADO (FUNCIONES) */
+/* ========================================================================== */
+
+.info-purple-card {
+    border: 1px solid rgba(168, 85, 247, 0.35);
 }
 
-.host-table .lbl {
-    color: #666;
-    width: 30%;
-    font-weight: bold;
+.info-purple-card h2 {
+    color: #a855f7;
 }
 
-.host-table .val {
-    color: #dddddd;
+.wiki-features-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
-/* Insignias de Puertos Abiertos */
-.port-badges {
+.feature-item {
     display: flex;
     gap: 10px;
-    margin-bottom: 20px;
 }
 
-.port-badges .badge {
-    background-color: rgba(0, 229, 255, 0.1);
-    border: 1px solid var(--text-secondary);
-    color: var(--text-secondary);
-    padding: 6px 14px;
-    font-weight: bold;
+.feature-item i {
+    color: #a855f7;
+    font-size: 0.9rem;
+    margin-top: 2px;
+}
+
+.feature-text h4 {
+    font-size: 0.7rem;
+    color: #ffffff;
+    margin-bottom: 2px;
+}
+
+.feature-text p {
+    font-size: 0.65rem;
+    color: #94a3b8;
+}
+
+/* ========================================================================== */
+/* AMARILLO (LEGAL) */
+/* ========================================================================== */
+
+.info-yellow-card {
+    border: 1px solid rgba(234, 179, 8, 0.35);
+}
+
+.legal-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.legal-header i {
+    color: var(--alert-orange);
     font-size: 0.9rem;
 }
 
-/* Detalles de Banners Crudos */
-.service-banner {
-    background: #05070a;
-    border-left: 3px solid var(--border-color);
-    padding: 12px;
-    margin-bottom: 15px;
-}
-
-.service-banner h4 {
-    margin: 5px 0;
-    color: #ffffff;
-}
-
-.raw-banner {
-    font-family: 'Courier New', monospace;
-    font-size: 0.75rem;
-    color: #888;
-    background: #020204;
-    padding: 8px;
-    margin: 8px 0 0 0;
-    overflow-x: auto;
-    white-space: pre-wrap;
-}
-
-.alert-green {
-    color: var(--border-color);
+.legal-header h2 {
+    color: var(--alert-orange);
     font-size: 0.8rem;
-    font-weight: bold;
-}
-/* --- Extensiones para Puerto HTTPS 443 --- */
-.banner-hash {
-    float: right;
-    font-size: 0.75rem;
-    color: #555;
 }
 
-.ssl-details {
-    margin-top: 15px;
-    border: 1px solid rgba(0, 229, 255, 0.15);
-    background: rgba(0, 229, 255, 0.01);
+.legal-body-flex {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-.ssl-header {
-    background: rgba(0, 229, 255, 0.1);
-    color: var(--text-secondary);
-    padding: 6px 10px;
-    font-size: 0.8rem;
-    font-weight: bold;
-    letter-spacing: 1px;
+.legal-body-flex p {
+    font-size: 0.68rem;
+    color: #fde68a;
 }
 
-.ssl-raw {
-    font-family: 'Courier New', monospace;
-    font-size: 0.7rem;
-    color: #778877;
-    padding: 10px;
-    margin: 0;
-    overflow-x: auto;
-    max-height: 200px; /* Limita la altura con scroll para no deformar el panel */
-    white-space: pre;
-}
-/* --- Ajuste de Expansión para Bloques Completos --- */
-.host-panel {
-    grid-column: 1 / span 3;
-    margin-top: 10px;
-    margin-bottom: 20px;
+/* HUELLA */
+.fingerprint-icon-box {
+    font-size: 1.8rem;
+    color: rgba(234,179,8,0.3);
 }
 
-/* Responsividad para pantallas medianas o laptops */
-@media (max-width: 1024px) {
-    .grid-container {
-        grid-template-columns: 1fr;
-    }
-    .full-width-panel, .host-panel {
-        grid-column: 1;
-    }
-    .host-grid {
-        grid-template-columns: 1fr;
-    }
+/* ========================================================================== */
+/* EFECTO SCAN LINE (PRO) */
+/* ========================================================================== */
+
+.wiki-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--shodan-blue), transparent);
+    animation: scanline 4s infinite;
+}
+
+@keyframes scanline {
+    0% { left: -100%; }
+    100% { left: 100%; }
 }
 /* ==========================================================================
-   MÓDULO DE DOBLE OBJETIVO (SHODAN / DNSDUMPSTER MULTI-IP)
+   MÓDULO CENTRAL: INTERFAZ HOST PRINCIPAL IDENTIFICADO (CALCO FIEL)
    ========================================================================== */
 
-/* Contenedor Grid para dividir los dos servidores en dos columnas perfectas */
-.host-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
+   
+.shodan-dashboard-layout {
+      display: grid;
+
+    /* 🔥 3 columnas */
+    grid-template-columns: 280px 1fr 320px;
+
+    /* 🔥 2 filas (como la imagen) */
+    grid-template-rows: auto auto;
+
+    gap: 14px;
+
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
-/* Títulos individuales para el Nodo 01 y el Nodo 02 */
-.host-info-block h3 {
-    font-size: 1.05rem;
-    color: var(--text-secondary);
-    margin-top: 5px;
-    margin-bottom: 15px;
-    border-bottom: 1px solid rgba(0, 229, 255, 0.2);
-    padding-bottom: 8px;
+/* --- COLUMNA CENTRAL: CONFIGURACIÓN DEL PANEL DE HOST IDENTIFICADO --- */
+.target-core-panel {
+   grid-column: 2;
+
+    background: linear-gradient(180deg, #02060f, #01040a);
+    border: 1px solid #00ffcc;
+    border-radius: 8px;
+
+    width: 100%;
+    max-width: 720px;
+
+    box-shadow: 0 0 25px rgba(0, 255, 200, 0.08);
+   margin: 0;
+    /*align-self: start;*/
+}
+
+.panel-header-cyber {
+    background: linear-gradient(90deg, rgba(0, 119, 170, 0.15), transparent);
+    border-bottom: 1px solid #005577;
+    padding: 10px 16px;
+    color: #00ffff;
+    font-size: 1rem;
+    font-weight: 700;
     letter-spacing: 1px;
 }
 
-/* Configuración de la tabla de datos técnicos de infraestructura */
-.host-table {
+.header-arrow {
+    color: #ff3333;
+    margin-right: 6px;
+    font-weight: 900;
+}
+
+/* Flexbox para distribuir los sub-componentes dentro del bloque central */
+.panel-content-flex {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    gap: 8px;
+}
+
+/* Sub-columna 1: Metadata (Izquierda interna) */
+.target-meta-column {
+    flex: 1;
+}
+
+.target-cyber-table {
     width: 100%;
     border-collapse: collapse;
 }
 
-.host-table td {
-    padding: 12px 5px;
-    border-bottom: 1px solid #111;
-    font-size: 0.85rem;
+.target-cyber-table td {
+    padding: 5px 2px;
+    border-bottom: 1px solid #0a1424;
+    font-size: 0.75rem;
     vertical-align: top;
 }
 
-/* Etiquetas grises de la izquierda (IP Address, ISP Vendor, etc.) */
-.host-table .lbl {
-    color: #666;
+.target-cyber-table .lbl {
+    color: #557799;
+    font-weight: 600;
     width: 35%;
-    font-weight: bold;
+    font-size: 0.8rem;
     letter-spacing: 0.5px;
 }
 
-/* Valores de la derecha con color de texto claro */
-.host-table .val {
-    color: #dddddd;
+.target-cyber-table .lbl i {
+    margin-right: 6px;
+    color: #00e5ff;
+    width: 14px;
+    text-align: center;
 }
 
-/* ==========================================================================
-   RESPONSIVIDAD (Ajuste automático para pantallas pequeñas)
-   ========================================================================== */
-@media (max-width: 992px) {
-    /* Si la pantalla es pequeña, los dos servidores se apilan uno abajo del otro */
-    .host-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-    
-    /* Quitamos los bordes y rellenos laterales para que no se deforme el diseño */
-    .host-info-block {
-        border-right: none !important;
-        padding-right: 0 !important;
-        padding-left: 0 !important;
-    }
+.ip-highlight {
+    font-size: 1.15rem !important;
+    font-weight: 700;
+    text-shadow: 0 0 8px rgba(0, 229, 255, 0.3);
 }
-/* --- Estilos para los Subdominios de la UNI --- */
-.subdomain-tags {
+
+.text-subdomains {
+    color: #00e5ff;
+    line-height: 1.3;
+    font-weight: 600;
+}
+
+/* Sub-columna 2: Torre Isométrica (Centro interno) */
+.target-graphic-column {
+    flex: 0.28;
     display: flex;
     flex-direction: column;
-    gap: 4px;
-    margin: 10px 0;
-}
-
-.sub-tag {
-    font-size: 0.8rem;
-    color: #aaa;
-    font-family: 'Courier New', monospace;
-}
-
-/* Resaltado especial para DIRCE */
-.host-highlight {
-    color: var(--text-secondary) !important;
-    font-weight: bold;
-    text-shadow: 0 0 5px rgba(0, 229, 255, 0.4);
-}
-
-/* --- Barra de Paginación Shodan --- */
-.shodan-pagination {
-    display: flex;
+    align-items: center;
     justify-content: center;
-    gap: 8px;
-    margin-top: 15px;
-    padding: 10px;
-    border-top: 1px dashed rgba(0, 255, 102, 0.1);
+    border-left: 1px solid rgba(0, 85, 119, 0.2);
+    border-right: 1px solid rgba(0, 85, 119, 0.2);
+    padding: 0 5px;
 }
 
-.page-btn {
-    background: #0d1117;
-    border: 1px solid rgba(0, 255, 102, 0.2);
-    color: var(--text-primary);
-    padding: 5px 10px;
-    cursor: pointer;
-    font-family: 'Courier New', monospace;
+.server-rack-iso {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    transform: rotateX(60deg) rotateZ(-45deg) scale(0.38); /* Escalado óptimo para el centro */
+    margin: auto 0;
+}
+
+.rack-layer {
+    width: 55px;
+    height: 55px;
+    background: linear-gradient(135deg, #091a30, #020610);
+    border: 2px solid #00ffff;
+    position: relative;
+    box-shadow: 4px 4px 0px #004466, 0 0 10px rgba(0, 229, 255, 0.3);
+}
+
+.rack-layer::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: #33ff77;
+    bottom: 5px;
+    left: 0;
+    box-shadow: 0 0 6px #33ff77;
+}
+
+.target-crosshair-glow {
+    color: #ff3333;
+    font-size: 1.5rem;
+    text-shadow: 0 0 10px rgba(255, 51, 51, 0.7);
+    margin-top: 10px;
+}
+
+/* Sub-columna 3: Servicios y Banners (Derecha interna) */
+.target-services-column {
+    flex: 1.15;
+}
+
+.services-title-green {
+    color: #77ff33;
     font-size: 0.85rem;
-    transition: all 0.2s ease;
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
 }
 
-.page-btn:hover {
-    border-color: var(--text-secondary);
-    background: rgba(0, 229, 255, 0.05);
-    color: var(--text-secondary);
+.services-feed-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-.active-page {
-    background: var(--border-color) !important;
-    color: #000 !important;
-    font-weight: bold;
-    box-shadow: 0 0 8px var(--border-color);
+.service-badge-row {
+    background-color: #020610;
+    border: 1px solid #162a45;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    padding: 6px 10px;
+    gap: 10px;
 }
 
-.page-dots {
-    color: #555;
-    align-self: flex-end;
+.port-num {
+    color: #77ff33;
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1;
+    min-width: 45px;
 }
+
+.port-num span {
+    display: block;
+    font-size: 0.6rem;
+    color: #556677;
+    margin-top: 1px;
+}
+
+.port-udp { color: #99cc00; }
+
+.port-banner-short h5 {
+    color: #ffffff;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.port-banner-short p {
+    color: #718096;
+    font-size: 0.62rem;
+    margin: 1px 0;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.network-icon-glow { color: #122540; font-size: 1.1rem; }
+.lock-green { color: #33ff77 !important; text-shadow: 0 0 6px rgba(51, 255, 119, 0.4); }
+
+.hostname-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.host-badge {
+    background: rgba(0, 255, 255, 0.08);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    color: #00ffff;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-family: monospace;
+    transition: 0.3s;
+}
+
+.host-badge:hover {
+    background: rgba(0, 255, 255, 0.2);
+    box-shadow: 0 0 6px #00ffff;
+}
+/* ==========================================================================
+   RESPONSIVIDAD
+   ========================================================================== */
+@media (max-width: 1200px) {
+    .shodan-dashboard-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .shodan-encyclopedia,
+    .target-core-panel,
+    .related-hosts-panel {
+        grid-column: 1;
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+.related-hosts-panel {
+    background-color: #01040a;
+    border: 1px solid #004466;
+    border-radius: 6px;
+    width:100%;
+    font-family: 'Rajdhani', sans-serif;
+    box-sizing: border-box;
+    grid-column: 3;
+    align-self: start;
+}
+
+.related-content-scroll {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Tarjetas individuales de nodos */
+.related-card {
+    background-color: #020610;
+    border-radius: 6px;
+    padding: 14px;
+    border: 1px solid #0a1c30;
+}
+
+.node-orange { border-color: rgba(119, 255, 51, 0.2); }
+.node-blue { border-color: rgba(0, 229, 255, 0.2); }
+
+.node-badge-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+/* Etiquetas rectangulares compactas */
+.node-badge {
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: monospace;
+}
+
+.node-orange .node-badge { background-color: rgba(119, 255, 51, 0.1); color: #77ff33; border: 1px solid rgba(119, 255, 51, 0.3); }
+.node-blue .node-badge { background-color: rgba(0, 229, 255, 0.1); color: #00e5ff; border: 1px solid rgba(0, 229, 255, 0.3); }
+
+.node-title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+.node-orange .node-title { color: #77ff33; }
+.node-blue .node-title { color: #00e5ff; }
+
+.node-body-flex {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+/* Tablas internas de datos */
+.node-table {
+    width: 100%;
+    border-collapse: collapse;
+    flex: 1;
+}
+
+.node-table td {
+    padding: 6px 2px;
+    border-bottom: 1px solid #081220;
+    font-size: 0.8rem;
+    vertical-align: top;
+}
+
+.node-table .nlbl {
+    color: #4a5d78;
+    font-weight: 600;
+    width: 35%;
+}
+
+.node-table .nval {
+    color: #cbd5e1;
+    font-weight: 500;
+}
+
+.text-yellow { color: #eab308 !important; }
+.text-green { color: #33ff77 !important; }
+.font-xs { font-size: 0.75rem !important; line-height: 1.3; }
+
+/* Gráficos laterales minimalistas de las tarjetas */
+.mini-server-graphic {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    transform: rotateX(55deg) rotateZ(-45deg) scale(0.7);
+    margin-top: 15px;
+    flex-shrink: 0;
+}
+
+.mini-layer {
+    width: 30px;
+    height: 30px;
+    background: #091a30;
+    border: 1px solid #00ffff;
+    box-shadow: 0 0 5px rgba(0, 229, 255, 0.4);
+}
+
+.mini-globe-graphic {
+    color: rgba(0, 229, 255, 0.2);
+    font-size: 2.2rem;
+    align-self: center;
+    flex-shrink: 0;
+}
+.main-layout {
+    display: grid;
+    grid-template-columns: 320px 1fr 320px;
+    gap: 20px;
+}
+
+.shodan-encyclopedia { grid-column: 1; }
+.target-core-panel { grid-column: 2; }
+.related-hosts-panel { grid-column: 3; }

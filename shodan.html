@@ -5,380 +5,305 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>shodan</title>
      <link rel="stylesheet" href="shodan.css">
+      <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
 </head>
 <body>
-    <div class="cyber-overlay"></div>
-    
-    <header class="main-header">
-        <div class="logo">SHODAN_CORE://v4.0.26</div>
-        <div class="system-status">SYS_STATUS: <span class="status-online">ONLINE</span></div>
-    </header>
+<!-- Encabezado de Shodan Corregido -->
+<section class="shodan-header">
 
-    <main class="grid-container">
-        <!-- Panel Izquierdo: Consola de Comandos (ACTUALIZADO CON TU RECONOCIMIENTO) -->
-        <section class="panel console-panel">
-            <div class="panel-header">_TERMINAL_INTERACTION</div>
-            <div class="panel-content">
-                <div class="log-entry">[INFO] Iniciando conexión segura con Shodan API...</div>
-                <div class="log-entry">[OK] Credenciales validadas correctamente.</div>
-                <div class="log-entry command-line">shodan domain alumnos.uni.edu.pe</div>
-                <div class="log-result">Rastreado un host vinculado al dominio académico...</div>
-                <div class="log-entry">[SUCCESS] Dirección IPv4 resuelta: <span class="text-cyan">190.105.247.141</span></div>
-                <div class="log-entry command-line">shodan host 190.105.247.141</div>
-                <div class="log-result">Puertos abiertos mapeados en Lima, PE: 80, 123, 443</div>
-                <div class="cursor-line">root@shodan_recon:~# <span class="blink">_</span></div>
+    <!-- CONTENEDOR IZQUIERDO: LOGO Y TEXTOS -->
+    <div class="shodan-brand-block">
+        <!-- Logo -->
+        <div class="shodan-logo-box">
+            <img src="images/logo-shodan.jpg" alt="Shodan">
+        </div>
+        <!-- Centro -->
+        <div class="report-box">
+            <span class="report-subtitle">RECONOCIMIENTO PASIVO • OSINT</span>
+            <h1>SHODAN INTELLIGENCE REPORT</h1>
+            <div class="target">
+                TARGET: <span>alumnos.uni.edu.pe</span>
             </div>
-        </section>
-
-        <!-- Panel Central: Estadísticas Críticas -->
-        <section class="panel stats-panel">
-            <div class="panel-header">_GLOBAL_THREAT_METRICS</div>
-            <div class="panel-content grid-stats">
-                <div class="stat-box">
-                    <span class="stat-label">CÁMARAS EXPUESTAS</span>
-                    <span class="stat-value alert-red">341,892</span>
-                </div>
-                <div class="stat-box">
-                    <span class="stat-label">SERVIDORES ICS/SCADA</span>
-                    <span class="stat-value alert-orange">89,411</span>
-                </div>
-                <div class="stat-box">
-                    <span class="stat-label">BBDD SIN CONTRASEÑA</span>
-                    <span class="stat-value alert-yellow">12,504</span>
-                </div>
-                <div class="stat-box">
-                    <span class="stat-label">RANSOMWARE TARGETS</span>
-                    <span class="stat-value">1,209,483</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Panel Derecho: Filtros OSINT -->
-        <section class="panel filters-panel">
-            <div class="panel-header">_OSINT_QUICK_FILTERS</div>
-            <div class="panel-content">
-                <ul class="filter-list">
-                    <li><span class="filter-tag">port:21</span> Anonymous FTP Access</li>
-                    <li><span class="filter-tag">product:Apache</span> Web Servers</li>
-                    <li><span class="filter-tag">country:US</span> United States Node Map</li>
-                    <li><span class="filter-tag">os:"Windows 7"</span> Legacy Operating Systems</li>
-                    <li><span class="filter-tag">has_screenshot:true</span> Active VNC/RDP Sessions</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Panel Inferior Largo: Tráfico en tiempo real (ACTUALIZADO CON TU INVESTIGACIÓN) -->
-        <section class="panel full-width-panel">
-            <div class="panel-header">_LIVE_STREAM_FEED (GEO_IP_TRACKING)</div>
-            <div class="panel-content feed-container">
-                <table class="feed-table">
-                    <thead>
-                        <tr>
-                            <th>TIMESTAMP</th>
-                            <th>TARGET IP</th>
-                            <th>COUNTRY</th>
-                            <th>PORT</th>
-                            <th>VULNERABILITY / SERVICE</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Fila fija que conecta directamente con la IP que investigaste -->
-                        <tr>
-                            <td>15:09:09</td>
-                            <td class="text-cyan">190.105.247.141</td>
-                            <td>Peru (PE)</td>
-                            <td>443</td>
-                            <td class="alert-yellow">Apache httpd (Login | INTRALU - UNI)</td>
-                        </tr>
-                        <tr>
-                            <td>15:08:34</td>
-                            <td class="text-cyan">185.220.101.5</td>
-                            <td>Germany (DE)</td>
-                            <td>445</td>
-                            <td class="alert-red">EternalBlue (MS17-010)</td>
-                        </tr>
-                        <tr>
-                            <td>15:07:11</td>
-                            <td class="text-cyan">45.138.12.190</td>
-                            <td>Russia (RU)</td>
-                            <td>3389</td>
-                            <td class="alert-orange">Weak RDP Credentials</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-    </main>
-
-        <!-- Sección Informativa: ¿Qué es Shodan? -->
-<section class="panel info-panel">
-    <div class="panel-header">_DATABASE_ENTRY://SHODAN_INTELLIGENCE</div>
-    <div class="panel-content">
-        <article class="wiki-entry">
-            <h2>¿QUÉ ES SHODAN?</h2>
-            <p>
-                Shodan es un motor de búsqueda avanzado que indexa información detallada sobre **dispositivos conectados a Internet** en lugar de páginas web convencionales. Diseñado originalmente por <span class="text-cyan">John Matherly en 2009</span>, ha ganado reconocimiento global como <em>«el motor de búsqueda de los dispositivos conectados»</em> o el "Google del Internet de las Cosas (IoT)".
-            </p>
-        </article>
-
-        <article class="wiki-entry">
-            <h2>¿PARA QUÉ SIRVE?</h2>
-            <p>
-                A diferencia de los buscadores tradicionales que rastrean código HTML, Shodan escanea puertos abiertos de forma masiva y recopila los "banners" de respuesta de servidores, enrutadores, cámaras IP, sistemas de control industrial (SCADA) e impresoras. 
-            </p>
-            <p>Sus aplicaciones principales incluyen:</p>
-            <ul class="info-list">
-                <li><span class="accent-bullet">■</span> **Auditoría de Infraestructura:** Permite a los profesionales de TI descubrir qué dispositivos de su propia organización están expuestos públicamente.</li>
-                <li><span class="accent-bullet">■</span> **Investigación de Seguridad:** Facilita a los analistas OSINT el rastreo de vulnerabilidades globales y malware activo.</li>
-                <li><span class="accent-bullet">■</span> **Monitoreo de IoT:** Analiza estadísticas de uso de sistemas operativos, software obsoleto y contraseñas por defecto en la red.</li>
-            </ul>
-        </article>
-
-        <div class="legal-notice">
-            <span class="alert-yellow">[AVISO LEGAL]</span> El uso de Shodan es completamente legal siempre que se aplique con fines éticos, como la investigación de seguridad o la supervisión consentida de infraestructuras. Su enorme capacidad de indexación exige un uso responsable, ético y estrictamente alineado con las normativas vigentes.
         </div>
     </div>
-</section>
-<!-- Reporte de Host Shodan IP -->
-<section class="panel host-panel">
-    <div class="panel-header">_HOST_QUERY://190.105.247.141</div>
-    <div class="panel-content host-grid">
+
+    <!-- CONTENEDOR DERECHO: CAJA VERDE DE ESTADÍSTICAS -->
+     <!-- CONTENEDOR DERECHO: CAJA DE ESTADÍSTICAS ACTUALIZADA -->
+    <div class="stats-box">
         
-        <!-- Bloque de Información General -->
-        <div class="host-info-block">
-            <h3>[ GENERAL INFORMATION ]</h3>
-            <table class="host-table">
+        <!-- Tarjeta 1 (Buscador / Resultados) -->
+        <div class="stat-card">
+            <i class="fas fa-bullseye"></i> <!-- Cambiado a mira/objetivo cian -->
+            <div class="stat-text-group">
+                <small>RESULTADOS ENCONTRADOS</small>
+                <h3>47</h3>
+            </div>
+        </div>
+
+        <!-- Tarjeta 2 (Fuentes de datos / Nodos) -->
+        <div class="stat-card">
+            <i class="fas fa-server"></i> <!-- Cambiado a servidor cian -->
+            <div class="stat-text-group">
+                <small>FUENTES DE DATOS</small>
+                <h3>7</h3>
+            </div>
+        </div>
+
+        <!-- Tarjeta 3 (Calendario) -->
+        <div class="stat-card">
+            <i class="fas fa-calendar-alt"></i>
+            <div class="stat-text-group">
+                <small>ÚLTIMA ACTUALIZACIÓN</small>
+                <p>03 JUL 2026</p>
+                <p>15:09:09</p>
+            </div>
+        </div>
+
+        <!-- Tarjeta 4 (Radar Rojo) -->
+        <div class="stat-card">
+            <i class="fas fa-crosshairs"></i>
+        </div>
+    </div>
+
+
+</section>
+<div class="main-layout">
+<!-- SECCIÓN INFORMATIVA DEBAJO DEL LOGO (ESTILO WIKI INTERACTIVA) -->
+<section class="shodan-encyclopedia">
+
+    <!-- Bloque 1: ¿Qué es Shodan? (Caja Cian) -->
+    <div class="wiki-card info-blue-card">
+        <h2>¿QUÉ ES SHODAN?</h2>
+        <div class="wiki-card-body">
+            <p>
+                Shodan es un motor de búsqueda especializado que indexa dispositivos conectados a Internet en lugar de páginas web. Escanea puertos abiertos y recoge banners de servicios, permitiendo identificar servidores, dispositivos IoT, cámaras, routers, SCADA y más.
+            </p>
+            <!-- Planeta holográfico simulado mediante CSS -->
+            <div class="cyber-planet-sphere"></div>
+        </div>
+    </div>
+
+    <!-- Bloque 2: ¿Para qué sirve? (Caja Morada) -->
+    <div class="wiki-card info-purple-card">
+        <h2>¿PARA QUÉ SIRVE?</h2>
+        <div class="wiki-features-list">
+            
+            <div class="feature-item">
+                <i class="fas fa-shield-alt"></i>
+                <div class="feature-text">
+                    <h4>AUDITORÍA DE INFRAESTRUCTURA</h4>
+                    <p>Permite descubrir qué dispositivos de tu organización están expuestos públicamente.</p>
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <i class="fas fa-search"></i>
+                <div class="feature-text">
+                    <h4>INVESTIGACIÓN DE SEGURIDAD</h4>
+                    <p>Facilita el rastreo de vulnerabilidades globales y malware activo mediante OSINT.</p>
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <i class="fas fa-wifi"></i>
+                <div class="feature-text">
+                    <h4>MONITOREO DE IoT</h4>
+                    <p>Analiza estadísticas de uso de sistemas operativos, software obsoleto y contraseñas por defecto en la red.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Bloque 3: Aviso Legal (Caja Amarilla con Huella) -->
+    <div class="wiki-card info-yellow-card">
+        <div class="legal-header">
+            <i class="fas fa-exclamation-triangle"></i>
+            <h2>AVISO LEGAL</h2>
+        </div>
+        <div class="legal-body-flex">
+            <p>
+                El uso de Shodan es completamente legal siempre que se aplique con fines éticos, como investigación de seguridad o monitoreo autorizado. Su capacidad de indexación exige un uso responsable y alineado con las normativas vigentes.
+            </p>
+            <!-- Icono de huella dactilar digital -->
+            <div class="fingerprint-icon-box">
+                <i class="fas fa-fingerprint"></i>
+            </div>
+        </div>
+    </div>
+
+</section>
+<!-- MÓDULO INTERACTIVO: HOST PRINCIPAL IDENTIFICADO -->
+<section class="panel target-core-panel">
+    <div class="panel-header-cyber">
+        <span class="header-arrow">&gt;</span> HOST PRINCIPAL IDENTIFICADO
+    </div>
+    
+    <div class="panel-content-flex">
+        
+        <!-- COLUMNA IZQUIERDA: METADATA GEOLOCALIZACIÓN Y RED -->
+        <div class="target-meta-column">
+            <table class="target-cyber-table">
                 <tr>
-                    <td class="lbl">Hostnames</td>
-                    <td class="val text-cyan">
-                        alumnos.uni.edu.pe<br>
-                        dirce.uni.edu.pe<br>
-                        docentes.uni.edu.pe<br>
-                        intralu.uni.edu.pe<br>
-                        repositoriodirce.uni.edu.pe
+                    <td class="lbl"><i class="fas fa-microchip"></i> IP ADDRESS</td>
+                    <td class="val text-cyan ip-highlight">190.105.247.141</td>
+                </tr>
+               <tr>
+    <td class="lbl">
+        <i class="fas fa-map-marker-alt"></i> HOSTNAME (S)
+    </td>
+    <td class="val">
+        <div class="hostname-list">
+            <span class="host-badge">alumnos.uni.edu.pe</span>
+            <span class="host-badge">dirce.uni.edu.pe</span>
+            <span class="host-badge">docentes.uni.edu.pe</span>
+            <span class="host-badge">intralu.uni.edu.pe</span>
+            <span class="host-badge">repositoriodirce.uni.edu.pe</span>
+        </div>
+    </td>
+</tr>
+                <tr>
+                    <td class="lbl"><i class="fas fa-globe"></i> DOMAINS</td>
+                    <td class="val text-gray">fravatel.com.pe / uni.edu.pe</td>
+                </tr>
+                <tr>
+                    <td class="lbl"><i class="fas fa-flag"></i> COUNTRY / CITY</td>
+                    <td class="val text-white">
+                        <span class="flag-icon-pe">🇵🇪</span> Peru, Lima
                     </td>
                 </tr>
                 <tr>
-                    <td class="lbl">Domains</td>
-                    <td class="val">fravatel.com.pe / uni.edu.pe</td>
+                    <td class="lbl"><i class="fas fa-building"></i> ORGANIZATION</td>
+                    <td class="val text-white">Fravatel EIRL</td>
                 </tr>
                 <tr>
-                    <td class="lbl">Country</td>
-                    <td class="val">Peru (PE)</td>
+                    <td class="lbl"><i class="fas fa-network-wired"></i> ISP</td>
+                    <td class="val text-white">FRAVATEL EIRL</td>
                 </tr>
                 <tr>
-                    <td class="lbl">City</td>
-                    <td class="val">Lima</td>
-                </tr>
-                <tr>
-                    <td class="lbl">Organization</td>
-                    <td class="val">Fravatel EIRL</td>
-                </tr>
-                <tr>
-                    <td class="lbl">ISP</td>
-                    <td class="val">FRAVATEL EIRL</td>
-                </tr>
-                <tr>
-                    <td class="lbl">ASN</td>
-                    <td class="val alert-yellow">AS52278</td>
+                    <td class="lbl"><i class="fas fa-fingerprint"></i> ASN</td>
+                    <td class="val alert-orange font-bold">AS52278</td>
                 </tr>
             </table>
         </div>
 
-        <!-- Bloque de Puertos Abiertos y Servicios -->
-        <div class="host-ports-block">
-            <h3>[ OPEN PORTS & SERVICES ]</h3>
-            <div class="port-badges">
-                <span class="badge">80</span>
-                <span class="badge">123</span>
-                <span class="badge">443</span>
+        <!-- COLUMNA CENTRAL: RENDERIZACIÓN GRÁFICA DEL SERVIDOR -->
+        <div class="target-graphic-column">
+            <div class="server-rack-iso">
+                <!-- Simulación del servidor en capas cyberpunk -->
+                <div class="rack-layer layer-top"></div>
+                <div class="rack-layer layer-middle-2"></div>
+                <div class="rack-layer layer-middle-1"></div>
+                <div class="rack-layer layer-bottom"></div>
             </div>
+            <!-- Mira telescópica roja de objetivo fijado inferior -->
+            <div class="target-crosshair-glow">
+                <i class="fas fa-crosshairs"></i>
+            </div>
+        </div>
+
+        <!-- COLUMNA DERECHA: PUERTOS ABIERTOS Y SERVICIOS -->
+        <div class="target-services-column">
+            <h4 class="services-title-green">PUERTOS ABIERTOS Y SERVICIOS</h4>
             
-            <div class="service-details">
-                <div class="service-banner">
-                    <span class="alert-green">// 80 / TCP</span>
-                    <h4>Apache httpd</h4>
-                    <pre class="raw-banner">
-HTTP/1.1 301 Moved Permanently
-Server: Apache
-Location: https://uni.edu.pe
-Content-Type: text/html
-                    </pre>
-                </div>
-                
-                <div class="service-banner">
-                    <span class="alert-green">// 123 / UDP</span>
-                    <h4>ntpd 3</h4>
-                    <pre class="raw-banner">
-NTP protocolversion: 3
-stratum: 2
-leap: 0
-                    </pre>
-                </div>
-
-                <!-- Bloque Puerto 443 -->
-                <div class="service-banner">
-                    <span class="alert-green">// 443 / TCP</span>
-                    <span class="banner-hash">-1427902199 | 2026-07-03T15:09:09.226803</span>
-                    <h4>Apache httpd <span class="text-cyan">(Login | INTRALU - UNI)</span></h4>
-                    
-                    <pre class="raw-banner">
-HTTP/1.1 200 OK
-Date: Fri, 03 Jul 2026 15:08:34 GMT
-Server: Apache
-Cache-Control: no-cache, private
-Set-Cookie: XSRF-TOKEN=eyJpdiI6ImZrMlJOdE1w...
-Set-Cookie: intranet_alumno_session=eyJpdiI6...
-Vary: Accept-Encoding
-Transfer-Encoding: chunked
-Content-Type: text/html; charset=UTF-8
-                    </pre>
-
-                    <!-- Bloque del Certificado SSL -->
-                    <div class="ssl-details">
-                        <div class="ssl-header"><i class="fas fa-lock"></i> SSL Certificate Data</div>
-                        <pre class="ssl-raw">
-Certificate:
-    Data:
-        Version: 3 (0x2)
-        Serial Number: 06:a9:d6:8f:82:03:93:a2:f6:b9:18:d6:93:1b:a1:5d:fd:2d
-        Signature Algorithm: ecdsa-with-SHA384
-        Issuer: C=US, O=Let's Encrypt, CN=YE2
-        Validity
-            Not Before: May 30 05:19:59 2026 GMT
-            Not After : Aug 28 05:19:58 2026 GMT
-        Subject: CN=alumnos.uni.edu.pe
-        Subject Alternative Name: 
-            DNS:alumnos.uni.edu.pe, DNS:dirce.uni.edu.pe, DNS:docentes.uni.edu.pe, DNS:intralu.uni.edu.pe, DNS:repositoriodirce.uni.edu.pe
-                        </pre>
+            <div class="services-feed-layout">
+                <!-- Puerto 80 -->
+                <div class="service-badge-row">
+                    <div class="port-num">80 <span>/ TCP</span></div>
+                    <div class="port-banner-short">
+                        <h5>Apache httpd</h5>
+                        <p>HTTP/1.1 301 Moved Permanently</p>
+                        <p>Server: Apache</p>
+                        <p>Location: https://uni.edu.pe</p>
+                        <p>Content-Type: text/html</p>
                     </div>
+                    <i class="fas fa-globe network-icon-glow"></i>
                 </div>
 
+                <!-- Puerto 123 -->
+                <div class="service-badge-row">
+                    <div class="port-num port-udp">123 <span>/ UDP</span></div>
+                    <div class="port-banner-short">
+                        <h5>NTP Service</h5>
+                        <p>NTP protocolversion: 3</p>
+                        <p>stratum: 2</p>
+                        <p>leap: 0</p>
+                    </div>
+                    <i class="fas fa-clock network-icon-glow"></i>
+                </div>
+
+                <!-- Puerto 443 -->
+                <div class="service-badge-row">
+                    <div class="port-num">443 <span>/ TCP</span></div>
+                    <div class="port-banner-short">
+                        <h5>Apache httpd (INTRALU - UNI)</h5>
+                        <p>HTTP/1.1 200 OK</p>
+                        <p>Server: Apache</p>
+                        <p>Content-Type: text/html; charset=UTF-8</p>
+                    </div>
+                    <i class="fas fa-lock network-icon-glow lock-green"></i>
+                </div>
             </div>
+
         </div>
 
     </div>
 </section>
-<!-- Módulo de Objetivos Mapeados (UNI Infraestructura) -->
-<section class="panel host-panel">
-    <div class="panel-header">_TARGET_MATRIX://MULTIPLE_HOSTS_DETECTED</div>
-    <div class="panel-content host-grid">
-        
-        <!-- Servidor 1: Intranet Central -->
-        <div class="host-info-block" style="border-right: 1px dashed rgba(0, 255, 102, 0.2); padding-right: 15px;">
-            <h3>[ NODE_01 // INTRANET CENTRAL ]</h3>
-            <table class="host-table">
-                <tr>
-                    <td class="lbl">IP Address</td>
-                    <td class="val text-cyan">190.105.247.141</td>
-                </tr>
-                <tr>
-                    <td class="lbl">Asignación</td>
-                    <td class="val">alumnos.uni.edu.pe / intralu.uni.edu.pe</td>
-                </tr>
-                <tr>
-                    <td class="lbl">ISP Vendor</td>
-                    <td class="val">FRAVATEL EIRL</td>
-                </tr>
-                <tr>
-                    <td class="lbl">Infraestructura</td>
-                    <td class="val alert-yellow">Servidor de Aplicaciones y BBDD</td>
-                </tr>
-            </table>
-        </div>
-
-        <!-- Servidor 2: Portal Web Público (Descubierto en DNSDumpster) -->
-        <div class="host-info-block" style="padding-left: 15px;">
-            <h3>[ NODE_02 // WEB PORTAL BALANCER ]</h3>
-            <table class="host-table">
-                <tr>
-                    <td class="lbl">IP Address</td>
-                    <td class="val text-cyan">181.176.48.16</td>
-                </tr>
-                <tr>
-                    <td class="lbl">Asignación</td>
-                    <td class="val">www.alumnos.uni.edu.pe</td>
-                </tr>
-                <tr>
-                    <td class="lbl">ISP Vendor</td>
-                    <td class="val">VIETTEL PERU S.A.C. (Bitel)</td>
-                </tr>
-                <tr>
-                    <td class="lbl">Infraestructura</td>
-                    <td class="val alert-green">Servidor Web Estático / HTTP Balance</td>
-                </tr>
-            </table>
-        </div>
-
-    </div>
-</section>
-<!-- Contenedor Principal Derecho: Lista de Hosts Encontrados -->
-    <section class="shodan-hosts-feed">
-        
-        <!-- Host Principal: Concentrador de Servicios de la UNI (DIRCE / INTRALU) -->
-        <article class="panel host-result-item">
-            <div class="panel-header">_HOST_ENTRY://190.105.247.141</div>
-            <div class="panel-content host-result-grid">
-                
-                <!-- Columna 1: Meta Información de Red -->
-                <div class="host-meta">
-                    <h3 class="alert-green">Login | INTRALU - UNI</h3>
-                    <p class="ip-text">190.105.247.141</p>
-                    <p class="rdns-text text-cyan">://fravatel.com.pe</p>
-                    
-                    <!-- Subdominios mapeados resaltados -->
-                    <div class="subdomain-tags">
-                        <span class="sub-tag host-highlight">dirce.uni.edu.pe</span>
-                        <span class="sub-tag">intralu.uni.edu.pe</span>
-                        <span class="sub-tag">alumnos.uni.edu.pe</span>
-                        <span class="sub-tag">docentes.uni.edu.pe</span>
-                        <span class="sub-tag">repositoriodirce.uni.edu.pe</span>
+    <!-- COLUMNA 3: PANEL DE HOSTS RELACIONADOS (EXTREMA DERECHA) -->
+    <aside class="related-hosts-panel">
+        <div class="panel-header-cyber">HOSTS RELACIONADOS</div>
+        <div class="related-content-scroll">
+            
+            <!-- Nodo 01: Intranet Central -->
+            <div class="related-card node-orange">
+                <div class="node-badge-row">
+                    <span class="node-badge">NODE_01</span>
+                    <span class="node-title">INTRANET CENTRAL (PRINCIPAL)</span>
+                </div>
+                <div class="node-body-flex">
+                    <table class="node-table">
+                        <tr><td class="nlbl">IP Address</td><td class="nval text-cyan">190.105.247.141</td></tr>
+                        <tr><td class="nlbl">Hostnames</td><td class="nval font-xs">alumnos.uni.edu.pe<br>dirce.uni.edu.pe<br>intralu.uni.edu.pe<br>docentes.uni.edu.pe<br>repositoriodirce.uni.edu.pe</td></tr>
+                        <tr><td class="nlbl">ISP Vendor</td><td class="nval">FRAVATEL EIRL</td></tr>
+                        <tr><td class="nlbl">Infraestructura</td><td class="nval text-yellow">Servidor de Aplicaciones y BBDD ⭐</td></tr>
+                    </table>
+                    <!-- Mini servidor 3D lateral -->
+                    <div class="mini-server-graphic">
+                        <div class="mini-layer"></div>
+                        <div class="mini-layer"></div>
+                        <div class="mini-layer"></div>
                     </div>
-                    
-                    <p class="isp-text">Fravatel EIRL // Peru, Lima</p>
-                </div>
-                
-                <!-- Columna 2: Criptografía SSL -->
-                <div class="host-crypto">
-                    <h4><i class="fas fa-lock"></i> SSL Certificate</h4>
-                    <p><strong>Issued By:</strong> Let's Encrypt (YE2)</p>
-                    <p><strong>Issued To:</strong> alumnos.uni.edu.pe</p>
-                    <p><strong>Subject Alt Names:</strong> dirce.uni.edu.pe, intralu.uni.edu.pe, docentes.uni.edu.pe</p>
-                    <p><strong>TLS Versions:</strong> TLSv1.2, TLSv1.3</p>
-                </div>
-                
-                <!-- Columna 3: Respuesta HTTP Cruda (Banner) -->
-                <div class="host-raw-data">
-                    <pre>
-HTTP/1.1 200 OK
-Date: Fri, 03 Jul 2026 15:08:34 GMT
-Server: Apache
-Cache-Control: no-cache, private
-Set-Cookie: XSRF-TOKEN=eyJpdiI6...
-Content-Type: text/html; charset=UTF-8
-                    </pre>
                 </div>
             </div>
-        </article>
 
-        <!-- Componente de Paginación Estilo Shodan Web (Simula los 47 resultados) -->
-        <div class="shodan-pagination">
-            <button class="page-btn active-page">1</button>
-            <button class="page-btn">2</button>
-            <button class="page-btn">3</button>
-            <button class="page-btn">4</button>
-            <button class="page-btn">5</button>
-            <span class="page-dots">...</span>
-            <button class="page-btn">Next »</button>
+            <!-- Nodo 02: Web Portal Balancer -->
+            <div class="related-card node-blue">
+                <div class="node-badge-row">
+                    <span class="node-badge">NODE_02</span>
+                    <span class="node-title">WEB PORTAL BALANCER</span>
+                </div>
+                <div class="node-body-flex">
+                    <table class="node-table">
+                        <tr><td class="nlbl">IP Address</td><td class="nval text-cyan">181.176.48.16</td></tr>
+                        <tr><td class="nlbl">Hostnames</td><td class="nval font-xs">www.alumnos.uni.edu.pe</td></tr>
+                        <tr><td class="nlbl">ISP Vendor</td><td class="nval">VIETTEL PERU S.A.C. (Bitel)</td></tr>
+                        <tr><td class="nlbl">Infraestructura</td><td class="nval text-green">Servidor Web Estático / HTTP Balance</td></tr>
+                    </table>
+                    <!-- Globo terráqueo de red lateral -->
+                    <div class="mini-globe-graphic">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                </div>
+            </div>
+
         </div>
+    </aside>
 
-    </section>
+</div>
 
-    </main>
-
-    <footer class="main-footer">
-        <div>LATENCY: 42ms // SECURE NODE // ENCRYPTION: AES-256-GCM</div>
-    </footer>
+    
        <script src="shodan.js"></script>
 </body>
 </html>
