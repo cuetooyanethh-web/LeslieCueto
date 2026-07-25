@@ -493,11 +493,11 @@ body {
 
 /* Flexbox para distribuir los sub-componentes dentro del bloque central */
 .panel-content-flex {
- display:grid;
-    grid-template-columns: 42% 22% 36%;
-    gap:20px;
-    padding:18px;
-    align-items:stretch;
+   display:grid;
+    grid-template-columns:43% 18% 39%;
+    gap:18px;
+    padding:20px;
+    align-items:start;
 
 }
 
@@ -514,7 +514,7 @@ body {
 }
 
 .target-cyber-table td {
-   padding:14px 4px;
+   padding:10px 4px;
     border-bottom: 1px solid #0a1424;
     font-size:15px;
 
@@ -564,24 +564,23 @@ border-right:1px solid #093850;
 }
 
 .server-rack-iso {
-    display: flex;
-    flex-direction: column;
-   transform:
+    display:flex;
+
+flex-direction:column;
+
+gap:8px;
+
+transform:
 rotateX(60deg)
 rotateZ(-45deg)
-scale(.95);
+scale(.72);
 
-gap:10px;
-    margin: auto 0;
 }
 
 .rack-layer {
-   width:95px;
-    height: 95px;
-    background: linear-gradient(135deg, #091a30, #020610);
-    border: 2px solid #00ffff;
-    position: relative;
-    box-shadow: 4px 4px 0px #004466, 0 0 10px rgba(0, 229, 255, 0.3);
+  width:72px;
+
+height:72px;
 }
 
 .rack-layer::after {
@@ -611,8 +610,10 @@ gap:10px;
 
 /* Sub-columna 3: Servicios y Banners (Derecha interna) */
 .target-services-column {
+     display:flex;
     flex-direction:column;
-    display: flex;
+    justify-content:flex-start;
+    width:100%;
     
 }
 
@@ -633,29 +634,42 @@ gap:10px;
 .service-badge-row {
  
 display:grid;
-grid-template-columns:75px 1fr 50px;
 
-align-items:center;
+grid-template-columns:70px 1fr 42px;
 
 gap:12px;
 
+align-items:flex-start;
+
 padding:12px;
 
-min-height:90px;
+background:#06110d;
 
-border:1px solid #12433c;
-background:#07110f;
+border:1px solid #0e4938;
+
 border-radius:6px;
+
+min-height:95px;
 
 
 }
 
 .port-num {
-font-size:46px;
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:34px;
+
 font-weight:700;
+
 line-height:1;
 
-color:#6eff38;
+color:#77ff44;
 
 
 }
@@ -663,11 +677,13 @@ color:#6eff38;
 .port-num span {
     
     
-font-size:14px;
+display:block;
+
 margin-top:6px;
 
+font-size:12px;
 
-color:#94a3b8;
+color:#8da1b5;
     
 }
 
@@ -678,50 +694,61 @@ display:flex;
 
 flex-direction:column;
 
-gap:5px;
+gap:3px;
 
 }
 .port-banner-short h5 {
-    color: #ffffff;
-    font-size:20px;
+   margin:0;
+
+font-size:15px;
+
+color:#fff;
+
 font-weight:700;
-margin:0;
+
 
 }
 
 .port-banner-short p {
-    color: #718096;
- 
-font-size:12px;
-line-height:1.3;
-    font-family: 'Share Tech Mono', monospace;
+    margin:0;
+
+font-size:11px;
+
+line-height:1.35;
+
+color:#92a4b5;
 }
 
-.network-icon-glow { font-size:  40px;
+.network-icon-glow { font-size:28px;
 
-justify-self:end;
+align-self:center;
 
-color:#4cff57;
+justify-self:center;
+
+color:#55ff55;
 }
 .lock-green { color: #33ff77 !important; text-shadow: 0 0 6px rgba(51, 255, 119, 0.4); }
 
 .hostname-list {
+
 display:flex;
+
 flex-direction:column;
-gap:8px;
+
+gap:5px;
 }
 
 .host-badge {
  
 background:none;
+
 border:none;
+
 padding:0;
 
+font-size:13px;
+
 color:#00e5ff;
-
-font-size:15px;
-
-box-shadow:none;
 }
 
 .host-badge:hover {
