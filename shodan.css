@@ -211,7 +211,20 @@ body {
 .panel-content {
     padding: 15px;
 }
+.panel-content-flex{
+    display:grid;
 
+grid-template-columns:
+
+46%
+14%
+40%;
+
+gap:20px;
+
+align-items:start;
+padding: 20px;     /* importante */
+}
 /* ==========================================================================
    6. BARRAS DE GRÁFICOS DE SHODAN SIDEBAR
    ========================================================================== */
@@ -440,25 +453,26 @@ body {
 
    
 .shodan-dashboard-layout {
-     width:100%;
-    max-width:1900px;
-    margin:auto;
+ display:grid;
 
-    display:grid;
+grid-template-columns:
 
-    grid-template-columns:
-        320px
-        minmax(780px,1fr)
-        420px;
+290px
+1fr
+360px;
 
-    gap:18px;
+gap:20px;
 
-    align-items:start;
+align-items:start;
+
 }
 
 /* --- COLUMNA CENTRAL: CONFIGURACIÓN DEL PANEL DE HOST IDENTIFICADO --- */
 .target-core-panel {
      grid-column:2;
+     
+    display:flex;
+    flex-direction:column;
 
     width:100%;
 
@@ -492,20 +506,12 @@ body {
 }
 
 /* Flexbox para distribuir los sub-componentes dentro del bloque central */
-.panel-content-flex {
-   display:grid;
-    grid-template-columns:43% 18% 39%;
-    gap:18px;
-    padding:20px;
-    align-items:start;
 
-}
 
 /* Sub-columna 1: Metadata (Izquierda interna) */
 .target-meta-column {
-     flex: 1;
-    min-width: 0;
-    width:100%;
+      width:100%;
+    min-width:0;
 }
 
 .target-cyber-table {
@@ -552,15 +558,14 @@ body {
 
 /* Sub-columna 2: Torre Isométrica (Centro interno) */
 .target-graphic-column {
-    flex: 0.28;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-   border-left:1px solid #093850;
-border-right:1px solid #093850;
-
-    padding: 0 5px;
+     display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    border-left:1px solid #093850;
+    border-right:1px solid #093850;
+    padding:10px;
+    gap:20px;
 }
 
 .server-rack-iso {
@@ -571,16 +576,24 @@ flex-direction:column;
 gap:8px;
 
 transform:
+
 rotateX(60deg)
 rotateZ(-45deg)
-scale(.72);
+scale(.55);
+
+margin-top:10px;
 
 }
 
 .rack-layer {
   width:72px;
-
-height:72px;
+    height:72px;
+    background:linear-gradient(135deg,#091a30,#020610);
+    border:2px solid #00ffff;
+    position:relative;
+    box-shadow:
+        4px 4px 0 #004466,
+        0 0 10px rgba(0,229,255,.3);
 }
 
 .rack-layer::after {
@@ -595,9 +608,9 @@ height:72px;
 }
 
 .target-crosshair-glow {
-        margin-top:35px;
+        margin-top:15px;
 
-    font-size:34px;
+    font-size:30px;
 
     color:#ff2d2d;
 
@@ -610,10 +623,10 @@ height:72px;
 
 /* Sub-columna 3: Servicios y Banners (Derecha interna) */
 .target-services-column {
-     display:flex;
+        display:flex;
     flex-direction:column;
-    justify-content:flex-start;
-    width:100%;
+    align-self:start;
+    gap:12px;
     
 }
 
@@ -626,30 +639,32 @@ height:72px;
 }
 
 .services-feed-layout {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+      display:flex;
+    flex-direction:column;
+    gap:12px;
+    height:auto;
 }
 
 .service-badge-row {
  
-display:grid;
+   display:grid;
+    grid-template-columns:65px
+1fr
+35px;
 
-grid-template-columns:70px 1fr 42px;
+    gap:12px;
 
-gap:12px;
+    padding:14px;
 
-align-items:flex-start;
+    background:#06110d;
 
-padding:12px;
+    border:1px solid #0e4938;
 
-background:#06110d;
+    border-radius:6px;
 
-border:1px solid #0e4938;
+    align-items:center;
 
-border-radius:6px;
-
-min-height:95px;
+    align-self:start;
 
 
 }
@@ -693,6 +708,10 @@ color:#8da1b5;
 display:flex;
 
 flex-direction:column;
+justify-content:center;
+
+min-width:0;
+
 
 gap:3px;
 
@@ -705,6 +724,11 @@ font-size:15px;
 color:#fff;
 
 font-weight:700;
+white-space:nowrap;
+
+overflow:hidden;
+
+text-overflow:ellipsis;
 
 
 }
@@ -719,11 +743,11 @@ line-height:1.35;
 color:#92a4b5;
 }
 
-.network-icon-glow { font-size:28px;
+.network-icon-glow { font-size:  24px;
 
 align-self:center;
 
-justify-self:center;
+justify-self:end;
 
 color:#55ff55;
 }
@@ -782,6 +806,8 @@ color:#00e5ff;
     align-self: start;
      grid-row: 1;
      min-width:400px;
+         display:flex;
+    flex-direction:column;
 }
 
 .related-content-scroll {
