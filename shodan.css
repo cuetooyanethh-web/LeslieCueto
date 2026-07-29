@@ -211,16 +211,7 @@ body {
 .panel-content {
     padding: 15px;
 }
-.panel-content-flex{
-   display:grid;
-    grid-template-columns:44% 18% 38%;
-    gap:20px;
-    padding:20px;
-    height:100%;
-    align-items:stretch;
-    /*height: 420px;          
-    overflow: hidden;   */
-}
+
 .target-meta-column,
 .target-services-column {
     min-width: 0;
@@ -477,8 +468,9 @@ body {
 .shodan-dashboard-layout{
     display:grid;
     grid-template-columns:280px 1fr 340px;
-    grid-template-rows:auto auto auto;
+    grid-template-rows:550px auto;
     gap:20px;
+    align-items:start;
 }
 /* --- COLUMNA CENTRAL: CONFIGURACIÓN DEL PANEL DE HOST IDENTIFICADO --- */
 .target-core-panel{
@@ -489,7 +481,7 @@ body {
     border:1px solid #0d6b88;
     border-radius:8px;
     overflow:hidden;
-    height:480px;
+    height:450px;
 }
 .panel-header-cyber {
     background: linear-gradient(90deg, rgba(0, 119, 170, 0.15), transparent);
@@ -564,7 +556,8 @@ body {
      display:flex;
     flex-direction:column;
     align-items:center;
-    justify-content:center;
+    justify-content:flex-start;
+padding-top:70px;
    border-left:1px solid rgba(0,255,255,0.15);
 border-right:1px solid rgba(0,255,255,0.15);
     padding:10px;
@@ -606,7 +599,7 @@ margin-top:10px;
 }
 
 .target-crosshair-glow {
-        margin-top:15px;
+      
 
     font-size:30px;
 
@@ -623,21 +616,35 @@ margin-top:10px;
 .target-services-column {
         display:flex;
     flex-direction:column;
-   /* align-self:start;
-    gap:12px;*/
+   gap: 6px;
     height:100%;
     overflow:hidden; 
      min-height:0;
 }
 
-.services-title-green {
+/*.services-title-green {
     color: #77ff33;
     font-size: 0.85rem;
     font-weight: 700;
     margin-bottom: 12px;
     letter-spacing: 0.5px;
+}*/
+.services-title-green{
+    color:#77ff33;
+    font-size:0.85rem;
+    font-weight:700;
+    margin:0 0 6px 0;   /* antes 12px */
+    letter-spacing:.5px;
 }
-
+.services-feed-layout{
+    display:flex;
+    flex-direction:column;
+    gap:8px;            /* antes 12px */
+    padding-top:0;
+    padding-right:6px;
+    overflow-y:auto;
+}
+/*
 .services-feed-layout {
       display:flex;
     flex-direction:column;
@@ -646,11 +653,11 @@ margin-top:10px;
         max-height:100%;
     padding-right:6px;
      overflow-y:auto;
-       max-height:100%;   /* 🔥 NO crece */
+       max-height:100%;   
     min-height:0;  
      scrollbar-width:thin;
     scrollbar-color:#00e5ff transparent;
-}
+}*/
 .services-feed-layout::-webkit-scrollbar{
     width:6px;
 }
@@ -659,29 +666,8 @@ margin-top:10px;
     border-radius:10px;
 }
 
-.service-badge-row {
- 
-   display:grid;
-    grid-template-columns:65px
-1fr
-35px;
-
-    gap: 10px;
-
-    padding:10px 12px;
-
-    background:#06110d;
-
-    border:1px solid #0e4938;
-
-    border-radius:6px;
-
-    align-items:center;
-
-    align-self:start;
 
 
-}
 
 .port-num {
 display:flex;
@@ -799,23 +785,46 @@ color:#55ff55;
     box-sizing: border-box;
     grid-column: 3;
     align-self: start;
-         height:535px;
+         height:730px;
+         overflow: hidden;
     
          display:flex;
     flex-direction:column;
 }
 
+.related-hosts-panel .verify-panel{
+    margin-top:90px;
+    height:230px;
+    overflow:hidden;
+    padding:15px;
+    flex-shrink:0;
+}
 
 
+.related-hosts-panel .verify-panel pre{
+    height:120px;
+    overflow:hidden;
+    font-size:12px;
+    line-height:1.4;
+    padding:10px;
+    margin:0;
+}
 
+.related-hosts-panel .verify-header{
+    margin-bottom:8px;
+}
+
+.related-hosts-panel .verify-header h3{
+    font-size:14px;
+}
 
 
 .related-content-scroll {
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    overflow:auto;
+    padding: 20px;
+
+   
+    overflow:hidden;
+    flex: 1;
 }
 
 /* Tarjetas individuales de nodos */
@@ -1061,13 +1070,13 @@ width:2%;
 
 }
 .verify-panel{
+    grid-column:3;
     background:#05050a;
     border:1px solid #7c1827;
     border-radius:8px;
     padding:20px;
-        grid-area:verify;
+    margin-top:20px;
 }
-
 .verify-header{
 
 display:flex;
@@ -1115,15 +1124,11 @@ overflow:auto;
         "verify verify";
 
     gap:20px;
+
+    align-self:start;
+      margin-top:-90px;
 }
-.target-graphic-column{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-    border-left:1px solid rgba(0,255,255,.15);
-    border-right:1px solid rgba(0,255,255,.15);
-}
+
 .service-badge-row{
 
     display:grid;
@@ -1138,9 +1143,9 @@ overflow:auto;
 
     border-radius:6px;
 
-    padding:12px;
+    padding:8px 12px;
 
-    margin-bottom:12px;
+    margin-bottom:8px;
 
 
    
@@ -1151,7 +1156,7 @@ overflow:auto;
     grid-template-columns:44% 18% 38%;
     gap:20px;
     padding:20px;
-    height:100%;
+      height:calc(100% - 48px);
 }
 /* ==========================================
    1600px - Pantallas grandes
@@ -1178,10 +1183,7 @@ overflow:auto;
 ========================================== */
 @media (max-width:1400px){
 
-    .shodan-dashboard-layout{
-        grid-template-columns:230px 1fr 290px;
-        gap:16px;
-    }
+    
 
     .report-box h1{
         font-size:36px;
@@ -1217,9 +1219,7 @@ overflow:auto;
         flex-wrap:wrap;
     }
 
-    .shodan-dashboard-layout{
-        grid-template-columns:1fr;
-    }
+    
 
     .shodan-encyclopedia,
     .target-core-panel,
