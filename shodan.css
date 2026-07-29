@@ -212,13 +212,14 @@ body {
     padding: 15px;
 }
 .panel-content-flex{
-    display:grid;
-    grid-template-columns: 42% 16% 42%;
-    gap:16px;
-    padding:18px;
-    align-items:start;
-        height: 420px;          /* controla altura del panel */
-    overflow: hidden;   
+   display:grid;
+    grid-template-columns:44% 18% 38%;
+    gap:20px;
+    padding:20px;
+    height:100%;
+    align-items:stretch;
+    /*height: 420px;          
+    overflow: hidden;   */
 }
 .target-meta-column,
 .target-services-column {
@@ -457,50 +458,39 @@ body {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 /* ==========================================================================
    MÓDULO CENTRAL: INTERFAZ HOST PRINCIPAL IDENTIFICADO (CALCO FIEL)
    ========================================================================== */
 
-   
-.shodan-dashboard-layout {
-
-display:grid;
-
-grid-template-columns:280px 1fr 340px;
-
- grid-template-areas:
-        "left main right"
-        "left ssl  right"
-        "left verify right";
-grid-template-rows: 420px auto auto auto;
-gap:20px;
-
+.shodan-dashboard-layout{
+    display:grid;
+    grid-template-columns:280px 1fr 340px;
+    grid-template-rows:auto auto auto;
+    gap:20px;
 }
-
 /* --- COLUMNA CENTRAL: CONFIGURACIÓN DEL PANEL DE HOST IDENTIFICADO --- */
-.target-core-panel {
-     grid-column:2;
-        
+.target-core-panel{
+    grid-column:2;
     display:flex;
     flex-direction:column;
-
-    width:100%;
-
     background:#030812;
-
-    border:1px solid #0f6d84;
-
+    border:1px solid #0d6b88;
     border-radius:8px;
-
     overflow:hidden;
-
-    box-shadow:
-    0 0 25px rgba(0,255,255,.05);
-    height: 100%;
-    max-height: 420px;
-   
+    height:480px;
 }
-
 .panel-header-cyber {
     background: linear-gradient(90deg, rgba(0, 119, 170, 0.15), transparent);
     border-bottom: 1px solid #005577;
@@ -521,10 +511,10 @@ gap:20px;
 
 
 /* Sub-columna 1: Metadata (Izquierda interna) */
-.target-meta-column {
-      width:100%;
-    min-width:0;
-    overflow:hidden;
+.target-meta-column{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
 }
 
 .target-cyber-table {
@@ -587,7 +577,7 @@ border-right:1px solid rgba(0,255,255,0.15);
 flex-direction:column;
 
 gap:8px;
-transform: rotateX(60deg) rotateZ(-45deg) scale(.48);
+transform: rotateX(60deg) rotateZ(-45deg) scale(.70);
 
 margin-top:10px;
 
@@ -809,7 +799,7 @@ color:#55ff55;
     box-sizing: border-box;
     grid-column: 3;
     align-self: start;
-     
+         height:535px;
     
          display:flex;
     flex-direction:column;
@@ -825,6 +815,7 @@ color:#55ff55;
     display: flex;
     flex-direction: column;
     gap: 15px;
+    overflow:auto;
 }
 
 /* Tarjetas individuales de nodos */
@@ -933,18 +924,11 @@ scale(.95);
 }
 
 .ssl-panel{
-
-background:#040810;
-
-border:1px solid #0d6b88;
-
-border-radius:8px;
-
-padding:22px;
-grid-column:2;
- 
-width:100%;
-
+    background:#040810;
+    border:1px solid #0d6b88;
+    border-radius:8px;
+    padding:22px;
+        grid-area:ssl;
 }
 
 .ssl-header{
@@ -979,11 +963,11 @@ align-items:center;
 
 .ssl-icon{
 
-font-size:110px;
+font-size:125px;
 
 color:#8d4cff;
 
-width:170px;
+width:180px;
 
 text-align:center;
 
@@ -1017,20 +1001,12 @@ font-weight:bold;
 
 }
 .topports-panel{
-
-background:#040810;
-
-border:1px solid #0d6b88;
-
-border-radius:8px;
-
-padding:22px;
-grid-column:3;
-
-width:100%;
-
+    background:#040810;
+    border:1px solid #0d6b88;
+    border-radius:8px;
+    padding:22px;
+    grid-area:top;
 }
-
 .topports-panel h3{
 
 margin-bottom:25px;
@@ -1055,13 +1031,13 @@ margin-bottom:18px;
 
 .bar{
 
-height:9px;
+height:10px;
 
 background:#0d1523;
 
 overflow:hidden;
 
-border-radius:10px;
+border-radius:30px;
 
 }
 
@@ -1085,17 +1061,11 @@ width:2%;
 
 }
 .verify-panel{
-
-background:#05050a;
-
-border:1px solid #7c1827;
-
-border-radius:8px;
-
-padding:20px;
-grid-column:2;
-
-width:100%;
+    background:#05050a;
+    border:1px solid #7c1827;
+    border-radius:8px;
+    padding:20px;
+        grid-area:verify;
 }
 
 .verify-header{
@@ -1136,12 +1106,53 @@ overflow:auto;
 
 }
 .bottom-row{
+    grid-column:2;
     display:grid;
-    grid-template-columns: 1fr 1fr 320px; /* SSL | TOP | VERIFICACION */
-    gap:20px;
-    align-items:center; /* 🔥 CENTRADO VERTICAL */
-}
 
+    grid-template-columns:2fr 1fr;
+    grid-template-areas:
+        "ssl top"
+        "verify verify";
+
+    gap:20px;
+}
+.target-graphic-column{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    border-left:1px solid rgba(0,255,255,.15);
+    border-right:1px solid rgba(0,255,255,.15);
+}
+.service-badge-row{
+
+    display:grid;
+
+    grid-template-columns:70px 1fr 40px;
+
+    align-items:center;
+
+    background:#07160d;
+
+    border:1px solid #21582d;
+
+    border-radius:6px;
+
+    padding:12px;
+
+    margin-bottom:12px;
+
+
+   
+
+}
+.panel-content-flex{
+    display:grid;
+    grid-template-columns:44% 18% 38%;
+    gap:20px;
+    padding:20px;
+    height:100%;
+}
 /* ==========================================
    1600px - Pantallas grandes
 ========================================== */
