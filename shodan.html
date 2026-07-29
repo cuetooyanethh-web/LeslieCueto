@@ -300,8 +300,195 @@
 
         </div>
     </aside>
+<!-- ==========================================================
+CERTIFICADO SSL
+=========================================================== -->
+
+<section class="ssl-panel">
+
+    <div class="ssl-header">
+        <i class="fas fa-lock"></i>
+        <h3>CERTIFICADO SSL (PUERTO 443)</h3>
+    </div>
+
+    <div class="ssl-content">
+
+        <div class="ssl-icon">
+            <i class="fas fa-shield-alt"></i>
+        </div>
+
+        <table class="ssl-table">
+
+            <tr>
+                <td>EMITIDO POR</td>
+                <td>Let's Encrypt (YE2)</td>
+            </tr>
+
+            <tr>
+                <td>EMITIDO A</td>
+                <td>alumnos.uni.edu.pe</td>
+            </tr>
+
+            <tr>
+                <td>VÁLIDO DESDE</td>
+                <td>30 May 2026 05:19 GMT</td>
+            </tr>
+
+            <tr>
+                <td>VÁLIDO HASTA</td>
+                <td>28 Ago 2026 05:19 GMT</td>
+            </tr>
+
+            <tr>
+                <td>TLS</td>
+                <td>TLSv1.2, TLSv1.3</td>
+            </tr>
+
+            <tr>
+                <td>SAN</td>
+                <td>
+                    dirce.uni.edu.pe<br>
+                    intralu.uni.edu.pe<br>
+                    docentes.uni.edu.pe
+                </td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================================
+TOP PUERTOS
+=========================================================== -->
+
+<section class="topports-panel">
+
+<h3>TOP PUERTOS</h3>
+
+<div class="port-line">
+
+<span>443</span>
+
+<div class="bar">
+
+<div class="fill fill443"></div>
 
 </div>
+
+<strong>32(68.1%)</strong>
+
+</div>
+
+<div class="port-line">
+
+<span>53</span>
+
+<div class="bar">
+
+<div class="fill fill53"></div>
+
+</div>
+
+<strong>1(2.1%)</strong>
+
+</div>
+
+<div class="port-line">
+
+<span>123</span>
+
+<div class="bar">
+
+<div class="fill fill53"></div>
+
+</div>
+
+<strong>1(2.1%)</strong>
+
+</div>
+
+<div class="port-line">
+
+<span>587</span>
+
+<div class="bar">
+
+<div class="fill fill53"></div>
+
+</div>
+
+<strong>1(2.1%)</strong>
+
+</div>
+
+<div class="port-line">
+
+<span>993</span>
+
+<div class="bar">
+
+<div class="fill fill53"></div>
+
+</div>
+
+<strong>1(2.1%)</strong>
+
+</div>
+
+<div class="port-line">
+
+<span>995</span>
+
+<div class="bar">
+
+<div class="fill fill53"></div>
+
+</div>
+
+<strong>1(2.1%)</strong>
+
+</div>
+
+</section>
+
+
+
+<!-- ==========================================================
+VERIFICACIÓN CVE
+=========================================================== -->
+
+<section class="verify-panel">
+
+<div class="verify-header">
+
+<i class="fas fa-shield-virus"></i>
+
+<h3>VERIFICACIÓN CVE-2024-21762</h3>
+
+</div>
+
+<pre>
+
+root@cuetona:~# python3 check.py
+
+190.105.247.141:443
+→ Patched (No Vulnerable)
+
+190.105.247.141:10443
+→ Connection Failed
+
+root@cuetona:~#
+
+</pre>
+
+</section>
+
+
+
+
 
     
        <script src="shodan.js"></script>

@@ -213,17 +213,16 @@ body {
 }
 .panel-content-flex{
     display:grid;
-
-grid-template-columns:
-
-46%
-14%
-40%;
-
-gap:20px;
-
-align-items:start;
-padding: 20px;     /* importante */
+    grid-template-columns: 42% 16% 42%;
+    gap:16px;
+    padding:18px;
+    align-items:start;
+        height: 420px;          /* controla altura del panel */
+    overflow: hidden;   
+}
+.target-meta-column,
+.target-services-column {
+    min-width: 0;
 }
 /* ==========================================================================
    6. BARRAS DE GRÁFICOS DE SHODAN SIDEBAR
@@ -447,30 +446,41 @@ padding: 20px;     /* importante */
     0% { left: -100%; }
     100% { left: 100%; }
 }
+
+
+
+
+
+
+
+
+
+
+
 /* ==========================================================================
    MÓDULO CENTRAL: INTERFAZ HOST PRINCIPAL IDENTIFICADO (CALCO FIEL)
    ========================================================================== */
 
    
 .shodan-dashboard-layout {
- display:grid;
 
-grid-template-columns:
+display:grid;
 
-290px
-1fr
-360px;
+grid-template-columns:280px 1fr 340px;
 
+ grid-template-areas:
+        "left main right"
+        "left ssl  right"
+        "left verify right";
+grid-template-rows: 420px auto auto auto;
 gap:20px;
-
-align-items:start;
 
 }
 
 /* --- COLUMNA CENTRAL: CONFIGURACIÓN DEL PANEL DE HOST IDENTIFICADO --- */
 .target-core-panel {
      grid-column:2;
-     
+        
     display:flex;
     flex-direction:column;
 
@@ -486,6 +496,8 @@ align-items:start;
 
     box-shadow:
     0 0 25px rgba(0,255,255,.05);
+    height: 100%;
+    max-height: 420px;
    
 }
 
@@ -512,6 +524,7 @@ align-items:start;
 .target-meta-column {
       width:100%;
     min-width:0;
+    overflow:hidden;
 }
 
 .target-cyber-table {
@@ -520,9 +533,9 @@ align-items:start;
 }
 
 .target-cyber-table td {
-   padding:10px 4px;
+   padding:7px 4px;
     border-bottom: 1px solid #0a1424;
-    font-size:15px;
+    font-size:14px;
 
     vertical-align: top;
 }
@@ -532,7 +545,7 @@ align-items:start;
 .target-cyber-table .lbl {
     color: #557799;
     font-weight: 600;
-        width:38%;
+        width:32%;
     font-size:15px;
     letter-spacing: 0.5px;
 }
@@ -562,8 +575,8 @@ align-items:start;
     flex-direction:column;
     align-items:center;
     justify-content:center;
-    border-left:1px solid #093850;
-    border-right:1px solid #093850;
+   border-left:1px solid rgba(0,255,255,0.15);
+border-right:1px solid rgba(0,255,255,0.15);
     padding:10px;
     gap:20px;
 }
@@ -574,12 +587,7 @@ align-items:start;
 flex-direction:column;
 
 gap:8px;
-
-transform:
-
-rotateX(60deg)
-rotateZ(-45deg)
-scale(.55);
+transform: rotateX(60deg) rotateZ(-45deg) scale(.48);
 
 margin-top:10px;
 
@@ -625,9 +633,11 @@ margin-top:10px;
 .target-services-column {
         display:flex;
     flex-direction:column;
-    align-self:start;
-    gap:12px;
-    
+   /* align-self:start;
+    gap:12px;*/
+    height:100%;
+    overflow:hidden; 
+     min-height:0;
 }
 
 .services-title-green {
@@ -643,6 +653,20 @@ margin-top:10px;
     flex-direction:column;
     gap:12px;
     height:auto;
+        max-height:100%;
+    padding-right:6px;
+     overflow-y:auto;
+       max-height:100%;   /* 🔥 NO crece */
+    min-height:0;  
+     scrollbar-width:thin;
+    scrollbar-color:#00e5ff transparent;
+}
+.services-feed-layout::-webkit-scrollbar{
+    width:6px;
+}
+.services-feed-layout::-webkit-scrollbar-thumb{
+    background:#00e5ff;
+    border-radius:10px;
 }
 
 .service-badge-row {
@@ -652,9 +676,9 @@ margin-top:10px;
 1fr
 35px;
 
-    gap:12px;
+    gap: 10px;
 
-    padding:14px;
+    padding:10px 12px;
 
     background:#06110d;
 
@@ -678,7 +702,7 @@ justify-content:center;
 
 align-items:center;
 
-font-size:34px;
+font-size:28px;
 
 font-weight:700;
 
@@ -752,27 +776,19 @@ justify-self:end;
 color:#55ff55;
 }
 .lock-green { color: #33ff77 !important; text-shadow: 0 0 6px rgba(51, 255, 119, 0.4); }
-
 .hostname-list {
-
-display:flex;
-
-flex-direction:column;
-
-gap:5px;
+ display:flex;
+    flex-wrap:wrap;
+    gap:6px;
 }
 
 .host-badge {
  
-background:none;
-
-border:none;
-
-padding:0;
-
-font-size:13px;
-
-color:#00e5ff;
+ background: rgba(0,229,255,0.08);
+  padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
 }
 
 .host-badge:hover {
@@ -782,18 +798,7 @@ color:#00e5ff;
 /* ==========================================================================
    RESPONSIVIDAD
    ========================================================================== */
-@media (max-width: 1200px) {
-    .shodan-dashboard-layout {
-        grid-template-columns: 1fr;
-    }
 
-    .shodan-encyclopedia,
-    .target-core-panel,
-    .related-hosts-panel {
-        grid-column: 1;
-        width: 100%;
-    }
-}
 
 .related-hosts-panel {
     background-color: #01040a;
@@ -804,11 +809,16 @@ color:#00e5ff;
     box-sizing: border-box;
     grid-column: 3;
     align-self: start;
-     grid-row: 1;
-     min-width:400px;
+     
+    
          display:flex;
     flex-direction:column;
 }
+
+
+
+
+
 
 .related-content-scroll {
     padding: 15px;
@@ -922,4 +932,414 @@ scale(.95);
     flex-shrink: 0;
 }
 
+.ssl-panel{
 
+background:#040810;
+
+border:1px solid #0d6b88;
+
+border-radius:8px;
+
+padding:22px;
+grid-column:2;
+ 
+width:100%;
+
+}
+
+.ssl-header{
+
+display:flex;
+
+align-items:center;
+
+gap:10px;
+
+margin-bottom:18px;
+
+color:#00d9ff;
+
+}
+
+.ssl-header i{
+
+font-size:22px;
+
+}
+
+.ssl-content{
+
+display:flex;
+
+gap:30px;
+
+align-items:center;
+
+}
+
+.ssl-icon{
+
+font-size:110px;
+
+color:#8d4cff;
+
+width:170px;
+
+text-align:center;
+
+}
+
+.ssl-table{
+
+width:100%;
+
+border-collapse:collapse;
+
+}
+
+.ssl-table td{
+
+padding:7px 0;
+
+font-size:14px;
+
+border-bottom:1px solid #0f1d2f;
+
+}
+
+.ssl-table td:first-child{
+
+width:180px;
+
+color:#00d9ff;
+
+font-weight:bold;
+
+}
+.topports-panel{
+
+background:#040810;
+
+border:1px solid #0d6b88;
+
+border-radius:8px;
+
+padding:22px;
+grid-column:3;
+
+width:100%;
+
+}
+
+.topports-panel h3{
+
+margin-bottom:25px;
+
+color:#00d9ff;
+
+}
+
+.port-line{
+
+display:grid;
+
+grid-template-columns:40px 1fr 50px;
+
+gap:15px;
+
+align-items:center;
+
+margin-bottom:18px;
+
+}
+
+.bar{
+
+height:9px;
+
+background:#0d1523;
+
+overflow:hidden;
+
+border-radius:10px;
+
+}
+
+.fill{
+
+height:100%;
+
+background:#ff2d8b;
+
+}
+
+.fill443{
+
+width:68%;
+
+}
+
+.fill53{
+
+width:2%;
+
+}
+.verify-panel{
+
+background:#05050a;
+
+border:1px solid #7c1827;
+
+border-radius:8px;
+
+padding:20px;
+grid-column:2;
+
+width:100%;
+}
+
+.verify-header{
+
+display:flex;
+
+align-items:center;
+
+gap:12px;
+
+margin-bottom:15px;
+
+color:#ff4455;
+
+}
+
+.verify-header i{
+
+font-size:25px;
+
+}
+
+.verify-panel pre{
+
+background:#000;
+
+padding:15px;
+
+border-radius:5px;
+
+font-size:15px;
+
+line-height:1.7;
+
+color:#33ff55;
+
+overflow:auto;
+
+}
+.bottom-row{
+    display:grid;
+    grid-template-columns: 1fr 1fr 320px; /* SSL | TOP | VERIFICACION */
+    gap:20px;
+    align-items:center; /* 🔥 CENTRADO VERTICAL */
+}
+
+/* ==========================================
+   1600px - Pantallas grandes
+========================================== */
+@media (max-width:1600px){
+
+    .shodan-dashboard-layout{
+        grid-template-columns:260px 1fr 320px;
+        gap:18px;
+    }
+
+    .panel-content-flex{
+        grid-template-columns: 42% 16% 42%;
+    }
+
+    .report-box h1{
+        font-size:42px;
+    }
+
+}
+
+/* ==========================================
+   1400px - Laptops
+========================================== */
+@media (max-width:1400px){
+
+    .shodan-dashboard-layout{
+        grid-template-columns:230px 1fr 290px;
+        gap:16px;
+    }
+
+    .report-box h1{
+        font-size:36px;
+    }
+
+    .stats-box{
+        gap:20px;
+        padding:15px 20px;
+        flex-wrap:wrap;
+    }
+
+    .stat-card h3{
+        font-size:1.2rem;
+    }
+
+
+}
+
+/* ==========================================
+   1100px - Tablet horizontal
+========================================== */
+@media (max-width:1100px){
+
+    .shodan-header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:25px;
+    }
+
+    .stats-box{
+        width:100%;
+        justify-content:space-between;
+        flex-wrap:wrap;
+    }
+
+    .shodan-dashboard-layout{
+        grid-template-columns:1fr;
+    }
+
+    .shodan-encyclopedia,
+    .target-core-panel,
+    .related-hosts-panel,
+    .ssl-panel,
+    .topports-panel,
+    .verify-panel{
+        grid-column:1;
+        width:100%;
+    }
+
+
+
+    .target-graphic-column{
+        border:none;
+        border-top:1px solid #093850;
+        border-bottom:1px solid #093850;
+        padding:25px 0;
+    }
+
+    .ssl-content{
+        flex-direction:column;
+    }
+
+}
+
+/* ==========================================
+   768px - Celulares
+========================================== */
+@media (max-width:768px){
+
+    body{
+        padding:10px;
+    }
+
+    .report-box{
+        border-left:none;
+        padding-left:0;
+    }
+
+    .report-box h1{
+        font-size:26px;
+        line-height:1.2;
+    }
+
+    .shodan-brand-block{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:15px;
+    }
+
+    .stats-box{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:15px;
+        padding:15px;
+    }
+
+    .stat-card{
+        width:100%;
+    }
+
+    .target-cyber-table td{
+        display:block;
+        width:100%;
+        padding:6px 0;
+    }
+
+    .target-cyber-table .lbl{
+        display:block;
+        width:100%;
+        margin-bottom:4px;
+    }
+
+    .service-badge-row{
+        grid-template-columns:60px 1fr;
+    }
+
+    .network-icon-glow{
+        display:none;
+    }
+
+    .node-body-flex{
+        flex-direction:column;
+    }
+
+    .mini-server-graphic,
+    .mini-globe-graphic{
+        display:none;
+    }
+
+    .ssl-table td{
+        display:block;
+        width:100%;
+    }
+
+  
+}
+
+/* ==========================================
+   480px - Celulares pequeños
+========================================== */
+@media (max-width:480px){
+
+    .report-box h1{
+        font-size:22px;
+    }
+
+    .shodan-logo-box img{
+        height:38px;
+    }
+
+    .port-num{
+        font-size:22px;
+    }
+
+    .port-banner-short h5{
+        font-size:12px;
+    }
+
+    .port-banner-short p{
+        font-size:10px;
+    }
+
+    .ssl-icon{
+        font-size:70px;
+        width:100%;
+    }
+
+    .verify-panel pre{
+        font-size:12px;
+    }
+
+}
