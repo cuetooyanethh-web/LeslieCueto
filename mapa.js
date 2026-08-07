@@ -6,7 +6,7 @@ var map = L.map('map', {
     center: marcona,
     zoom: 16,
     minZoom: 14,
-    maxZoom: 18,
+    maxZoom: 22,
     fullscreenControl: true
 });
 // Límites SOLO Marcona (más ajustado)
