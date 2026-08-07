@@ -356,3 +356,26 @@ L.marker(tresHermanas, { icon: iconoEolico2 })
     offset: [0, -10],
     className: "label-mapa"
   });
+  // 📍 Playa Los Leones
+var playaLeones = [-15.382908, -75.1592808];
+
+var iconoPlayaLeones = L.icon({
+  iconUrl: "https://cdn-icons-png.flaticon.com/512/684/684908.png",
+  iconSize: [28, 28]
+});
+
+L.marker(playaLeones, { icon: iconoPlayaLeones })
+  .addTo(map)
+  .bindPopup("🏖️ Playa Los Leones")
+  .bindTooltip(`
+    <div class="tooltip-lugar">
+      <img src="images/leones.jpg" width="120">
+      <br>
+      <b>🏖️ Playa Los Leones</b>
+    </div>
+  `, {
+    permanent: false,
+    direction: "top",
+    offset: [0, -10],
+    className: "label-mapa"
+  });
