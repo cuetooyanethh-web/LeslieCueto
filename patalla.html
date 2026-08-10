@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Marcona | Telemetría Pública</title>
+
+    <!-- Leaflet -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+
+    <!-- Iconos -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="patalla.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="topbar">
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                <i class="fa-solid fa-leaf"></i>
+            </div>
+
+            <div>
+                <h1>MARCONA</h1>
+                <span>TELEMETRÍA PÚBLICA</span>
+            </div>
+
+        </div>
+
+        <div class="system-status">
+
+            <div class="status-online">
+                <span class="status-dot"></span>
+                SISTEMA OPERATIVO
+            </div>
+
+            <div class="clock" id="clock">
+                00:00:00
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTENIDO PRINCIPAL
+    ====================================================== -->
+
+    <main class="dashboard">
+
+
+        <!-- =================================================
+             COLUMNA IZQUIERDA
+        ================================================== -->
+
+        <aside class="left-panel">
+
+
+            <!-- TRANSPORTE -->
+
+            <section class="panel">
+
+                <div class="panel-title">
+                    <i class="fa-solid fa-bus"></i>
+                    TRANSPORTE
+                </div>
+
+                <div class="big-number">
+                    <strong id="busesActivos">8</strong>
+                    <span>buses activos</span>
+                </div>
+
+                <div class="transport-data">
+
+                    <div>
+                        <span>En ruta</span>
+                        <strong>6</strong>
+                    </div>
+
+                    <div>
+                        <span>En parada</span>
+                        <strong>2</strong>
+                    </div>
+
+                    <div>
+                        <span>Fuera de servicio</span>
+                        <strong>1</strong>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- RUTAS -->
+
+            <section class="panel">
+
+                <div class="panel-title">
+                    <i class="fa-solid fa-route"></i>
+                    RUTAS TURÍSTICAS
+                </div>
+
+                <div class="route">
+
+                    <div class="route-number">R1</div>
+
+                    <div class="route-info">
+                        <strong>Ruta Costera</strong>
+                        <span>Marcona → Playa Yanyarina</span>
+                    </div>
+
+                    <span class="route-status active">
+                        ACTIVA
+                    </span>
+
+                </div>
+
+
+                <div class="route">
+
+                    <div class="route-number">R2</div>
+
+                    <div class="route-info">
+                        <strong>Ruta Turística</strong>
+                        <span>Centro → San Nicolás</span>
+                    </div>
+
+                    <span class="route-status active">
+                        ACTIVA
+                    </span>
+
+                </div>
+
+
+                <div class="route">
+
+                    <div class="route-number">R3</div>
+
+                    <div class="route-info">
+                        <strong>Ruta Natural</strong>
+                        <span>Marcona → Reserva</span>
+                    </div>
+
+                    <span class="route-status">
+                        PROGRAMADA
+                    </span>
+
+                </div>
+
+            </section>
+
+
+            <!-- AMBIENTE -->
+
+            <section class="panel">
+
+                <div class="panel-title">
+                    <i class="fa-solid fa-earth-americas"></i>
+                    AMBIENTE
+                </div>
+
+                <div class="environment">
+
+                    <div class="environment-item">
+
+                        <i class="fa-solid fa-temperature-half"></i>
+
+                        <div>
+                            <span>Temperatura</span>
+                            <strong id="temperature">22°C</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="environment-item">
+
+                        <i class="fa-solid fa-wind"></i>
+
+                        <div>
+                            <span>Viento</span>
+                            <strong id="wind">18 km/h</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="environment-item">
+
+                        <i class="fa-solid fa-lungs"></i>
+
+                        <div>
+                            <span>Calidad del aire</span>
+                            <strong class="good">BUENA</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="environment-item">
+
+                        <i class="fa-solid fa-cloud"></i>
+
+                        <div>
+                            <span>CO₂ evitado</span>
+                            <strong>24.8 t</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+        </aside>
+
+
+
+        <!-- =================================================
+             MAPA CENTRAL
+        ================================================== -->
+
+        <section class="map-section">
+
+            <div class="map-header">
+
+                <div>
+
+                    <h2>
+                        <i class="fa-solid fa-location-dot"></i>
+                        MAPA DE MARCONA
+                    </h2>
+
+                    <span>
+                        Infraestructura y movilidad sostenible
+                    </span>
+
+                </div>
+
+
+                <div class="map-legend">
+
+                    <span>
+                        <i class="legend bus"></i>
+                        Bus
+                    </span>
+
+                    <span>
+                        <i class="legend solar"></i>
+                        Solar
+                    </span>
+
+                    <span>
+                        <i class="legend wind"></i>
+                        Eólico
+                    </span>
+
+                    <span>
+                        <i class="legend charge"></i>
+                        Carga
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div id="map"></div>
+
+
+            <!-- CONTROLES DEL MAPA -->
+
+            <div class="map-controls">
+
+                <button onclick="mostrarBuses()">
+                    <i class="fa-solid fa-bus"></i>
+                    Buses
+                </button>
+
+                <button onclick="mostrarEnergia()">
+                    <i class="fa-solid fa-bolt"></i>
+                    Energía
+                </button>
+
+                <button onclick="mostrarCarga()">
+                    <i class="fa-solid fa-charging-station"></i>
+                    Carga
+                </button>
+
+                <button onclick="mostrarTurismo()">
+                    <i class="fa-solid fa-camera"></i>
+                    Turismo
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             COLUMNA DERECHA
+        ================================================== -->
+
+        <aside class="right-panel">
+
+
+            <!-- ENERGÍA RENOVABLE -->
+
+            <section class="panel energy-panel">
+
+                <div class="panel-title">
+                    <i class="fa-solid fa-bolt"></i>
+                    ENERGÍA RENOVABLE
+                </div>
+
+
+                <div class="energy-card solar-card">
+
+                    <div class="energy-icon">
+                        <i class="fa-solid fa-sun"></i>
+                    </div>
+
+                    <div class="energy-info">
+
+                        <span>ENERGÍA SOLAR</span>
+
+                        <strong>
+                            <span id="solarPower">2.4</span> MW
+                        </strong>
+
+                        <small>
+                            Generación actual
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="energy-card wind-card">
+
+                    <div class="energy-icon">
+                        <i class="fa-solid fa-wind"></i>
+                    </div>
+
+                    <div class="energy-info">
+
+                        <span>ENERGÍA EÓLICA</span>
+
+                        <strong>
+                            <span id="windPower">8.7</span> MW
+                        </strong>
+
+                        <small>
+                            Generación actual
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="energy-card battery-card">
+
+                    <div class="energy-icon">
+                        <i class="fa-solid fa-battery-three-quarters"></i>
+                    </div>
+
+                    <div class="energy-info">
+
+                        <span>ALMACENAMIENTO BESS</span>
+
+                        <strong>
+                            74%
+                        </strong>
+
+                        <small>
+                            Estado de carga
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- CARGADORES -->
+
+            <section class="panel">
+
+                <div class="panel-title">
+                    <i class="fa-solid fa-charging-station"></i>
+                    PUNTOS DE CARGA
+                </div>
+
+
+                <div class="charging-summary">
+
+                    <div class="charge-total">
+
+                        <strong>5</strong>
+
+                        <span>
+                            estaciones
+                        </span>
+
+                    </div>
+
+
+                    <div class="charge-available">
+
+                        <strong>3</strong>
+
+                        <span>
+                            disponibles
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="charge-bar">
+
+                    <div style="width:60%"></div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ALERTAS -->
+
+            <section class="panel">
+
+                <div class="panel-title">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    ESTADO DEL SISTEMA
+                </div>
+
+
+                <div class="alert success">
+
+                    <i class="fa-solid fa-circle-check"></i>
+
+                    <div>
+
+                        <strong>Operación normal</strong>
+
+                        <span>
+                            Infraestructura estable
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="alert info">
+
+                    <i class="fa-solid fa-circle-info"></i>
+
+                    <div>
+
+                        <strong>Información</strong>
+
+                        <span>
+                            3 estaciones disponibles
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+        </aside>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <span>
+            MARCONA • CIUDAD SOSTENIBLE
+        </span>
+
+        <span>
+            Sistema de información pública
+        </span>
+
+        <span id="date">
+            09/08/2026
+        </span>
+
+    </footer>
+
+
+    <!-- Leaflet -->
+    <script
+        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+    </script>
+
+    <!-- JS -->
+    <script src="patalla.js"></script>
+
+</body>
+</html>
