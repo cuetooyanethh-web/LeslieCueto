@@ -101,3 +101,7 @@ footer span:last-child{color:#d4e0e5}footer span:last-child::first-letter{color:
     background-position:center;
     background-repeat:no-repeat;
 }
+.uv-high{
+    color:#ffb51b !important;
+    font-weight:700;
+}
