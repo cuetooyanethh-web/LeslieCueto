@@ -47,6 +47,7 @@ body{overflow:auto}
 .left-column,
 .right-column{
     display:grid;
+    grid-template-rows: 1fr auto auto;
     gap:8px;
     min-height:0;
 }
@@ -55,9 +56,6 @@ body{overflow:auto}
     grid-template-rows:1fr 190px;
 }
 
-.right-column{
-    grid-template-rows:190px 180px 1fr;
-}
 
 .transport-stats{display:grid;grid-template-columns:repeat(4,1fr);margin:11px 0;border-bottom:1px solid var(--line)}
 .transport-stats div{height:65px;text-align:center;border-right:1px solid var(--line)}.transport-stats div:last-child{border:0}
@@ -213,4 +211,36 @@ footer span:last-child{color:#d4e0e5}footer span:last-child::first-letter{color:
     bottom:14px;
     width:90px;
     height:7px;
+}
+.renewable-panel{
+    padding:10px;
+    min-height:0;
+    overflow:hidden;
+}
+
+.renewable-panel .panel-title{
+    height:30px;
+    display:flex;
+    align-items:center;
+    margin-bottom:7px;
+}
+
+.renewable-panel .energy-card{
+    height:58px;
+    min-height:58px;
+    margin-bottom:7px;
+
+    display:flex;
+    align-items:center;
+
+    padding:8px 10px;
+    box-sizing:border-box;
+
+    background:#071923;
+    border:1px solid #19465a;
+    border-radius:5px;
+}
+
+.renewable-panel .energy-card:last-child{
+    margin-bottom:0;
 }
