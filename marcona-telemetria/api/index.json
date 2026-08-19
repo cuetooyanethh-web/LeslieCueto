@@ -1,0 +1,660 @@
+{
+  "weather": {
+    "irradiance_wm2": 780,
+    "temp_ambient_c": 27.4,
+    "temp_panel_c": 39.2,
+    "wind_speed_ms": 8.6,
+    "wind_direction_deg": 238,
+    "humidity_pct": 64
+  },
+
+  "kpis": {
+    "co2_saved_kg": 184250,
+    "energy_today_kwh": 42860,
+    "renewable_pct": 68.4,
+    "availability_pct": 97.8
+  },
+
+  "grid": {
+    "solar_generation_kw": 1842.6,
+    "consumption_kw": 1298.4,
+    "grid_import_kw": 0,
+    "grid_export_kw": 544.2,
+    "frequency_hz": 60.01,
+    "voltage_v": 220
+  },
+
+  "solar": [
+    {
+      "id": "SOL-01",
+      "name": "Planta Solar Marcona Norte",
+      "lat": -15.3452,
+      "lng": -75.1284,
+      "status": "online",
+      "mode": "auto",
+      "power_kw": 612.4,
+      "power_max_kw": 800,
+      "efficiency": 94.2,
+      "pr_pct": 87.6,
+      "daily_kwh": 14280.5,
+      "temp_c": 38.7,
+      "inverter": {
+        "model": "SMA Sunny Central",
+        "status": "online"
+      },
+      "strings": [
+        {
+          "id": "STR-01",
+          "current_a": 8.4,
+          "voltage_v": 365,
+          "power_w": 3066,
+          "status": "normal"
+        },
+        {
+          "id": "STR-02",
+          "current_a": 8.2,
+          "voltage_v": 362,
+          "power_w": 2968,
+          "status": "normal"
+        },
+        {
+          "id": "STR-03",
+          "current_a": 8.6,
+          "voltage_v": 368,
+          "power_w": 3165,
+          "status": "normal"
+        },
+        {
+          "id": "STR-04",
+          "current_a": 8.1,
+          "voltage_v": 361,
+          "power_w": 2924,
+          "status": "normal"
+        }
+      ],
+      "install_date": "2025-04-18",
+      "last_service": "2026-07-10",
+      "next_service": "2026-10-10",
+      "maintenance_log": [
+        {
+          "date": "2026-07-10",
+          "type": "preventivo",
+          "tech": "Equipo Solar",
+          "note": "Inspección de inversores, limpieza de paneles y revisión de strings."
+        },
+        {
+          "date": "2026-05-22",
+          "type": "preventivo",
+          "tech": "Equipo Solar",
+          "note": "Revisión de conexiones DC y protecciones eléctricas."
+        }
+      ]
+    },
+
+    {
+      "id": "SOL-02",
+      "name": "Planta Solar Marcona Sur",
+      "lat": -15.3678,
+      "lng": -75.1432,
+      "status": "online",
+      "mode": "auto",
+      "power_kw": 584.7,
+      "power_max_kw": 750,
+      "efficiency": 93.8,
+      "pr_pct": 86.9,
+      "daily_kwh": 13642.8,
+      "temp_c": 39.4,
+      "inverter": {
+        "model": "Huawei SUN2000",
+        "status": "online"
+      },
+      "strings": [
+        {
+          "id": "STR-01",
+          "current_a": 8.1,
+          "voltage_v": 364,
+          "power_w": 2948,
+          "status": "normal"
+        },
+        {
+          "id": "STR-02",
+          "current_a": 8.3,
+          "voltage_v": 367,
+          "power_w": 3046,
+          "status": "normal"
+        },
+        {
+          "id": "STR-03",
+          "current_a": 8.0,
+          "voltage_v": 359,
+          "power_w": 2872,
+          "status": "normal"
+        },
+        {
+          "id": "STR-04",
+          "current_a": 8.5,
+          "voltage_v": 366,
+          "power_w": 3111,
+          "status": "normal"
+        }
+      ],
+      "install_date": "2025-06-20",
+      "last_service": "2026-07-18",
+      "next_service": "2026-10-18",
+      "maintenance_log": [
+        {
+          "date": "2026-07-18",
+          "type": "preventivo",
+          "tech": "Mantenimiento Solar",
+          "note": "Limpieza general y revisión de inversor."
+        }
+      ]
+    },
+
+    {
+      "id": "SOL-03",
+      "name": "Planta Solar Industrial",
+      "lat": -15.3821,
+      "lng": -75.1187,
+      "status": "online",
+      "mode": "auto",
+      "power_kw": 645.5,
+      "power_max_kw": 850,
+      "efficiency": 95.1,
+      "pr_pct": 88.2,
+      "daily_kwh": 14937.3,
+      "temp_c": 40.1,
+      "inverter": {
+        "model": "Sungrow SG350HX",
+        "status": "online"
+      },
+      "strings": [
+        {
+          "id": "STR-01",
+          "current_a": 8.7,
+          "voltage_v": 370,
+          "power_w": 3219,
+          "status": "normal"
+        },
+        {
+          "id": "STR-02",
+          "current_a": 8.4,
+          "voltage_v": 368,
+          "power_w": 3091,
+          "status": "normal"
+        },
+        {
+          "id": "STR-03",
+          "current_a": 8.5,
+          "voltage_v": 369,
+          "power_w": 3137,
+          "status": "normal"
+        },
+        {
+          "id": "STR-04",
+          "current_a": 8.3,
+          "voltage_v": 365,
+          "power_w": 3030,
+          "status": "normal"
+        }
+      ],
+      "install_date": "2025-08-12",
+      "last_service": "2026-07-25",
+      "next_service": "2026-10-25",
+      "maintenance_log": [
+        {
+          "date": "2026-07-25",
+          "type": "preventivo",
+          "tech": "Mantenimiento Industrial",
+          "note": "Prueba de aislamiento y revisión de protecciones."
+        }
+      ]
+    }
+  ],
+
+  "electrolineras": [
+    {
+      "id": "EV-01",
+      "name": "Electrolinera Centro Marcona",
+      "lat": -15.3638,
+      "lng": -75.1612,
+      "status": "available",
+      "mode": "auto",
+      "power_kw": 0,
+      "power_max_kw": 150,
+      "total_connectors": 4,
+      "available_connectors": 3,
+      "sessions_today": 38,
+      "kwh_delivered_today": 428.6,
+      "uptime_pct": 99.1,
+      "install_date": "2026-02-15",
+      "last_service": "2026-07-30",
+      "next_service": "2026-10-30",
+      "maintenance_log": [
+        {
+          "date": "2026-07-30",
+          "type": "preventivo",
+          "tech": "Equipo EV",
+          "note": "Prueba de conectores y sistema de comunicación."
+        }
+      ]
+    },
+
+    {
+      "id": "EV-02",
+      "name": "Electrolinera Puerto San Juan",
+      "lat": -15.3567,
+      "lng": -75.1694,
+      "status": "charging",
+      "mode": "auto",
+      "power_kw": 82.4,
+      "power_max_kw": 150,
+      "total_connectors": 4,
+      "available_connectors": 2,
+      "sessions_today": 31,
+      "kwh_delivered_today": 364.2,
+      "uptime_pct": 98.7,
+      "install_date": "2026-03-08",
+      "last_service": "2026-07-28",
+      "next_service": "2026-10-28",
+      "maintenance_log": [
+        {
+          "date": "2026-07-28",
+          "type": "preventivo",
+          "tech": "Equipo EV",
+          "note": "Mantenimiento de cargadores rápidos."
+        }
+      ]
+    },
+
+    {
+      "id": "EV-03",
+      "name": "Electrolinera Zona Industrial",
+      "lat": -15.3759,
+      "lng": -75.1346,
+      "status": "available",
+      "mode": "auto",
+      "power_kw": 0,
+      "power_max_kw": 120,
+      "total_connectors": 3,
+      "available_connectors": 3,
+      "sessions_today": 24,
+      "kwh_delivered_today": 287.5,
+      "uptime_pct": 99.4,
+      "install_date": "2026-04-12",
+      "last_service": "2026-07-20",
+      "next_service": "2026-10-20",
+      "maintenance_log": []
+    }
+  ],
+
+  "buses": [
+    {
+      "id": "BUS-01",
+      "plate": "EGM-201",
+      "route": "Marcona Centro - Puerto",
+      "lat": -15.3608,
+      "lng": -75.1531,
+      "status": "moving",
+      "mode": "service",
+      "speed_kmh": 42,
+      "battery_pct": 78,
+      "passengers": 31,
+      "capacity": 50,
+      "driver": "Operador 01",
+      "next_stop": "Plaza Marcona",
+      "install_date": "2026-01-10",
+      "last_service": "2026-07-15",
+      "next_service": "2026-09-15",
+      "maintenance_log": [
+        {
+          "date": "2026-07-15",
+          "type": "preventivo",
+          "tech": "Mantenimiento Transporte",
+          "note": "Revisión de batería, frenos y sistema de telemetría."
+        }
+      ]
+    },
+
+    {
+      "id": "BUS-02",
+      "plate": "EGM-202",
+      "route": "Marcona Centro - Zona Industrial",
+      "lat": -15.3692,
+      "lng": -75.1425,
+      "status": "moving",
+      "mode": "service",
+      "speed_kmh": 35,
+      "battery_pct": 64,
+      "passengers": 24,
+      "capacity": 50,
+      "driver": "Operador 02",
+      "next_stop": "Mercado Municipal",
+      "install_date": "2026-01-10",
+      "last_service": "2026-07-12",
+      "next_service": "2026-09-12",
+      "maintenance_log": []
+    },
+
+    {
+      "id": "BUS-03",
+      "plate": "EGM-203",
+      "route": "Puerto - Marcona Sur",
+      "lat": -15.3771,
+      "lng": -75.1517,
+      "status": "stopped",
+      "mode": "service",
+      "speed_kmh": 0,
+      "battery_pct": 53,
+      "passengers": 17,
+      "capacity": 50,
+      "driver": "Operador 03",
+      "next_stop": "Terminal Sur",
+      "install_date": "2026-02-02",
+      "last_service": "2026-07-05",
+      "next_service": "2026-09-05",
+      "maintenance_log": []
+    },
+
+    {
+      "id": "BUS-04",
+      "plate": "EGM-204",
+      "route": "Zona Industrial - Puerto",
+      "lat": -15.3516,
+      "lng": -75.1468,
+      "status": "moving",
+      "mode": "service",
+      "speed_kmh": 48,
+      "battery_pct": 82,
+      "passengers": 38,
+      "capacity": 50,
+      "driver": "Operador 04",
+      "next_stop": "Puerto San Juan",
+      "install_date": "2026-02-02",
+      "last_service": "2026-07-21",
+      "next_service": "2026-09-21",
+      "maintenance_log": []
+    }
+  ],
+
+  "lighting": [
+    {
+      "id": "LGT-001",
+      "lat": -15.3591,
+      "lng": -75.1582,
+      "status": "on",
+      "mode": "auto",
+      "battery_pct": 87,
+      "on_today_h": 8.4,
+      "panel_wp": 180,
+      "location": "Av. Principal"
+    },
+    {
+      "id": "LGT-002",
+      "lat": -15.3602,
+      "lng": -75.1561,
+      "status": "on",
+      "mode": "auto",
+      "battery_pct": 91,
+      "on_today_h": 8.2,
+      "panel_wp": 180,
+      "location": "Av. Principal"
+    },
+    {
+      "id": "LGT-003",
+      "lat": -15.3615,
+      "lng": -75.1543,
+      "status": "on",
+      "mode": "auto",
+      "battery_pct": 76,
+      "on_today_h": 8.6,
+      "panel_wp": 180,
+      "location": "Jr. San Juan"
+    },
+    {
+      "id": "LGT-004",
+      "lat": -15.3628,
+      "lng": -75.1524,
+      "status": "off",
+      "mode": "auto",
+      "battery_pct": 14,
+      "on_today_h": 7.8,
+      "panel_wp": 180,
+      "location": "Jr. San Juan"
+    },
+    {
+      "id": "LGT-005",
+      "lat": -15.3642,
+      "lng": -75.1508,
+      "status": "on",
+      "mode": "auto",
+      "battery_pct": 83,
+      "on_today_h": 8.1,
+      "panel_wp": 180,
+      "location": "Zona Centro"
+    },
+    {
+      "id": "LGT-006",
+      "lat": -15.3656,
+      "lng": -75.1491,
+      "status": "on",
+      "mode": "auto",
+      "battery_pct": 89,
+      "on_today_h": 8.5,
+      "panel_wp": 180,
+      "location": "Zona Centro"
+    }
+  ],
+
+  "bateries": [
+    {
+      "id": "BAT-01",
+      "name": "Banco de Baterías Norte",
+      "lat": -15.3475,
+      "lng": -75.1268,
+      "status": "discharging",
+      "mode": "auto",
+      "soc": 74,
+      "temp_c": 31.4,
+      "charge_rate_kw": -126.5,
+      "capacity_kwh": 1000,
+      "install_date": "2025-05-20",
+      "last_service": "2026-07-14",
+      "next_service": "2026-10-14",
+      "maintenance_log": [
+        {
+          "date": "2026-07-14",
+          "type": "preventivo",
+          "tech": "Especialista BESS",
+          "note": "Inspección de módulos, temperatura y sistema BMS."
+        }
+      ]
+    },
+
+    {
+      "id": "BAT-02",
+      "name": "Banco de Baterías Sur",
+      "lat": -15.3712,
+      "lng": -75.1418,
+      "status": "charging",
+      "mode": "auto",
+      "soc": 62,
+      "temp_c": 30.8,
+      "charge_rate_kw": 94.2,
+      "capacity_kwh": 800,
+      "install_date": "2025-07-16",
+      "last_service": "2026-07-16",
+      "next_service": "2026-10-16",
+      "maintenance_log": []
+    }
+  ],
+
+  "scooters": [
+    {
+      "id": "SCO-01",
+      "lat": -15.3625,
+      "lng": -75.1598,
+      "status": "available",
+      "mode": "auto",
+      "battery_pct": 92,
+      "range_km": 38,
+      "rides_today": 12
+    },
+    {
+      "id": "SCO-02",
+      "lat": -15.3641,
+      "lng": -75.1569,
+      "status": "riding",
+      "mode": "auto",
+      "battery_pct": 68,
+      "range_km": 27,
+      "rides_today": 18
+    },
+    {
+      "id": "SCO-03",
+      "lat": -15.3664,
+      "lng": -75.1537,
+      "status": "available",
+      "mode": "auto",
+      "battery_pct": 84,
+      "range_km": 34,
+      "rides_today": 9
+    },
+    {
+      "id": "SCO-04",
+      "lat": -15.3688,
+      "lng": -75.1502,
+      "status": "parked",
+      "mode": "auto",
+      "battery_pct": 47,
+      "range_km": 18,
+      "rides_today": 15
+    }
+  ],
+
+  "benches": [
+    {
+      "id": "BENCH-01",
+      "location": "Plaza Principal",
+      "lat": -15.3621,
+      "lng": -75.1574,
+      "status": "online",
+      "mode": "auto",
+      "battery_pct": 89,
+      "temperature_c": 26.2
+    },
+    {
+      "id": "BENCH-02",
+      "location": "Malecón San Juan",
+      "lat": -15.3587,
+      "lng": -75.1668,
+      "status": "online",
+      "mode": "auto",
+      "battery_pct": 81,
+      "temperature_c": 25.7
+    }
+  ],
+
+  "water_treatment": [
+    {
+      "id": "WTP-01",
+      "name": "Planta Potabilizadora Marcona",
+      "lat": -15.3744,
+      "lng": -75.1287,
+      "status": "running",
+      "mode": "auto",
+      "current_flow_l_s": 48.6,
+      "ph_out": 7.3,
+      "turbidity_ntu_out": 0.82,
+      "chlorine_mg_l": 0.74,
+      "uv_intensity_pct": 94,
+      "install_date": "2025-09-10",
+      "last_service": "2026-07-11",
+      "next_service": "2026-10-11",
+      "maintenance_log": [
+        {
+          "date": "2026-07-11",
+          "type": "preventivo",
+          "tech": "Operaciones Agua",
+          "note": "Calibración de sensores de pH, turbidez y cloro."
+        }
+      ]
+    }
+  ],
+
+  "port": [
+    {
+      "id": "PORT-01",
+      "name": "Puerto San Juan de Marcona",
+      "lat": -15.3542,
+      "lng": -75.1697,
+      "status": "operational",
+      "vessels_today": 6,
+      "iron_ore_daily_tons": 28400,
+      "last_departure": "06:42",
+      "next_arrival": "10:15"
+    }
+  ],
+
+  "alerts": [
+    {
+      "id": "ALT-001",
+      "severity": "warning",
+      "title": "Batería baja en poste solar",
+      "description": "El poste LGT-004 presenta un nivel de batería inferior al umbral configurado.",
+      "location": "Jr. San Juan",
+      "asset": "LGT-004",
+      "assigned": "Operaciones",
+      "action": "Programar revisión de batería.",
+      "time": "07:18",
+      "resolved": false
+    },
+    {
+      "id": "ALT-002",
+      "severity": "info",
+      "title": "Nueva sesión de carga",
+      "description": "Se inició una nueva sesión en la electrolinera EV-02.",
+      "location": "Puerto San Juan",
+      "asset": "EV-02",
+      "assigned": "Movilidad",
+      "action": "Supervisar consumo.",
+      "time": "07:21",
+      "resolved": false
+    },
+    {
+      "id": "ALT-003",
+      "severity": "warning",
+      "title": "Temperatura elevada en panel",
+      "description": "La temperatura del panel SOL-03 se encuentra por encima del promedio.",
+      "location": "Zona Industrial",
+      "asset": "SOL-03",
+      "assigned": "Mantenimiento Solar",
+      "action": "Verificar ventilación y rendimiento.",
+      "time": "07:24",
+      "resolved": false
+    },
+    {
+      "id": "ALT-004",
+      "severity": "info",
+      "title": "Mantenimiento preventivo próximo",
+      "description": "El banco de baterías BAT-01 tiene mantenimiento programado.",
+      "location": "Planta Solar Norte",
+      "asset": "BAT-01",
+      "assigned": "Especialista BESS",
+      "action": "Confirmar programación.",
+      "time": "07:27",
+      "resolved": false
+    }
+  ],
+
+  "system": {
+    "name": "Marcona Telemetría",
+    "location": "San Juan de Marcona, Ica, Perú",
+    "status": "online",
+    "last_update": "2026-08-18T07:30:00-05:00",
+    "communication": "online",
+    "scada": "online",
+    "database": "online",
+    "vpn": "online"
+  }
+}

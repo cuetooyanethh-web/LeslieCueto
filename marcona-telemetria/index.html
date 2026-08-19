@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Sistema Inteligente de Telemetría y Monitoreo de San Juan de Marcona"
+    >
+
+    <meta name="theme-color" content="#050b10">
+
+    <title>Marcona Telemetría | Centro de Monitoreo</title>
+
+    <!-- =========================================================
+         LEAFLET
+         ========================================================= -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        crossorigin=""
+    >
+
+    <!-- =========================================================
+         CSS PRINCIPAL
+         ========================================================= -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+    <!-- =========================================================
+         LOADER
+         ========================================================= -->
+    <div id="loader">
+        <div class="spin"></div>
+    </div>
+
+
+    <!-- =========================================================
+         HEADER / BARRA SUPERIOR
+         ========================================================= -->
+    <header class="header">
+
+        <div class="h-left">
+
+            <div class="logo">
+                MARCONA TELEMETRÍA
+            </div>
+
+            <div class="sub">
+                Centro Inteligente de Monitoreo · San Juan de Marcona
+            </div>
+
+        </div>
+
+
+        <div class="h-stats">
+
+            <div class="hs">
+                <span>Generación</span>
+                <strong data-k="solar">
+                    -- kW
+                </strong>
+            </div>
+
+            <div class="hs">
+                <span>Consumo</span>
+                <strong data-k="consumo">
+                    -- kW
+                </strong>
+            </div>
+
+            <div class="hs">
+                <span>CO₂ evitado</span>
+                <strong data-k="co2">
+                    -- kg
+                </strong>
+            </div>
+
+            <div class="hs">
+                <span>Buses activos</span>
+                <strong id="buses-active">
+                    --
+                </strong>
+            </div>
+
+            <div class="hs">
+                <span>EV sesiones</span>
+                <strong id="ev-sess">
+                    --
+                </strong>
+            </div>
+
+            <div class="hs">
+                <span>Iluminación</span>
+                <strong id="lo-on">
+                    --
+                </strong>
+            </div>
+
+            <div class="hs">
+                <span>Hora</span>
+                <strong id="clock">
+                    --:--
+                </strong>
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             ACCIONES
+             ===================================================== -->
+        <div class="h-actions">
+
+            <button
+                id="supportBtn"
+                class="h-btn support-btn"
+                type="button"
+            >
+                Soporte
+            </button>
+
+            <button
+                id="logoutBtn"
+                class="h-btn logout-btn"
+                type="button"
+            >
+                Cerrar sesión
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================================
+         DASHBOARD PRINCIPAL
+         ========================================================= -->
+    <main class="dash">
+
+
+        <!-- =====================================================
+             COLUMNA IZQUIERDA
+             ===================================================== -->
+        <section class="col-l">
+
+
+            <!-- =================================================
+                 MAPA
+                 ================================================= -->
+            <section class="pnl map-panel">
+
+                <div class="pt">
+
+                    <span>
+                        Mapa de Infraestructura
+                    </span>
+
+                    <span
+                        id="map-badge"
+                        class="map-badge loading"
+                    >
+                        CARGANDO
+                    </span>
+
+                </div>
+
+                <div id="map"></div>
+
+            </section>
+
+
+            <!-- =================================================
+                 METEOROLOGÍA
+                 ================================================= -->
+            <section class="pnl">
+
+                <div class="pt">
+                    Condiciones Ambientales
+                </div>
+
+                <div class="meteo-grid">
+
+                    <div>
+                        <span>Irradiancia</span>
+                        <strong class="m-irr">
+                            -- W/m²
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>Temperatura ambiente</span>
+                        <strong class="m-tamb">
+                            -- °C
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>Temperatura panel</span>
+                        <strong class="m-tpanel">
+                            -- °C
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>Velocidad viento</span>
+                        <strong class="m-wind">
+                            -- m/s
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>Dirección viento</span>
+                        <strong class="m-wdir">
+                            -- °
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>Estado meteorológico</span>
+                        <strong class="m-weather">
+                            NORMAL
+                        </strong>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 PLANTAS SOLARES
+                 ================================================= -->
+            <section class="pnl">
+
+                <div class="pt">
+
+                    <span>
+                        Plantas Solares
+                    </span>
+
+                    <span
+                        class="cnt"
+                        id="solar-count"
+                    >
+                        --
+                    </span>
+
+                    <span
+                        class="irradiance"
+                    >
+                        -- W/m²
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="mc-list"
+                    id="solar-list"
+                >
+
+                    <!--
+                        app.js generará aquí las plantas solares
+                    -->
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 BATERÍAS
+                 ================================================= -->
+            <section class="pnl">
+
+                <div class="pt">
+
+                    <span>
+                        Banco de Baterías
+                    </span>
+
+                    <span
+                        class="cnt"
+                        id="battery-count"
+                    >
+                        --
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="mc-list"
+                    id="battery-list"
+                >
+
+                    <!-- app.js -->
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 ILUMINACIÓN SOLAR
+                 ================================================= -->
+            <section class="pnl">
+
+                <div class="pt">
+
+                    <span>
+                        Iluminación Solar
+                    </span>
+
+                    <span
+                        class="cnt"
+                        id="lighting-count"
+                    >
+                        --
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="lg"
+                    id="lighting-grid"
+                >
+
+                    <!-- app.js -->
+
+                </div>
+
+            </section>
+
+
+        </section>
+
+
+        <!-- =====================================================
+             COLUMNA DERECHA
+             ===================================================== -->
+        <section class="col-r">
+
+
+            <!-- =================================================
+                 BUSES HÍBRIDOS
+                 ================================================= -->
+            <section class="pnl">
+
+                <div class="pt">
+
+                    <span>
+                        Transporte Público Híbrido
+                    </span>
+
+                    <span
+                        class="cnt"
+                        id="bus-count"
+                    >
+                        --
+                    </span>
+
+                </div>
+
+
+                <div class="ts">
+
+                    <table class="dt">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Unidad</th>
+                                <th>Velocidad</th>
+                                <th>Batería</th>
+                                <th>Pasajeros</th>
+                                <th>Próxima parada</th>
+                                <th>Estado</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="bus-table">
+
+                            <!-- app.js -->
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 ELECTROLINERAS
+                 ================================================= -->
+            <section class="pnl">
+
+                <div class="pt">
+
+                    <span>
+                        Electrolineras
+                    </span>
+
+                    <span
+                        class="cnt"
+                        id="ev-count"
+                    >
+                        --
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="mc-list"
+                    id="ev-list"
+                >
+
+                    <!-- app.js -->
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 SCOOTERS
+                 ================================================= -->
+            <section class="pnl">
+
+                <div class="pt">
+
+                    <span>
+                        Scooters Eléctricos
+                    </span>
+
+                    <span
+                        class="cnt"
+                        id="scooter-count"
+                    >
+                        --
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="mc-list"
+                    id="scooter-list"
+                >
+
+                    <!-- app.js -->
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 PLANTA DE TRATAMIENTO DE AGUA
+                 ================================================= -->
+            <section class="pnl">
+
+                <div class="pt">
+
+                    <span>
+                        Planta de Tratamiento de Agua
+                    </span>
+
+                    <span
+                        class="cnt"
+                        id="water-count"
+                    >
+                        --
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="water-info"
+                    id="water-info"
+                >
+
+                    <div>
+                        <span>Caudal</span>
+                        <strong id="water-flow">
+                            -- L/s
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>pH salida</span>
+                        <strong id="water-ph">
+                            --
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>Turbidez</span>
+                        <strong id="water-turbidity">
+                            -- NTU
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>Cloro</span>
+                        <strong id="water-chlorine">
+                            -- mg/L
+                        </strong>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 PUERTO
+                 ================================================= -->
+            <section class="pnl">
+
+                <div class="pt">
+                    Operaciones Portuarias
+                </div>
+
+
+                <div
+                    class="port-info"
+                    id="port-info"
+                >
+
+                    <div>
+                        <span>Buques hoy</span>
+                        <strong id="port-vessels">
+                            --
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>Mineral movilizado</span>
+                        <strong id="port-iron">
+                            -- ton
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>Último zarpe</span>
+                        <strong id="port-last">
+                            --
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>Próximo arribo</span>
+                        <strong id="port-next">
+                            --
+                        </strong>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 ALERTAS
+                 ================================================= -->
+            <section class="pnl">
+
+                <div class="pt">
+
+                    <span>
+                        Alertas del Sistema
+                    </span>
+
+                    <span
+                        class="cnt"
+                        id="al-pend"
+                    >
+                        0
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="al-list"
+                    id="alert-list"
+                >
+
+                    <!-- app.js -->
+
+                </div>
+
+            </section>
+
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================================
+         PANEL LATERAL DE DETALLE
+         ========================================================= -->
+
+    <div
+        id="detail-overlay"
+        class="detail-overlay"
+    ></div>
+
+
+    <aside
+        id="detail-panel"
+        class="detail-panel"
+    >
+
+        <div class="dp-header">
+
+            <div>
+
+                <div
+                    id="dp-type"
+                    class="dp-type"
+                >
+                    EQUIPO
+                </div>
+
+                <div
+                    id="dp-title"
+                    class="dp-title"
+                >
+                    Detalle
+                </div>
+
+                <span
+                    id="dp-status"
+                    class="dp-status normal"
+                >
+                    NORMAL
+                </span>
+
+            </div>
+
+
+            <button
+                id="dp-close"
+                class="dp-close"
+                type="button"
+                aria-label="Cerrar detalle"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <div
+            id="dp-body"
+            class="dp-body"
+        >
+
+            <!--
+                app.js genera dinámicamente
+                el contenido del equipo
+            -->
+
+        </div>
+
+    </aside>
+
+
+    <!-- =========================================================
+         MODAL DE SOPORTE
+         ========================================================= -->
+
+    <div
+        id="supportOverlay"
+        class="modal-overlay"
+    ></div>
+
+
+    <div
+        id="supportModal"
+        class="modal-panel"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="supportTitle"
+    >
+
+        <div class="modal-header">
+
+            <h2 id="supportTitle">
+                Soporte del Sistema
+            </h2>
+
+            <button
+                id="supportClose"
+                class="modal-close"
+                type="button"
+                aria-label="Cerrar soporte"
+            >
+                
+            </button>
+
+        </div>
+
+
+        <div class="modal-body">
+
+            <div class="admin-card">
+
+                <div class="admin-avatar">
+
+                    <img
+                        src="assests/img/admin.jpg"
+                        alt="Administrador del sistema"
+                        onerror="this.style.display='none'"
+                    >
+
+                </div>
+
+
+                <div class="admin-info">
+
+                    <h3>
+                        Centro de Operaciones
+                    </h3>
+
+                    <span class="admin-role">
+                        Administrador de Telemetría
+                    </span>
+
+                    <span class="admin-area">
+                        San Juan de Marcona
+                    </span>
+
+
+                    <div class="admin-contact">
+
+                        <span>
+                            Sistema: MARCONA TELEMETRÍA
+                        </span>
+
+                        <span>
+                            Plataforma: Monitoreo IoT / SCADA
+                        </span>
+
+                        <span>
+                            Estado: Operativo
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="dp-section">
+
+                <div class="dp-section-title">
+                    Información
+                </div>
+
+                <p
+                    style="
+                        font-size:.7rem;
+                        color:var(--td);
+                        line-height:1.6;
+                    "
+                >
+                    Este sistema permite supervisar infraestructura
+                    energética, transporte eléctrico, iluminación,
+                    tratamiento de agua y operaciones portuarias
+                    mediante telemetría.
+                </p>
+
+            </div>
+
+
+            <div class="dp-section">
+
+                <div class="dp-section-title">
+                    Componentes monitoreados
+                </div>
+
+                <div class="dp-metrics">
+
+                    <div class="dp-metric">
+                        <span>Energía solar</span>
+                        <strong>ONLINE</strong>
+                    </div>
+
+                    <div class="dp-metric">
+                        <span>Baterías</span>
+                        <strong>ONLINE</strong>
+                    </div>
+
+                    <div class="dp-metric">
+                        <span>Transporte</span>
+                        <strong>ONLINE</strong>
+                    </div>
+
+                    <div class="dp-metric">
+                        <span>Agua</span>
+                        <strong>ONLINE</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         LEAFLET JS
+         ========================================================= -->
+    <script
+        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        crossorigin=""
+    ></script>
+
+
+    <!-- =========================================================
+         JAVASCRIPT DE LA APLICACIÓN
+         ========================================================= -->
+    <script src="./app.js"></script>
+
+</body>
+</html>
